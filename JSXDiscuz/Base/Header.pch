@@ -1,0 +1,149 @@
+//
+//  Header.pch
+//  JSXDiscuz
+//
+//  Created by 周思扬 on 2018/3/20.
+//  Copyright © 2018年 周思扬. All rights reserved.
+//
+
+#ifndef Header_pch
+#define Header_pch
+
+// 判断是否为iOS7
+#define iOS7 ([[UIDevice currentDevice].systemVersion doubleValue] >= 7.0)
+#define iOS8 ([[UIDevice currentDevice].systemVersion doubleValue] >= 8.0)
+
+#import "JSXNumberTool.h"
+#import "JSXDateTool.h"
+#import "JSXHttpTool.h"
+#import "JSXImageTool.h"
+#import <AFNetworking.h>
+#import <ReactiveCocoa.h>
+#import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
+#import <Reachability.h>
+#import <SVProgressHUD.h>
+#import <SVPullToRefresh.h>
+#import "BaseViewController.h"
+#import "BaseWKViewController.h"
+#import "BaseTabBarViewController.h"
+#import "BaseNavigationViewController.h"
+#import "CommonViewFromXib.h"
+#import "UIView+Extensions.h"
+#import "UIView+Extension.h"
+#import "JSXHtmlExportTool.h"
+
+
+//各种类型接口信息
+
+//开发
+
+//#define  ShiDeInterface "http://demo.shide56.com:8060/daka/"
+
+//测试
+
+//#define ShiDeInterface "http://192.168.0.16:8080/daka/"
+
+#define ShiDeInterface "http://test.shide56.com/daka/"
+
+//生产
+
+//#define ShiDeInterface "http://daka.shide56.com:86/daka/"
+
+#define StatusBarHeight [UIApplication sharedApplication].statusBarFrame.size.height
+
+#define IS_IPAD (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+#define IS_IPHONE (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+#define IS_RETINA ([[UIScreen mainScreen] scale] >= 2.0)
+
+#define SCREEN_WIDTH ([[UIScreen mainScreen] bounds].size.width)
+#define SCREEN_HEIGHT ([[UIScreen mainScreen] bounds].size.height)
+#define SCREEN_MAX_LENGTH (MAX(SCREEN_WIDTH, SCREEN_HEIGHT))
+#define SCREEN_MIN_LENGTH (MIN(SCREEN_WIDTH, SCREEN_HEIGHT))
+
+#define IS_IPHONE_4_OR_LESS (IS_IPHONE && SCREEN_MAX_LENGTH < 568.0)
+#define IS_IPHONE_5 (IS_IPHONE && SCREEN_MAX_LENGTH == 568.0)
+#define IS_IPHONE_6 (IS_IPHONE && SCREEN_MAX_LENGTH == 667.0)
+#define IS_IPHONE_6P (IS_IPHONE && SCREEN_MAX_LENGTH == 736.0)
+
+#define IS_IPHONE_X (IS_IPHONE && SCREEN_MAX_LENGTH == 812)
+
+#define SDIPhone6 SDScreenHeight == 667
+#define SDIPhone6Plus SDScreenHeight == 736
+#define SDIPhoneX SDScreenHeight ==  812
+
+#define SDFontOf10 [UIFont systemFontOfSize:10]
+#define SDBoldFontOf10 [UIFont boldSystemFontOfSize:10]
+#define SDFontOf11 [UIFont systemFontOfSize:11]
+#define SDBoldFontOf11 [UIFont boldSystemFontOfSize:11]
+#define SDFontOf12 [UIFont systemFontOfSize:12]
+#define SDBoldFontOf12 [UIFont boldSystemFontOfSize:12]
+#define SDFontOf13 [UIFont systemFontOfSize:13]
+#define SDBoldFontOf13 [UIFont boldSystemFontOfSize:13]
+#define SDFontOf14 [UIFont systemFontOfSize:14]
+#define SDBoldFontOf14 [UIFont boldSystemFontOfSize:14]
+#define SDFontOf15 [UIFont systemFontOfSize:15]
+#define SDBoldFontOf15 [UIFont boldSystemFontOfSize:15]
+#define SDFontOf16 [UIFont systemFontOfSize:16]
+#define SDBoldFontOf16 [UIFont boldSystemFontOfSize:16]
+#define SDFontOf17 [UIFont systemFontOfSize:17]
+#define SDBoldFontOf17 [UIFont boldSystemFontOfSize:17]
+#define SDFontOf18 [UIFont systemFontOfSize:18]
+#define SDBoldFontOf18 [UIFont boldSystemFontOfSize:18]
+#define SDFontOf19 [UIFont systemFontOfSize:19]
+#define SDBoldFontOf19 [UIFont boldSystemFontOfSize:19]
+#define SDFontOf20 [UIFont systemFontOfSize:20]
+#define SDBoldFontOf20 [UIFont boldSystemFontOfSize:20]
+#define SDFontOf21 [UIFont systemFontOfSize:21]
+#define SDBoldFontOf21 [UIFont boldSystemFontOfSize:21]
+#define SDFontOf22 [UIFont systemFontOfSize:22]
+#define SDBoldFontOf22 [UIFont boldSystemFontOfSize:22]
+#define SDFontOf23 [UIFont systemFontOfSize:23]
+#define SDBoldFontOf23 [UIFont boldSystemFontOfSize:23]
+#define SDFontOf24 [UIFont systemFontOfSize:24]
+#define SDBoldFontOf24 [UIFont boldSystemFontOfSize:24]
+#define SDFontOf25 [UIFont systemFontOfSize:25]
+#define SDBoldFontOf25 [UIFont boldSystemFontOfSize:25]
+
+#define SDFontOf(size) [UIFont systemFontOfSize:size]
+
+#define ThemeColor SDColor(43, 152, 240)
+#define BGThemeColor SDColor(246, 246, 246)
+
+#define SDScreenWidthInIpone5 320
+// 状态栏高度
+#define SDStatusHeight [[UIApplication sharedApplication] statusBarFrame].size.height
+
+// 导航栏高度
+#define SDNavigationBarHeight self.navigationController.navigationBar.height
+
+// 导航栏和状态栏的高度
+#define SDTopNavHeight self.navigationController.navigationBar.height + SDStatusHeight
+
+#define SDScreenWidth [UIScreen mainScreen].bounds.size.width
+
+#define SDScreenHeight [UIScreen mainScreen].bounds.size.height
+
+#define SDIPhone4 SDScreenHeight == 480
+#define SDIPhone5 SDScreenHeight == 568
+#define SDIPhone6 SDScreenHeight == 667
+#define SDIPhone6Plus SDScreenHeight == 736
+// 判断是否为iOS7
+#define iOS7 ([[UIDevice currentDevice].systemVersion doubleValue] >= 7.0)
+#define iOS8 ([[UIDevice currentDevice].systemVersion doubleValue] >= 8.0)
+
+// 获得RGB颜色
+#define SDColor(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
+
+// 获得RGB颜色(带透明度)
+#define SDColorWithAlpha(r, g, b, a) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:a]
+
+// 自定义Log
+#ifdef DEBUG
+#define SDLog(...) NSLog(__VA_ARGS__)
+#else
+#define SDLog(...)
+#endif
+
+
+
+#endif /* Header_pch */

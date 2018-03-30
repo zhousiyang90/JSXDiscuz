@@ -1,0 +1,17 @@
+platform :ios, '8.0'
+target 'JSXDiscuz' do
+pod 'Reachability', '~> 3.2'
+pod 'AFNetworking', '~> 3.0.4'
+pod 'MJRefresh', '~> 3.1.0'
+pod 'SDWebImage', '~> 3.7.5'
+pod 'SVProgressHUD'
+pod 'MJExtension', '~> 3.0.10'
+pod 'UITableView+FDTemplateLayoutCell', '~> 1.4'
+pod 'MWPhotoBrowser', '~> 2.1.1'
+pod 'FDFullscreenPopGesture', '1.1'
+pod 'ReactiveCocoa'
+pod 'DZNEmptyDataSet'
+pod 'MBProgressHUD'
+pod 'EGOCache'
+pod 'SVPullToRefresh'
+end

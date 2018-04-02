@@ -9,6 +9,7 @@
 #import "WritingLogUploadImagesView.h"
 #import "WritingLogUploadImagesCell.h"
 #import "MainQuickScanCollectionViewCell.h"
+#import "WritingLogImageData.h"
 
 #define CellMargin 5
 
@@ -52,8 +53,8 @@ static NSString *const cellId = @"writingLogUploadImagesCell";
     WritingLogUploadImagesCell *cell=[collectionView dequeueReusableCellWithReuseIdentifier:cellId forIndexPath:indexPath];
     if(self.imagesList.count>0 &&indexPath.row<self.imagesList.count)
     {
-        UIImage * image = self.imagesList[indexPath.row];
-        cell.imageContent.image=image;
+        WritingLogImageData * imageData = self.imagesList[indexPath.row];
+        cell.imageContent.image=imageData.image;
     }else
     {
         cell.imageContent.image=[UIImage imageNamed:@"tj"];

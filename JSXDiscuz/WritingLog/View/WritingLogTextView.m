@@ -33,6 +33,7 @@
     paragraphStyle.firstLineHeadIndent = TextViewMargin;
     //整体缩进(首行除外)
     paragraphStyle.headIndent = TextViewMargin;
+    
     NSDictionary *attributes = @{NSFontAttributeName:SDFontOf15,NSForegroundColorAttributeName:SDColor(0, 0, 0),NSParagraphStyleAttributeName:paragraphStyle};
     
     return attributes;

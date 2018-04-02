@@ -20,7 +20,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title=@"HTML";
-    web = [[UIWebView alloc]initWithFrame:self.view.bounds];
+    web = [[UIWebView alloc]initWithFrame:CGRectMake(0, 0, SDScreenWidth, SDScreenHeight)];
     [web loadHTMLString:self.htmlStr baseURL:nil];
     [self.view addSubview:web];
 }

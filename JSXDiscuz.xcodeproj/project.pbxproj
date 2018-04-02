@@ -80,6 +80,34 @@
 		31608A92206CD33C005C5338 /* ExportHtmlViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31608A90206CD33C005C5338 /* ExportHtmlViewController.m */; };
 		31608A93206CD33C005C5338 /* ExportHtmlViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31608A91206CD33C005C5338 /* ExportHtmlViewController.xib */; };
 		31608A96206CD46D005C5338 /* JSXHtmlExportTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 31608A95206CD46D005C5338 /* JSXHtmlExportTool.m */; };
+		31608A99206DD5B9005C5338 /* NSTextAttachment+ZSTextAttachment.m in Sources */ = {isa = PBXBuildFile; fileRef = 31608A98206DD5B9005C5338 /* NSTextAttachment+ZSTextAttachment.m */; };
+		31608A9D206E1169005C5338 /* WritingLogImageData.m in Sources */ = {isa = PBXBuildFile; fileRef = 31608A9C206E1169005C5338 /* WritingLogImageData.m */; };
+		31608AA4206E37BB005C5338 /* DiscoveryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31608AA2206E37BB005C5338 /* DiscoveryViewController.m */; };
+		31608AA5206E37BB005C5338 /* DiscoveryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31608AA3206E37BB005C5338 /* DiscoveryViewController.xib */; };
+		31608AA92071BD81005C5338 /* DiscoveryHeaderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 31608AA72071BD81005C5338 /* DiscoveryHeaderTableViewCell.m */; };
+		31608AAE2071C22E005C5338 /* DiscoveryContentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 31608AAC2071C22E005C5338 /* DiscoveryContentTableViewCell.m */; };
+		31608AAF2071C22E005C5338 /* DiscoveryContentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31608AAD2071C22E005C5338 /* DiscoveryContentTableViewCell.xib */; };
+		31608AB12071CD37005C5338 /* DiscoveryHeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31608AB02071CD37005C5338 /* DiscoveryHeaderTableViewCell.xib */; };
+		31608AB82071D8AD005C5338 /* GroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31608AB62071D8AD005C5338 /* GroupViewController.m */; };
+		31608AB92071D8AD005C5338 /* GroupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31608AB72071D8AD005C5338 /* GroupViewController.xib */; };
+		31608ABD2071DA0A005C5338 /* GroupViewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 31608ABB2071DA0A005C5338 /* GroupViewTableViewCell.m */; };
+		31608ABE2071DA0A005C5338 /* GroupViewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31608ABC2071DA0A005C5338 /* GroupViewTableViewCell.xib */; };
+		31608AC12071DA2E005C5338 /* GroupSectionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 31608AC02071DA2E005C5338 /* GroupSectionHeaderView.m */; };
+		31608AC32071DA36005C5338 /* GroupSectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31608AC22071DA36005C5338 /* GroupSectionHeaderView.xib */; };
+		31608ACA20720715005C5338 /* CommunityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31608AC820720715005C5338 /* CommunityViewController.m */; };
+		31608ACB20720715005C5338 /* CommunityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31608AC920720715005C5338 /* CommunityViewController.xib */; };
+		31608ACF20720DA0005C5338 /* CommunityViewController_Mode.m in Sources */ = {isa = PBXBuildFile; fileRef = 31608ACD20720DA0005C5338 /* CommunityViewController_Mode.m */; };
+		31608AD020720DA0005C5338 /* CommunityViewController_Mode.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31608ACE20720DA0005C5338 /* CommunityViewController_Mode.xib */; };
+		31608AD420720DBE005C5338 /* CommunityViewController_Newest.m in Sources */ = {isa = PBXBuildFile; fileRef = 31608AD220720DBE005C5338 /* CommunityViewController_Newest.m */; };
+		31608AD520720DBE005C5338 /* CommunityViewController_Newest.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31608AD320720DBE005C5338 /* CommunityViewController_Newest.xib */; };
+		31608AD920720DD4005C5338 /* CommunityViewController_Rec.m in Sources */ = {isa = PBXBuildFile; fileRef = 31608AD720720DD4005C5338 /* CommunityViewController_Rec.m */; };
+		31608ADA20720DD4005C5338 /* CommunityViewController_Rec.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31608AD820720DD4005C5338 /* CommunityViewController_Rec.xib */; };
+		31608ADE20720DE8005C5338 /* CommunityViewController_Album.m in Sources */ = {isa = PBXBuildFile; fileRef = 31608ADC20720DE8005C5338 /* CommunityViewController_Album.m */; };
+		31608ADF20720DE8005C5338 /* CommunityViewController_Album.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31608ADD20720DE8005C5338 /* CommunityViewController_Album.xib */; };
+		31608AE220721C07005C5338 /* CommunityHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 31608AE120721C07005C5338 /* CommunityHeaderView.m */; };
+		31608AE420721C10005C5338 /* CommunityHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31608AE320721C10005C5338 /* CommunityHeaderView.xib */; };
+		31608AE820721C2C005C5338 /* CommunityTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 31608AE620721C2C005C5338 /* CommunityTableViewCell.m */; };
+		31608AE920721C2C005C5338 /* CommunityTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31608AE720721C2C005C5338 /* CommunityTableViewCell.xib */; };
 		31B9848C2060D8240041E910 /* BaseTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B9848B2060D8240041E910 /* BaseTabBarViewController.m */; };
 		31B9848F2060D8520041E910 /* BaseNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B9848E2060D8520041E910 /* BaseNavigationViewController.m */; };
 		31B984922060D8630041E910 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B984912060D8630041E910 /* BaseViewController.m */; };
@@ -223,6 +251,49 @@
 		31608A91206CD33C005C5338 /* ExportHtmlViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExportHtmlViewController.xib; sourceTree = "<group>"; };
 		31608A94206CD46D005C5338 /* JSXHtmlExportTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSXHtmlExportTool.h; sourceTree = "<group>"; };
 		31608A95206CD46D005C5338 /* JSXHtmlExportTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSXHtmlExportTool.m; sourceTree = "<group>"; };
+		31608A97206DD5B9005C5338 /* NSTextAttachment+ZSTextAttachment.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSTextAttachment+ZSTextAttachment.h"; sourceTree = "<group>"; };
+		31608A98206DD5B9005C5338 /* NSTextAttachment+ZSTextAttachment.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSTextAttachment+ZSTextAttachment.m"; sourceTree = "<group>"; };
+		31608A9B206E1169005C5338 /* WritingLogImageData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WritingLogImageData.h; sourceTree = "<group>"; };
+		31608A9C206E1169005C5338 /* WritingLogImageData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WritingLogImageData.m; sourceTree = "<group>"; };
+		31608AA1206E37BB005C5338 /* DiscoveryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DiscoveryViewController.h; sourceTree = "<group>"; };
+		31608AA2206E37BB005C5338 /* DiscoveryViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DiscoveryViewController.m; sourceTree = "<group>"; };
+		31608AA3206E37BB005C5338 /* DiscoveryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DiscoveryViewController.xib; sourceTree = "<group>"; };
+		31608AA62071BD81005C5338 /* DiscoveryHeaderTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DiscoveryHeaderTableViewCell.h; sourceTree = "<group>"; };
+		31608AA72071BD81005C5338 /* DiscoveryHeaderTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DiscoveryHeaderTableViewCell.m; sourceTree = "<group>"; };
+		31608AAB2071C22E005C5338 /* DiscoveryContentTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DiscoveryContentTableViewCell.h; sourceTree = "<group>"; };
+		31608AAC2071C22E005C5338 /* DiscoveryContentTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DiscoveryContentTableViewCell.m; sourceTree = "<group>"; };
+		31608AAD2071C22E005C5338 /* DiscoveryContentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DiscoveryContentTableViewCell.xib; sourceTree = "<group>"; };
+		31608AB02071CD37005C5338 /* DiscoveryHeaderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DiscoveryHeaderTableViewCell.xib; sourceTree = "<group>"; };
+		31608AB52071D8AD005C5338 /* GroupViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GroupViewController.h; sourceTree = "<group>"; };
+		31608AB62071D8AD005C5338 /* GroupViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GroupViewController.m; sourceTree = "<group>"; };
+		31608AB72071D8AD005C5338 /* GroupViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupViewController.xib; sourceTree = "<group>"; };
+		31608ABA2071DA0A005C5338 /* GroupViewTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GroupViewTableViewCell.h; sourceTree = "<group>"; };
+		31608ABB2071DA0A005C5338 /* GroupViewTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GroupViewTableViewCell.m; sourceTree = "<group>"; };
+		31608ABC2071DA0A005C5338 /* GroupViewTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupViewTableViewCell.xib; sourceTree = "<group>"; };
+		31608ABF2071DA2E005C5338 /* GroupSectionHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GroupSectionHeaderView.h; sourceTree = "<group>"; };
+		31608AC02071DA2E005C5338 /* GroupSectionHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GroupSectionHeaderView.m; sourceTree = "<group>"; };
+		31608AC22071DA36005C5338 /* GroupSectionHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupSectionHeaderView.xib; sourceTree = "<group>"; };
+		31608AC720720715005C5338 /* CommunityViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommunityViewController.h; sourceTree = "<group>"; };
+		31608AC820720715005C5338 /* CommunityViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommunityViewController.m; sourceTree = "<group>"; };
+		31608AC920720715005C5338 /* CommunityViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommunityViewController.xib; sourceTree = "<group>"; };
+		31608ACC20720DA0005C5338 /* CommunityViewController_Mode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommunityViewController_Mode.h; sourceTree = "<group>"; };
+		31608ACD20720DA0005C5338 /* CommunityViewController_Mode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommunityViewController_Mode.m; sourceTree = "<group>"; };
+		31608ACE20720DA0005C5338 /* CommunityViewController_Mode.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommunityViewController_Mode.xib; sourceTree = "<group>"; };
+		31608AD120720DBE005C5338 /* CommunityViewController_Newest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommunityViewController_Newest.h; sourceTree = "<group>"; };
+		31608AD220720DBE005C5338 /* CommunityViewController_Newest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommunityViewController_Newest.m; sourceTree = "<group>"; };
+		31608AD320720DBE005C5338 /* CommunityViewController_Newest.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommunityViewController_Newest.xib; sourceTree = "<group>"; };
+		31608AD620720DD4005C5338 /* CommunityViewController_Rec.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommunityViewController_Rec.h; sourceTree = "<group>"; };
+		31608AD720720DD4005C5338 /* CommunityViewController_Rec.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommunityViewController_Rec.m; sourceTree = "<group>"; };
+		31608AD820720DD4005C5338 /* CommunityViewController_Rec.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommunityViewController_Rec.xib; sourceTree = "<group>"; };
+		31608ADB20720DE8005C5338 /* CommunityViewController_Album.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommunityViewController_Album.h; sourceTree = "<group>"; };
+		31608ADC20720DE8005C5338 /* CommunityViewController_Album.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommunityViewController_Album.m; sourceTree = "<group>"; };
+		31608ADD20720DE8005C5338 /* CommunityViewController_Album.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommunityViewController_Album.xib; sourceTree = "<group>"; };
+		31608AE020721C07005C5338 /* CommunityHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommunityHeaderView.h; sourceTree = "<group>"; };
+		31608AE120721C07005C5338 /* CommunityHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommunityHeaderView.m; sourceTree = "<group>"; };
+		31608AE320721C10005C5338 /* CommunityHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommunityHeaderView.xib; sourceTree = "<group>"; };
+		31608AE520721C2C005C5338 /* CommunityTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommunityTableViewCell.h; sourceTree = "<group>"; };
+		31608AE620721C2C005C5338 /* CommunityTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommunityTableViewCell.m; sourceTree = "<group>"; };
+		31608AE720721C2C005C5338 /* CommunityTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommunityTableViewCell.xib; sourceTree = "<group>"; };
 		31B9848A2060D8240041E910 /* BaseTabBarViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseTabBarViewController.h; sourceTree = "<group>"; };
 		31B9848B2060D8240041E910 /* BaseTabBarViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseTabBarViewController.m; sourceTree = "<group>"; };
 		31B9848D2060D8520041E910 /* BaseNavigationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseNavigationViewController.h; sourceTree = "<group>"; };
@@ -447,6 +518,7 @@
 		3119D2D42069D82F0094DB60 /* WritingLog */ = {
 			isa = PBXGroup;
 			children = (
+				31608A9A206E113C005C5338 /* Model */,
 				3119D2D52069D82F0094DB60 /* Controller */,
 				3119D2D62069D82F0094DB60 /* View */,
 			);
@@ -500,6 +572,8 @@
 				3119D30E206B803D0094DB60 /* UIView+Extension.m */,
 				3119D30B206B7FB80094DB60 /* UIView+Extensions.h */,
 				3119D30C206B7FB80094DB60 /* UIView+Extensions.m */,
+				31608A97206DD5B9005C5338 /* NSTextAttachment+ZSTextAttachment.h */,
+				31608A98206DD5B9005C5338 /* NSTextAttachment+ZSTextAttachment.m */,
 			);
 			path = CategoryClass;
 			sourceTree = "<group>";
@@ -529,6 +603,9 @@
 		3144AFCE205B5C8A00F55063 /* JSXDiscuz */ = {
 			isa = PBXGroup;
 			children = (
+				31608AC4207206F3005C5338 /* Community */,
+				31608AB22071D886005C5338 /* Group */,
+				31608A9E206E3789005C5338 /* Discover */,
 				3119D2D42069D82F0094DB60 /* WritingLog */,
 				3119D26F2064DFC30094DB60 /* CommonView */,
 				310D90DD2064999900756558 /* Tools */,
@@ -560,6 +637,123 @@
 				3144AFF5205B5C8B00F55063 /* Info.plist */,
 			);
 			path = JSXDiscuzUITests;
+			sourceTree = "<group>";
+		};
+		31608A9A206E113C005C5338 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				31608A9B206E1169005C5338 /* WritingLogImageData.h */,
+				31608A9C206E1169005C5338 /* WritingLogImageData.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		31608A9E206E3789005C5338 /* Discover */ = {
+			isa = PBXGroup;
+			children = (
+				31608A9F206E3789005C5338 /* Controller */,
+				31608AA0206E3789005C5338 /* View */,
+			);
+			path = Discover;
+			sourceTree = "<group>";
+		};
+		31608A9F206E3789005C5338 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				31608AA1206E37BB005C5338 /* DiscoveryViewController.h */,
+				31608AA2206E37BB005C5338 /* DiscoveryViewController.m */,
+				31608AA3206E37BB005C5338 /* DiscoveryViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		31608AA0206E3789005C5338 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				31608AA62071BD81005C5338 /* DiscoveryHeaderTableViewCell.h */,
+				31608AA72071BD81005C5338 /* DiscoveryHeaderTableViewCell.m */,
+				31608AB02071CD37005C5338 /* DiscoveryHeaderTableViewCell.xib */,
+				31608AAB2071C22E005C5338 /* DiscoveryContentTableViewCell.h */,
+				31608AAC2071C22E005C5338 /* DiscoveryContentTableViewCell.m */,
+				31608AAD2071C22E005C5338 /* DiscoveryContentTableViewCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		31608AB22071D886005C5338 /* Group */ = {
+			isa = PBXGroup;
+			children = (
+				31608AB32071D886005C5338 /* Controller */,
+				31608AB42071D886005C5338 /* View */,
+			);
+			path = Group;
+			sourceTree = "<group>";
+		};
+		31608AB32071D886005C5338 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				31608AB52071D8AD005C5338 /* GroupViewController.h */,
+				31608AB62071D8AD005C5338 /* GroupViewController.m */,
+				31608AB72071D8AD005C5338 /* GroupViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		31608AB42071D886005C5338 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				31608ABA2071DA0A005C5338 /* GroupViewTableViewCell.h */,
+				31608ABB2071DA0A005C5338 /* GroupViewTableViewCell.m */,
+				31608ABC2071DA0A005C5338 /* GroupViewTableViewCell.xib */,
+				31608ABF2071DA2E005C5338 /* GroupSectionHeaderView.h */,
+				31608AC02071DA2E005C5338 /* GroupSectionHeaderView.m */,
+				31608AC22071DA36005C5338 /* GroupSectionHeaderView.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		31608AC4207206F3005C5338 /* Community */ = {
+			isa = PBXGroup;
+			children = (
+				31608AC5207206F3005C5338 /* Controller */,
+				31608AC6207206F3005C5338 /* View */,
+			);
+			path = Community;
+			sourceTree = "<group>";
+		};
+		31608AC5207206F3005C5338 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				31608AC720720715005C5338 /* CommunityViewController.h */,
+				31608AC820720715005C5338 /* CommunityViewController.m */,
+				31608AC920720715005C5338 /* CommunityViewController.xib */,
+				31608ACC20720DA0005C5338 /* CommunityViewController_Mode.h */,
+				31608ACD20720DA0005C5338 /* CommunityViewController_Mode.m */,
+				31608ACE20720DA0005C5338 /* CommunityViewController_Mode.xib */,
+				31608AD120720DBE005C5338 /* CommunityViewController_Newest.h */,
+				31608AD220720DBE005C5338 /* CommunityViewController_Newest.m */,
+				31608AD320720DBE005C5338 /* CommunityViewController_Newest.xib */,
+				31608AD620720DD4005C5338 /* CommunityViewController_Rec.h */,
+				31608AD720720DD4005C5338 /* CommunityViewController_Rec.m */,
+				31608AD820720DD4005C5338 /* CommunityViewController_Rec.xib */,
+				31608ADB20720DE8005C5338 /* CommunityViewController_Album.h */,
+				31608ADC20720DE8005C5338 /* CommunityViewController_Album.m */,
+				31608ADD20720DE8005C5338 /* CommunityViewController_Album.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		31608AC6207206F3005C5338 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				31608AE020721C07005C5338 /* CommunityHeaderView.h */,
+				31608AE120721C07005C5338 /* CommunityHeaderView.m */,
+				31608AE320721C10005C5338 /* CommunityHeaderView.xib */,
+				31608AE520721C2C005C5338 /* CommunityTableViewCell.h */,
+				31608AE620721C2C005C5338 /* CommunityTableViewCell.m */,
+				31608AE720721C2C005C5338 /* CommunityTableViewCell.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		31B984892060D7F00041E910 /* Base */ = {
@@ -718,28 +912,41 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31608AD020720DA0005C5338 /* CommunityViewController_Mode.xib in Resources */,
 				3119D2D32068F56F0094DB60 /* MainFunctionTableViewCell.xib in Resources */,
 				31608A93206CD33C005C5338 /* ExportHtmlViewController.xib in Resources */,
+				31608ABE2071DA0A005C5338 /* GroupViewTableViewCell.xib in Resources */,
 				3119D2C22068E2540094DB60 /* DiscuzBannelTableViewCell.xib in Resources */,
+				31608AE920721C2C005C5338 /* CommunityTableViewCell.xib in Resources */,
+				31608ADA20720DD4005C5338 /* CommunityViewController_Rec.xib in Resources */,
 				3119D2DB2069D86B0094DB60 /* WritingLogViewController.xib in Resources */,
 				3119D2F7206A36290094DB60 /* MainThemeCollectionViewCell.xib in Resources */,
 				310D909420634BA400756558 /* NoNetView.xib in Resources */,
+				31608AA5206E37BB005C5338 /* DiscoveryViewController.xib in Resources */,
 				3119D31F206B8A080094DB60 /* MainRankingTableViewCell.xib in Resources */,
 				3144AFDC205B5C8A00F55063 /* LaunchScreen.storyboard in Resources */,
+				31608ADF20720DE8005C5338 /* CommunityViewController_Album.xib in Resources */,
 				3119D32E206C92930094DB60 /* WritingLogUploadImagesView.xib in Resources */,
+				31608ACB20720715005C5338 /* CommunityViewController.xib in Resources */,
 				3119D2E32069DD7B0094DB60 /* WritingLogBodyHeaderView.xib in Resources */,
+				31608AAF2071C22E005C5338 /* DiscoveryContentTableViewCell.xib in Resources */,
 				3119D27E2064E2E50094DB60 /* TableViewOfRefreshFooterView2.xib in Resources */,
+				31608AB12071CD37005C5338 /* DiscoveryHeaderTableViewCell.xib in Resources */,
+				31608AB92071D8AD005C5338 /* GroupViewController.xib in Resources */,
 				3119D2792064E0DA0094DB60 /* TableViewOfRefreshFooterView.xib in Resources */,
 				3119D2C92068E2540094DB60 /* DiscuzMainTableViewCell2.xib in Resources */,
 				3119D2F2206A0F750094DB60 /* MainQuickScanCollectionViewCell.xib in Resources */,
 				3119D2CE2068EA390094DB60 /* MainPublicTableViewCell.xib in Resources */,
 				3119D324206B9E7F0094DB60 /* WritingLogPositionView.xib in Resources */,
+				31608AC32071DA36005C5338 /* GroupSectionHeaderView.xib in Resources */,
 				3119D2832064E8C60094DB60 /* FirstPageNavigationBarView.xib in Resources */,
 				3119D2FC206A363E0094DB60 /* MainThemeTableViewCell.xib in Resources */,
 				3119D32C206C81940094DB60 /* WritingLogUploadImagesCell.xib in Resources */,
 				3119D2C02068E2540094DB60 /* DiscuzBannelCollectionCell.xib in Resources */,
 				3119D309206B6F0B0094DB60 /* WritingLogTitleView.xib in Resources */,
+				31608AE420721C10005C5338 /* CommunityHeaderView.xib in Resources */,
 				3119D2E52069DD850094DB60 /* WritingLogBodyFooterView.xib in Resources */,
+				31608AD520720DBE005C5338 /* CommunityViewController_Newest.xib in Resources */,
 				3144AFD9205B5C8A00F55063 /* Assets.xcassets in Resources */,
 				3119D2C52068E2540094DB60 /* MainCategoryTableViewCell.xib in Resources */,
 				3119D301206A3F750094DB60 /* MainPopularTableViewCell.xib in Resources */,
@@ -808,12 +1015,14 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-JSXDiscuz/Pods-JSXDiscuz-resources.sh",
+				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
 				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/MWPhotoBrowser/MWPhotoBrowser.bundle",
 				"${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/IQKeyboardManager.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MWPhotoBrowser.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SVProgressHUD.bundle",
@@ -832,31 +1041,43 @@
 			files = (
 				3119D2C42068E2540094DB60 /* MainCategoryTableViewCell.m in Sources */,
 				31B984922060D8630041E910 /* BaseViewController.m in Sources */,
+				31608AD920720DD4005C5338 /* CommunityViewController_Rec.m in Sources */,
 				3119D2F6206A36290094DB60 /* MainThemeCollectionViewCell.m in Sources */,
 				3119D2C62068E2540094DB60 /* DiscuzMainTableViewCell.m in Sources */,
+				31608AC12071DA2E005C5338 /* GroupSectionHeaderView.m in Sources */,
 				3119D2BF2068E2540094DB60 /* DiscuzBannelCollectionCell.m in Sources */,
+				31608ACA20720715005C5338 /* CommunityViewController.m in Sources */,
 				3119D327206C7E0C0094DB60 /* WritingLogUploadImagesView.m in Sources */,
 				3119D2862064EA5C0094DB60 /* CommonViewFromXib.m in Sources */,
 				310D908E2061F29100756558 /* BaseWKViewController.m in Sources */,
 				3119D304206B61860094DB60 /* WritingLogTextView.m in Sources */,
+				31608AB82071D8AD005C5338 /* GroupViewController.m in Sources */,
+				31608ABD2071DA0A005C5338 /* GroupViewTableViewCell.m in Sources */,
 				3119D322206B9E760094DB60 /* WritingLogPositionView.m in Sources */,
 				3119D310206B803E0094DB60 /* UIView+Extension.m in Sources */,
 				3119D319206B86410094DB60 /* MainThemeTableViewCell2.m in Sources */,
 				3119D307206B6EF60094DB60 /* WritingLogTitleView.m in Sources */,
+				31608ACF20720DA0005C5338 /* CommunityViewController_Mode.m in Sources */,
 				3144AFDF205B5C8A00F55063 /* main.m in Sources */,
 				310D90E020649D0A00756558 /* JSXNumberTool.m in Sources */,
+				31608A9D206E1169005C5338 /* WritingLogImageData.m in Sources */,
 				3119D300206A3F750094DB60 /* MainPopularTableViewCell.m in Sources */,
 				3119D27C2064E2D60094DB60 /* TableViewOfRefreshFooterView2.m in Sources */,
 				3119D2CD2068EA390094DB60 /* MainPublicTableViewCell.m in Sources */,
 				310D90E620649EB200756558 /* JSXImageTool.m in Sources */,
+				31608AA92071BD81005C5338 /* DiscoveryHeaderTableViewCell.m in Sources */,
+				31608AE820721C2C005C5338 /* CommunityTableViewCell.m in Sources */,
 				3119D314206B84990094DB60 /* MainThemeCollectionViewCell2.m in Sources */,
 				31B9848F2060D8520041E910 /* BaseNavigationViewController.m in Sources */,
 				3144AFD1205B5C8A00F55063 /* AppDelegate.m in Sources */,
+				31608AE220721C07005C5338 /* CommunityHeaderView.m in Sources */,
 				3119D2FB206A363E0094DB60 /* MainThemeTableViewCell.m in Sources */,
 				310D90E920649EE000756558 /* JSXHttpTool.m in Sources */,
 				3119D2C32068E2540094DB60 /* WaveBannelBackGroundView.m in Sources */,
 				31B984A02060DC010041E910 /* FirstPageViewController.m in Sources */,
+				31608AA4206E37BB005C5338 /* DiscoveryViewController.m in Sources */,
 				310D90E320649E4E00756558 /* JSXDateTool.m in Sources */,
+				31608A99206DD5B9005C5338 /* NSTextAttachment+ZSTextAttachment.m in Sources */,
 				3119D30D206B7FB90094DB60 /* UIView+Extensions.m in Sources */,
 				3119D2EC206A0F3B0094DB60 /* MainQuickScanTableViewCell.m in Sources */,
 				3119D2F1206A0F750094DB60 /* MainQuickScanCollectionViewCell.m in Sources */,
@@ -869,9 +1090,12 @@
 				3119D2D22068F56F0094DB60 /* MainFunctionTableViewCell.m in Sources */,
 				3119D2DA2069D86B0094DB60 /* WritingLogViewController.m in Sources */,
 				31608A96206CD46D005C5338 /* JSXHtmlExportTool.m in Sources */,
+				31608AD420720DBE005C5338 /* CommunityViewController_Newest.m in Sources */,
+				31608ADE20720DE8005C5338 /* CommunityViewController_Album.m in Sources */,
 				3119D2E82069E60D0094DB60 /* UIBarButtonItem+BackButtun.m in Sources */,
 				31608A92206CD33C005C5338 /* ExportHtmlViewController.m in Sources */,
 				3119D2772064E0CE0094DB60 /* TableViewOfRefreshFooterView.m in Sources */,
+				31608AAE2071C22E005C5338 /* DiscoveryContentTableViewCell.m in Sources */,
 				3119D2DE2069DD630094DB60 /* WritingLogBodyHeaderView.m in Sources */,
 				310D909320634BA400756558 /* NoNetView.m in Sources */,
 				3119D2C82068E2540094DB60 /* DiscuzMainTableViewCell2.m in Sources */,

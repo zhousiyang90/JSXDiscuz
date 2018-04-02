@@ -7,9 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "WritingLogImageData.h"
 
 @interface JSXHtmlExportTool : NSObject
 
-+(NSString *)HTMLFromAttributedString:(NSAttributedString *)attributedString;
-    
++(NSMutableString*)HTMLFromAttributedString:(NSAttributedString *)attributedString;
+
++(NSMutableString*)HTMLFromImageDatas:(NSMutableArray*)imageList;
+
 @end

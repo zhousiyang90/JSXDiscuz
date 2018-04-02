@@ -34,6 +34,10 @@
 
 +(NSString *)returnYY:(NSDate *)date;
 
+#pragma mark 返回今天是星期几
+
++(NSString*)weekdayStringFromDate;
+
 +(NSString *)returnYYYY:(NSDate *)date;
 
 #pragma mark 根据NSDate返回YY-MM-DD格式字符串

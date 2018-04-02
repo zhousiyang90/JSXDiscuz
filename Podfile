@@ -14,4 +14,5 @@ pod 'DZNEmptyDataSet'
 pod 'MBProgressHUD'
 pod 'EGOCache'
 pod 'SVPullToRefresh'
+pod 'IQKeyboardManager'
 end

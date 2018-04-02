@@ -16,6 +16,7 @@
 #import "WritingLogUploadImagesView.h"
 #import "WritingLogUploadImagesCell.h"
 #import "ExportHtmlViewController.h"
+#import "WritingLogImageData.h"
 
 @interface WritingLogViewController ()<UINavigationControllerDelegate, UIImagePickerControllerDelegate,UITextViewDelegate>
 {
@@ -25,6 +26,7 @@
     WritingLogBodyHeaderView * bodyHeaderView;
     WritingLogBodyFooterView * bodyFooterView;
     WritingLogTextView * bodyTextView;
+    UILabel *placeHolderLabel;
     NSRange _lastSelectedRange;
     
     WritingLogPositionView * positionView;
@@ -46,15 +48,28 @@
 
 static NSString *const cellId = @"writingLogUploadImagesCell";
 
--(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
-{
-    [self.view endEditing:YES];
-}
-
 #pragma mark - UIScrollViewDelegate
 
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    if(scrollView==self.bgScrollView)
+    {
+        [self.view endEditing:YES];
+    }
+}
 
 #pragma mark - UITextViewDelegate
+
+-(void)setPlaceHolderLabelHide
+{
+    if(bodyTextView.attributedText.length>0)
+    {
+        [placeHolderLabel setHidden:YES];
+    }else
+    {
+        [placeHolderLabel setHidden:NO];
+    }
+}
 
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
     _lastSelectedRange = NSMakeRange(range.location + text.length - range.length, 0);
@@ -63,6 +78,7 @@ static NSString *const cellId = @"writingLogUploadImagesCell";
 
 -(void)textViewDidChange:(UITextView *)textView
 {
+    //[self setPlaceHolderLabelHide];
     [self layoutWritingLogViews];
 }
 
@@ -132,44 +148,15 @@ static NSString *const cellId = @"writingLogUploadImagesCell";
         
         if(self.getPhotoFromContent)
         {
-            NSTextAttachment *textAttachment = [[NSTextAttachment alloc] init];
-            CGRect rect = CGRectZero;
-            rect.size.width = SDScreenWidth/3*2;
-            rect.size.height = SDScreenWidth/3*2*theImage.size.height/theImage.size.width;
-            textAttachment.bounds = rect;
-            textAttachment.image = theImage;
-            
-            NSAttributedString *attachmentString = [NSAttributedString attributedStringWithAttachment:textAttachment];
-            NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:@"\n"];
-            [attributedString insertAttributedString:attachmentString atIndex:0];
-            if (_lastSelectedRange.location != 0 &&
-                ![[bodyTextView.text substringWithRange:NSMakeRange(_lastSelectedRange.location-1,1)] isEqualToString:@"\n"]) {
-                // 上一个字符不为"\n"则图片前添加一个换行 且 不是第一个位置
-                [attributedString insertAttributedString:[[NSAttributedString alloc] initWithString:@"\n"] atIndex:0];
-            }
-            [attributedString addAttributes:bodyTextView.typingAttributes range:NSMakeRange(0, attributedString.length)];
-            
-            NSMutableParagraphStyle *paragraphStyle = bodyTextView.typingAttrDict[NSParagraphStyleAttributeName];
-            [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, attributedString.length)];
-            
-            NSMutableAttributedString *attributedText = [[NSMutableAttributedString alloc] initWithAttributedString:bodyTextView.attributedText];
-            [attributedText replaceCharactersInRange:_lastSelectedRange withAttributedString:attributedString];
-            bodyTextView.allowsEditingTextAttributes = YES;
-            bodyTextView.attributedText = attributedText;
-            bodyTextView.allowsEditingTextAttributes = NO;
+            [self addTextPosition:theImage];
         }else
         {
-            [self.imagesList addObject:theImage];
-            imagesView.imagesList=self.imagesList;
+            [self addAlbumPosition:theImage];
         }
     }
     
-    [self layoutWritingLogViews];
-    
-    // dismiss UIImagePickerController
     [self dismissViewControllerAnimated:YES completion:nil];
-    // 选择的图片信息存储于info字典中
-    NSLog(@"imagePickerController:%@", info);
+    
 }
 
 
@@ -181,6 +168,85 @@ static NSString *const cellId = @"writingLogUploadImagesCell";
 }
 
 
+#pragma mark - 对系统相册返回的图片做处理
+
+-(void)saveImageToLocal:(UIImage*)image
+{
+    
+}
+
+-(void)addAlbumPosition:(UIImage*)image
+{
+    WritingLogImageData * imageData = [[WritingLogImageData alloc]init];
+    imageData.image=image;
+    [self.imagesList addObject:imageData];
+    imagesView.imagesList=self.imagesList;
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        
+        // 实际应用时候可以将存本地的操作改为上传到服务器，URL 也由本地路径改为服务器图片地址。
+        NSURL *documentDir = [[NSFileManager defaultManager] URLForDirectory:NSDocumentDirectory
+                                                                    inDomain:NSUserDomainMask
+                                                           appropriateForURL:nil
+                                                                      create:NO
+                                                                       error:nil];
+        NSURL *filePath = [documentDir URLByAppendingPathComponent:[NSString stringWithFormat:@"%@.png", [NSDate date].description]];
+        
+        NSData *originImageData = UIImagePNGRepresentation(image);
+        if ([originImageData writeToFile:filePath.path atomically:YES]) {
+            imageData.filePath = filePath.absoluteString;
+        }
+    });
+    [self layoutWritingLogViews];
+}
+
+-(void)addTextPosition:(UIImage*)image
+{
+    NSTextAttachment *textAttachment = [[NSTextAttachment alloc] init];
+    CGRect rect = CGRectZero;
+    rect.size.width = bodyTextView.width-30;
+    rect.size.height = (bodyTextView.width-30)*image.size.height/image.size.width;
+    textAttachment.bounds = rect;
+    textAttachment.image = image;
+    
+    NSAttributedString *attachmentString = [NSAttributedString attributedStringWithAttachment:textAttachment];
+    NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:@" "];
+    [attributedString insertAttributedString:attachmentString atIndex:0];
+    if (_lastSelectedRange.location != 0 &&
+        ![[bodyTextView.text substringWithRange:NSMakeRange(_lastSelectedRange.location-1,1)] isEqualToString:@"\n"]) {
+        // 上一个字符不为"\n"则图片前添加一个换行 且 不是第一个位置
+        [attributedString insertAttributedString:[[NSAttributedString alloc] initWithString:@"\n"] atIndex:0];
+    }
+    [attributedString addAttributes:bodyTextView.typingAttributes range:NSMakeRange(0, attributedString.length)];
+    NSMutableParagraphStyle *paragraphStyle = bodyTextView.typingAttrDict[NSParagraphStyleAttributeName];
+    [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, attributedString.length)];
+    
+    NSMutableAttributedString *attributedText = [[NSMutableAttributedString alloc] initWithAttributedString:bodyTextView.attributedText];
+    [attributedText replaceCharactersInRange:_lastSelectedRange withAttributedString:attributedString];
+    bodyTextView.allowsEditingTextAttributes = YES;
+    bodyTextView.attributedText = attributedText;
+    bodyTextView.allowsEditingTextAttributes = NO;
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        
+        // 实际应用时候可以将存本地的操作改为上传到服务器，URL 也由本地路径改为服务器图片地址。
+        NSURL *documentDir = [[NSFileManager defaultManager] URLForDirectory:NSDocumentDirectory
+                                                                    inDomain:NSUserDomainMask
+                                                           appropriateForURL:nil
+                                                                      create:NO
+                                                                       error:nil];
+        NSURL *filePath = [documentDir URLByAppendingPathComponent:[NSString stringWithFormat:@"%@.png", [NSDate date].description]];
+        
+        
+        NSData *originImageData = UIImagePNGRepresentation(textAttachment.image);
+        
+        if ([originImageData writeToFile:filePath.path atomically:YES]) {
+            textAttachment.attachmentType = ZSTextAttachmentTypeImage;
+            textAttachment.localFilePath = filePath.absoluteString;
+        }
+    });
+    
+    [self layoutWritingLogViews];
+}
 
 #pragma mark - Lazy
 
@@ -259,8 +325,16 @@ static NSString *const cellId = @"writingLogUploadImagesCell";
     bodyView.backgroundColor=[UIColor whiteColor];
     
     bodyTextView=[[WritingLogTextView alloc]init];
+    bodyTextView.bounces=NO;
     bodyTextView.delegate=self;
     [bodyView addSubview:bodyTextView];
+    
+    placeHolderLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, 200, 30)];
+    placeHolderLabel.text = @"请输入帖子内容";
+    placeHolderLabel.textColor = [UIColor lightGrayColor];
+    placeHolderLabel.font = SDFontOf15;
+    //[bodyTextView addSubview:placeHolderLabel];
+    
     bodyHeaderView=[WritingLogBodyHeaderView shareView];
     [bodyView addSubview:bodyHeaderView];
     bodyFooterView=[WritingLogBodyFooterView shareView];
@@ -307,8 +381,10 @@ static NSString *const cellId = @"writingLogUploadImagesCell";
     publicBtn.backgroundColor=ThemeColor;
     [[publicBtn rac_signalForControlEvents:UIControlEventTouchUpInside]subscribeNext:^(id x) {
         ExportHtmlViewController * vc = [[ExportHtmlViewController alloc]init];
-        vc.htmlStr =[JSXHtmlExportTool HTMLFromAttributedString:bodyTextView.attributedText];
-        SDLog(@"vc.htmlStr:%@",vc.htmlStr);
+        NSMutableString * htmlStr1 =[JSXHtmlExportTool HTMLFromAttributedString:bodyTextView.attributedText];
+        NSMutableString * htmlStr2 =[JSXHtmlExportTool HTMLFromImageDatas:self.imagesList];
+        [htmlStr1 appendString:htmlStr2];
+        vc.htmlStr=htmlStr1;
         [self.navigationController pushViewController:vc animated:YES];
     }];
     [self.bgScrollView addSubview:publicBtn];

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GroupViewController">
+            <connections>
+                <outlet property="groupTableView" destination="haB-gS-SHZ" id="5YM-JD-4TD"/>
+                <outlet property="searchBar" destination="Yeo-dK-Js2" id="VHB-Be-THB"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <searchBar contentMode="redraw" placeholder="搜索" translatesAutoresizingMaskIntoConstraints="NO" id="Yeo-dK-Js2">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="5Ed-GP-l3c"/>
+                    </constraints>
+                    <textInputTraits key="textInputTraits"/>
+                </searchBar>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="haB-gS-SHZ">
+                    <rect key="frame" x="0.0" y="50" width="375" height="617"/>
+                    <color key="backgroundColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.96470588239999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="Z2P-xK-lfZ"/>
+                        <outlet property="delegate" destination="-1" id="8NH-q2-gBb"/>
+                    </connections>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="haB-gS-SHZ" firstAttribute="top" secondItem="Yeo-dK-Js2" secondAttribute="bottom" id="3A6-g4-5bm"/>
+                <constraint firstItem="Yeo-dK-Js2" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="3Qt-9b-HOC"/>
+                <constraint firstItem="Yeo-dK-Js2" firstAttribute="trailing" secondItem="i5M-Pr-FkT" secondAttribute="trailing" id="M5R-O0-tXH"/>
+                <constraint firstItem="Yeo-dK-Js2" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Mcb-e1-h4r"/>
+                <constraint firstAttribute="trailing" secondItem="haB-gS-SHZ" secondAttribute="trailing" id="bkT-Is-StT"/>
+                <constraint firstAttribute="bottom" secondItem="haB-gS-SHZ" secondAttribute="bottom" id="p00-pm-QnL"/>
+                <constraint firstItem="haB-gS-SHZ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="zcA-p2-4AE"/>
+            </constraints>
+        </view>
+    </objects>
+</document>

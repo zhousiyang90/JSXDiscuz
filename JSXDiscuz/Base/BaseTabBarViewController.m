@@ -9,6 +9,9 @@
 #import "BaseTabBarViewController.h"
 #import "FirstPageViewController.h"
 #import "BaseNavigationViewController.h"
+#import "DiscoveryViewController.h"
+#import "GroupViewController.h"
+#import "CommunityViewController.h"
 
 @interface BaseTabBarViewController ()
 
@@ -57,13 +60,13 @@ static BaseTabBarViewController *_instance;
         FirstPageViewController *vc1 = [[FirstPageViewController alloc] init];
         [self setupChild:vc1 Navtitle:@"首页" TabTitle:@"首页" icon:@"SY01" iconHight:@"SY02"];
         
-        FirstPageViewController *vc2 = [[FirstPageViewController alloc] init];
+        CommunityViewController *vc2 = [[CommunityViewController alloc] init];
         [self setupChild:vc2 Navtitle:@"社区" TabTitle:@"社区" icon:@"SQ01" iconHight:@"SQ02"];
         
-        FirstPageViewController *vc3 = [[FirstPageViewController alloc] init];
+        GroupViewController *vc3 = [[GroupViewController alloc] init];
         [self setupChild:vc3 Navtitle:@"小组" TabTitle:@"小组" icon:@"XZ01" iconHight:@"XZ02"];
         
-        FirstPageViewController *vc4 = [[FirstPageViewController alloc] init];
+        DiscoveryViewController *vc4 = [[DiscoveryViewController alloc] init];
         [self setupChild:vc4 Navtitle:@"发现" TabTitle:@"发现" icon:@"FX01" iconHight:@"FX02"];
         
         FirstPageViewController *vc5 = [[FirstPageViewController alloc] init];

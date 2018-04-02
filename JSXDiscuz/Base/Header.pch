@@ -31,6 +31,9 @@
 #import "UIView+Extensions.h"
 #import "UIView+Extension.h"
 #import "JSXHtmlExportTool.h"
+#import "NSTextAttachment+ZSTextAttachment.h"
+#import <EGOCache.h>
+#import <IQKeyboardManager.h>
 
 
 //各种类型接口信息

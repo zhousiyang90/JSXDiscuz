@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="communityTableViewCell" id="KGk-i7-Jjw" customClass="CommunityTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="主题名称" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HPb-qC-jbc">
+                        <rect key="frame" x="70" y="10" width="295" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="25" id="evr-0a-ip5"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <color key="textColor" red="0.2470588235" green="0.2470588235" blue="0.2470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="主题详情" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c66-70-pus">
+                        <rect key="frame" x="70" y="35" width="295" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="25" id="qKm-73-6Qs"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2VF-zP-Rou">
+                        <rect key="frame" x="0.0" y="68.5" width="375" height="1"/>
+                        <color key="backgroundColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.96470588239999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="wod-J7-7GM"/>
+                        </constraints>
+                    </view>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="community_shequ" translatesAutoresizingMaskIntoConstraints="NO" id="kwx-hq-z2A">
+                        <rect key="frame" x="10" y="10" width="50" height="50"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="50" id="Cea-mp-gKS"/>
+                            <constraint firstAttribute="height" constant="50" id="kaj-Xz-egh"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="25"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="c66-70-pus" secondAttribute="trailing" constant="10" id="296-u7-U9z"/>
+                    <constraint firstItem="HPb-qC-jbc" firstAttribute="top" secondItem="kwx-hq-z2A" secondAttribute="top" id="Bxa-uk-q84"/>
+                    <constraint firstItem="c66-70-pus" firstAttribute="leading" secondItem="kwx-hq-z2A" secondAttribute="trailing" constant="10" id="DGC-H5-pnq"/>
+                    <constraint firstItem="c66-70-pus" firstAttribute="bottom" secondItem="kwx-hq-z2A" secondAttribute="bottom" id="EOX-lI-BsC"/>
+                    <constraint firstAttribute="trailing" secondItem="HPb-qC-jbc" secondAttribute="trailing" constant="10" id="G46-XO-zia"/>
+                    <constraint firstAttribute="bottom" secondItem="2VF-zP-Rou" secondAttribute="bottom" id="K9H-aW-JP0"/>
+                    <constraint firstItem="HPb-qC-jbc" firstAttribute="leading" secondItem="kwx-hq-z2A" secondAttribute="trailing" constant="10" id="VUc-bR-XPy"/>
+                    <constraint firstItem="kwx-hq-z2A" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="g6d-PP-66z"/>
+                    <constraint firstItem="2VF-zP-Rou" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="gpd-A9-RNg"/>
+                    <constraint firstItem="kwx-hq-z2A" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="kIj-om-4y8"/>
+                    <constraint firstAttribute="trailing" secondItem="2VF-zP-Rou" secondAttribute="trailing" id="pPI-Yp-Naa"/>
+                </constraints>
+            </tableViewCellContentView>
+            <point key="canvasLocation" x="-241.5" y="-95"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="community_shequ" width="50" height="50"/>
+    </resources>
+</document>

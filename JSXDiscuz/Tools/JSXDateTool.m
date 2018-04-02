@@ -66,6 +66,18 @@
     return [dateFormatter stringFromDate:date];
 }
 
++(NSString*)weekdayStringFromDate{
+    NSArray *weekdays = [NSArray arrayWithObjects: [NSNull null], @"星期日", @"星期一", @"星期二", @"星期三", @"星期四", @"星期五", @"星期六", nil];
+    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    NSTimeZone *timeZone = [[NSTimeZone alloc] initWithName:@"Asia/Shanghai"];
+    [calendar setTimeZone: timeZone];
+    NSCalendarUnit calendarUnit = NSCalendarUnitWeekday;
+    NSDate *inputDate = [NSDate date];
+    NSDateComponents *theComponents = [calendar components:calendarUnit fromDate:inputDate];
+    return [weekdays objectAtIndex:theComponents.weekday];
+}
+
+
 +(NSString *)returnYYYY:(NSDate *)date
 {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];

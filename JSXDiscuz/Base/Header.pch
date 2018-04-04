@@ -34,6 +34,9 @@
 #import "NSTextAttachment+ZSTextAttachment.h"
 #import <EGOCache.h>
 #import <IQKeyboardManager.h>
+#import <UITableView+FDTemplateLayoutCell.h>
+#import "TableViewOfRefreshFooterView.h"
+#import "TableViewOfRefreshFooterView2.h"
 
 
 //各种类型接口信息
@@ -110,6 +113,7 @@
 #define SDFontOf(size) [UIFont systemFontOfSize:size]
 
 #define ThemeColor SDColor(43, 152, 240)
+#define ThemeColorLighter SDColor(46, 196, 252)
 #define BGThemeColor SDColor(246, 246, 246)
 
 #define SDScreenWidthInIpone5 320

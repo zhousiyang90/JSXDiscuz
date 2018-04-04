@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="MineCenterNavBarView2">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="snM-pf-xk5">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nnB-Qr-dxK">
+                            <rect key="frame" x="94" y="0.0" width="94" height="39"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <state key="normal" title="关注">
+                                <color key="titleColor" red="0.2470588235" green="0.2470588235" blue="0.2470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <state key="selected" title="关注">
+                                <color key="titleColor" red="0.18039215689999999" green="0.76862745099999996" blue="0.98823529409999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="clickNavBtn2:" destination="iN0-l3-epB" eventType="touchUpInside" id="WvW-v5-pLv"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mzd-oP-H3h">
+                            <rect key="frame" x="188" y="0.0" width="93.5" height="39"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <state key="normal" title="我的">
+                                <color key="titleColor" red="0.2470588235" green="0.2470588235" blue="0.2470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <state key="selected" title="我的">
+                                <color key="titleColor" red="0.18039215689999999" green="0.76862745099999996" blue="0.98823529409999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="clickNavBtn3:" destination="iN0-l3-epB" eventType="touchUpInside" id="cTe-a8-hK6"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="avb-DE-syb">
+                            <rect key="frame" x="281.5" y="0.0" width="93.5" height="39"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <state key="normal" title="个人资料">
+                                <color key="titleColor" red="0.2470588235" green="0.2470588235" blue="0.2470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <state key="selected" title="个人资料">
+                                <color key="titleColor" red="0.18039215689999999" green="0.76862745099999996" blue="0.98823529409999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="clickNavBtn4:" destination="iN0-l3-epB" eventType="touchUpInside" id="pOn-QB-vk6"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VAB-if-CeH">
+                            <rect key="frame" x="0.0" y="0.0" width="94" height="39"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="39" id="mR0-fH-IT7"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <state key="normal" title="朋友圈">
+                                <color key="titleColor" red="0.2470588235" green="0.2470588235" blue="0.2470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <state key="selected" title="朋友圈">
+                                <color key="titleColor" red="0.18039215689999999" green="0.76862745099999996" blue="0.98823529409999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="clickNavBtn1:" destination="iN0-l3-epB" eventType="touchUpInside" id="XXK-g1-eg7"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="avb-DE-syb" firstAttribute="height" secondItem="Mzd-oP-H3h" secondAttribute="height" id="0iz-EF-AM5"/>
+                        <constraint firstAttribute="height" constant="40" id="5VM-VK-K2a"/>
+                        <constraint firstItem="avb-DE-syb" firstAttribute="top" secondItem="snM-pf-xk5" secondAttribute="top" id="7DB-CP-IoV"/>
+                        <constraint firstItem="nnB-Qr-dxK" firstAttribute="leading" secondItem="VAB-if-CeH" secondAttribute="trailing" id="8Rj-Ov-TeX"/>
+                        <constraint firstItem="Mzd-oP-H3h" firstAttribute="leading" secondItem="nnB-Qr-dxK" secondAttribute="trailing" id="AYS-1N-oue"/>
+                        <constraint firstItem="nnB-Qr-dxK" firstAttribute="height" secondItem="VAB-if-CeH" secondAttribute="height" id="Gxk-gi-3HN"/>
+                        <constraint firstAttribute="trailing" secondItem="avb-DE-syb" secondAttribute="trailing" id="M5G-k9-4Ta"/>
+                        <constraint firstItem="Mzd-oP-H3h" firstAttribute="top" secondItem="snM-pf-xk5" secondAttribute="top" id="Vph-m8-E5T"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="als-C4-MTb"/>
+                        <constraint firstItem="Mzd-oP-H3h" firstAttribute="leading" secondItem="nnB-Qr-dxK" secondAttribute="trailing" id="cfN-qU-bcX"/>
+                        <constraint firstItem="Mzd-oP-H3h" firstAttribute="width" secondItem="nnB-Qr-dxK" secondAttribute="width" id="eAE-7j-q8K"/>
+                        <constraint firstItem="VAB-if-CeH" firstAttribute="leading" secondItem="snM-pf-xk5" secondAttribute="leading" id="eZ7-J0-A8a"/>
+                        <constraint firstItem="nnB-Qr-dxK" firstAttribute="width" secondItem="VAB-if-CeH" secondAttribute="width" id="ggi-zz-d2V"/>
+                        <constraint firstItem="nnB-Qr-dxK" firstAttribute="top" secondItem="snM-pf-xk5" secondAttribute="top" id="hdd-4P-Mmm"/>
+                        <constraint firstItem="nnB-Qr-dxK" firstAttribute="leading" secondItem="VAB-if-CeH" secondAttribute="trailing" id="jWa-DT-g5p"/>
+                        <constraint firstItem="VAB-if-CeH" firstAttribute="top" secondItem="snM-pf-xk5" secondAttribute="top" id="scb-sf-alD"/>
+                        <constraint firstItem="avb-DE-syb" firstAttribute="leading" secondItem="Mzd-oP-H3h" secondAttribute="trailing" id="tqc-kH-JDc"/>
+                        <constraint firstItem="Mzd-oP-H3h" firstAttribute="height" secondItem="nnB-Qr-dxK" secondAttribute="height" id="tuk-yc-l1z"/>
+                        <constraint firstItem="avb-DE-syb" firstAttribute="leading" secondItem="Mzd-oP-H3h" secondAttribute="trailing" id="xBU-8U-eeV"/>
+                        <constraint firstItem="avb-DE-syb" firstAttribute="width" secondItem="Mzd-oP-H3h" secondAttribute="width" id="zvR-eN-3AN"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="snM-pf-xk5" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Gdx-kO-tDI"/>
+                <constraint firstItem="snM-pf-xk5" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="IP6-RY-C7c"/>
+                <constraint firstAttribute="trailing" secondItem="snM-pf-xk5" secondAttribute="trailing" id="fBX-zD-DAp"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="navBarView" destination="snM-pf-xk5" id="kYz-W4-IYz"/>
+                <outlet property="navBtn1" destination="VAB-if-CeH" id="aSb-JI-NlO"/>
+                <outlet property="navBtn2" destination="nnB-Qr-dxK" id="TPy-BQ-dia"/>
+                <outlet property="navBtn3" destination="Mzd-oP-H3h" id="sOL-yr-0Y0"/>
+                <outlet property="navBtn4" destination="avb-DE-syb" id="3ze-Rv-Vu8"/>
+            </connections>
+            <point key="canvasLocation" x="-55" y="51"/>
+        </view>
+    </objects>
+</document>

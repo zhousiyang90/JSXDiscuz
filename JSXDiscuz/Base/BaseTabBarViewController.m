@@ -12,6 +12,7 @@
 #import "DiscoveryViewController.h"
 #import "GroupViewController.h"
 #import "CommunityViewController.h"
+#import "MineViewController.h"
 
 @interface BaseTabBarViewController ()
 
@@ -69,7 +70,7 @@ static BaseTabBarViewController *_instance;
         DiscoveryViewController *vc4 = [[DiscoveryViewController alloc] init];
         [self setupChild:vc4 Navtitle:@"发现" TabTitle:@"发现" icon:@"FX01" iconHight:@"FX02"];
         
-        FirstPageViewController *vc5 = [[FirstPageViewController alloc] init];
+        MineViewController *vc5 = [[MineViewController alloc] init];
         [self setupChild:vc5 Navtitle:@"我的" TabTitle:@"我的" icon:@"WD01" iconHight:@"WD02"];
     }
     return self;

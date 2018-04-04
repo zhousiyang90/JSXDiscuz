@@ -10,4 +10,6 @@
 
 @interface CommunityViewController_Album : BaseViewController
 
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+
 @end

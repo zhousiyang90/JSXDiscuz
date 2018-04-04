@@ -10,4 +10,6 @@
 
 @interface CommunityViewController_Rec : BaseViewController
 
+@property (weak, nonatomic) IBOutlet UITableView *tableview;
+
 @end

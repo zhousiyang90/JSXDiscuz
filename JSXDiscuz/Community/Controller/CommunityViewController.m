@@ -47,7 +47,7 @@
     [self.barView addSubview:lineView];
     
     currentPage=0;
-    modevc.view.frame=CGRectMake(0, 0, SDScreenWidth, self.contentScrollView.height);
+    modevc.view.frame=CGRectMake(0, 0, self.contentScrollView.width, self.contentScrollView.height);
     [self.contentScrollView addSubview:modevc.view];
     self.contentScrollView.contentOffset=CGPointMake(0, 0);
     

@@ -9,9 +9,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CommunityViewController_Rec">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MineCenterViewController_circle">
             <connections>
-                <outlet property="tableview" destination="8TY-qk-JI5" id="w3e-vg-x8h"/>
+                <outlet property="tableview" destination="hJV-7n-FYe" id="C3G-YM-SxB"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -20,22 +20,23 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8TY-qk-JI5">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hJV-7n-FYe">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <connections>
-                        <outlet property="dataSource" destination="-1" id="fxw-es-dxA"/>
-                        <outlet property="delegate" destination="-1" id="3Ce-hS-hEQ"/>
+                        <outlet property="dataSource" destination="-1" id="Mg6-Tv-tNL"/>
+                        <outlet property="delegate" destination="-1" id="mm5-Ra-AjQ"/>
                     </connections>
                 </tableView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="8TY-qk-JI5" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="2hk-N2-Qvp"/>
-                <constraint firstAttribute="trailing" secondItem="8TY-qk-JI5" secondAttribute="trailing" id="KWe-in-B69"/>
-                <constraint firstItem="8TY-qk-JI5" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="M91-xh-zDB"/>
-                <constraint firstAttribute="bottom" secondItem="8TY-qk-JI5" secondAttribute="bottom" id="U2z-wC-j5Z"/>
+                <constraint firstAttribute="bottom" secondItem="hJV-7n-FYe" secondAttribute="bottom" id="4K1-8P-K6a"/>
+                <constraint firstItem="hJV-7n-FYe" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="9XX-LE-kbS"/>
+                <constraint firstItem="hJV-7n-FYe" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="O6Z-AS-yPl"/>
+                <constraint firstAttribute="trailing" secondItem="hJV-7n-FYe" secondAttribute="trailing" id="ytC-em-xIU"/>
             </constraints>
+            <point key="canvasLocation" x="-251" y="-374"/>
         </view>
     </objects>
 </document>

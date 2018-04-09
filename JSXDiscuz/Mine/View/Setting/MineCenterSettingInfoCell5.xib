@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="mineCenterSettingInfoCell5" id="KGk-i7-Jjw" customClass="MineCenterSettingInfoCell5">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="99.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入自我介绍" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hM7-fe-K1t">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="99.5"/>
+                        <color key="textColor" red="0.2470588235" green="0.2470588235" blue="0.2470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <textInputTraits key="textInputTraits"/>
+                    </textField>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="hM7-fe-K1t" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="LCr-LM-hjW"/>
+                    <constraint firstAttribute="trailing" secondItem="hM7-fe-K1t" secondAttribute="trailing" id="MZl-zu-TM2"/>
+                    <constraint firstAttribute="bottom" secondItem="hM7-fe-K1t" secondAttribute="bottom" id="fPV-LI-LwQ"/>
+                    <constraint firstItem="hM7-fe-K1t" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="jaj-cB-U8d"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="tfview" destination="hM7-fe-K1t" id="vp7-kc-9yD"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+</document>

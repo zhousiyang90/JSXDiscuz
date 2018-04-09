@@ -13,6 +13,13 @@
 #import "MineLogoutTableView.h"
 #import "MineCenterViewController.h"
 #import "MineCenterViewController2.h"
+#import "MineVIPStatusViewController.h"
+#import "MineCenterSettingViewController.h"
+#import "MineCenterSettingViewController.h"
+#import "MineReNameViewController.h"
+#import "FeedBackViewController.h"
+#import "SystemInfoViewController.h"
+#import "MineCollectionViewController.h"
 
 @interface MineViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -73,6 +80,8 @@
         cell.selectionStyle=UITableViewCellSelectionStyleNone;
         [[cell rac_signalForSelector:@selector(clickSetting:)]subscribeNext:^(id x) {
             //点击设置
+            MineCenterSettingViewController * vc =[[MineCenterSettingViewController alloc]init];
+            [self.navigationController pushViewController:vc animated:YES];
         }];
         return cell;
         
@@ -99,9 +108,49 @@
 {
     if(indexPath.section==0)
     {
+        //个人中心
         MineCenterViewController2 * vc =[[MineCenterViewController2 alloc]init];
-        //MineCenterViewController * vc =[[MineCenterViewController alloc]init];
         [self.navigationController pushViewController:vc animated:YES];
+    }else if(indexPath.section==1)
+    {
+        if(indexPath.row==0)
+        {
+            //修改用户名
+            MineReNameViewController * vc =[[MineReNameViewController alloc]init];
+            [self.navigationController pushViewController:vc animated:YES];
+            
+        }else if(indexPath.row==1)
+        {
+            //会员状态
+            MineVIPStatusViewController * vc =[[MineVIPStatusViewController alloc]init];
+            [self.navigationController pushViewController:vc animated:YES];
+        }else if(indexPath.row==2)
+        {
+            //我的收藏
+            MineCollectionViewController * vc =[[MineCollectionViewController alloc]init];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+    }else if(indexPath.section==2)
+    {
+        
+    }else if(indexPath.section==3)
+    {
+        if(indexPath.row==0)
+        {
+            //点击个人设置
+            MineCenterSettingViewController * vc =[[MineCenterSettingViewController alloc]init];
+            [self.navigationController pushViewController:vc animated:YES];
+        }else if(indexPath.row==1)
+        {
+            //点击系统信息
+            SystemInfoViewController * vc =[[SystemInfoViewController alloc]init];
+            [self.navigationController pushViewController:vc animated:YES];
+        }else if(indexPath.row==2)
+        {
+            //点击建议反馈
+            FeedBackViewController * vc =[[FeedBackViewController alloc]init];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
     }
     
 }
@@ -119,7 +168,7 @@
         NSMutableArray * section1=[NSMutableArray arrayWithObject:head];
         
         MineMainDataModel * base1=[[MineMainDataModel alloc]init];
-        base1.leftTitle=@"完善个人账号";
+        base1.leftTitle=@"修改用户名";
         MineMainDataModel * base2=[[MineMainDataModel alloc]init];
         base2.leftTitle=@"一级会员";
         MineMainDataModel * base3=[[MineMainDataModel alloc]init];
@@ -138,7 +187,7 @@
         NSMutableArray * section3=[NSMutableArray arrayWithObjects:mes1,mes2,mes3,nil];
         
         MineMainDataModel * set1=[[MineMainDataModel alloc]init];
-        set1.leftTitle=@"编辑资料";
+        set1.leftTitle=@"个人设置";
         MineMainDataModel * set2=[[MineMainDataModel alloc]init];
         set2.leftTitle=@"系统反馈";
         MineMainDataModel * set3=[[MineMainDataModel alloc]init];

@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void(^MineCenterHeaderTableCell2Block)(void);
+
 @interface MineCenterHeaderTableCell2 : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UIView *bgView;
@@ -17,5 +19,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *statusLab;
 @property (weak, nonatomic) IBOutlet UILabel *fansLab;
 @property (weak, nonatomic) IBOutlet UIView *waveView;
+
+@property(nonatomic,copy) MineCenterHeaderTableCell2Block block;
 
 @end

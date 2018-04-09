@@ -60,7 +60,10 @@
     settingBtn.titleLabel.font=SDFontOf13;
     [settingBtn setTitle:@"设置" forState:UIControlStateNormal];
     [[settingBtn rac_signalForControlEvents:UIControlEventTouchUpInside]subscribeNext:^(id x) {
-        
+        if(_block)
+        {
+            _block();
+        }
     }];
     [self.bgView addSubview:settingBtn];
     
@@ -70,5 +73,9 @@
 
 }
 
+-(void)clickSetting
+{
+    
+}
 
 @end

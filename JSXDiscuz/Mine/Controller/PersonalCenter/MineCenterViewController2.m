@@ -18,6 +18,9 @@
 #import "MineMainDataModel.h"
 #import "MinePersonalSubTableViewCell.h"
 #import "MineTypeHeaderView.h"
+#import "MineVIPStatusViewController.h"
+#import "MineExpRecViewController.h"
+#import "MineCenterSettingViewController.h"
 
 @interface MineCenterViewController2 ()<UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate,UIGestureRecognizerDelegate>
 {
@@ -185,6 +188,11 @@
     {
         MineCenterHeaderTableCell2 * cell =[tableView dequeueReusableCellWithIdentifier:@"mineCenterHeaderTableCell2"];
         cell.selectionStyle=UITableViewCellSelectionStyleNone;
+        cell.block = ^{
+            //点击设置
+            MineCenterSettingViewController * vc =[[MineCenterSettingViewController alloc]init];
+            [self.navigationController pushViewController:vc animated:YES];
+        };
         return cell;
     }else
     {
@@ -220,6 +228,43 @@
             cell.selectionStyle=UITableViewCellSelectionStyleNone;
             [self configCell:cell andIndexPath:indexPath];
             return cell;
+        }
+    }
+}
+
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(indexPath.section==0)
+    {
+        
+    }else
+    {
+        if(self.currentPage==3)
+        {
+            NSDictionary * sections = self.layoutData[indexPath.section-2];
+            NSString * key = sections.allKeys[0];
+            NSArray * list = sections[key];
+            MineMainDataModel * data=list[indexPath.row];
+            NSString * title=data.leftTitle;
+            
+            if([title isEqualToString:@"用户组"])
+            {
+                //会员状态
+                MineVIPStatusViewController * vc =[[MineVIPStatusViewController alloc]init];
+                [self.navigationController pushViewController:vc animated:YES];
+            }else if([title isEqualToString:@"经验值"])
+            {
+                //经验记录
+                MineExpRecViewController * vc =[[MineExpRecViewController alloc]init];
+                [self.navigationController pushViewController:vc animated:YES];
+            }else
+            {
+                //点击设置
+                MineCenterSettingViewController * vc =[[MineCenterSettingViewController alloc]init];
+                [self.navigationController pushViewController:vc animated:YES];
+            }
+            
         }
     }
 }

@@ -22,4 +22,6 @@
 
 @property(nonatomic,assign) BOOL  hasArrow;
 
+@property(nonatomic,assign) BOOL  allowable;
+
 @end

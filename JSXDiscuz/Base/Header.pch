@@ -117,6 +117,7 @@
 #define ThemeColor SDColor(43, 152, 240)
 #define ThemeColorLighter SDColor(46, 196, 252)
 #define BGThemeColor SDColor(246, 246, 246)
+#define TextColor SDColor(63, 63, 63)
 
 #define SDScreenWidthInIpone5 320
 // 状态栏高度

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="xAx-6Y-ZM3" customClass="OtherCenterNavBarView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aq3-1w-4nJ">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Th-w1-CNb">
+                            <rect key="frame" x="187.5" y="0.0" width="187.5" height="39"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <state key="normal" title="个人资料">
+                                <color key="titleColor" red="0.2470588235" green="0.2470588235" blue="0.2470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <state key="selected" title="个人资料">
+                                <color key="titleColor" red="0.18039215689999999" green="0.76862745099999996" blue="0.98823529409999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="clickNavBtn2:" destination="xAx-6Y-ZM3" eventType="touchUpInside" id="qD5-Bk-hKx"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FsU-CY-5Ty">
+                            <rect key="frame" x="0.0" y="0.0" width="187.5" height="39"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="39" id="1WG-wj-urh"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <state key="normal" title="动态">
+                                <color key="titleColor" red="0.2470588235" green="0.2470588235" blue="0.2470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <state key="selected" title="动态">
+                                <color key="titleColor" red="0.18039215689999999" green="0.76862745099999996" blue="0.98823529409999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="clickNavBtn1:" destination="xAx-6Y-ZM3" eventType="touchUpInside" id="NzE-M2-sWt"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="FsU-CY-5Ty" firstAttribute="height" secondItem="5Th-w1-CNb" secondAttribute="height" id="5bH-ma-e1N"/>
+                        <constraint firstAttribute="trailing" secondItem="5Th-w1-CNb" secondAttribute="trailing" id="KxX-VB-7FV"/>
+                        <constraint firstItem="5Th-w1-CNb" firstAttribute="top" secondItem="aq3-1w-4nJ" secondAttribute="top" id="MDK-9e-0sW"/>
+                        <constraint firstItem="FsU-CY-5Ty" firstAttribute="top" secondItem="aq3-1w-4nJ" secondAttribute="top" id="Pcc-E7-AnD"/>
+                        <constraint firstItem="5Th-w1-CNb" firstAttribute="leading" secondItem="FsU-CY-5Ty" secondAttribute="trailing" id="TNl-el-rwq"/>
+                        <constraint firstItem="FsU-CY-5Ty" firstAttribute="width" secondItem="5Th-w1-CNb" secondAttribute="width" id="ZgW-HD-ZKU"/>
+                        <constraint firstAttribute="height" constant="40" id="dXy-Kg-ZDn"/>
+                        <constraint firstItem="FsU-CY-5Ty" firstAttribute="leading" secondItem="aq3-1w-4nJ" secondAttribute="leading" id="qGd-GL-yu5"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="aq3-1w-4nJ" secondAttribute="trailing" id="C1Q-24-zaG"/>
+                <constraint firstItem="aq3-1w-4nJ" firstAttribute="top" secondItem="xAx-6Y-ZM3" secondAttribute="top" id="HsN-zA-YW7"/>
+                <constraint firstItem="aq3-1w-4nJ" firstAttribute="leading" secondItem="xAx-6Y-ZM3" secondAttribute="leading" id="N0f-0W-5UQ"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="navBarView" destination="aq3-1w-4nJ" id="69V-VD-RZ2"/>
+                <outlet property="navBtn1" destination="FsU-CY-5Ty" id="QkQ-5J-63c"/>
+                <outlet property="navBtn2" destination="5Th-w1-CNb" id="9J2-pi-S6s"/>
+            </connections>
+            <point key="canvasLocation" x="-72" y="-120"/>
+        </view>
+    </objects>
+</document>

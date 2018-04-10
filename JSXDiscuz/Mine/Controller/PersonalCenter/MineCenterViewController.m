@@ -62,7 +62,7 @@
     settingBtn.backgroundColor=BGThemeColor;
     settingBtn.layer.borderWidth=1;
     settingBtn.layer.cornerRadius=5;
-    settingBtn.layer.borderColor=SDColor(162, 162, 162).CGColor;
+    settingBtn.layer.borderColor=SDColor(200, 200, 200).CGColor;
     [settingBtn setTitleColor:SDColor(93, 93, 93) forState:UIControlStateNormal];
     settingBtn.titleLabel.font=SDFontOf13;
     [settingBtn setTitle:@"设置" forState:UIControlStateNormal];

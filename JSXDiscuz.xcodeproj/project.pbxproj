@@ -188,6 +188,40 @@
 		31ACC98B207B5AF600B89984 /* MineCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31ACC989207B5AF600B89984 /* MineCollectionViewController.xib */; };
 		31ACC98F207B5DDB00B89984 /* MineCollectionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 31ACC98D207B5DDB00B89984 /* MineCollectionTableViewCell.m */; };
 		31ACC990207B5DDB00B89984 /* MineCollectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31ACC98E207B5DDB00B89984 /* MineCollectionTableViewCell.xib */; };
+		31ACC997207B636600B89984 /* NearByPersonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31ACC995207B636600B89984 /* NearByPersonViewController.m */; };
+		31ACC998207B636600B89984 /* NearByPersonViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31ACC996207B636600B89984 /* NearByPersonViewController.xib */; };
+		31ACC99C207B683D00B89984 /* NearByPersonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 31ACC99A207B683D00B89984 /* NearByPersonTableViewCell.m */; };
+		31ACC99D207B683D00B89984 /* NearByPersonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31ACC99B207B683D00B89984 /* NearByPersonTableViewCell.xib */; };
+		31ACC9A1207B6E0000B89984 /* NearByThingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31ACC99F207B6E0000B89984 /* NearByThingViewController.m */; };
+		31ACC9A2207B6E0000B89984 /* NearByThingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31ACC9A0207B6E0000B89984 /* NearByThingViewController.xib */; };
+		31ACC9A6207B6E9400B89984 /* NearByThingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 31ACC9A4207B6E9400B89984 /* NearByThingTableViewCell.m */; };
+		31ACC9A7207B6E9400B89984 /* NearByThingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31ACC9A5207B6E9400B89984 /* NearByThingTableViewCell.xib */; };
+		31ACC9AB207C483B00B89984 /* SearchResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31ACC9A9207C483B00B89984 /* SearchResultViewController.m */; };
+		31ACC9AC207C483B00B89984 /* SearchResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31ACC9AA207C483B00B89984 /* SearchResultViewController.xib */; };
+		31ACC9B1207C4A1700B89984 /* FindFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31ACC9AF207C4A1700B89984 /* FindFriendsViewController.m */; };
+		31ACC9B2207C4A1700B89984 /* FindFriendsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31ACC9B0207C4A1700B89984 /* FindFriendsViewController.xib */; };
+		31ACC9B6207C580B00B89984 /* OtherCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31ACC9B4207C580B00B89984 /* OtherCenterViewController.m */; };
+		31ACC9B7207C580B00B89984 /* OtherCenterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31ACC9B5207C580B00B89984 /* OtherCenterViewController.xib */; };
+		31ACC9BA207C651E00B89984 /* OtherCenterNavBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 31ACC9B9207C651E00B89984 /* OtherCenterNavBarView.m */; };
+		31ACC9BC207C652800B89984 /* OtherCenterNavBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31ACC9BB207C652800B89984 /* OtherCenterNavBarView.xib */; };
+		31ACC9C0207C8D8200B89984 /* OtherCenterHeaderTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 31ACC9BE207C8D8200B89984 /* OtherCenterHeaderTableCell.m */; };
+		31ACC9C1207C8D8200B89984 /* OtherCenterHeaderTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31ACC9BF207C8D8200B89984 /* OtherCenterHeaderTableCell.xib */; };
+		31ACC9C5207C929D00B89984 /* CreatTopicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31ACC9C3207C929D00B89984 /* CreatTopicViewController.m */; };
+		31ACC9C6207C929D00B89984 /* CreatTopicViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31ACC9C4207C929D00B89984 /* CreatTopicViewController.xib */; };
+		31ACC9CA207C9F0100B89984 /* TopicDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31ACC9C8207C9F0100B89984 /* TopicDetailViewController.m */; };
+		31ACC9CB207C9F0100B89984 /* TopicDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31ACC9C9207C9F0100B89984 /* TopicDetailViewController.xib */; };
+		31ACC9CF207CA47300B89984 /* TopicDetailViewController_newset.m in Sources */ = {isa = PBXBuildFile; fileRef = 31ACC9CD207CA47300B89984 /* TopicDetailViewController_newset.m */; };
+		31ACC9D0207CA47300B89984 /* TopicDetailViewController_newset.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31ACC9CE207CA47300B89984 /* TopicDetailViewController_newset.xib */; };
+		31ACC9D4207CA48500B89984 /* TopicDetailViewController_hotest.m in Sources */ = {isa = PBXBuildFile; fileRef = 31ACC9D2207CA48500B89984 /* TopicDetailViewController_hotest.m */; };
+		31ACC9D5207CA48500B89984 /* TopicDetailViewController_hotest.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31ACC9D3207CA48500B89984 /* TopicDetailViewController_hotest.xib */; };
+		31ACC9D9207CAEE200B89984 /* TopicListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31ACC9D7207CAEE200B89984 /* TopicListViewController.m */; };
+		31ACC9DA207CAEE200B89984 /* TopicListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31ACC9D8207CAEE200B89984 /* TopicListViewController.xib */; };
+		31ACC9DE207CB00200B89984 /* TopicListTableViewCell_index.m in Sources */ = {isa = PBXBuildFile; fileRef = 31ACC9DC207CB00200B89984 /* TopicListTableViewCell_index.m */; };
+		31ACC9DF207CB00200B89984 /* TopicListTableViewCell_index.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31ACC9DD207CB00200B89984 /* TopicListTableViewCell_index.xib */; };
+		31ACC9E3207CB01700B89984 /* TopicListTableViewCell_content.m in Sources */ = {isa = PBXBuildFile; fileRef = 31ACC9E1207CB01700B89984 /* TopicListTableViewCell_content.m */; };
+		31ACC9E4207CB01700B89984 /* TopicListTableViewCell_content.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31ACC9E2207CB01700B89984 /* TopicListTableViewCell_content.xib */; };
+		31ACC9E8207CBCC700B89984 /* GroupSearchResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31ACC9E6207CBCC700B89984 /* GroupSearchResultViewController.m */; };
+		31ACC9E9207CBCC700B89984 /* GroupSearchResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31ACC9E7207CBCC700B89984 /* GroupSearchResultViewController.xib */; };
 		31B9848C2060D8240041E910 /* BaseTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B9848B2060D8240041E910 /* BaseTabBarViewController.m */; };
 		31B9848F2060D8520041E910 /* BaseNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B9848E2060D8520041E910 /* BaseNavigationViewController.m */; };
 		31B984922060D8630041E910 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B984912060D8630041E910 /* BaseViewController.m */; };
@@ -496,6 +530,57 @@
 		31ACC98C207B5DDB00B89984 /* MineCollectionTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MineCollectionTableViewCell.h; sourceTree = "<group>"; };
 		31ACC98D207B5DDB00B89984 /* MineCollectionTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineCollectionTableViewCell.m; sourceTree = "<group>"; };
 		31ACC98E207B5DDB00B89984 /* MineCollectionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MineCollectionTableViewCell.xib; sourceTree = "<group>"; };
+		31ACC994207B636600B89984 /* NearByPersonViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NearByPersonViewController.h; sourceTree = "<group>"; };
+		31ACC995207B636600B89984 /* NearByPersonViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NearByPersonViewController.m; sourceTree = "<group>"; };
+		31ACC996207B636600B89984 /* NearByPersonViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NearByPersonViewController.xib; sourceTree = "<group>"; };
+		31ACC999207B683D00B89984 /* NearByPersonTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NearByPersonTableViewCell.h; sourceTree = "<group>"; };
+		31ACC99A207B683D00B89984 /* NearByPersonTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NearByPersonTableViewCell.m; sourceTree = "<group>"; };
+		31ACC99B207B683D00B89984 /* NearByPersonTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NearByPersonTableViewCell.xib; sourceTree = "<group>"; };
+		31ACC99E207B6E0000B89984 /* NearByThingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NearByThingViewController.h; sourceTree = "<group>"; };
+		31ACC99F207B6E0000B89984 /* NearByThingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NearByThingViewController.m; sourceTree = "<group>"; };
+		31ACC9A0207B6E0000B89984 /* NearByThingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NearByThingViewController.xib; sourceTree = "<group>"; };
+		31ACC9A3207B6E9400B89984 /* NearByThingTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NearByThingTableViewCell.h; sourceTree = "<group>"; };
+		31ACC9A4207B6E9400B89984 /* NearByThingTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NearByThingTableViewCell.m; sourceTree = "<group>"; };
+		31ACC9A5207B6E9400B89984 /* NearByThingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NearByThingTableViewCell.xib; sourceTree = "<group>"; };
+		31ACC9A8207C483B00B89984 /* SearchResultViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchResultViewController.h; sourceTree = "<group>"; };
+		31ACC9A9207C483B00B89984 /* SearchResultViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchResultViewController.m; sourceTree = "<group>"; };
+		31ACC9AA207C483B00B89984 /* SearchResultViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchResultViewController.xib; sourceTree = "<group>"; };
+		31ACC9AE207C4A1700B89984 /* FindFriendsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FindFriendsViewController.h; sourceTree = "<group>"; };
+		31ACC9AF207C4A1700B89984 /* FindFriendsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FindFriendsViewController.m; sourceTree = "<group>"; };
+		31ACC9B0207C4A1700B89984 /* FindFriendsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FindFriendsViewController.xib; sourceTree = "<group>"; };
+		31ACC9B3207C580B00B89984 /* OtherCenterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OtherCenterViewController.h; sourceTree = "<group>"; };
+		31ACC9B4207C580B00B89984 /* OtherCenterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OtherCenterViewController.m; sourceTree = "<group>"; };
+		31ACC9B5207C580B00B89984 /* OtherCenterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OtherCenterViewController.xib; sourceTree = "<group>"; };
+		31ACC9B8207C651E00B89984 /* OtherCenterNavBarView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OtherCenterNavBarView.h; sourceTree = "<group>"; };
+		31ACC9B9207C651E00B89984 /* OtherCenterNavBarView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OtherCenterNavBarView.m; sourceTree = "<group>"; };
+		31ACC9BB207C652800B89984 /* OtherCenterNavBarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OtherCenterNavBarView.xib; sourceTree = "<group>"; };
+		31ACC9BD207C8D8200B89984 /* OtherCenterHeaderTableCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OtherCenterHeaderTableCell.h; sourceTree = "<group>"; };
+		31ACC9BE207C8D8200B89984 /* OtherCenterHeaderTableCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OtherCenterHeaderTableCell.m; sourceTree = "<group>"; };
+		31ACC9BF207C8D8200B89984 /* OtherCenterHeaderTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OtherCenterHeaderTableCell.xib; sourceTree = "<group>"; };
+		31ACC9C2207C929D00B89984 /* CreatTopicViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CreatTopicViewController.h; sourceTree = "<group>"; };
+		31ACC9C3207C929D00B89984 /* CreatTopicViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CreatTopicViewController.m; sourceTree = "<group>"; };
+		31ACC9C4207C929D00B89984 /* CreatTopicViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreatTopicViewController.xib; sourceTree = "<group>"; };
+		31ACC9C7207C9F0100B89984 /* TopicDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TopicDetailViewController.h; sourceTree = "<group>"; };
+		31ACC9C8207C9F0100B89984 /* TopicDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TopicDetailViewController.m; sourceTree = "<group>"; };
+		31ACC9C9207C9F0100B89984 /* TopicDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopicDetailViewController.xib; sourceTree = "<group>"; };
+		31ACC9CC207CA47300B89984 /* TopicDetailViewController_newset.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TopicDetailViewController_newset.h; sourceTree = "<group>"; };
+		31ACC9CD207CA47300B89984 /* TopicDetailViewController_newset.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TopicDetailViewController_newset.m; sourceTree = "<group>"; };
+		31ACC9CE207CA47300B89984 /* TopicDetailViewController_newset.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopicDetailViewController_newset.xib; sourceTree = "<group>"; };
+		31ACC9D1207CA48500B89984 /* TopicDetailViewController_hotest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TopicDetailViewController_hotest.h; sourceTree = "<group>"; };
+		31ACC9D2207CA48500B89984 /* TopicDetailViewController_hotest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TopicDetailViewController_hotest.m; sourceTree = "<group>"; };
+		31ACC9D3207CA48500B89984 /* TopicDetailViewController_hotest.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopicDetailViewController_hotest.xib; sourceTree = "<group>"; };
+		31ACC9D6207CAEE200B89984 /* TopicListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TopicListViewController.h; sourceTree = "<group>"; };
+		31ACC9D7207CAEE200B89984 /* TopicListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TopicListViewController.m; sourceTree = "<group>"; };
+		31ACC9D8207CAEE200B89984 /* TopicListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopicListViewController.xib; sourceTree = "<group>"; };
+		31ACC9DB207CB00200B89984 /* TopicListTableViewCell_index.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TopicListTableViewCell_index.h; sourceTree = "<group>"; };
+		31ACC9DC207CB00200B89984 /* TopicListTableViewCell_index.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TopicListTableViewCell_index.m; sourceTree = "<group>"; };
+		31ACC9DD207CB00200B89984 /* TopicListTableViewCell_index.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopicListTableViewCell_index.xib; sourceTree = "<group>"; };
+		31ACC9E0207CB01700B89984 /* TopicListTableViewCell_content.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TopicListTableViewCell_content.h; sourceTree = "<group>"; };
+		31ACC9E1207CB01700B89984 /* TopicListTableViewCell_content.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TopicListTableViewCell_content.m; sourceTree = "<group>"; };
+		31ACC9E2207CB01700B89984 /* TopicListTableViewCell_content.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopicListTableViewCell_content.xib; sourceTree = "<group>"; };
+		31ACC9E5207CBCC700B89984 /* GroupSearchResultViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GroupSearchResultViewController.h; sourceTree = "<group>"; };
+		31ACC9E6207CBCC700B89984 /* GroupSearchResultViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GroupSearchResultViewController.m; sourceTree = "<group>"; };
+		31ACC9E7207CBCC700B89984 /* GroupSearchResultViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupSearchResultViewController.xib; sourceTree = "<group>"; };
 		31B9848A2060D8240041E910 /* BaseTabBarViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseTabBarViewController.h; sourceTree = "<group>"; };
 		31B9848B2060D8240041E910 /* BaseTabBarViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseTabBarViewController.m; sourceTree = "<group>"; };
 		31B9848D2060D8520041E910 /* BaseNavigationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseNavigationViewController.h; sourceTree = "<group>"; };
@@ -867,9 +952,10 @@
 		31608A9F206E3789005C5338 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				31608AA1206E37BB005C5338 /* DiscoveryViewController.h */,
-				31608AA2206E37BB005C5338 /* DiscoveryViewController.m */,
-				31608AA3206E37BB005C5338 /* DiscoveryViewController.xib */,
+				31ACC9AD207C4A0600B89984 /* FindFriends */,
+				31ACC993207B633B00B89984 /* NearByThing */,
+				31ACC992207B633800B89984 /* NearByPerson */,
+				31ACC991207B633300B89984 /* Main */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -883,6 +969,18 @@
 				31608AAB2071C22E005C5338 /* DiscoveryContentTableViewCell.h */,
 				31608AAC2071C22E005C5338 /* DiscoveryContentTableViewCell.m */,
 				31608AAD2071C22E005C5338 /* DiscoveryContentTableViewCell.xib */,
+				31ACC999207B683D00B89984 /* NearByPersonTableViewCell.h */,
+				31ACC99A207B683D00B89984 /* NearByPersonTableViewCell.m */,
+				31ACC99B207B683D00B89984 /* NearByPersonTableViewCell.xib */,
+				31ACC9A3207B6E9400B89984 /* NearByThingTableViewCell.h */,
+				31ACC9A4207B6E9400B89984 /* NearByThingTableViewCell.m */,
+				31ACC9A5207B6E9400B89984 /* NearByThingTableViewCell.xib */,
+				31ACC9B8207C651E00B89984 /* OtherCenterNavBarView.h */,
+				31ACC9B9207C651E00B89984 /* OtherCenterNavBarView.m */,
+				31ACC9BB207C652800B89984 /* OtherCenterNavBarView.xib */,
+				31ACC9BD207C8D8200B89984 /* OtherCenterHeaderTableCell.h */,
+				31ACC9BE207C8D8200B89984 /* OtherCenterHeaderTableCell.m */,
+				31ACC9BF207C8D8200B89984 /* OtherCenterHeaderTableCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -902,6 +1000,24 @@
 				31608AB52071D8AD005C5338 /* GroupViewController.h */,
 				31608AB62071D8AD005C5338 /* GroupViewController.m */,
 				31608AB72071D8AD005C5338 /* GroupViewController.xib */,
+				31ACC9C2207C929D00B89984 /* CreatTopicViewController.h */,
+				31ACC9C3207C929D00B89984 /* CreatTopicViewController.m */,
+				31ACC9C4207C929D00B89984 /* CreatTopicViewController.xib */,
+				31ACC9C7207C9F0100B89984 /* TopicDetailViewController.h */,
+				31ACC9C8207C9F0100B89984 /* TopicDetailViewController.m */,
+				31ACC9C9207C9F0100B89984 /* TopicDetailViewController.xib */,
+				31ACC9CC207CA47300B89984 /* TopicDetailViewController_newset.h */,
+				31ACC9CD207CA47300B89984 /* TopicDetailViewController_newset.m */,
+				31ACC9CE207CA47300B89984 /* TopicDetailViewController_newset.xib */,
+				31ACC9D1207CA48500B89984 /* TopicDetailViewController_hotest.h */,
+				31ACC9D2207CA48500B89984 /* TopicDetailViewController_hotest.m */,
+				31ACC9D3207CA48500B89984 /* TopicDetailViewController_hotest.xib */,
+				31ACC9D6207CAEE200B89984 /* TopicListViewController.h */,
+				31ACC9D7207CAEE200B89984 /* TopicListViewController.m */,
+				31ACC9D8207CAEE200B89984 /* TopicListViewController.xib */,
+				31ACC9E5207CBCC700B89984 /* GroupSearchResultViewController.h */,
+				31ACC9E6207CBCC700B89984 /* GroupSearchResultViewController.m */,
+				31ACC9E7207CBCC700B89984 /* GroupSearchResultViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -915,6 +1031,12 @@
 				31608ABF2071DA2E005C5338 /* GroupSectionHeaderView.h */,
 				31608AC02071DA2E005C5338 /* GroupSectionHeaderView.m */,
 				31608AC22071DA36005C5338 /* GroupSectionHeaderView.xib */,
+				31ACC9DB207CB00200B89984 /* TopicListTableViewCell_index.h */,
+				31ACC9DC207CB00200B89984 /* TopicListTableViewCell_index.m */,
+				31ACC9DD207CB00200B89984 /* TopicListTableViewCell_index.xib */,
+				31ACC9E0207CB01700B89984 /* TopicListTableViewCell_content.h */,
+				31ACC9E1207CB01700B89984 /* TopicListTableViewCell_content.m */,
+				31ACC9E2207CB01700B89984 /* TopicListTableViewCell_content.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1200,6 +1322,52 @@
 			path = Message;
 			sourceTree = "<group>";
 		};
+		31ACC991207B633300B89984 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				31608AA1206E37BB005C5338 /* DiscoveryViewController.h */,
+				31608AA2206E37BB005C5338 /* DiscoveryViewController.m */,
+				31608AA3206E37BB005C5338 /* DiscoveryViewController.xib */,
+				31ACC9A8207C483B00B89984 /* SearchResultViewController.h */,
+				31ACC9A9207C483B00B89984 /* SearchResultViewController.m */,
+				31ACC9AA207C483B00B89984 /* SearchResultViewController.xib */,
+				31ACC9B3207C580B00B89984 /* OtherCenterViewController.h */,
+				31ACC9B4207C580B00B89984 /* OtherCenterViewController.m */,
+				31ACC9B5207C580B00B89984 /* OtherCenterViewController.xib */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		31ACC992207B633800B89984 /* NearByPerson */ = {
+			isa = PBXGroup;
+			children = (
+				31ACC994207B636600B89984 /* NearByPersonViewController.h */,
+				31ACC995207B636600B89984 /* NearByPersonViewController.m */,
+				31ACC996207B636600B89984 /* NearByPersonViewController.xib */,
+			);
+			path = NearByPerson;
+			sourceTree = "<group>";
+		};
+		31ACC993207B633B00B89984 /* NearByThing */ = {
+			isa = PBXGroup;
+			children = (
+				31ACC99E207B6E0000B89984 /* NearByThingViewController.h */,
+				31ACC99F207B6E0000B89984 /* NearByThingViewController.m */,
+				31ACC9A0207B6E0000B89984 /* NearByThingViewController.xib */,
+			);
+			path = NearByThing;
+			sourceTree = "<group>";
+		};
+		31ACC9AD207C4A0600B89984 /* FindFriends */ = {
+			isa = PBXGroup;
+			children = (
+				31ACC9AE207C4A1700B89984 /* FindFriendsViewController.h */,
+				31ACC9AF207C4A1700B89984 /* FindFriendsViewController.m */,
+				31ACC9B0207C4A1700B89984 /* FindFriendsViewController.xib */,
+			);
+			path = FindFriends;
+			sourceTree = "<group>";
+		};
 		31B984892060D7F00041E910 /* Base */ = {
 			isa = PBXGroup;
 			children = (
@@ -1362,17 +1530,22 @@
 				31608A93206CD33C005C5338 /* ExportHtmlViewController.xib in Resources */,
 				31608ABE2071DA0A005C5338 /* GroupViewTableViewCell.xib in Resources */,
 				31ACC9582079EE8000B89984 /* MineCenterSettingInfoCell4.xib in Resources */,
+				31ACC998207B636600B89984 /* NearByPersonViewController.xib in Resources */,
 				31072612207463F1009C163C /* MineTypeHeaderView.xib in Resources */,
+				31ACC9B7207C580B00B89984 /* OtherCenterViewController.xib in Resources */,
 				3119D2C22068E2540094DB60 /* DiscuzBannelTableViewCell.xib in Resources */,
 				31608AE920721C2C005C5338 /* CommunityTableViewCell.xib in Resources */,
 				31608B1620736366005C5338 /* MineLogoutTableView.xib in Resources */,
+				31ACC99D207B683D00B89984 /* NearByPersonTableViewCell.xib in Resources */,
 				31ACC98B207B5AF600B89984 /* MineCollectionViewController.xib in Resources */,
 				31608B2E20737A56005C5338 /* MineCenterViewController_mine.xib in Resources */,
 				31608ADA20720DD4005C5338 /* CommunityViewController_Rec.xib in Resources */,
+				31ACC9D5207CA48500B89984 /* TopicDetailViewController_hotest.xib in Resources */,
 				31ACC95D2079F1E200B89984 /* MineCenterSettingInfoCell5.xib in Resources */,
 				3119D2DB2069D86B0094DB60 /* WritingLogViewController.xib in Resources */,
 				3107262620747C4A009C163C /* MineCenterNavBarView2.xib in Resources */,
 				3119D2F7206A36290094DB60 /* MainThemeCollectionViewCell.xib in Resources */,
+				31ACC9B2207C4A1700B89984 /* FindFriendsViewController.xib in Resources */,
 				31ACC986207B532F00B89984 /* SystemInfoViewController.xib in Resources */,
 				310D909420634BA400756558 /* NoNetView.xib in Resources */,
 				31608AA5206E37BB005C5338 /* DiscoveryViewController.xib in Resources */,
@@ -1385,6 +1558,8 @@
 				31608AFF20732946005C5338 /* CommunityCollectionViewCell_Album.xib in Resources */,
 				31ACC94E2079EAF100B89984 /* MineCenterSettingInfoCell2.xib in Resources */,
 				31ACC9212079AA1500B89984 /* MineVIPStatusTableViewCell.xib in Resources */,
+				31ACC9DA207CAEE200B89984 /* TopicListViewController.xib in Resources */,
+				31ACC9AC207C483B00B89984 /* SearchResultViewController.xib in Resources */,
 				3119D32E206C92930094DB60 /* WritingLogUploadImagesView.xib in Resources */,
 				31608ACB20720715005C5338 /* CommunityViewController.xib in Resources */,
 				31608B0C20735EE9005C5338 /* MineHeaderTableViewCell.xib in Resources */,
@@ -1393,25 +1568,32 @@
 				31ACC92B2079B18E00B89984 /* MineExpRecTableViewCell.xib in Resources */,
 				3107260D2074616B009C163C /* MinePersonalSubTableViewCell.xib in Resources */,
 				3119D27E2064E2E50094DB60 /* TableViewOfRefreshFooterView2.xib in Resources */,
+				31ACC9DF207CB00200B89984 /* TopicListTableViewCell_index.xib in Resources */,
+				31ACC9D0207CA47300B89984 /* TopicDetailViewController_newset.xib in Resources */,
 				3107262120747BE7009C163C /* MineCenterScrollViewTableCell2.xib in Resources */,
 				31ACC9262079B10E00B89984 /* MineExpRecViewController.xib in Resources */,
 				31ACC9532079ECF000B89984 /* MineCenterSettingInfoCell3.xib in Resources */,
 				31608AF6207313C9005C5338 /* CommunityTableViewCollectionCell_Newest.xib in Resources */,
 				31608AB12071CD37005C5338 /* DiscoveryHeaderTableViewCell.xib in Resources */,
+				31ACC9BC207C652800B89984 /* OtherCenterNavBarView.xib in Resources */,
 				31608AB92071D8AD005C5338 /* GroupViewController.xib in Resources */,
+				31ACC9C1207C8D8200B89984 /* OtherCenterHeaderTableCell.xib in Resources */,
 				3107261C20747A88009C163C /* MineCenterHeaderTableCell2.xib in Resources */,
 				3119D2792064E0DA0094DB60 /* TableViewOfRefreshFooterView.xib in Resources */,
 				3119D2C92068E2540094DB60 /* DiscuzMainTableViewCell2.xib in Resources */,
+				31ACC9A7207B6E9400B89984 /* NearByThingTableViewCell.xib in Resources */,
 				3119D2F2206A0F750094DB60 /* MainQuickScanCollectionViewCell.xib in Resources */,
 				31608B3320737A71005C5338 /* MineCenterViewController_info.xib in Resources */,
 				31608B1F20737141005C5338 /* MineCenterViewController.xib in Resources */,
 				3119D2CE2068EA390094DB60 /* MainPublicTableViewCell.xib in Resources */,
 				31ACC981207B4DB700B89984 /* FeedBackViewController.xib in Resources */,
+				31ACC9CB207C9F0100B89984 /* TopicDetailViewController.xib in Resources */,
 				31ACC93F2079BABB00B89984 /* MineCenterSettingViewController_bondPhone.xib in Resources */,
 				3119D324206B9E7F0094DB60 /* WritingLogPositionView.xib in Resources */,
 				31608AC32071DA36005C5338 /* GroupSectionHeaderView.xib in Resources */,
 				3119D2832064E8C60094DB60 /* FirstPageNavigationBarView.xib in Resources */,
 				3119D2FC206A363E0094DB60 /* MainThemeTableViewCell.xib in Resources */,
+				31ACC9C6207C929D00B89984 /* CreatTopicViewController.xib in Resources */,
 				31ACC91C2079A83900B89984 /* MineVIPStatusViewController.xib in Resources */,
 				31608B2920737A47005C5338 /* MineCenterViewController_focus.xib in Resources */,
 				31608B2420737A31005C5338 /* MineCenterViewController_circle.xib in Resources */,
@@ -1421,7 +1603,9 @@
 				3119D2C02068E2540094DB60 /* DiscuzBannelCollectionCell.xib in Resources */,
 				3119D309206B6F0B0094DB60 /* WritingLogTitleView.xib in Resources */,
 				31608AE420721C10005C5338 /* CommunityHeaderView.xib in Resources */,
+				31ACC9E9207CBCC700B89984 /* GroupSearchResultViewController.xib in Resources */,
 				3119D2E52069DD850094DB60 /* WritingLogBodyFooterView.xib in Resources */,
+				31ACC9A2207B6E0000B89984 /* NearByThingViewController.xib in Resources */,
 				31608AD520720DBE005C5338 /* CommunityViewController_Newest.xib in Resources */,
 				31ACC970207AF7B200B89984 /* MineCenterSettingInfoCell.xib in Resources */,
 				3107261720747971009C163C /* MineCenterViewController2.xib in Resources */,
@@ -1435,6 +1619,7 @@
 				3119D315206B84990094DB60 /* MainThemeCollectionViewCell2.xib in Resources */,
 				31608B11207361D5005C5338 /* MineMainTableViewCell.xib in Resources */,
 				3119D2ED206A0F3B0094DB60 /* MainQuickScanTableViewCell.xib in Resources */,
+				31ACC9E4207CB01700B89984 /* TopicListTableViewCell_content.xib in Resources */,
 				31B984A12060DC010041E910 /* FirstPageViewController.xib in Resources */,
 				3119D2C72068E2540094DB60 /* DiscuzMainTableViewCell.xib in Resources */,
 			);
@@ -1522,7 +1707,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				31608B2320737A31005C5338 /* MineCenterViewController_circle.m in Sources */,
+				31ACC9DE207CB00200B89984 /* TopicListTableViewCell_index.m in Sources */,
 				31ACC93E2079BABB00B89984 /* MineCenterSettingViewController_bondPhone.m in Sources */,
+				31ACC9C5207C929D00B89984 /* CreatTopicViewController.m in Sources */,
 				3119D2C42068E2540094DB60 /* MainCategoryTableViewCell.m in Sources */,
 				3107262020747BE7009C163C /* MineCenterScrollViewTableCell2.m in Sources */,
 				31B984922060D8630041E910 /* BaseViewController.m in Sources */,
@@ -1535,10 +1722,14 @@
 				3119D2C62068E2540094DB60 /* DiscuzMainTableViewCell.m in Sources */,
 				31ACC98F207B5DDB00B89984 /* MineCollectionTableViewCell.m in Sources */,
 				31608AC12071DA2E005C5338 /* GroupSectionHeaderView.m in Sources */,
+				31ACC9CF207CA47300B89984 /* TopicDetailViewController_newset.m in Sources */,
+				31ACC9B6207C580B00B89984 /* OtherCenterViewController.m in Sources */,
 				3119D2BF2068E2540094DB60 /* DiscuzBannelCollectionCell.m in Sources */,
 				3107261620747971009C163C /* MineCenterViewController2.m in Sources */,
 				31ACC9392079BAAA00B89984 /* MineCenterSettingViewController_pwd.m in Sources */,
 				31608ACA20720715005C5338 /* CommunityViewController.m in Sources */,
+				31ACC9AB207C483B00B89984 /* SearchResultViewController.m in Sources */,
+				31ACC9D9207CAEE200B89984 /* TopicListViewController.m in Sources */,
 				31ACC9342079BA9900B89984 /* MineCenterSettingViewController_info.m in Sources */,
 				31ACC9522079ECF000B89984 /* MineCenterSettingInfoCell3.m in Sources */,
 				31ACC9252079B10E00B89984 /* MineExpRecViewController.m in Sources */,
@@ -1555,14 +1746,18 @@
 				3119D322206B9E760094DB60 /* WritingLogPositionView.m in Sources */,
 				31ACC97B207B480100B89984 /* MineReNameViewController.m in Sources */,
 				3119D310206B803E0094DB60 /* UIView+Extension.m in Sources */,
+				31ACC9CA207C9F0100B89984 /* TopicDetailViewController.m in Sources */,
 				3119D319206B86410094DB60 /* MainThemeTableViewCell2.m in Sources */,
+				31ACC9E3207CB01700B89984 /* TopicListTableViewCell_content.m in Sources */,
 				3119D307206B6EF60094DB60 /* WritingLogTitleView.m in Sources */,
+				31ACC9BA207C651E00B89984 /* OtherCenterNavBarView.m in Sources */,
 				31608B1520736366005C5338 /* MineLogoutTableView.m in Sources */,
 				31608ACF20720DA0005C5338 /* CommunityViewController_Mode.m in Sources */,
 				31ACC976207B3F4400B89984 /* ZSDatePickerView.m in Sources */,
 				3144AFDF205B5C8A00F55063 /* main.m in Sources */,
 				310D90E020649D0A00756558 /* JSXNumberTool.m in Sources */,
 				31608A9D206E1169005C5338 /* WritingLogImageData.m in Sources */,
+				31ACC997207B636600B89984 /* NearByPersonViewController.m in Sources */,
 				3119D300206A3F750094DB60 /* MainPopularTableViewCell.m in Sources */,
 				3119D27C2064E2D60094DB60 /* TableViewOfRefreshFooterView2.m in Sources */,
 				31608B10207361D5005C5338 /* MineMainTableViewCell.m in Sources */,
@@ -1571,6 +1766,7 @@
 				310D90E620649EB200756558 /* JSXImageTool.m in Sources */,
 				31608AA92071BD81005C5338 /* DiscoveryHeaderTableViewCell.m in Sources */,
 				31072610207463E8009C163C /* MineTypeHeaderView.m in Sources */,
+				31ACC9A1207B6E0000B89984 /* NearByThingViewController.m in Sources */,
 				31608AE820721C2C005C5338 /* CommunityTableViewCell.m in Sources */,
 				3119D314206B84990094DB60 /* MainThemeCollectionViewCell2.m in Sources */,
 				3107261B20747A88009C163C /* MineCenterHeaderTableCell2.m in Sources */,
@@ -1580,9 +1776,11 @@
 				3119D2FB206A363E0094DB60 /* MainThemeTableViewCell.m in Sources */,
 				31ACC94D2079EAF100B89984 /* MineCenterSettingInfoCell2.m in Sources */,
 				310D90E920649EE000756558 /* JSXHttpTool.m in Sources */,
+				31ACC9C0207C8D8200B89984 /* OtherCenterHeaderTableCell.m in Sources */,
 				31608B2D20737A56005C5338 /* MineCenterViewController_mine.m in Sources */,
 				3119D2C32068E2540094DB60 /* WaveBannelBackGroundView.m in Sources */,
 				3107262420747C41009C163C /* MineCenterNavBarView2.m in Sources */,
+				31ACC9D4207CA48500B89984 /* TopicDetailViewController_hotest.m in Sources */,
 				31B984A02060DC010041E910 /* FirstPageViewController.m in Sources */,
 				31ACC92A2079B18E00B89984 /* MineExpRecTableViewCell.m in Sources */,
 				31608AA4206E37BB005C5338 /* DiscoveryViewController.m in Sources */,
@@ -1603,14 +1801,18 @@
 				3119D31E206B8A080094DB60 /* MainRankingTableViewCell.m in Sources */,
 				3119D2C12068E2540094DB60 /* DiscuzBannelTableViewCell.m in Sources */,
 				31ACC9572079EE8000B89984 /* MineCenterSettingInfoCell4.m in Sources */,
+				31ACC9B1207C4A1700B89984 /* FindFriendsViewController.m in Sources */,
 				3119D2D22068F56F0094DB60 /* MainFunctionTableViewCell.m in Sources */,
+				31ACC9A6207B6E9400B89984 /* NearByThingTableViewCell.m in Sources */,
 				31ACC973207B026B00B89984 /* ZSPickerView.m in Sources */,
 				31ACC92F2079B62900B89984 /* MineCenterSettingViewController.m in Sources */,
 				3119D2DA2069D86B0094DB60 /* WritingLogViewController.m in Sources */,
 				31ACC9432079BACA00B89984 /* MineCenterSettingViewController_private.m in Sources */,
 				31608B1A2073651C005C5338 /* MineMainDataModel.m in Sources */,
+				31ACC99C207B683D00B89984 /* NearByPersonTableViewCell.m in Sources */,
 				31ACC95C2079F1E200B89984 /* MineCenterSettingInfoCell5.m in Sources */,
 				31ACC980207B4DB700B89984 /* FeedBackViewController.m in Sources */,
+				31ACC9E8207CBCC700B89984 /* GroupSearchResultViewController.m in Sources */,
 				31608A96206CD46D005C5338 /* JSXHtmlExportTool.m in Sources */,
 				31608AD420720DBE005C5338 /* CommunityViewController_Newest.m in Sources */,
 				31608B0B20735EE9005C5338 /* MineHeaderTableViewCell.m in Sources */,

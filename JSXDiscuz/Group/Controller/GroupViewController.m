@@ -9,12 +9,25 @@
 #import "GroupViewController.h"
 #import "GroupViewTableViewCell.h"
 #import "GroupSectionHeaderView.h"
+#import "CreatTopicViewController.h"
+#import "TopicDetailViewController.h"
+#import "TopicListViewController.h"
+#import "GroupSearchResultViewController.h"
 
-@interface GroupViewController ()<UITableViewDataSource,UITableViewDelegate>
+@interface GroupViewController ()<UITableViewDataSource,UITableViewDelegate,UISearchBarDelegate>
 
 @end
 
 @implementation GroupViewController
+
+#pragma mark - UISearchBarDelegate
+
+-(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
+    //主题详情
+    GroupSearchResultViewController * vc=[[GroupSearchResultViewController alloc]init];
+    [self.navigationController pushViewController:vc animated:YES];
+}
 
 #pragma mark - UITableViewDelegate
 
@@ -30,7 +43,7 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 20;
+    return 8;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
@@ -51,7 +64,9 @@
         header.themeLab.text=@"我的话题";
         [header.functionBtn setTitle:@"创建话题" forState:UIControlStateNormal];
         [[header.functionBtn rac_signalForControlEvents:UIControlEventTouchUpInside]subscribeNext:^(id x) {
-            
+            //创建话题
+            CreatTopicViewController * vc=[[CreatTopicViewController alloc]init];
+            [self.navigationController pushViewController:vc animated:YES];
         }];
         return header;
     }else
@@ -60,7 +75,9 @@
         header.themeLab.text=@"推荐话题";
         [header.functionBtn setTitle:@"查看全部" forState:UIControlStateNormal];
         [[header.functionBtn rac_signalForControlEvents:UIControlEventTouchUpInside]subscribeNext:^(id x) {
-            
+            //查看全部话题
+            TopicListViewController * vc=[[TopicListViewController alloc]init];
+            [self.navigationController pushViewController:vc animated:YES];
         }];
         return header;
     }
@@ -74,12 +91,25 @@
     return cell;
 }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    //话题详情
+    TopicDetailViewController * vc=[[TopicDetailViewController alloc]init];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
 #pragma mark - 生命周期
 
 -(void)addSubViews
 {
     self.searchBar.translucent=NO;
+    self.searchBar.backgroundColor=BGThemeColor;
     self.searchBar.barTintColor=BGThemeColor;
+    self.searchBar.delegate=self;
+    UITextField *textfield = [self.searchBar valueForKey:@"_searchField"];
+    textfield.font=SDFontOf14;
+    textfield.textColor=TextColor;
+    [textfield setValue:SDFontOf14 forKeyPath:@"_placeholderLabel.font"];
     
     [self.groupTableView registerNib:[UINib nibWithNibName:@"GroupViewTableViewCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"groupViewTableViewCell"];
     

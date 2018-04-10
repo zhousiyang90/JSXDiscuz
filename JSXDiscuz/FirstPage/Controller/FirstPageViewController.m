@@ -8,7 +8,9 @@
 
 #import "FirstPageViewController.h"
 #import "WritingLogViewController.h"
-
+#import "NearByPersonViewController.h"
+#import "NearByThingViewController.h"
+#import "FindFriendsViewController.h"
 
 #import "DiscuzMainTableViewCell.h"
 #import "DiscuzMainTableViewCell2.h"
@@ -90,10 +92,25 @@
     {
         MainFunctionTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"mainFunctionTableViewCell"];
         cell.selectionStyle=UITableViewCellSelectionStyleNone;
+        
+        [[cell rac_signalForSelector:@selector(clickView1)]subscribeNext:^(id x) {
+            //找朋友
+            FindFriendsViewController * vc = [[FindFriendsViewController alloc]init];
+            [self.navigationController pushViewController:vc animated:YES];
+        }];
         [[cell rac_signalForSelector:@selector(clickView2)]subscribeNext:^(id x) {
            //写日志
-            SDLog(@"写日志");
             WritingLogViewController * vc = [[WritingLogViewController alloc]init];
+            [self.navigationController pushViewController:vc animated:YES];
+        }];
+        [[cell rac_signalForSelector:@selector(clickView3)]subscribeNext:^(id x) {
+            //附近的人
+            NearByPersonViewController * vc=[[NearByPersonViewController alloc]init];
+            [self.navigationController pushViewController:vc animated:YES];
+        }];
+        [[cell rac_signalForSelector:@selector(clickView4)]subscribeNext:^(id x) {
+            //附近的事
+            NearByThingViewController * vc=[[NearByThingViewController alloc]init];
             [self.navigationController pushViewController:vc animated:YES];
         }];
         return cell;

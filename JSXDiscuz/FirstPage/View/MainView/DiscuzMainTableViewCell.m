@@ -18,6 +18,13 @@
     self.imgV2.layer.borderWidth=2;
     self.imgV3.layer.borderColor=[UIColor whiteColor].CGColor;
     self.imgV3.layer.borderWidth=2;
+    
+    [[self.topicBtn rac_signalForControlEvents:UIControlEventTouchUpInside]subscribeNext:^(id x) {
+        if(_block)
+        {
+            _block();
+        }
+    }];
 }
 
 @end

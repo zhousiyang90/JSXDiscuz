@@ -11,6 +11,11 @@
 #import "NearByPersonViewController.h"
 #import "NearByThingViewController.h"
 #import "FindFriendsViewController.h"
+#import "TopicDetailViewController.h"
+#import "OtherCenterViewController.h"
+#import "CommunityDetailViewController.h"
+#import "VideoLogViewController.h"
+#import "HeadLineNewsViewController.h"
 
 #import "DiscuzMainTableViewCell.h"
 #import "DiscuzMainTableViewCell2.h"
@@ -55,7 +60,6 @@
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return self.layoutData.count;
-    return self.tableData.count;
 }
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -68,11 +72,13 @@
         bannelcell.selectionStyle=UITableViewCellSelectionStyleNone;
         bannelcell.bannelImgs=self.bannelImgsData;
         [[bannelcell rac_signalForSelector:@selector(collectionView:didSelectItemAtIndexPath:)]subscribeNext:^(id x) {
-            NSIndexPath * indexPath = x[1];
-            NSLog(@"item:%ld",indexPath.item);
-            BaseWKViewController * basewkvc = [[BaseWKViewController alloc]init];
-            basewkvc.url=@"http://www.baidu.com";
-            [self.navigationController pushViewController:basewkvc animated:YES];
+            HeadLineNewsViewController * vc=[[HeadLineNewsViewController alloc]init];
+            [self.navigationController pushViewController:vc animated:YES];
+//            NSIndexPath * indexPath = x[1];
+//            NSLog(@"item:%ld",indexPath.item);
+//            BaseWKViewController * basewkvc = [[BaseWKViewController alloc]init];
+//            basewkvc.url=@"http://www.baidu.com";
+//            [self.navigationController pushViewController:basewkvc animated:YES];
         }];
         return bannelcell;
         
@@ -80,6 +86,22 @@
     {
         MainCategoryTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"mainCategoryTableViewCell"];
         cell.selectionStyle=UITableViewCellSelectionStyleNone;
+        cell.block = ^(int type) {
+            if(type==0)
+            {
+                //兴趣小组
+                [self.tabBarController setSelectedIndex:2];
+            }else if(type==1)
+            {
+                //广场
+                [self.tabBarController setSelectedIndex:1];
+            }else if(type==2)
+            {
+                //发布
+                WritingLogViewController * vc = [[WritingLogViewController alloc]init];
+                [self.navigationController pushViewController:vc animated:YES];
+            }
+        };
         return cell;
         
     }else if([cellName isEqualToString:@"public"])
@@ -93,74 +115,132 @@
         MainFunctionTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"mainFunctionTableViewCell"];
         cell.selectionStyle=UITableViewCellSelectionStyleNone;
         
-        [[cell rac_signalForSelector:@selector(clickView1)]subscribeNext:^(id x) {
-            //找朋友
-            FindFriendsViewController * vc = [[FindFriendsViewController alloc]init];
-            [self.navigationController pushViewController:vc animated:YES];
-        }];
-        [[cell rac_signalForSelector:@selector(clickView2)]subscribeNext:^(id x) {
-           //写日志
-            WritingLogViewController * vc = [[WritingLogViewController alloc]init];
-            [self.navigationController pushViewController:vc animated:YES];
-        }];
-        [[cell rac_signalForSelector:@selector(clickView3)]subscribeNext:^(id x) {
-            //附近的人
-            NearByPersonViewController * vc=[[NearByPersonViewController alloc]init];
-            [self.navigationController pushViewController:vc animated:YES];
-        }];
-        [[cell rac_signalForSelector:@selector(clickView4)]subscribeNext:^(id x) {
-            //附近的事
-            NearByThingViewController * vc=[[NearByThingViewController alloc]init];
-            [self.navigationController pushViewController:vc animated:YES];
-        }];
+        cell.block = ^(int type) {
+            if(type==0)
+            {
+                //找朋友
+                FindFriendsViewController * vc = [[FindFriendsViewController alloc]init];
+                [self.navigationController pushViewController:vc animated:YES];
+            }else if(type==1)
+            {
+                //写日志
+                WritingLogViewController * vc = [[WritingLogViewController alloc]init];
+                [self.navigationController pushViewController:vc animated:YES];
+            }else if(type==2)
+            {
+                //附近的人
+                NearByPersonViewController * vc=[[NearByPersonViewController alloc]init];
+                [self.navigationController pushViewController:vc animated:YES];
+            }else if(type==3)
+            {
+                //附近的事
+                NearByThingViewController * vc=[[NearByThingViewController alloc]init];
+                [self.navigationController pushViewController:vc animated:YES];
+            }
+        };
         return cell;
     }else if([cellName isEqualToString:@"quickscan"])
     {
         MainQuickScanTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"mainQuickScanTableViewCell"];
         cell.selectionStyle=UITableViewCellSelectionStyleNone;
+        cell.block = ^(int x, NSIndexPath *indexPath) {
+            //快速浏览
+            if(x==0)
+            {
+                //点击用户头像
+                OtherCenterViewController *vc=[[OtherCenterViewController alloc]init];
+                [self.navigationController pushViewController:vc animated:YES];
+            }else
+            {
+                //点击collectionCell
+            }
+        };
         return cell;
     }else if([cellName isEqualToString:@"theme"])
     {
         MainThemeTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"mainThemeTableViewCell"];
         cell.selectionStyle=UITableViewCellSelectionStyleNone;
+        cell.block = ^(NSIndexPath * indexPath) {
+           //主题详情
+           TopicDetailViewController * vc=[[TopicDetailViewController alloc]init];
+           [self.navigationController pushViewController:vc animated:YES];
+        };
         return cell;
     }else if([cellName isEqualToString:@"popular"])
     {
         MainPopularTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"mainPopularTableViewCell"];
         cell.selectionStyle=UITableViewCellSelectionStyleNone;
+        cell.block = ^() {
+            //点击用户头像
+            OtherCenterViewController *vc=[[OtherCenterViewController alloc]init];
+            [self.navigationController pushViewController:vc animated:YES];
+        };
         return cell;
     }else if([cellName isEqualToString:@"ranking"])
     {
         MainRankingTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"mainRankingTableViewCell"];
         cell.selectionStyle=UITableViewCellSelectionStyleNone;
+        [[cell rac_signalForSelector:@selector(clickTheme1:)]subscribeNext:^(id x) {
+            //主题详情
+            TopicDetailViewController * vc=[[TopicDetailViewController alloc]init];
+            [self.navigationController pushViewController:vc animated:YES];
+        }];
+        [[cell rac_signalForSelector:@selector(clickTheme2:)]subscribeNext:^(id x) {
+            //主题详情
+            TopicDetailViewController * vc=[[TopicDetailViewController alloc]init];
+            [self.navigationController pushViewController:vc animated:YES];
+        }];
+        [[cell rac_signalForSelector:@selector(clickTheme3:)]subscribeNext:^(id x) {
+            //主题详情
+            TopicDetailViewController * vc=[[TopicDetailViewController alloc]init];
+            [self.navigationController pushViewController:vc animated:YES];
+        }];
         return cell;
     }else if([cellName isEqualToString:@"theme2"])
     {
         MainThemeTableViewCell2 * cell = [tableView dequeueReusableCellWithIdentifier:@"mainThemeTableViewCell2"];
         cell.selectionStyle=UITableViewCellSelectionStyleNone;
+        cell.block = ^(NSIndexPath * indexPath) {
+            //社区详情
+            CommunityDetailViewController * vc=[[CommunityDetailViewController alloc]init];
+            [self.navigationController pushViewController:vc animated:YES];
+        };
         return cell;
     }else if([cellName isEqualToString:@"main"])
     {
         DiscuzMainTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"discuzMainTableViewCell"];
         cell.selectionStyle=UITableViewCellSelectionStyleNone;
         cell.imgV3.hidden=NO;
-        //cell.titleLab.text=self.tableData[indexPath.row];
+        cell.block = ^{
+            //主题详情
+            TopicDetailViewController * vc=[[TopicDetailViewController alloc]init];
+            [self.navigationController pushViewController:vc animated:YES];
+        };
+        cell.titleLab.text=@"大萨达撒多所大";
+        return cell;
+    }else if([cellName isEqualToString:@"main2"])
+    {
+        DiscuzMainTableViewCell2 * cell = [tableView dequeueReusableCellWithIdentifier:@"discuzMainTableViewCell2"];
+        cell.selectionStyle=UITableViewCellSelectionStyleNone;
+        cell.block = ^{
+            //主题详情
+            TopicDetailViewController * vc=[[TopicDetailViewController alloc]init];
+            [self.navigationController pushViewController:vc animated:YES];
+        };
+        cell.titleLab.text=@"大叔大婶多";
         return cell;
     }
     
-    
-//    DiscuzMainTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"discuzMainTableViewCell"];
-//    cell.selectionStyle=UITableViewCellSelectionStyleNone;
-//    cell.imgV3.hidden=YES;
-//    cell.titleLab.text=self.tableData[indexPath.row];
-//    return cell;
-    
-//    DiscuzMainTableViewCell2 * cell = [tableView dequeueReusableCellWithIdentifier:@"discuzMainTableViewCell2"];
-//    cell.selectionStyle=UITableViewCellSelectionStyleNone;
-//    cell.contentLab.text=self.tableData[indexPath.row];
-//    return cell;
-    
     return nil;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSString * cellName = self.layoutData[indexPath.row];
+    if([cellName isEqualToString:@"popular"])
+    {
+        
+    }
 }
 
 
@@ -210,19 +290,13 @@
         [_layoutData addObject:@"ranking"];
         [_layoutData addObject:@"theme2"];
         [_layoutData addObject:@"main"];
+        [_layoutData addObject:@"main2"];
+        [_layoutData addObject:@"main"];
+        [_layoutData addObject:@"main2"];
     }
     return _layoutData;
 }
 
--(NSMutableArray*)tableData
-{
-    if(_tableData==nil)
-    {
-        _tableData=[NSMutableArray arrayWithArray:@[@"1\n2\n3\n4\n5\n6", @"123456789012345678901234567890", @"1\n2", @"1\n2\n3", @"123456789012345678901234567890", @"1\n2\n3\n4\n5\n6", @"123456789012345678901234567890", @"1\n2", @"1\n2\n3", @"123456789012345678901234567890", @"1\n2\n3",@"1\n2\n3",@"123456789012345678901234567890", @"1\n2", @"1\n2\n3", @"123456789012345678901234567890", @"1\n2\n3",@"1\n2\n3"@"123456789012345678901234567890", @"1\n2", @"1\n2\n3", @"123456789012345678901234567890", @"1\n2\n3",@"1\n2\n3"@"123456789012345678901234567890", @"1\n2", @"1\n2\n3", @"123456789012345678901234567890", @"1\n2\n3",@"1\n2\n3"@"123456789012345678901234567890", @"1\n2", @"1\n2\n3", @"123456789012345678901234567890", @"1\n2\n3",@"1\n2\n3"@"123456789012345678901234567890", @"1\n2", @"1\n2\n3", @"123456789012345678901234567890", @"1\n2\n3",@"1\n2\n3"]];
-  
-    }
-    return _tableData;
-}
 
 -(NSArray *)bannelImgsData
 {

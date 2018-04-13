@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -103,6 +103,14 @@
                     <constraint firstItem="5qL-s7-8UH" firstAttribute="centerY" secondItem="ce6-Oy-2f3" secondAttribute="centerY" id="zNQ-0n-jWQ"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="popularImgv" destination="BTP-DW-m4R" id="qfj-wR-YNr"/>
+                <outlet property="readNumLab" destination="5qL-s7-8UH" id="eNh-rQ-c5c"/>
+                <outlet property="titleLab" destination="pK8-Ao-qgI" id="OuP-re-cUw"/>
+                <outlet property="titleNameLab" destination="hSx-wE-IXi" id="is7-0s-W7f"/>
+                <outlet property="userHeadImgV" destination="GaN-8H-ASn" id="JOZ-to-ygm"/>
+                <outlet property="userNameLab" destination="ce6-Oy-2f3" id="rRj-7f-oFl"/>
+            </connections>
             <point key="canvasLocation" x="24.5" y="98"/>
         </tableViewCell>
     </objects>

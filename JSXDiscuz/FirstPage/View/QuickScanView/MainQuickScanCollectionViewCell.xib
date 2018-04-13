@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -91,6 +91,11 @@
             <size key="customSize" width="291" height="279"/>
             <connections>
                 <outlet property="bgview" destination="HAV-gb-X5n" id="luZ-7N-r8s"/>
+                <outlet property="imgV" destination="NCg-9f-NL0" id="6So-zE-8qQ"/>
+                <outlet property="readNumLab" destination="uhJ-Xu-vvW" id="jsY-Fr-TeJ"/>
+                <outlet property="titleLab" destination="FZS-zi-yLU" id="cDp-Zg-zTD"/>
+                <outlet property="userImgV" destination="4ae-r7-2sl" id="lDm-Z1-Wqn"/>
+                <outlet property="userNameLab" destination="HNj-4B-YVF" id="bqG-Gp-ngu"/>
             </connections>
             <point key="canvasLocation" x="145.5" y="77"/>
         </collectionViewCell>

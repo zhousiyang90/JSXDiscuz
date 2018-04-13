@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void(^DiscuzMainTableViewCell2Block)(void);
+
 @interface DiscuzMainTableViewCell2 : UITableViewCell
-@property (weak, nonatomic) IBOutlet UILabel *contentLab;
+@property (weak, nonatomic) IBOutlet UILabel *titleLab;
+@property (weak, nonatomic) IBOutlet UIImageView *imgV;
+@property (weak, nonatomic) IBOutlet UILabel *readNumLab;
+@property (weak, nonatomic) IBOutlet UIButton *topicBtn;
+
+@property(nonatomic,copy)DiscuzMainTableViewCell2Block block;
 @end

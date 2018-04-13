@@ -52,7 +52,10 @@ static NSString *const cellId = @"mainThemeCollectionViewCell2";
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    if(_block)
+    {
+        _block(indexPath);
+    }
 }
 
 

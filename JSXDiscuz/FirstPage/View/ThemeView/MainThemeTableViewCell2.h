@@ -8,8 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void(^MainThemeTableViewCell2Block)(NSIndexPath*);
+
 @interface MainThemeTableViewCell2 : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+
+@property(nonatomic,copy)MainThemeTableViewCell2Block block;
 
 @end

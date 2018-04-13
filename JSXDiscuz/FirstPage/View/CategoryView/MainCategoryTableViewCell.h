@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void(^MainCategoryTableViewCellBlock)(int);
+
 @interface MainCategoryTableViewCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UIView *view1;
@@ -15,4 +17,7 @@
 @property (weak, nonatomic) IBOutlet UIView *view2;
 
 @property (weak, nonatomic) IBOutlet UIView *view3;
+
+@property(nonatomic,copy) MainCategoryTableViewCellBlock block;
+
 @end

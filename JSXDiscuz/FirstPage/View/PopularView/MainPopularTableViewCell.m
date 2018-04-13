@@ -12,13 +12,22 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    // Initialization code
+    
+    UITapGestureRecognizer *tap1=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(clickuserImgV)];
+    [self.userHeadImgV setUserInteractionEnabled:YES];
+    [self.userHeadImgV addGestureRecognizer:tap1];
+    
+    UITapGestureRecognizer *tap2=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(clickuserImgV)];
+    [self.userNameLab setUserInteractionEnabled:YES];
+    [self.userNameLab addGestureRecognizer:tap2];
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
+-(void)clickuserImgV
+{
+    if(_block)
+    {
+        _block();
+    }
 }
 
 @end

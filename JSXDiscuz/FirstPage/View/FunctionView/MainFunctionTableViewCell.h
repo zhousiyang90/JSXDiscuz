@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void(^MainFunctionTableViewCellBlock)(int);
+
 @interface MainFunctionTableViewCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UIView *view1;
@@ -17,6 +19,8 @@
 @property (weak, nonatomic) IBOutlet UIView *view3;
 
 @property (weak, nonatomic) IBOutlet UIView *view4;
+
+@property(nonatomic,copy)MainFunctionTableViewCellBlock block;
 
 -(void)clickView1;
 

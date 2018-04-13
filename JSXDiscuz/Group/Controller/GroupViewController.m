@@ -24,6 +24,7 @@
 
 -(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
+    [self.view endEditing:YES];
     //主题详情
     GroupSearchResultViewController * vc=[[GroupSearchResultViewController alloc]init];
     [self.navigationController pushViewController:vc animated:YES];

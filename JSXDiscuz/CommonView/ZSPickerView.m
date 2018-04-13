@@ -21,6 +21,7 @@
 {
     if(self=[super init])
     {
+        [[[UIApplication sharedApplication] keyWindow] endEditing:YES];
         bgview=[[UIView alloc]initWithFrame:CGRectMake(0, 0, SDScreenWidth, SDScreenHeight)];
         bgview.backgroundColor=[UIColor colorWithWhite:0.2 alpha:0.5];
         pickerview = [[UIPickerView alloc]initWithFrame:CGRectMake(0, SDScreenHeight-200, SDScreenWidth, 200)];

@@ -8,6 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void(^MainQuickScanCollectionViewCellBlock)(void);
 @interface MainQuickScanCollectionViewCell : UICollectionViewCell
 @property (weak, nonatomic) IBOutlet UIView *bgview;
+
+@property (weak, nonatomic) IBOutlet UIImageView *imgV;
+@property (weak, nonatomic) IBOutlet UILabel *titleLab;
+
+@property (weak, nonatomic) IBOutlet UIImageView *userImgV;
+@property (weak, nonatomic) IBOutlet UILabel *userNameLab;
+@property (weak, nonatomic) IBOutlet UILabel *readNumLab;
+
+@property(nonatomic,copy) MainQuickScanCollectionViewCellBlock block;
 @end

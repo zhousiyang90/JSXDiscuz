@@ -8,10 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void(^MainQuickScanTableViewCellBlock)(int,NSIndexPath*);
+
 @interface MainQuickScanTableViewCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLab;
+
+@property(nonatomic,copy) MainQuickScanTableViewCellBlock block;
 
 @end

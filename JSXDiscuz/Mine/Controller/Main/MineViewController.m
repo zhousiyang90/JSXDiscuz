@@ -20,6 +20,7 @@
 #import "FeedBackViewController.h"
 #import "SystemInfoViewController.h"
 #import "MineCollectionViewController.h"
+#import "LoginViewController.h"
 
 @interface MineViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -148,8 +149,12 @@
         }else if(indexPath.row==2)
         {
             //点击建议反馈
-            FeedBackViewController * vc =[[FeedBackViewController alloc]init];
-            [self.navigationController pushViewController:vc animated:YES];
+            //FeedBackViewController * vc =[[FeedBackViewController alloc]init];
+            //[self.navigationController pushViewController:vc animated:YES];
+            
+            LoginViewController * vc =[LoginViewController shareLoginViewController];
+            [self presentViewController:vc animated:YES completion:nil];
+           
         }
     }
     

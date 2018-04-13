@@ -48,11 +48,21 @@ static NSString *const cellId = @"mainQuickScanCollectionViewCell";
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     MainQuickScanCollectionViewCell *cell=[collectionView dequeueReusableCellWithReuseIdentifier:cellId forIndexPath:indexPath];
+    cell.block = ^() {
+        //点击用户头像和名称
+        if(_block)
+        {
+            _block(0,indexPath);
+        }
+    };
     return cell;
 }
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    if(_block)
+    {
+        _block(1,indexPath);
+    }
 }
 @end

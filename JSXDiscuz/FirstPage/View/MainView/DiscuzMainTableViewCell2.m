@@ -13,6 +13,13 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     
+    [[self.topicBtn rac_signalForControlEvents:UIControlEventTouchUpInside]subscribeNext:^(id x) {
+        if(_block)
+        {
+           _block();
+        }
+    }];
+    
 }
 
 @end

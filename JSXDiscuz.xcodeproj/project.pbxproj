@@ -83,6 +83,44 @@
 		3119D32B206C81940094DB60 /* WritingLogUploadImagesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3119D329206C81940094DB60 /* WritingLogUploadImagesCell.m */; };
 		3119D32C206C81940094DB60 /* WritingLogUploadImagesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3119D32A206C81940094DB60 /* WritingLogUploadImagesCell.xib */; };
 		3119D32E206C92930094DB60 /* WritingLogUploadImagesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3119D32D206C92930094DB60 /* WritingLogUploadImagesView.xib */; };
+		31263333207DA776003EA5E5 /* CommunityDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31263331207DA776003EA5E5 /* CommunityDetailViewController.m */; };
+		31263334207DA776003EA5E5 /* CommunityDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31263332207DA776003EA5E5 /* CommunityDetailViewController.xib */; };
+		31263338207DA7EE003EA5E5 /* CommunityDetailViewController_dynamic.m in Sources */ = {isa = PBXBuildFile; fileRef = 31263336207DA7EE003EA5E5 /* CommunityDetailViewController_dynamic.m */; };
+		31263339207DA7EE003EA5E5 /* CommunityDetailViewController_dynamic.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31263337207DA7EE003EA5E5 /* CommunityDetailViewController_dynamic.xib */; };
+		3126333D207E038E003EA5E5 /* VideoLogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3126333B207E038E003EA5E5 /* VideoLogViewController.m */; };
+		3126333E207E038E003EA5E5 /* VideoLogViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3126333C207E038E003EA5E5 /* VideoLogViewController.xib */; };
+		31263343207E043A003EA5E5 /* VideoLogTableViewCell_rec.m in Sources */ = {isa = PBXBuildFile; fileRef = 31263341207E043A003EA5E5 /* VideoLogTableViewCell_rec.m */; };
+		31263344207E043A003EA5E5 /* VideoLogTableViewCell_rec.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31263342207E043A003EA5E5 /* VideoLogTableViewCell_rec.xib */; };
+		31263348207E0A97003EA5E5 /* VideoLogTableViewCell_common.m in Sources */ = {isa = PBXBuildFile; fileRef = 31263346207E0A97003EA5E5 /* VideoLogTableViewCell_common.m */; };
+		31263349207E0A97003EA5E5 /* VideoLogTableViewCell_common.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31263347207E0A97003EA5E5 /* VideoLogTableViewCell_common.xib */; };
+		3126334D207E0AD0003EA5E5 /* VideoLogCollectionCell_common.m in Sources */ = {isa = PBXBuildFile; fileRef = 3126334B207E0AD0003EA5E5 /* VideoLogCollectionCell_common.m */; };
+		3126334E207E0AD0003EA5E5 /* VideoLogCollectionCell_common.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3126334C207E0AD0003EA5E5 /* VideoLogCollectionCell_common.xib */; };
+		31263352207EF2EA003EA5E5 /* HeadLineNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31263350207EF2EA003EA5E5 /* HeadLineNewsViewController.m */; };
+		31263353207EF2EA003EA5E5 /* HeadLineNewsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31263351207EF2EA003EA5E5 /* HeadLineNewsViewController.xib */; };
+		31263358207EF72C003EA5E5 /* SeedingHeaderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 31263356207EF72C003EA5E5 /* SeedingHeaderTableViewCell.m */; };
+		31263359207EF72C003EA5E5 /* SeedingHeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31263357207EF72C003EA5E5 /* SeedingHeaderTableViewCell.xib */; };
+		3126335D207EF97A003EA5E5 /* SeedingContentShareTableViewCell1.m in Sources */ = {isa = PBXBuildFile; fileRef = 3126335B207EF97A003EA5E5 /* SeedingContentShareTableViewCell1.m */; };
+		3126335E207EF97A003EA5E5 /* SeedingContentShareTableViewCell1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3126335C207EF97A003EA5E5 /* SeedingContentShareTableViewCell1.xib */; };
+		31263362207EF987003EA5E5 /* SeedingContentShareTableViewCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = 31263360207EF987003EA5E5 /* SeedingContentShareTableViewCell2.m */; };
+		31263363207EF987003EA5E5 /* SeedingContentShareTableViewCell2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31263361207EF987003EA5E5 /* SeedingContentShareTableViewCell2.xib */; };
+		3126336C207F004A003EA5E5 /* SeedingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3126336A207F004A003EA5E5 /* SeedingViewController.m */; };
+		3126336D207F004A003EA5E5 /* SeedingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3126336B207F004A003EA5E5 /* SeedingViewController.xib */; };
+		31263371207F07E2003EA5E5 /* AmusementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3126336F207F07E2003EA5E5 /* AmusementViewController.m */; };
+		31263372207F07E2003EA5E5 /* AmusementViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31263370207F07E2003EA5E5 /* AmusementViewController.xib */; };
+		31263377207F091F003EA5E5 /* AmusementTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 31263375207F091F003EA5E5 /* AmusementTableViewCell.m */; };
+		31263378207F091F003EA5E5 /* AmusementTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31263376207F091F003EA5E5 /* AmusementTableViewCell.xib */; };
+		3126337C207F3427003EA5E5 /* TableViewTitleCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3126337A207F3427003EA5E5 /* TableViewTitleCellView.m */; };
+		3126337D207F3427003EA5E5 /* TableViewTitleCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3126337B207F3427003EA5E5 /* TableViewTitleCellView.xib */; };
+		31263381207F3774003EA5E5 /* LocalNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3126337F207F3774003EA5E5 /* LocalNewsViewController.m */; };
+		31263382207F3774003EA5E5 /* LocalNewsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31263380207F3774003EA5E5 /* LocalNewsViewController.xib */; };
+		31263387207F37E0003EA5E5 /* LocalNewsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 31263385207F37E0003EA5E5 /* LocalNewsTableViewCell.m */; };
+		31263388207F37E0003EA5E5 /* LocalNewsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31263386207F37E0003EA5E5 /* LocalNewsTableViewCell.xib */; };
+		3126338C207F37F6003EA5E5 /* LocalNewsHeaderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3126338A207F37F6003EA5E5 /* LocalNewsHeaderTableViewCell.m */; };
+		3126338D207F37F6003EA5E5 /* LocalNewsHeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3126338B207F37F6003EA5E5 /* LocalNewsHeaderTableViewCell.xib */; };
+		31263396207F48E0003EA5E5 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31263394207F48E0003EA5E5 /* LoginViewController.m */; };
+		31263397207F48E0003EA5E5 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31263395207F48E0003EA5E5 /* LoginViewController.xib */; };
+		3126339B207F48FE003EA5E5 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31263399207F48FE003EA5E5 /* RegisterViewController.m */; };
+		3126339C207F48FE003EA5E5 /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3126339A207F48FE003EA5E5 /* RegisterViewController.xib */; };
 		3144AFD1205B5C8A00F55063 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3144AFD0205B5C8A00F55063 /* AppDelegate.m */; };
 		3144AFD9205B5C8A00F55063 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3144AFD8205B5C8A00F55063 /* Assets.xcassets */; };
 		3144AFDC205B5C8A00F55063 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3144AFDA205B5C8A00F55063 /* LaunchScreen.storyboard */; };
@@ -365,6 +403,63 @@
 		3119D329206C81940094DB60 /* WritingLogUploadImagesCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WritingLogUploadImagesCell.m; sourceTree = "<group>"; };
 		3119D32A206C81940094DB60 /* WritingLogUploadImagesCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WritingLogUploadImagesCell.xib; sourceTree = "<group>"; };
 		3119D32D206C92930094DB60 /* WritingLogUploadImagesView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WritingLogUploadImagesView.xib; sourceTree = "<group>"; };
+		31263330207DA776003EA5E5 /* CommunityDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommunityDetailViewController.h; sourceTree = "<group>"; };
+		31263331207DA776003EA5E5 /* CommunityDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommunityDetailViewController.m; sourceTree = "<group>"; };
+		31263332207DA776003EA5E5 /* CommunityDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommunityDetailViewController.xib; sourceTree = "<group>"; };
+		31263335207DA7EE003EA5E5 /* CommunityDetailViewController_dynamic.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommunityDetailViewController_dynamic.h; sourceTree = "<group>"; };
+		31263336207DA7EE003EA5E5 /* CommunityDetailViewController_dynamic.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommunityDetailViewController_dynamic.m; sourceTree = "<group>"; };
+		31263337207DA7EE003EA5E5 /* CommunityDetailViewController_dynamic.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommunityDetailViewController_dynamic.xib; sourceTree = "<group>"; };
+		3126333A207E038E003EA5E5 /* VideoLogViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoLogViewController.h; sourceTree = "<group>"; };
+		3126333B207E038E003EA5E5 /* VideoLogViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoLogViewController.m; sourceTree = "<group>"; };
+		3126333C207E038E003EA5E5 /* VideoLogViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoLogViewController.xib; sourceTree = "<group>"; };
+		31263340207E043A003EA5E5 /* VideoLogTableViewCell_rec.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoLogTableViewCell_rec.h; sourceTree = "<group>"; };
+		31263341207E043A003EA5E5 /* VideoLogTableViewCell_rec.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoLogTableViewCell_rec.m; sourceTree = "<group>"; };
+		31263342207E043A003EA5E5 /* VideoLogTableViewCell_rec.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoLogTableViewCell_rec.xib; sourceTree = "<group>"; };
+		31263345207E0A97003EA5E5 /* VideoLogTableViewCell_common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoLogTableViewCell_common.h; sourceTree = "<group>"; };
+		31263346207E0A97003EA5E5 /* VideoLogTableViewCell_common.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoLogTableViewCell_common.m; sourceTree = "<group>"; };
+		31263347207E0A97003EA5E5 /* VideoLogTableViewCell_common.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoLogTableViewCell_common.xib; sourceTree = "<group>"; };
+		3126334A207E0AD0003EA5E5 /* VideoLogCollectionCell_common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoLogCollectionCell_common.h; sourceTree = "<group>"; };
+		3126334B207E0AD0003EA5E5 /* VideoLogCollectionCell_common.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoLogCollectionCell_common.m; sourceTree = "<group>"; };
+		3126334C207E0AD0003EA5E5 /* VideoLogCollectionCell_common.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoLogCollectionCell_common.xib; sourceTree = "<group>"; };
+		3126334F207EF2EA003EA5E5 /* HeadLineNewsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HeadLineNewsViewController.h; sourceTree = "<group>"; };
+		31263350207EF2EA003EA5E5 /* HeadLineNewsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HeadLineNewsViewController.m; sourceTree = "<group>"; };
+		31263351207EF2EA003EA5E5 /* HeadLineNewsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeadLineNewsViewController.xib; sourceTree = "<group>"; };
+		31263355207EF72C003EA5E5 /* SeedingHeaderTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SeedingHeaderTableViewCell.h; sourceTree = "<group>"; };
+		31263356207EF72C003EA5E5 /* SeedingHeaderTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SeedingHeaderTableViewCell.m; sourceTree = "<group>"; };
+		31263357207EF72C003EA5E5 /* SeedingHeaderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SeedingHeaderTableViewCell.xib; sourceTree = "<group>"; };
+		3126335A207EF97A003EA5E5 /* SeedingContentShareTableViewCell1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SeedingContentShareTableViewCell1.h; sourceTree = "<group>"; };
+		3126335B207EF97A003EA5E5 /* SeedingContentShareTableViewCell1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SeedingContentShareTableViewCell1.m; sourceTree = "<group>"; };
+		3126335C207EF97A003EA5E5 /* SeedingContentShareTableViewCell1.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SeedingContentShareTableViewCell1.xib; sourceTree = "<group>"; };
+		3126335F207EF987003EA5E5 /* SeedingContentShareTableViewCell2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SeedingContentShareTableViewCell2.h; sourceTree = "<group>"; };
+		31263360207EF987003EA5E5 /* SeedingContentShareTableViewCell2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SeedingContentShareTableViewCell2.m; sourceTree = "<group>"; };
+		31263361207EF987003EA5E5 /* SeedingContentShareTableViewCell2.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SeedingContentShareTableViewCell2.xib; sourceTree = "<group>"; };
+		31263369207F004A003EA5E5 /* SeedingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SeedingViewController.h; sourceTree = "<group>"; };
+		3126336A207F004A003EA5E5 /* SeedingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SeedingViewController.m; sourceTree = "<group>"; };
+		3126336B207F004A003EA5E5 /* SeedingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SeedingViewController.xib; sourceTree = "<group>"; };
+		3126336E207F07E2003EA5E5 /* AmusementViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AmusementViewController.h; sourceTree = "<group>"; };
+		3126336F207F07E2003EA5E5 /* AmusementViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AmusementViewController.m; sourceTree = "<group>"; };
+		31263370207F07E2003EA5E5 /* AmusementViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AmusementViewController.xib; sourceTree = "<group>"; };
+		31263374207F091F003EA5E5 /* AmusementTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AmusementTableViewCell.h; sourceTree = "<group>"; };
+		31263375207F091F003EA5E5 /* AmusementTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AmusementTableViewCell.m; sourceTree = "<group>"; };
+		31263376207F091F003EA5E5 /* AmusementTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AmusementTableViewCell.xib; sourceTree = "<group>"; };
+		31263379207F3427003EA5E5 /* TableViewTitleCellView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TableViewTitleCellView.h; sourceTree = "<group>"; };
+		3126337A207F3427003EA5E5 /* TableViewTitleCellView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TableViewTitleCellView.m; sourceTree = "<group>"; };
+		3126337B207F3427003EA5E5 /* TableViewTitleCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewTitleCellView.xib; sourceTree = "<group>"; };
+		3126337E207F3774003EA5E5 /* LocalNewsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocalNewsViewController.h; sourceTree = "<group>"; };
+		3126337F207F3774003EA5E5 /* LocalNewsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocalNewsViewController.m; sourceTree = "<group>"; };
+		31263380207F3774003EA5E5 /* LocalNewsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocalNewsViewController.xib; sourceTree = "<group>"; };
+		31263384207F37E0003EA5E5 /* LocalNewsTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocalNewsTableViewCell.h; sourceTree = "<group>"; };
+		31263385207F37E0003EA5E5 /* LocalNewsTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocalNewsTableViewCell.m; sourceTree = "<group>"; };
+		31263386207F37E0003EA5E5 /* LocalNewsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocalNewsTableViewCell.xib; sourceTree = "<group>"; };
+		31263389207F37F6003EA5E5 /* LocalNewsHeaderTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocalNewsHeaderTableViewCell.h; sourceTree = "<group>"; };
+		3126338A207F37F6003EA5E5 /* LocalNewsHeaderTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocalNewsHeaderTableViewCell.m; sourceTree = "<group>"; };
+		3126338B207F37F6003EA5E5 /* LocalNewsHeaderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocalNewsHeaderTableViewCell.xib; sourceTree = "<group>"; };
+		31263393207F48E0003EA5E5 /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		31263394207F48E0003EA5E5 /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		31263395207F48E0003EA5E5 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		31263398207F48FE003EA5E5 /* RegisterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
+		31263399207F48FE003EA5E5 /* RegisterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
+		3126339A207F48FE003EA5E5 /* RegisterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
 		3144AFCC205B5C8A00F55063 /* JSXDiscuz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JSXDiscuz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3144AFCF205B5C8A00F55063 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3144AFD0205B5C8A00F55063 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -628,6 +723,21 @@
 				31B9849D2060DC010041E910 /* FirstPageViewController.h */,
 				31B9849E2060DC010041E910 /* FirstPageViewController.m */,
 				31B9849F2060DC010041E910 /* FirstPageViewController.xib */,
+				3126333A207E038E003EA5E5 /* VideoLogViewController.h */,
+				3126333B207E038E003EA5E5 /* VideoLogViewController.m */,
+				3126333C207E038E003EA5E5 /* VideoLogViewController.xib */,
+				3126334F207EF2EA003EA5E5 /* HeadLineNewsViewController.h */,
+				31263350207EF2EA003EA5E5 /* HeadLineNewsViewController.m */,
+				31263351207EF2EA003EA5E5 /* HeadLineNewsViewController.xib */,
+				31263369207F004A003EA5E5 /* SeedingViewController.h */,
+				3126336A207F004A003EA5E5 /* SeedingViewController.m */,
+				3126336B207F004A003EA5E5 /* SeedingViewController.xib */,
+				3126336E207F07E2003EA5E5 /* AmusementViewController.h */,
+				3126336F207F07E2003EA5E5 /* AmusementViewController.m */,
+				31263370207F07E2003EA5E5 /* AmusementViewController.xib */,
+				3126337E207F3774003EA5E5 /* LocalNewsViewController.h */,
+				3126337F207F3774003EA5E5 /* LocalNewsViewController.m */,
+				31263380207F3774003EA5E5 /* LocalNewsViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -668,6 +778,9 @@
 				31ACC972207B026B00B89984 /* ZSPickerView.m */,
 				31ACC974207B3F4400B89984 /* ZSDatePickerView.h */,
 				31ACC975207B3F4400B89984 /* ZSDatePickerView.m */,
+				31263379207F3427003EA5E5 /* TableViewTitleCellView.h */,
+				3126337A207F3427003EA5E5 /* TableViewTitleCellView.m */,
+				3126337B207F3427003EA5E5 /* TableViewTitleCellView.xib */,
 			);
 			path = CommonView;
 			sourceTree = "<group>";
@@ -675,6 +788,10 @@
 		3119D2872068DFB80094DB60 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				31263383207F37CB003EA5E5 /* LocalNews */,
+				31263373207F0902003EA5E5 /* Amusement */,
+				31263354207EF707003EA5E5 /* Seeding */,
+				3126333F207E03FD003EA5E5 /* VideoLogView */,
 				3119D2A42068E2530094DB60 /* ADView */,
 				3119D2A62068E2530094DB60 /* BannelView */,
 				3119D2AF2068E2530094DB60 /* CategoryView */,
@@ -867,6 +984,61 @@
 				31608A98206DD5B9005C5338 /* NSTextAttachment+ZSTextAttachment.m */,
 			);
 			path = CategoryClass;
+			sourceTree = "<group>";
+		};
+		3126333F207E03FD003EA5E5 /* VideoLogView */ = {
+			isa = PBXGroup;
+			children = (
+				31263340207E043A003EA5E5 /* VideoLogTableViewCell_rec.h */,
+				31263341207E043A003EA5E5 /* VideoLogTableViewCell_rec.m */,
+				31263342207E043A003EA5E5 /* VideoLogTableViewCell_rec.xib */,
+				31263345207E0A97003EA5E5 /* VideoLogTableViewCell_common.h */,
+				31263346207E0A97003EA5E5 /* VideoLogTableViewCell_common.m */,
+				31263347207E0A97003EA5E5 /* VideoLogTableViewCell_common.xib */,
+				3126334A207E0AD0003EA5E5 /* VideoLogCollectionCell_common.h */,
+				3126334B207E0AD0003EA5E5 /* VideoLogCollectionCell_common.m */,
+				3126334C207E0AD0003EA5E5 /* VideoLogCollectionCell_common.xib */,
+			);
+			path = VideoLogView;
+			sourceTree = "<group>";
+		};
+		31263354207EF707003EA5E5 /* Seeding */ = {
+			isa = PBXGroup;
+			children = (
+				31263355207EF72C003EA5E5 /* SeedingHeaderTableViewCell.h */,
+				31263356207EF72C003EA5E5 /* SeedingHeaderTableViewCell.m */,
+				31263357207EF72C003EA5E5 /* SeedingHeaderTableViewCell.xib */,
+				3126335A207EF97A003EA5E5 /* SeedingContentShareTableViewCell1.h */,
+				3126335B207EF97A003EA5E5 /* SeedingContentShareTableViewCell1.m */,
+				3126335C207EF97A003EA5E5 /* SeedingContentShareTableViewCell1.xib */,
+				3126335F207EF987003EA5E5 /* SeedingContentShareTableViewCell2.h */,
+				31263360207EF987003EA5E5 /* SeedingContentShareTableViewCell2.m */,
+				31263361207EF987003EA5E5 /* SeedingContentShareTableViewCell2.xib */,
+			);
+			path = Seeding;
+			sourceTree = "<group>";
+		};
+		31263373207F0902003EA5E5 /* Amusement */ = {
+			isa = PBXGroup;
+			children = (
+				31263374207F091F003EA5E5 /* AmusementTableViewCell.h */,
+				31263375207F091F003EA5E5 /* AmusementTableViewCell.m */,
+				31263376207F091F003EA5E5 /* AmusementTableViewCell.xib */,
+			);
+			path = Amusement;
+			sourceTree = "<group>";
+		};
+		31263383207F37CB003EA5E5 /* LocalNews */ = {
+			isa = PBXGroup;
+			children = (
+				31263384207F37E0003EA5E5 /* LocalNewsTableViewCell.h */,
+				31263385207F37E0003EA5E5 /* LocalNewsTableViewCell.m */,
+				31263386207F37E0003EA5E5 /* LocalNewsTableViewCell.xib */,
+				31263389207F37F6003EA5E5 /* LocalNewsHeaderTableViewCell.h */,
+				3126338A207F37F6003EA5E5 /* LocalNewsHeaderTableViewCell.m */,
+				3126338B207F37F6003EA5E5 /* LocalNewsHeaderTableViewCell.xib */,
+			);
+			path = LocalNews;
 			sourceTree = "<group>";
 		};
 		3144AFC3205B5C8A00F55063 = {
@@ -1069,6 +1241,12 @@
 				31608ADB20720DE8005C5338 /* CommunityViewController_Album.h */,
 				31608ADC20720DE8005C5338 /* CommunityViewController_Album.m */,
 				31608ADD20720DE8005C5338 /* CommunityViewController_Album.xib */,
+				31263330207DA776003EA5E5 /* CommunityDetailViewController.h */,
+				31263331207DA776003EA5E5 /* CommunityDetailViewController.m */,
+				31263332207DA776003EA5E5 /* CommunityDetailViewController.xib */,
+				31263335207DA7EE003EA5E5 /* CommunityDetailViewController_dynamic.h */,
+				31263336207DA7EE003EA5E5 /* CommunityDetailViewController_dynamic.m */,
+				31263337207DA7EE003EA5E5 /* CommunityDetailViewController_dynamic.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1385,6 +1563,12 @@
 				31B984902060D8630041E910 /* BaseViewController.h */,
 				31B984912060D8630041E910 /* BaseViewController.m */,
 				31B984A22060E8DF0041E910 /* Header.pch */,
+				31263393207F48E0003EA5E5 /* LoginViewController.h */,
+				31263394207F48E0003EA5E5 /* LoginViewController.m */,
+				31263395207F48E0003EA5E5 /* LoginViewController.xib */,
+				31263398207F48FE003EA5E5 /* RegisterViewController.h */,
+				31263399207F48FE003EA5E5 /* RegisterViewController.m */,
+				3126339A207F48FE003EA5E5 /* RegisterViewController.xib */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -1525,10 +1709,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				31608AD020720DA0005C5338 /* CommunityViewController_Mode.xib in Resources */,
+				31263353207EF2EA003EA5E5 /* HeadLineNewsViewController.xib in Resources */,
 				31ACC9442079BACA00B89984 /* MineCenterSettingViewController_private.xib in Resources */,
 				3119D2D32068F56F0094DB60 /* MainFunctionTableViewCell.xib in Resources */,
 				31608A93206CD33C005C5338 /* ExportHtmlViewController.xib in Resources */,
 				31608ABE2071DA0A005C5338 /* GroupViewTableViewCell.xib in Resources */,
+				31263344207E043A003EA5E5 /* VideoLogTableViewCell_rec.xib in Resources */,
 				31ACC9582079EE8000B89984 /* MineCenterSettingInfoCell4.xib in Resources */,
 				31ACC998207B636600B89984 /* NearByPersonViewController.xib in Resources */,
 				31072612207463F1009C163C /* MineTypeHeaderView.xib in Resources */,
@@ -1536,11 +1722,13 @@
 				3119D2C22068E2540094DB60 /* DiscuzBannelTableViewCell.xib in Resources */,
 				31608AE920721C2C005C5338 /* CommunityTableViewCell.xib in Resources */,
 				31608B1620736366005C5338 /* MineLogoutTableView.xib in Resources */,
+				3126339C207F48FE003EA5E5 /* RegisterViewController.xib in Resources */,
 				31ACC99D207B683D00B89984 /* NearByPersonTableViewCell.xib in Resources */,
 				31ACC98B207B5AF600B89984 /* MineCollectionViewController.xib in Resources */,
 				31608B2E20737A56005C5338 /* MineCenterViewController_mine.xib in Resources */,
 				31608ADA20720DD4005C5338 /* CommunityViewController_Rec.xib in Resources */,
 				31ACC9D5207CA48500B89984 /* TopicDetailViewController_hotest.xib in Resources */,
+				31263382207F3774003EA5E5 /* LocalNewsViewController.xib in Resources */,
 				31ACC95D2079F1E200B89984 /* MineCenterSettingInfoCell5.xib in Resources */,
 				3119D2DB2069D86B0094DB60 /* WritingLogViewController.xib in Resources */,
 				3107262620747C4A009C163C /* MineCenterNavBarView2.xib in Resources */,
@@ -1550,14 +1738,20 @@
 				310D909420634BA400756558 /* NoNetView.xib in Resources */,
 				31608AA5206E37BB005C5338 /* DiscoveryViewController.xib in Resources */,
 				31ACC990207B5DDB00B89984 /* MineCollectionTableViewCell.xib in Resources */,
+				31263372207F07E2003EA5E5 /* AmusementViewController.xib in Resources */,
 				3119D31F206B8A080094DB60 /* MainRankingTableViewCell.xib in Resources */,
+				3126336D207F004A003EA5E5 /* SeedingViewController.xib in Resources */,
+				31263397207F48E0003EA5E5 /* LoginViewController.xib in Resources */,
 				31ACC97C207B480100B89984 /* MineReNameViewController.xib in Resources */,
+				3126334E207E0AD0003EA5E5 /* VideoLogCollectionCell_common.xib in Resources */,
 				3144AFDC205B5C8A00F55063 /* LaunchScreen.storyboard in Resources */,
 				31ACC9302079B62900B89984 /* MineCenterSettingViewController.xib in Resources */,
 				31608ADF20720DE8005C5338 /* CommunityViewController_Album.xib in Resources */,
 				31608AFF20732946005C5338 /* CommunityCollectionViewCell_Album.xib in Resources */,
 				31ACC94E2079EAF100B89984 /* MineCenterSettingInfoCell2.xib in Resources */,
+				31263339207DA7EE003EA5E5 /* CommunityDetailViewController_dynamic.xib in Resources */,
 				31ACC9212079AA1500B89984 /* MineVIPStatusTableViewCell.xib in Resources */,
+				3126338D207F37F6003EA5E5 /* LocalNewsHeaderTableViewCell.xib in Resources */,
 				31ACC9DA207CAEE200B89984 /* TopicListViewController.xib in Resources */,
 				31ACC9AC207C483B00B89984 /* SearchResultViewController.xib in Resources */,
 				3119D32E206C92930094DB60 /* WritingLogUploadImagesView.xib in Resources */,
@@ -1566,16 +1760,19 @@
 				3119D2E32069DD7B0094DB60 /* WritingLogBodyHeaderView.xib in Resources */,
 				31608AAF2071C22E005C5338 /* DiscoveryContentTableViewCell.xib in Resources */,
 				31ACC92B2079B18E00B89984 /* MineExpRecTableViewCell.xib in Resources */,
+				31263349207E0A97003EA5E5 /* VideoLogTableViewCell_common.xib in Resources */,
 				3107260D2074616B009C163C /* MinePersonalSubTableViewCell.xib in Resources */,
 				3119D27E2064E2E50094DB60 /* TableViewOfRefreshFooterView2.xib in Resources */,
 				31ACC9DF207CB00200B89984 /* TopicListTableViewCell_index.xib in Resources */,
 				31ACC9D0207CA47300B89984 /* TopicDetailViewController_newset.xib in Resources */,
 				3107262120747BE7009C163C /* MineCenterScrollViewTableCell2.xib in Resources */,
+				31263363207EF987003EA5E5 /* SeedingContentShareTableViewCell2.xib in Resources */,
 				31ACC9262079B10E00B89984 /* MineExpRecViewController.xib in Resources */,
 				31ACC9532079ECF000B89984 /* MineCenterSettingInfoCell3.xib in Resources */,
 				31608AF6207313C9005C5338 /* CommunityTableViewCollectionCell_Newest.xib in Resources */,
 				31608AB12071CD37005C5338 /* DiscoveryHeaderTableViewCell.xib in Resources */,
 				31ACC9BC207C652800B89984 /* OtherCenterNavBarView.xib in Resources */,
+				3126335E207EF97A003EA5E5 /* SeedingContentShareTableViewCell1.xib in Resources */,
 				31608AB92071D8AD005C5338 /* GroupViewController.xib in Resources */,
 				31ACC9C1207C8D8200B89984 /* OtherCenterHeaderTableCell.xib in Resources */,
 				3107261C20747A88009C163C /* MineCenterHeaderTableCell2.xib in Resources */,
@@ -1587,8 +1784,10 @@
 				31608B1F20737141005C5338 /* MineCenterViewController.xib in Resources */,
 				3119D2CE2068EA390094DB60 /* MainPublicTableViewCell.xib in Resources */,
 				31ACC981207B4DB700B89984 /* FeedBackViewController.xib in Resources */,
+				31263359207EF72C003EA5E5 /* SeedingHeaderTableViewCell.xib in Resources */,
 				31ACC9CB207C9F0100B89984 /* TopicDetailViewController.xib in Resources */,
 				31ACC93F2079BABB00B89984 /* MineCenterSettingViewController_bondPhone.xib in Resources */,
+				3126337D207F3427003EA5E5 /* TableViewTitleCellView.xib in Resources */,
 				3119D324206B9E7F0094DB60 /* WritingLogPositionView.xib in Resources */,
 				31608AC32071DA36005C5338 /* GroupSectionHeaderView.xib in Resources */,
 				3119D2832064E8C60094DB60 /* FirstPageNavigationBarView.xib in Resources */,
@@ -1598,6 +1797,7 @@
 				31608B2920737A47005C5338 /* MineCenterViewController_focus.xib in Resources */,
 				31608B2420737A31005C5338 /* MineCenterViewController_circle.xib in Resources */,
 				31608B07207359F7005C5338 /* MineViewController.xib in Resources */,
+				31263388207F37E0003EA5E5 /* LocalNewsTableViewCell.xib in Resources */,
 				3119D32C206C81940094DB60 /* WritingLogUploadImagesCell.xib in Resources */,
 				31ACC9632079F2B100B89984 /* MineCommitCell.xib in Resources */,
 				3119D2C02068E2540094DB60 /* DiscuzBannelCollectionCell.xib in Resources */,
@@ -1616,12 +1816,15 @@
 				3119D301206A3F750094DB60 /* MainPopularTableViewCell.xib in Resources */,
 				31ACC9352079BA9900B89984 /* MineCenterSettingViewController_info.xib in Resources */,
 				3119D31A206B86410094DB60 /* MainThemeTableViewCell2.xib in Resources */,
+				3126333E207E038E003EA5E5 /* VideoLogViewController.xib in Resources */,
 				3119D315206B84990094DB60 /* MainThemeCollectionViewCell2.xib in Resources */,
 				31608B11207361D5005C5338 /* MineMainTableViewCell.xib in Resources */,
 				3119D2ED206A0F3B0094DB60 /* MainQuickScanTableViewCell.xib in Resources */,
+				31263378207F091F003EA5E5 /* AmusementTableViewCell.xib in Resources */,
 				31ACC9E4207CB01700B89984 /* TopicListTableViewCell_content.xib in Resources */,
 				31B984A12060DC010041E910 /* FirstPageViewController.xib in Resources */,
 				3119D2C72068E2540094DB60 /* DiscuzMainTableViewCell.xib in Resources */,
+				31263334207DA776003EA5E5 /* CommunityDetailViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1709,10 +1912,12 @@
 				31608B2320737A31005C5338 /* MineCenterViewController_circle.m in Sources */,
 				31ACC9DE207CB00200B89984 /* TopicListTableViewCell_index.m in Sources */,
 				31ACC93E2079BABB00B89984 /* MineCenterSettingViewController_bondPhone.m in Sources */,
+				31263358207EF72C003EA5E5 /* SeedingHeaderTableViewCell.m in Sources */,
 				31ACC9C5207C929D00B89984 /* CreatTopicViewController.m in Sources */,
 				3119D2C42068E2540094DB60 /* MainCategoryTableViewCell.m in Sources */,
 				3107262020747BE7009C163C /* MineCenterScrollViewTableCell2.m in Sources */,
 				31B984922060D8630041E910 /* BaseViewController.m in Sources */,
+				3126336C207F004A003EA5E5 /* SeedingViewController.m in Sources */,
 				31608B06207359F7005C5338 /* MineViewController.m in Sources */,
 				31608AD920720DD4005C5338 /* CommunityViewController_Rec.m in Sources */,
 				3107260C2074616B009C163C /* MinePersonalSubTableViewCell.m in Sources */,
@@ -1733,19 +1938,26 @@
 				31ACC9342079BA9900B89984 /* MineCenterSettingViewController_info.m in Sources */,
 				31ACC9522079ECF000B89984 /* MineCenterSettingInfoCell3.m in Sources */,
 				31ACC9252079B10E00B89984 /* MineExpRecViewController.m in Sources */,
+				31263377207F091F003EA5E5 /* AmusementTableViewCell.m in Sources */,
+				3126334D207E0AD0003EA5E5 /* VideoLogCollectionCell_common.m in Sources */,
 				3119D327206C7E0C0094DB60 /* WritingLogUploadImagesView.m in Sources */,
 				31608AFA20731C1B005C5338 /* CommunityNewestData.m in Sources */,
 				31608AFE20732946005C5338 /* CommunityCollectionViewCell_Album.m in Sources */,
 				3119D2862064EA5C0094DB60 /* CommonViewFromXib.m in Sources */,
 				310D908E2061F29100756558 /* BaseWKViewController.m in Sources */,
+				31263338207DA7EE003EA5E5 /* CommunityDetailViewController_dynamic.m in Sources */,
+				3126333D207E038E003EA5E5 /* VideoLogViewController.m in Sources */,
 				3119D304206B61860094DB60 /* WritingLogTextView.m in Sources */,
 				31ACC91B2079A83900B89984 /* MineVIPStatusViewController.m in Sources */,
 				31608AB82071D8AD005C5338 /* GroupViewController.m in Sources */,
 				31608AF5207313C9005C5338 /* CommunityTableViewCollectionCell_Newest.m in Sources */,
 				31608ABD2071DA0A005C5338 /* GroupViewTableViewCell.m in Sources */,
 				3119D322206B9E760094DB60 /* WritingLogPositionView.m in Sources */,
+				31263352207EF2EA003EA5E5 /* HeadLineNewsViewController.m in Sources */,
+				31263387207F37E0003EA5E5 /* LocalNewsTableViewCell.m in Sources */,
 				31ACC97B207B480100B89984 /* MineReNameViewController.m in Sources */,
 				3119D310206B803E0094DB60 /* UIView+Extension.m in Sources */,
+				31263362207EF987003EA5E5 /* SeedingContentShareTableViewCell2.m in Sources */,
 				31ACC9CA207C9F0100B89984 /* TopicDetailViewController.m in Sources */,
 				3119D319206B86410094DB60 /* MainThemeTableViewCell2.m in Sources */,
 				31ACC9E3207CB01700B89984 /* TopicListTableViewCell_content.m in Sources */,
@@ -1775,6 +1987,8 @@
 				31608AE220721C07005C5338 /* CommunityHeaderView.m in Sources */,
 				3119D2FB206A363E0094DB60 /* MainThemeTableViewCell.m in Sources */,
 				31ACC94D2079EAF100B89984 /* MineCenterSettingInfoCell2.m in Sources */,
+				31263371207F07E2003EA5E5 /* AmusementViewController.m in Sources */,
+				31263343207E043A003EA5E5 /* VideoLogTableViewCell_rec.m in Sources */,
 				310D90E920649EE000756558 /* JSXHttpTool.m in Sources */,
 				31ACC9C0207C8D8200B89984 /* OtherCenterHeaderTableCell.m in Sources */,
 				31608B2D20737A56005C5338 /* MineCenterViewController_mine.m in Sources */,
@@ -1788,6 +2002,7 @@
 				310D90E320649E4E00756558 /* JSXDateTool.m in Sources */,
 				31608A99206DD5B9005C5338 /* NSTextAttachment+ZSTextAttachment.m in Sources */,
 				3119D30D206B7FB90094DB60 /* UIView+Extensions.m in Sources */,
+				31263348207E0A97003EA5E5 /* VideoLogTableViewCell_common.m in Sources */,
 				31ACC9202079AA1500B89984 /* MineVIPStatusTableViewCell.m in Sources */,
 				31ACC985207B532F00B89984 /* SystemInfoViewController.m in Sources */,
 				3119D2EC206A0F3B0094DB60 /* MainQuickScanTableViewCell.m in Sources */,
@@ -1797,29 +2012,36 @@
 				3119D2E12069DD710094DB60 /* WritingLogBodyFooterView.m in Sources */,
 				3119D32B206C81940094DB60 /* WritingLogUploadImagesCell.m in Sources */,
 				3119D2812064E8AF0094DB60 /* FirstPageNavigationBarView.m in Sources */,
+				3126339B207F48FE003EA5E5 /* RegisterViewController.m in Sources */,
 				31ACC96F207AF7B200B89984 /* MineCenterSettingInfoCell.m in Sources */,
 				3119D31E206B8A080094DB60 /* MainRankingTableViewCell.m in Sources */,
 				3119D2C12068E2540094DB60 /* DiscuzBannelTableViewCell.m in Sources */,
 				31ACC9572079EE8000B89984 /* MineCenterSettingInfoCell4.m in Sources */,
 				31ACC9B1207C4A1700B89984 /* FindFriendsViewController.m in Sources */,
 				3119D2D22068F56F0094DB60 /* MainFunctionTableViewCell.m in Sources */,
+				3126337C207F3427003EA5E5 /* TableViewTitleCellView.m in Sources */,
+				31263333207DA776003EA5E5 /* CommunityDetailViewController.m in Sources */,
 				31ACC9A6207B6E9400B89984 /* NearByThingTableViewCell.m in Sources */,
 				31ACC973207B026B00B89984 /* ZSPickerView.m in Sources */,
 				31ACC92F2079B62900B89984 /* MineCenterSettingViewController.m in Sources */,
 				3119D2DA2069D86B0094DB60 /* WritingLogViewController.m in Sources */,
 				31ACC9432079BACA00B89984 /* MineCenterSettingViewController_private.m in Sources */,
 				31608B1A2073651C005C5338 /* MineMainDataModel.m in Sources */,
+				3126338C207F37F6003EA5E5 /* LocalNewsHeaderTableViewCell.m in Sources */,
 				31ACC99C207B683D00B89984 /* NearByPersonTableViewCell.m in Sources */,
 				31ACC95C2079F1E200B89984 /* MineCenterSettingInfoCell5.m in Sources */,
 				31ACC980207B4DB700B89984 /* FeedBackViewController.m in Sources */,
+				31263381207F3774003EA5E5 /* LocalNewsViewController.m in Sources */,
 				31ACC9E8207CBCC700B89984 /* GroupSearchResultViewController.m in Sources */,
 				31608A96206CD46D005C5338 /* JSXHtmlExportTool.m in Sources */,
 				31608AD420720DBE005C5338 /* CommunityViewController_Newest.m in Sources */,
 				31608B0B20735EE9005C5338 /* MineHeaderTableViewCell.m in Sources */,
 				31608ADE20720DE8005C5338 /* CommunityViewController_Album.m in Sources */,
+				3126335D207EF97A003EA5E5 /* SeedingContentShareTableViewCell1.m in Sources */,
 				3119D2E82069E60D0094DB60 /* UIBarButtonItem+BackButtun.m in Sources */,
 				31608A92206CD33C005C5338 /* ExportHtmlViewController.m in Sources */,
 				3119D2772064E0CE0094DB60 /* TableViewOfRefreshFooterView.m in Sources */,
+				31263396207F48E0003EA5E5 /* LoginViewController.m in Sources */,
 				31608AAE2071C22E005C5338 /* DiscoveryContentTableViewCell.m in Sources */,
 				31ACC98A207B5AF600B89984 /* MineCollectionViewController.m in Sources */,
 				3119D2DE2069DD630094DB60 /* WritingLogBodyHeaderView.m in Sources */,

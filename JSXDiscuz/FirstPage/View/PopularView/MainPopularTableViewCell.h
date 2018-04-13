@@ -8,6 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void(^MainPopularTableViewCellBlock)(void);
+
 @interface MainPopularTableViewCell : UITableViewCell
+
+@property (weak, nonatomic) IBOutlet UILabel *titleLab;
+@property (weak, nonatomic) IBOutlet UILabel *titleNameLab;
+@property (weak, nonatomic) IBOutlet UIImageView *popularImgv;
+@property (weak, nonatomic) IBOutlet UILabel *readNumLab;
+@property (weak, nonatomic) IBOutlet UIImageView *userHeadImgV;
+@property (weak, nonatomic) IBOutlet UILabel *userNameLab;
+
+@property(nonatomic,copy) MainPopularTableViewCellBlock block;
 
 @end

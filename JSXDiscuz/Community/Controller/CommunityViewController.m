@@ -42,7 +42,7 @@
     self.contentScrollView.contentSize=CGSizeMake(SDScreenWidth*4,self.contentScrollView.height);
     
     //默认选中第一个标签页
-    lineView = [[UIView alloc]initWithFrame:CGRectMake(SDScreenWidth/8-30, 49, 60, 1)];
+    lineView = [[UIView alloc]initWithFrame:CGRectMake(SDScreenWidth/8-30, 39, 60, 1)];
     lineView.backgroundColor=SDColor(46, 196, 252);
     [self.barView addSubview:lineView];
     

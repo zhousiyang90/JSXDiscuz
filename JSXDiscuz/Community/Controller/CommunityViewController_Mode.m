@@ -11,6 +11,7 @@
 #import "CommunityHeaderView.h"
 #import "GroupSectionHeaderView.h"
 #import <objc/runtime.h>
+#import "CommunityDetailViewController.h"
 
 @interface CommunityViewController_Mode ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -68,6 +69,13 @@
     CommunityTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"communityTableViewCell"];
     cell.selectionStyle=UITableViewCellSelectionStyleNone;
     return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    //社区详情
+    CommunityDetailViewController *vc=[[CommunityDetailViewController alloc]init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 -(void)clickHeader:(UITapGestureRecognizer*)tapges

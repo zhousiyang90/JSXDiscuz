@@ -28,17 +28,26 @@
 
 -(void)clickView1
 {
-    
+    if(_block)
+    {
+        _block(0);
+    }
 }
 
 -(void)clickView2
 {
-    
+    if(_block)
+    {
+        _block(1);
+    }
 }
 
 -(void)clickView3
 {
-    
+    if(_block)
+    {
+        _block(2);
+    }
 }
 
 @end

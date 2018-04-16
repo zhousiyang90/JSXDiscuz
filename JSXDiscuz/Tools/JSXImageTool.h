@@ -19,4 +19,8 @@
 
 +(UIColor*)getUIColorFromUIImage:(UIImage*)image;
 
+#pragma mark - 合成图片
+
++(UIImage*)composeImg:(UIImage*)bigImg andimg2:(UIImage*)smallImg;
+
 @end

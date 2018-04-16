@@ -26,4 +26,9 @@
 
 +(NSString*)getNearFourBeautifulNumber:(double)number;
 
+#pragma mark 判断手机号合理性
+
++(BOOL)isValidPhoneNumber:(NSString*)phone;
+
+
 @end

@@ -22,5 +22,9 @@
 }
 
 - (IBAction)clickLogout:(id)sender {
+    if(_block)
+    {
+        _block();
+    }
 }
 @end

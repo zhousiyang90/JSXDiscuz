@@ -90,9 +90,25 @@
     {
         MineLogoutTableView * cell = [tableView dequeueReusableCellWithIdentifier:@"mineLogoutTableView"];
         cell.selectionStyle=UITableViewCellSelectionStyleNone;
-        [[cell rac_signalForSelector:@selector(clickLogout:)]subscribeNext:^(id x) {
+        cell.block = ^{
             //点击退出
-        }];
+            UIAlertController * alertController = [UIAlertController alertControllerWithTitle:@"退出"message:@"确定要退出吗？"
+                                                                            preferredStyle:UIAlertControllerStyleAlert];
+            
+            UIAlertAction *sureAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                //1.清空用户数据
+                [UserDataTools clearUserInfo];
+                //2.跳转到首页
+                [self.tabBarController setSelectedIndex:0];
+            }];
+            UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+                
+            }];
+            
+            [alertController addAction:sureAction];
+            [alertController addAction:cancelAction];
+            [self presentViewController:alertController animated:YES completion:nil];
+        };
         return cell;
     }else
     {
@@ -149,12 +165,8 @@
         }else if(indexPath.row==2)
         {
             //点击建议反馈
-            //FeedBackViewController * vc =[[FeedBackViewController alloc]init];
-            //[self.navigationController pushViewController:vc animated:YES];
-            
-            LoginViewController * vc =[LoginViewController shareLoginViewController];
-            [self presentViewController:vc animated:YES completion:nil];
-           
+            FeedBackViewController * vc =[[FeedBackViewController alloc]init];
+            [self.navigationController pushViewController:vc animated:YES];
         }
     }
     
@@ -227,6 +239,7 @@
     self.needNoNetTips=NO;
     self.needNoTableViewDataTips=NO;
     self.baseTableview=self.tableview;
+    
 }
 
 -(void)setNavigationBar

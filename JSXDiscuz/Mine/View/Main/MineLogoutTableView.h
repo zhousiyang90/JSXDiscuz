@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void(^MineLogoutTableViewBlock)(void);
+
 @interface MineLogoutTableView : UITableViewCell
 
+@property(nonatomic,copy)MineLogoutTableViewBlock block;
 - (IBAction)clickLogout:(id)sender;
 
 @end

@@ -17,6 +17,7 @@
 
 @implementation RegisterViewController
 
+/*
 #pragma mark - 保证RegisterViewController单例
 // 创建静态对象 防止外部访问
 static RegisterViewController *_instance;
@@ -33,12 +34,7 @@ static RegisterViewController *_instance;
 // 为了使实例易于外界访问 我们一般提供一个类方法
 // 类方法命名规范 share类名|default类名|类名
 
-+(instancetype)shareRegisterViewController
-{
-    //return _instance;
-    // 最好用self 用Tools他的子类调用时会出现错误
-    return [[self alloc]init];
-}
+
 // 为了严谨，也要重写copyWithZone 和 mutableCopyWithZone
 -(id)copyWithZone:(NSZone *)zone
 {
@@ -48,7 +44,13 @@ static RegisterViewController *_instance;
 {
     return _instance;
 }
-
+*/
++(instancetype)shareRegisterViewController
+{
+    //return _instance;
+    // 最好用self 用Tools他的子类调用时会出现错误
+    return [[self alloc]init];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     

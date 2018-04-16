@@ -48,6 +48,15 @@
     
 }
 
+#pragma mark - 注册通知
+
+-(void)registerNotification
+{
+    [[[NSNotificationCenter defaultCenter]rac_addObserverForName:Notification_Logout object:nil]subscribeNext:^(id x) {
+        LoginViewController * vc=[LoginViewController shareLoginViewController];
+        [self presentViewController:vc animated:vc completion:nil];
+    }];
+}
 
 #pragma mark - 获取初始化数据
 

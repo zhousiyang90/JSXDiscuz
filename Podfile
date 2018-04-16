@@ -15,4 +15,5 @@ pod 'MBProgressHUD'
 pod 'EGOCache'
 pod 'SVPullToRefresh'
 pod 'IQKeyboardManager'
+pod 'TZImagePickerController'
 end

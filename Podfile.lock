@@ -39,6 +39,7 @@ PODS:
   - SDWebImage/Core (3.7.6)
   - SVProgressHUD (2.2.5)
   - SVPullToRefresh (0.4.1)
+  - TZImagePickerController (2.0.0.9)
   - UITableView+FDTemplateLayoutCell (1.6)
 
 DEPENDENCIES:
@@ -56,6 +57,7 @@ DEPENDENCIES:
   - SDWebImage (~> 3.7.5)
   - SVProgressHUD
   - SVPullToRefresh
+  - TZImagePickerController
   - UITableView+FDTemplateLayoutCell (~> 1.4)
 
 SPEC CHECKSUMS:
@@ -74,8 +76,9 @@ SPEC CHECKSUMS:
   SDWebImage: c325cf02c30337336b95beff20a13df489ec0ec9
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SVPullToRefresh: ba2e718695a43253d8bea6852d2960097dc15d8c
+  TZImagePickerController: 9bf89512bb6de53e87897f2e17e607c126a199d6
   UITableView+FDTemplateLayoutCell: 5c949b4a5059c404b442926c0e80f81d10a2d66f
 
-PODFILE CHECKSUM: 686b8bd32aad192ae34fb290a8609223218826f3
+PODFILE CHECKSUM: 3744307810ad5d3347eb982b21409133e8155914
 
 COCOAPODS: 1.4.0

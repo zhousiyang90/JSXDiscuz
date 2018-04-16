@@ -11,6 +11,7 @@
 
 typedef NS_ENUM(NSUInteger, ZSTextAttachmentType) {
     ZSTextAttachmentTypeImage,
+    ZSTextAttachmentTypeVideo
 };
 
 @interface NSTextAttachment (ZSTextAttachment)

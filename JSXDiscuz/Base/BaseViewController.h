@@ -27,6 +27,8 @@
 -(void)addSubViews;
 //获取初始化的数据
 -(void)getInitData;
+//注册通知
+-(void)registerNotification;
 //无网络状态下的获取数据
 -(void)nonetstatusGetData;
 @end

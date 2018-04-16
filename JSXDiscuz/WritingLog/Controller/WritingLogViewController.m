@@ -17,8 +17,9 @@
 #import "WritingLogUploadImagesCell.h"
 #import "ExportHtmlViewController.h"
 #import "WritingLogImageData.h"
+#import <Photos/Photos.h>
 
-@interface WritingLogViewController ()<UINavigationControllerDelegate, UIImagePickerControllerDelegate,UITextViewDelegate>
+@interface WritingLogViewController ()<UINavigationControllerDelegate, UIImagePickerControllerDelegate,UITextViewDelegate,TZImagePickerControllerDelegate>
 {
     WritingLogTitleView * titleView;
     
@@ -72,7 +73,14 @@ static NSString *const cellId = @"writingLogUploadImagesCell";
 }
 
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
-    _lastSelectedRange = NSMakeRange(range.location + text.length - range.length, 0);
+    
+    NSUInteger location=range.location + text.length - range.length;
+    if(range.location+text.length<range.length)
+    {
+        location=0;
+    }
+    _lastSelectedRange = NSMakeRange(location,0);
+
     return YES;
 }
 
@@ -83,6 +91,68 @@ static NSString *const cellId = @"writingLogUploadImagesCell";
 }
 
 
+#pragma mark - 调用系统视频文件
+
+-(void)openSystemVideoFile
+{
+    UIAlertController * alertController = [UIAlertController alertControllerWithTitle:nil
+                                                                              message:nil
+                                                                       preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    UIAlertAction * cameraAction = [UIAlertAction actionWithTitle:@"录像" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        //判断当前的sourceType是否可用
+        if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+            UIImagePickerController * imagePickerVC = [[UIImagePickerController alloc] init];
+            // 设置资源来源（相册、相机、图库之一）
+            imagePickerVC.sourceType = UIImagePickerControllerSourceTypeCamera;
+            // 允许的视屏质量（如果质量选取的质量过高，会自动降低质量）
+            imagePickerVC.videoQuality = UIImagePickerControllerQualityTypeHigh;
+            imagePickerVC.mediaTypes = @[(NSString *)kUTTypeMovie];
+            [imagePickerVC setVideoMaximumDuration:10.f];
+            // 设置代理，遵守UINavigationControllerDelegate, UIImagePickerControllerDelegate 协议
+            imagePickerVC.delegate = self;
+            // 是否允许编辑（YES：图片选择完成进入编辑模式）
+            imagePickerVC.allowsEditing = NO;
+            // model出控制器
+            [self presentViewController:imagePickerVC animated:YES completion:nil];
+        }else
+        {
+            [SVProgressHUD showErrorWithStatus:@"相机不可用"];
+        }
+        
+    }];
+    
+    UIAlertAction * alBumAction = [UIAlertAction actionWithTitle:@"从相册选择" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+        TZImagePickerController *imagePickerVc = [[TZImagePickerController alloc]initWithMaxImagesCount:1 delegate:self];
+        imagePickerVc.allowTakePicture=NO;
+        imagePickerVc.allowPickingVideo=YES;
+        imagePickerVc.allowPickingImage=YES;
+        [imagePickerVc setDidFinishPickingVideoHandle:^(UIImage *coverImage, id asset) {
+            //SDLog(@"coverImage:%@-asset:%@",coverImage,asset);
+        }];
+        [imagePickerVc setDidFinishPickingPhotosHandle:^(NSArray<UIImage *> *photos, NSArray *assets, BOOL isSelectOriginalPhoto) {
+            for (int i=0; i<photos.count; i++) {
+                UIImage * img1 = photos[i];
+                UIImage * placeHolder = [JSXImageTool composeImg:img1 andimg2:[UIImage imageNamed:@"video_bf"]];
+                [self addTextVideoPlaceHolder:placeHolder];
+            }
+        }];
+        [self presentViewController:imagePickerVc animated:YES completion:nil];
+        
+    }];
+    
+    UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        
+    }];
+    
+    [alertController addAction:cameraAction];
+    [alertController addAction:alBumAction];
+    [alertController addAction:cancelAction];
+    [self presentViewController:alertController animated:YES completion:nil];
+    
+}
+
 #pragma mark - 调用系统相机相册
 
 -(void)openSystemCameraAndAlbum
@@ -92,31 +162,48 @@ static NSString *const cellId = @"writingLogUploadImagesCell";
                                                             preferredStyle:UIAlertControllerStyleActionSheet];
     
     UIAlertAction * cameraAction = [UIAlertAction actionWithTitle:@"拍照" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-       
-        
+                //判断当前的sourceType是否可用
+                if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+                    UIImagePickerController * imagePickerVC = [[UIImagePickerController alloc] init];
+                    // 设置资源来源（相册、相机、图库之一）
+                    imagePickerVC.sourceType = UIImagePickerControllerSourceTypeCamera;
+                    // 允许的视屏质量（如果质量选取的质量过高，会自动降低质量）
+                    imagePickerVC.videoQuality = UIImagePickerControllerQualityTypeHigh;
+                    imagePickerVC.mediaTypes = @[(NSString *)kUTTypeImage];
+                    // 设置代理，遵守UINavigationControllerDelegate, UIImagePickerControllerDelegate 协议
+                    imagePickerVC.delegate = self;
+                    // 是否允许编辑（YES：图片选择完成进入编辑模式）
+                    imagePickerVC.allowsEditing = NO;
+                    // model出控制器
+                    [self presentViewController:imagePickerVC animated:YES completion:nil];
+                }else
+                {
+                    [SVProgressHUD showErrorWithStatus:@"相机不可用"];
+                }
     }];
     
     UIAlertAction * alBumAction = [UIAlertAction actionWithTitle:@"从相册选择" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         
-        // 判断当前的sourceType是否可用
-        if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) {
-            UIImagePickerController * imagePickerVC = [[UIImagePickerController alloc] init];
-            // 设置资源来源（相册、相机、图库之一）
-            imagePickerVC.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-            // 设置可用的媒体类型、默认只包含kUTTypeImage，如果想选择视频，请添加kUTTypeMovie
-            // 如果选择的是视屏，允许的视屏时长为20秒
-            imagePickerVC.videoMaximumDuration = 20;
-            // 允许的视屏质量（如果质量选取的质量过高，会自动降低质量）
-            imagePickerVC.videoQuality = UIImagePickerControllerQualityTypeHigh;
-            imagePickerVC.mediaTypes = @[(NSString *)kUTTypeMovie, (NSString *)kUTTypeImage];
-            // 设置代理，遵守UINavigationControllerDelegate, UIImagePickerControllerDelegate 协议
-            imagePickerVC.delegate = self;
-            // 是否允许编辑（YES：图片选择完成进入编辑模式）
-            imagePickerVC.allowsEditing = NO;
-            // model出控制器
-            [self presentViewController:imagePickerVC animated:YES completion:nil];
-            
-        }
+        TZImagePickerController *imagePickerVc = [[TZImagePickerController alloc] initWithMaxImagesCount:3 delegate:self];
+        imagePickerVc.allowTakePicture=NO;
+        imagePickerVc.allowPickingVideo=NO;
+        imagePickerVc.allowPickingImage=YES;
+        [imagePickerVc setDidFinishPickingPhotosHandle:^(NSArray<UIImage *> *photos, NSArray *assets, BOOL isSelectOriginalPhoto) {
+            if(self.getPhotoFromContent)
+            {
+                for (int i=0; i<photos.count; i++) {
+                    UIImage * theImage = photos[i];
+                    [self addTextPosition:theImage];
+                }
+            }else
+            {
+                for (int i=0; i<photos.count; i++) {
+                    UIImage * theImage = photos[i];
+                    [self addAlbumPosition:theImage];
+                }
+            }
+        }];
+        [self presentViewController:imagePickerVc animated:YES completion:nil];
         
     }];
     
@@ -132,7 +219,6 @@ static NSString *const cellId = @"writingLogUploadImagesCell";
 
 // 选择图片成功调用此方法
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
-    
     NSString *mediaType = [info objectForKey:UIImagePickerControllerMediaType];
     // 判断获取类型：图片
     if ([mediaType isEqualToString:( NSString *)kUTTypeImage]){
@@ -154,16 +240,12 @@ static NSString *const cellId = @"writingLogUploadImagesCell";
             [self addAlbumPosition:theImage];
         }
     }
-    
     [self dismissViewControllerAnimated:YES completion:nil];
-    
 }
 
 
 // 取消图片选择调用此方法
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
-    
-    // dismiss UIImagePickerController
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -189,11 +271,11 @@ static NSString *const cellId = @"writingLogUploadImagesCell";
                                                            appropriateForURL:nil
                                                                       create:NO
                                                                        error:nil];
-        NSURL *filePath = [documentDir URLByAppendingPathComponent:[NSString stringWithFormat:@"%@.png", [NSDate date].description]];
-        
+        NSURL *filePath = [documentDir URLByAppendingPathComponent:[NSString stringWithFormat:@"%@%u.png",[NSDate date].description,arc4random()%100]];
         NSData *originImageData = UIImagePNGRepresentation(image);
         if ([originImageData writeToFile:filePath.path atomically:YES]) {
             imageData.filePath = filePath.absoluteString;
+           
         }
     });
     [self layoutWritingLogViews];
@@ -211,11 +293,13 @@ static NSString *const cellId = @"writingLogUploadImagesCell";
     NSAttributedString *attachmentString = [NSAttributedString attributedStringWithAttachment:textAttachment];
     NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:@" "];
     [attributedString insertAttributedString:attachmentString atIndex:0];
+
     if (_lastSelectedRange.location != 0 &&
-        ![[bodyTextView.text substringWithRange:NSMakeRange(_lastSelectedRange.location-1,1)] isEqualToString:@"\n"]) {
-        // 上一个字符不为"\n"则图片前添加一个换行 且 不是第一个位置
+            ![[bodyTextView.text substringWithRange:NSMakeRange(_lastSelectedRange.location-1,1)] isEqualToString:@"\n"]) {
+            // 上一个字符不为"\n"则图片前添加一个换行 且 不是第一个位置
         [attributedString insertAttributedString:[[NSAttributedString alloc] initWithString:@"\n"] atIndex:0];
     }
+    
     [attributedString addAttributes:bodyTextView.typingAttributes range:NSMakeRange(0, attributedString.length)];
     NSMutableParagraphStyle *paragraphStyle = bodyTextView.typingAttrDict[NSParagraphStyleAttributeName];
     [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, attributedString.length)];
@@ -225,6 +309,7 @@ static NSString *const cellId = @"writingLogUploadImagesCell";
     bodyTextView.allowsEditingTextAttributes = YES;
     bodyTextView.attributedText = attributedText;
     bodyTextView.allowsEditingTextAttributes = NO;
+    [bodyTextView scrollRangeToVisible:_lastSelectedRange];
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         
@@ -234,16 +319,61 @@ static NSString *const cellId = @"writingLogUploadImagesCell";
                                                            appropriateForURL:nil
                                                                       create:NO
                                                                        error:nil];
-        NSURL *filePath = [documentDir URLByAppendingPathComponent:[NSString stringWithFormat:@"%@.png", [NSDate date].description]];
-        
-        
+        NSURL *filePath = [documentDir URLByAppendingPathComponent:[NSString stringWithFormat:@"%@%u.png",[NSDate date].description,arc4random()%100]];
         NSData *originImageData = UIImagePNGRepresentation(textAttachment.image);
-        
         if ([originImageData writeToFile:filePath.path atomically:YES]) {
             textAttachment.attachmentType = ZSTextAttachmentTypeImage;
             textAttachment.localFilePath = filePath.absoluteString;
         }
     });
+    
+    [self layoutWritingLogViews];
+}
+
+-(void)addTextVideoPlaceHolder:(UIImage*)placeHolder
+{
+    NSTextAttachment *textAttachment = [[NSTextAttachment alloc] init];
+    CGRect rect = CGRectZero;
+    rect.size.width = bodyTextView.width-30;
+    rect.size.height = (bodyTextView.width-30)*placeHolder.size.height/placeHolder.size.width;
+    textAttachment.bounds = rect;
+    textAttachment.image = placeHolder;
+    
+    NSAttributedString *attachmentString = [NSAttributedString attributedStringWithAttachment:textAttachment];
+    NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:@" "];
+    [attributedString insertAttributedString:attachmentString atIndex:0];
+    
+    if (_lastSelectedRange.location!= 0 &&
+            ![[bodyTextView.text substringWithRange:NSMakeRange(_lastSelectedRange.location-1,1)] isEqualToString:@"\n"]) {
+            // 上一个字符不为"\n"则图片前添加一个换行 且 不是第一个位置
+        [attributedString insertAttributedString:[[NSAttributedString alloc] initWithString:@"\n"] atIndex:0];
+    }
+    
+    [attributedString addAttributes:bodyTextView.typingAttributes range:NSMakeRange(0, attributedString.length)];
+    NSMutableParagraphStyle *paragraphStyle = bodyTextView.typingAttrDict[NSParagraphStyleAttributeName];
+    [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, attributedString.length)];
+    
+    NSMutableAttributedString *attributedText = [[NSMutableAttributedString alloc] initWithAttributedString:bodyTextView.attributedText];
+    [attributedText replaceCharactersInRange:_lastSelectedRange withAttributedString:attributedString];
+    bodyTextView.allowsEditingTextAttributes = YES;
+    bodyTextView.attributedText = attributedText;
+    bodyTextView.allowsEditingTextAttributes = NO;
+    [bodyTextView scrollRangeToVisible:_lastSelectedRange];
+//    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+//
+//        // 实际应用时候可以将存本地的操作改为上传到服务器，URL 也由本地路径改为服务器图片地址。
+//        NSURL *documentDir = [[NSFileManager defaultManager] URLForDirectory:NSDocumentDirectory
+//                                                                    inDomain:NSUserDomainMask
+//                                                           appropriateForURL:nil
+//                                                                      create:NO
+//                                                                       error:nil];
+//        NSURL *filePath = [documentDir URLByAppendingPathComponent:[NSString stringWithFormat:@"%@%u.png",[NSDate date].description,arc4random()%100]];
+//        NSData *originImageData = UIImagePNGRepresentation(textAttachment.image);
+//        if ([originImageData writeToFile:filePath.path atomically:YES]) {
+//            textAttachment.attachmentType = ZSTextAttachmentTypeVideo;
+//            textAttachment.localFilePath = filePath.absoluteString;
+//        }
+//    });
     
     [self layoutWritingLogViews];
 }
@@ -327,6 +457,7 @@ static NSString *const cellId = @"writingLogUploadImagesCell";
     bodyTextView=[[WritingLogTextView alloc]init];
     bodyTextView.bounces=NO;
     bodyTextView.delegate=self;
+    bodyTextView.scrollEnabled=NO;
     [bodyView addSubview:bodyTextView];
     
     placeHolderLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, 200, 30)];
@@ -400,7 +531,7 @@ static NSString *const cellId = @"writingLogUploadImagesCell";
         [self openSystemCameraAndAlbum];
     }];
     [[bodyFooterView rac_signalForSelector:@selector(clickAddVideoBtn:)]subscribeNext:^(id x) {
-        
+        [self openSystemVideoFile];
     }];
     
     [[bodyFooterView rac_signalForSelector:@selector(clickAddPositionBtn:)]subscribeNext:^(id x) {

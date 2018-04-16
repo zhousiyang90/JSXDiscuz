@@ -10,11 +10,16 @@
 #import "RegisterViewController.h"
 
 @interface LoginViewController ()
+{
+    NSString * randomPhone;
+}
+@property(nonatomic,strong) UserData *user;
 
 @end
 
 @implementation LoginViewController
 
+/*
 #pragma mark - 保证LoginViewController单例
 // 创建静态对象 防止外部访问
 static LoginViewController *_instance;
@@ -32,12 +37,7 @@ static LoginViewController *_instance;
 // 类方法命名规范 share类名|default类名|类名
 
 
-+(instancetype)shareLoginViewController
-{
-    //return _instance;
-    // 最好用self 用Tools他的子类调用时会出现错误
-    return [[self alloc]init];
-}
+
 // 为了严谨，也要重写copyWithZone 和 mutableCopyWithZone
 -(id)copyWithZone:(NSZone *)zone
 {
@@ -47,7 +47,14 @@ static LoginViewController *_instance;
 {
     return _instance;
 }
+*/
 
++(instancetype)shareLoginViewController
+{
+    //return _instance;
+    // 最好用self 用Tools他的子类调用时会出现错误
+    return [[self alloc]init];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -64,11 +71,27 @@ static LoginViewController *_instance;
         self.heightConstant.constant=64;
     }
     
+    [[self.phonetf rac_textSignal]subscribeNext:^(id x) {
+        self.user.userPhone=x;
+    }];
 
     [[self.randomBtn rac_signalForControlEvents:UIControlEventTouchUpInside]subscribeNext:^(id x) {
-        
+        randomPhone=self.user.userPhone;
     }];
     [[self.loginBtn rac_signalForControlEvents:UIControlEventTouchUpInside]subscribeNext:^(id x) {
+        if(randomPhone!=self.user.userPhone)
+        {
+            [SVProgressHUD showErrorWithStatus:@"手机号改变！"];
+            return;
+        }
+        if(![JSXNumberTool isValidPhoneNumber:self.user.userPhone])
+        {
+            [SVProgressHUD showErrorWithStatus:@"手机号不合理！"];
+            return;
+        }
+        
+        [UserDataTools saveUserInfo:self.user];
+        [self dismissViewControllerAnimated:YES completion:nil];
         
     }];
     [[self.registerBtn rac_signalForControlEvents:UIControlEventTouchUpInside]subscribeNext:^(id x) {
@@ -82,5 +105,16 @@ static LoginViewController *_instance;
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+
+#pragma mark - LazyLoad
+
+-(UserData *)user
+{
+    if(_user==nil)
+    {
+        _user=[[UserData alloc]init];
+    }
+    return _user;
+}
 
 @end

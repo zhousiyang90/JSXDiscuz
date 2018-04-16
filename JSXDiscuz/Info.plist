@@ -2,6 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>访问位置(持续)</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>访问位置(使用时)</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>zh_CN</string>
 	<key>CFBundleExecutable</key>
@@ -27,8 +31,6 @@
 	</dict>
 	<key>NSCameraUsageDescription</key>
 	<string>访问相机</string>
-	<key>NSLocationAlwaysUsageDescription</key>
-	<string>访问位置</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>访问相册</string>
 	<key>UILaunchStoryboardName</key>

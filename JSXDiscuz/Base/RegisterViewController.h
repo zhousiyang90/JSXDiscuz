@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void(^RegisterViewControllerBlock)(void);
+
 @interface RegisterViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UITextField *phonetf;
@@ -22,6 +24,8 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *registerBtn;
 @property (weak, nonatomic) IBOutlet UIButton *loginBtn;
+@property(nonatomic,copy) RegisterViewControllerBlock block;
+
 - (IBAction)clickClose:(id)sender;
 
 +(instancetype)shareRegisterViewController;

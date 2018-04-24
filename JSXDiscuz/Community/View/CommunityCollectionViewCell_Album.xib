@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,7 +19,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="200" height="250"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="community_tu01" translatesAutoresizingMaskIntoConstraints="NO" id="zSU-vr-HeY">
+                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder_post" translatesAutoresizingMaskIntoConstraints="NO" id="zSU-vr-HeY">
                         <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="200" id="r2i-b4-JjF"/>
@@ -56,10 +56,14 @@
                 <constraint firstItem="807-ie-LXw" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="gpT-wN-AhL"/>
                 <constraint firstAttribute="bottom" secondItem="807-ie-LXw" secondAttribute="bottom" id="u8h-VK-dk0"/>
             </constraints>
+            <connections>
+                <outlet property="imgV" destination="zSU-vr-HeY" id="mbz-uS-qDG"/>
+                <outlet property="titleLab" destination="2xd-Yi-gQV" id="Oh8-Tr-nDV"/>
+            </connections>
             <point key="canvasLocation" x="-273" y="31"/>
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="community_tu01" width="351" height="250"/>
+        <image name="placeholder_post" width="115" height="87"/>
     </resources>
 </document>

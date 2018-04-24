@@ -43,8 +43,23 @@
 #import "UserData.h"
 #import "LoginViewController.h"
 #import <TZImagePickerController.h>
+#import "InterfaceSet.h"
+#import <MJExtension.h>
+#import <SDWebImage/UIImageView+WebCache.h>
+#import "PostBaseData.h"
+#import "GroupMainData.h"
+#import "PostsDetailViewController.h"
+#import "NSString+ZSHeight.h"
+#import "JSXLocalTool.h"
+#import "PostDetailData.h"
+#import "UITableView+ZSTableView.h"
+#import <MWPhotoBrowser.h>
 
 
+//占位图
+#define PlaceHolderImg_Head @"placeholder_head"
+#define PlaceHolderImg_Post @"placeholder_post"
+#define PlaceHolderImg_Group @"placeholder_group"
 
 //通知
 #define Notification_Logout @"Notification_Logout"
@@ -59,7 +74,7 @@
 
 //#define ShiDeInterface "http://192.168.0.16:8080/daka/"
 
-#define ShiDeInterface "http://test.shide56.com/daka/"
+#define JSXInterface "https://qwhelp.powerdadmom.com/minapp/1.0/"
 
 //生产
 

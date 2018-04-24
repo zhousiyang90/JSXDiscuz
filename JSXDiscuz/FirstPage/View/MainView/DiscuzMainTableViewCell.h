@@ -21,4 +21,6 @@ typedef void(^DiscuzMainTableViewCellBlock)(void);
 
 @property(nonatomic,copy) DiscuzMainTableViewCellBlock block;
 
+@property(nonatomic,strong) PostBaseData_summary * baseData;
+
 @end

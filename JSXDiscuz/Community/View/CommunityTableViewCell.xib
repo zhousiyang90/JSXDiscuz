@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -71,6 +71,11 @@
                     <constraint firstAttribute="trailing" secondItem="2VF-zP-Rou" secondAttribute="trailing" id="pPI-Yp-Naa"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="descLab" destination="c66-70-pus" id="sht-gk-XKh"/>
+                <outlet property="imgV" destination="kwx-hq-z2A" id="rih-i6-0kG"/>
+                <outlet property="titleLab" destination="HPb-qC-jbc" id="E4i-8L-VxN"/>
+            </connections>
             <point key="canvasLocation" x="-241.5" y="-95"/>
         </tableViewCell>
     </objects>

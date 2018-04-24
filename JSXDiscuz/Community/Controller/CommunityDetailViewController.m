@@ -8,6 +8,7 @@
 
 #import "CommunityDetailViewController.h"
 #import "CommunityDetailViewController_dynamic.h"
+#import "CommunityDetailData.h"
 
 @interface CommunityDetailViewController ()<UIScrollViewDelegate>
 {
@@ -17,14 +18,15 @@
 }
 @property(nonatomic,strong) NSMutableArray * indexArr;
 
+@property(nonatomic,strong) CommunityDetailData * currentData;
+
 @end
 
 @implementation CommunityDetailViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    self.title=@"社区名称";
+
     self.topicImgV.layer.cornerRadius=5;
     self.topicImgV.layer.masksToBounds=YES;
     self.collectBtn.layer.cornerRadius=5;
@@ -64,6 +66,8 @@
         }
     }
      [self refreshNavBar];
+    
+    [self getInitData];
 }
 
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
@@ -128,9 +132,61 @@
 {
     if(_indexArr==nil)
     {
-        _indexArr=[NSMutableArray arrayWithObjects:@"最新",@"最热",@"推荐",@"给力",@"哈哈",@"呵呵",@"嘿嘿",@"呲呲",@"科科",nil];
+        _indexArr=[NSMutableArray arrayWithObjects:@"最新",@"最热",nil];
     }
     return _indexArr;
+}
+
+
+-(void)getInitData
+{
+    if(self.fid.length==0)
+    {
+        [SVProgressHUD showErrorWithStatus:@"参数为空"];
+        return;
+    }
+    
+    [SVProgressHUD showWithStatus:@"加载中..."];
+    NSMutableDictionary * params = [NSMutableDictionary dictionary];
+    params[@"uid"]=@"11";
+    params[@"fid"]=self.fid;
+    [JSXHttpTool Get:Interface_CommuityMainPageDetail params:params success:^(id json) {
+        NSNumber * returnCode = json[@"errcode"];
+        NSString * message = json[@"errmsg"];
+        if([returnCode intValue]==0)
+        {
+            self.currentData = [CommunityDetailData mj_objectWithKeyValues:json];
+            [self.topicImgV sd_setImageWithURL:[NSURL URLWithString:self.currentData.forum.icon1] placeholderImage:[UIImage imageNamed:PlaceHolderImg_Group]];
+            self.topicName.text=self.currentData.forum.name;
+            self.topicDescLab.text=self.currentData.forum.des;
+            self.topicNumberLab.text=[NSString stringWithFormat:@"帖子数 %@",self.currentData.forum.posts];
+            self.title=self.currentData.forum.name;
+            //设置子控制器数据
+            [self setsubvcData:self.currentData];
+            [SVProgressHUD dismiss];
+            
+        }else
+        {
+            [SVProgressHUD dismiss];
+            [SVProgressHUD showErrorWithStatus:message];
+        }
+    } failure:^(NSError *error) {
+        [SVProgressHUD dismiss];
+    }];
+}
+
+-(void)setsubvcData:(CommunityDetailData*)detailData
+{
+    for (int i=0; i<self.childViewControllers.count; i++) {
+        CommunityDetailViewController_dynamic * modevc=self.childViewControllers[i];
+        if(i==0)
+        {
+            modevc.dataList=detailData.list;
+        }else
+        {
+            modevc.dataList=detailData.rlist;
+        }
+    }
 }
 
 @end

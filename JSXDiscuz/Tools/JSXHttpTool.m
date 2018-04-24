@@ -16,6 +16,25 @@
 
 +(void)Post:(NSString *)url params:(NSDictionary *)params success:(void (^)(id))success failure:(void (^)(NSError *))failure
 {
+    SDLog(@"Post请求:%@ 参数:%@",url,params);
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    manager.requestSerializer.timeoutInterval = 10.0;
+    manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"text/html",@"text/plain",nil];
+    
+    [manager POST:url parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        SDLog(@"成功:%@",responseObject);
+        if (success) {
+            success(responseObject);
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        SDLog(@"失败:%@",error.description);
+        if (failure) {
+            failure(error);
+        }
+    }];
+    
+    /*
     SDLog(@"请求:%@-%@",url,params);
     NSURL * requrl = [NSURL URLWithString:url];
     NSMutableURLRequest * request = [NSMutableURLRequest requestWithURL:requrl];
@@ -47,6 +66,7 @@
         }
     }];
     [dataTask resume];
+     */
 }
 
 /*
@@ -55,6 +75,26 @@
 
 +(void)Get:(NSString *)url params:(NSDictionary *)params success:(void (^)(id))success failure:(void (^)(NSError *))failure
 {
+    SDLog(@"Get请求:%@ 参数:%@",url,params);
+    AFHTTPSessionManager * manager =[AFHTTPSessionManager manager];
+    manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    // 设置超时时间
+    manager.requestSerializer.timeoutInterval = 10.0;
+    // 设置响应内容的类型
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"text/html",@"text/plain",nil];
+    [manager GET:url parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        SDLog(@"成功:%@",responseObject);
+        if (success) {
+            success(responseObject);
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        SDLog(@"失败:%@",error.description);
+        if (failure) {
+            failure(error);
+        }
+    }];
+
+    /*
     SDLog(@"请求:%@-%@",url,params);
     NSURL * requrl = [NSURL URLWithString:url];
     NSMutableURLRequest * request = [NSMutableURLRequest requestWithURL:requrl];
@@ -77,6 +117,7 @@
         }
     }];
     [dataTask resume];
+     */
 }
 
 /*

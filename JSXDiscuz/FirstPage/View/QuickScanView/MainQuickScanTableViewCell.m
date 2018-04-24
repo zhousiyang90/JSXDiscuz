@@ -42,12 +42,23 @@ static NSString *const cellId = @"mainQuickScanCollectionViewCell";
 
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return 10;
+    return self.baseData.list.count;
 }
 
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     MainQuickScanCollectionViewCell *cell=[collectionView dequeueReusableCellWithReuseIdentifier:cellId forIndexPath:indexPath];
+    PostBaseData_summary *cellData=self.baseData.list[indexPath.row];
+    cell.titleLab.text=cellData.subject;
+    if(cellData.pics.count>0)
+    {
+        NSString *picurl=cellData.pics[0];
+        [cell.imgV sd_setImageWithURL:[NSURL URLWithString:picurl] placeholderImage:[UIImage imageNamed:PlaceHolderImg_Post]];
+    }
+    [cell.userImgV sd_setImageWithURL:[NSURL URLWithString:cellData.avatar] placeholderImage:[UIImage imageNamed:PlaceHolderImg_Head]];
+    cell.userNameLab.text=cellData.author;
+    cell.readNumLab.text=[NSString stringWithFormat:@"阅读%@",cellData.views];
+    
     cell.block = ^() {
         //点击用户头像和名称
         if(_block)
@@ -65,4 +76,12 @@ static NSString *const cellId = @"mainQuickScanCollectionViewCell";
         _block(1,indexPath);
     }
 }
+
+
+-(void)setBaseData:(PostBaseData *)baseData
+{
+    _baseData=baseData;
+    [self.collectionView reloadData];
+}
+
 @end

@@ -7,10 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CommunityPostsData.h"
 #import "CommunityNewestData.h"
+
+typedef void(^CommunityTableViewCell_NewestBlock)(int type);
 
 @interface CommunityTableViewCell_Newest : UITableViewCell
 
+@property(nonatomic,strong) CommunityPostsData * postdata;
 @property(nonatomic,strong) CommunityNewestData * data;
 
 @property (weak, nonatomic) IBOutlet UIImageView *headImage;
@@ -23,6 +27,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *readNumberLab;
 
 @property (weak, nonatomic) IBOutlet UIButton *themeBtn;
+@property(nonatomic,copy) CommunityTableViewCell_NewestBlock block;
+
 - (IBAction)clickThemeBtn:(id)sender;
 
 @end

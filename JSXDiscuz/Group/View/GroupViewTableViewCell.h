@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface GroupViewTableViewCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UIImageView *imgV;
+@property (weak, nonatomic) IBOutlet UILabel *nameLab;
 
+@property (weak, nonatomic) IBOutlet UILabel *descLab;
 @end

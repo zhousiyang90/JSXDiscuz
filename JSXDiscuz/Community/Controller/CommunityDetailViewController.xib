@@ -38,7 +38,7 @@
                                 <constraint firstAttribute="height" constant="1" id="UxH-bj-gVh"/>
                             </constraints>
                         </view>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="community_tu01" translatesAutoresizingMaskIntoConstraints="NO" id="sMF-k0-VQo">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder_group" translatesAutoresizingMaskIntoConstraints="NO" id="sMF-k0-VQo">
                             <rect key="frame" x="10" y="15" width="70" height="70"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="70" id="bHD-l5-Yk6"/>
@@ -63,7 +63,7 @@
                             <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="帖子数" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sNT-WT-MGO">
+                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="帖子数" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sNT-WT-MGO">
                             <rect key="frame" x="140" y="40" width="40" height="20"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="20" id="2cF-TB-W5f"/>
@@ -142,6 +142,6 @@
         </view>
     </objects>
     <resources>
-        <image name="community_tu01" width="351" height="250"/>
+        <image name="placeholder_group" width="75" height="75"/>
     </resources>
 </document>

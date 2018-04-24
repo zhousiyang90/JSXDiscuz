@@ -27,7 +27,7 @@
                                     <constraint firstAttribute="height" constant="190" id="kZg-o2-QsT"/>
                                 </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="xtb01" translatesAutoresizingMaskIntoConstraints="NO" id="4ae-r7-2sl">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="xtb01" translatesAutoresizingMaskIntoConstraints="NO" id="4ae-r7-2sl">
                                 <rect key="frame" x="10" y="230" width="35" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="d4I-dv-IAd"/>

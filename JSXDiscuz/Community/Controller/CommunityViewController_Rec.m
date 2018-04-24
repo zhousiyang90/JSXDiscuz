@@ -9,12 +9,16 @@
 #import "CommunityViewController_Rec.h"
 #import "CommunityTableViewCell_Newest.h"
 #import "CommunityNewestData.h"
+#import "OtherCenterViewController.h"
+#import "TopicDetailViewController.h"
 
 @interface CommunityViewController_Rec ()<UITableViewDelegate,UITableViewDataSource>
 {
     BOOL hasNewData;
 }
-@property(nonatomic,strong) NSMutableArray * testList;
+@property(nonatomic,assign) int currentPage;
+@property(nonatomic,strong) CommunityNewestData * currentPagedata;
+@property(nonatomic,strong) NSMutableArray * dataList;
 
 @end
 
@@ -30,7 +34,7 @@
         CGFloat contentYoffset = scrollView.contentOffset.y;
         CGFloat distance = scrollView.contentSize.height-height-contentYoffset;
         if (distance<=0) {
-            [self getInitData];
+            //[self getInitData];
         }
     }
 }
@@ -52,7 +56,7 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.testList.count;
+    return self.dataList.count;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -71,43 +75,31 @@
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    //点击帖子详情
+    CommunityPostsData * celldata=self.dataList[indexPath.row];
+    [self pushToPostsDetail:celldata.tid andFid:celldata.fid];
+}
 
 -(void)configCell:(CommunityTableViewCell_Newest*)cell andIndexPath:(NSIndexPath*)indexpath
 {
-    cell.data=self.testList[indexpath.row];
+    cell.postdata=self.dataList[indexpath.row];
     [cell.collectionView reloadData];
 }
 
 
 #pragma mark - LazyLoad
 
--(NSMutableArray *)testList
+-(NSMutableArray *)dataList
 {
-    if(_testList==nil)
+    if(_dataList==nil)
     {
-        _testList=[NSMutableArray array];
-        CommunityNewestData * data = [[CommunityNewestData alloc]init];
-        data.title=@"我的天空";
-        data.imgCount=0;
-        [_testList addObject:data];
-        
-        CommunityNewestData * data2 = [[CommunityNewestData alloc]init];
-        data2.title=@"我的天空我的天空我的天空我的天空我的天空我的天空";
-        data2.imgCount=9;
-        [_testList addObject:data2];
-        
-        CommunityNewestData * data3 = [[CommunityNewestData alloc]init];
-        data3.title=@"我的天空我的天空我的天空我的天空我的天空我的天空我的天空我的天空我的天空我的天空我的天空我的天空我的天空我的天空我的天空我的天空我的天空我的天空我的天空我的天空我的天空我的天空我的天空我的天空我的天空我的天空我的天空我的天空我的天空我的天空";
-        data3.imgCount=8;
-        [_testList addObject:data3];
-        
-        CommunityNewestData * data4 = [[CommunityNewestData alloc]init];
-        data4.title=@"我的天空我的天空我的天空我的天空我的天空我的天空我的天空我的天空我的天空我的天空ss我的天空我的天空所多s大所多s大所多大所多";
-        data4.imgCount=6;
-        [_testList addObject:data4];
+        _dataList=[NSMutableArray array];
     }
-    return _testList;
+    return _dataList;
 }
+
 
 #pragma mark - 生命周期
 
@@ -119,7 +111,7 @@
     self.tableview.rowHeight=UITableViewAutomaticDimension;
     
     [self.tableview addPullToRefreshWithActionHandler:^{
-        [self.tableview.pullToRefreshView stopAnimating];
+        [self getInitData];
     }];
     
     self.needNoNetTips=YES;
@@ -129,14 +121,33 @@
 
 -(void)getInitData
 {
-    hasNewData=NO;
-    [self.tableview reloadData];
-    [self setMainTableViewFooterView];
+    [SVProgressHUD showWithStatus:@"加载中"];
+    NSMutableDictionary * params = [NSMutableDictionary dictionary];
+    params[@"uid"]=@"11";
+    [JSXHttpTool Get:Interface_CommuityRec params:params success:^(id json) {
+        NSNumber * returnCode = json[@"errcode"];
+        NSString * message = json[@"errmsg"];
+        if([returnCode intValue]==0)
+        {
+            self.currentPagedata = [CommunityNewestData mj_objectWithKeyValues:json];
+            self.dataList=self.currentPagedata.list;
+            
+            [self.tableview reloadData];
+            [SVProgressHUD dismiss];
+            [self.tableview.pullToRefreshView stopAnimating];
+        }else
+        {
+            [SVProgressHUD dismiss];
+            [SVProgressHUD showErrorWithStatus:message];
+        }
+    } failure:^(NSError *error) {
+        [SVProgressHUD dismiss];
+    }];
 }
 
 -(void)nonetstatusGetData
 {
-    
+    [self getInitData];
 }
 
 @end

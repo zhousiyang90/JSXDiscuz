@@ -46,7 +46,15 @@
 
 @property(nonatomic, strong) NSMutableArray *layoutData;
 
-@property(nonatomic, strong) NSMutableArray *tableData;
+@property(nonatomic, strong) PostBaseData *quickScanData;
+@property(nonatomic, strong) PostBaseData *popularData;
+@property(nonatomic, strong) PostBaseData *rankingData;
+@property(nonatomic, strong) GroupMainData *groupData;
+@property(nonatomic, strong) GroupMainData *themeData;
+
+@property(nonatomic, assign) int currentPage;
+@property(nonatomic, strong) PostBaseData *currentMainData;
+@property(nonatomic, strong) NSMutableArray *mainDataList;
 
 @property(nonatomic, strong) NSArray *bannelImgsData;
 
@@ -59,13 +67,16 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.layoutData.count;
+    return self.layoutData.count+self.mainDataList.count;
 }
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
-    NSString * cellName = self.layoutData[indexPath.row];
+    NSString * cellName;
+    if(indexPath.row<self.layoutData.count)
+    {
+        cellName = self.layoutData[indexPath.row];
+    }
     if([cellName isEqualToString:@"bannel"])
     {
         bannelcell= [tableView dequeueReusableCellWithIdentifier:@"discuzBannelTableViewCell"];
@@ -129,6 +140,9 @@
             }else if(type==2)
             {
                 //附近的人
+                [[JSXLocalTool shareLocationTool]getLocationOnce:^(CLLocation *loc) {
+                    SDLog(@"loc:(%f-%f)",loc.coordinate.latitude,loc.coordinate.longitude);
+                }];
                 NearByPersonViewController * vc=[[NearByPersonViewController alloc]init];
                 [self.navigationController pushViewController:vc animated:YES];
             }else if(type==3)
@@ -143,6 +157,7 @@
     {
         MainQuickScanTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"mainQuickScanTableViewCell"];
         cell.selectionStyle=UITableViewCellSelectionStyleNone;
+        cell.baseData=self.quickScanData;
         cell.block = ^(int x, NSIndexPath *indexPath) {
             //快速浏览
             if(x==0)
@@ -152,7 +167,9 @@
                 [self.navigationController pushViewController:vc animated:YES];
             }else
             {
-                //点击collectionCell
+                //点击帖子详情
+                PostBaseData_summary * data=self.quickScanData.list[indexPath.row];
+                [self pushToPostsDetail:data.tid andFid:data.fid];
             }
         };
         return cell;
@@ -160,16 +177,20 @@
     {
         MainThemeTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"mainThemeTableViewCell"];
         cell.selectionStyle=UITableViewCellSelectionStyleNone;
+        cell.baseData=self.groupData;
         cell.block = ^(NSIndexPath * indexPath) {
-           //主题详情
-           TopicDetailViewController * vc=[[TopicDetailViewController alloc]init];
-           [self.navigationController pushViewController:vc animated:YES];
+            GroupMainData_summary * cellData=self.groupData.catlist[indexPath.row];
+            //主题详情
+            TopicDetailViewController * vc=[[TopicDetailViewController alloc]init];
+            vc.fid=cellData.fid;
+            [self.navigationController pushViewController:vc animated:YES];
         };
         return cell;
     }else if([cellName isEqualToString:@"popular"])
     {
         MainPopularTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"mainPopularTableViewCell"];
         cell.selectionStyle=UITableViewCellSelectionStyleNone;
+        cell.baseData=self.popularData;
         cell.block = ^() {
             //点击用户头像
             OtherCenterViewController *vc=[[OtherCenterViewController alloc]init];
@@ -180,6 +201,7 @@
     {
         MainRankingTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"mainRankingTableViewCell"];
         cell.selectionStyle=UITableViewCellSelectionStyleNone;
+        cell.baseData=self.rankingData;
         [[cell rac_signalForSelector:@selector(clickTheme1:)]subscribeNext:^(id x) {
             //主题详情
             TopicDetailViewController * vc=[[TopicDetailViewController alloc]init];
@@ -195,40 +217,65 @@
             TopicDetailViewController * vc=[[TopicDetailViewController alloc]init];
             [self.navigationController pushViewController:vc animated:YES];
         }];
+        
+        cell.block = ^(int type) {
+            if(type==0&&self.rankingData.list>0)
+            {
+                PostBaseData_summary *cellData=self.rankingData.list[type];
+                [self pushToPostsDetail:cellData.tid andFid:cellData.fid];
+            }else if(type==1&&self.rankingData.list.count>1)
+            {
+                PostBaseData_summary *cellData=self.rankingData.list[type];
+                [self pushToPostsDetail:cellData.tid andFid:cellData.fid];
+            }else if(type==2&&self.rankingData.list.count>2)
+            {
+                PostBaseData_summary *cellData=self.rankingData.list[type];
+                [self pushToPostsDetail:cellData.tid andFid:cellData.fid];
+            }else
+            {
+                [SVProgressHUD showErrorWithStatus:@"帖子数据为空"];
+            }
+        };
         return cell;
     }else if([cellName isEqualToString:@"theme2"])
     {
         MainThemeTableViewCell2 * cell = [tableView dequeueReusableCellWithIdentifier:@"mainThemeTableViewCell2"];
         cell.selectionStyle=UITableViewCellSelectionStyleNone;
+        cell.baseData=self.themeData;
         cell.block = ^(NSIndexPath * indexPath) {
+            GroupMainData_summary * cellData=self.themeData.catlist[indexPath.row];
             //社区详情
             CommunityDetailViewController * vc=[[CommunityDetailViewController alloc]init];
+            vc.fid=cellData.fid;
             [self.navigationController pushViewController:vc animated:YES];
         };
         return cell;
-    }else if([cellName isEqualToString:@"main"])
+    }else
     {
-        DiscuzMainTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"discuzMainTableViewCell"];
-        cell.selectionStyle=UITableViewCellSelectionStyleNone;
-        cell.imgV3.hidden=NO;
-        cell.block = ^{
-            //主题详情
-            TopicDetailViewController * vc=[[TopicDetailViewController alloc]init];
-            [self.navigationController pushViewController:vc animated:YES];
-        };
-        cell.titleLab.text=@"大萨达撒多所大";
-        return cell;
-    }else if([cellName isEqualToString:@"main2"])
-    {
-        DiscuzMainTableViewCell2 * cell = [tableView dequeueReusableCellWithIdentifier:@"discuzMainTableViewCell2"];
-        cell.selectionStyle=UITableViewCellSelectionStyleNone;
-        cell.block = ^{
-            //主题详情
-            TopicDetailViewController * vc=[[TopicDetailViewController alloc]init];
-            [self.navigationController pushViewController:vc animated:YES];
-        };
-        cell.titleLab.text=@"大叔大婶多";
-        return cell;
+        PostBaseData_summary * celldata=self.mainDataList[indexPath.row-self.layoutData.count];
+        if(celldata.pics.count>1)
+        {
+            DiscuzMainTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"discuzMainTableViewCell"];
+            cell.selectionStyle=UITableViewCellSelectionStyleNone;
+            cell.baseData=celldata;
+            cell.block = ^{
+                //主题详情
+                TopicDetailViewController * vc=[[TopicDetailViewController alloc]init];
+                [self.navigationController pushViewController:vc animated:YES];
+            };
+            return cell;
+        }else
+        {
+            DiscuzMainTableViewCell2 * cell = [tableView dequeueReusableCellWithIdentifier:@"discuzMainTableViewCell2"];
+            cell.selectionStyle=UITableViewCellSelectionStyleNone;
+            cell.baseData=celldata;
+            cell.block = ^{
+                //主题详情
+                TopicDetailViewController * vc=[[TopicDetailViewController alloc]init];
+                [self.navigationController pushViewController:vc animated:YES];
+            };
+            return cell;
+        }
     }
     
     return nil;
@@ -236,11 +283,27 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString * cellName = self.layoutData[indexPath.row];
-    if([cellName isEqualToString:@"popular"])
+    
+    if(indexPath.row<self.layoutData.count)
     {
-        
+        NSString * cellName = self.layoutData[indexPath.row];
+        if([cellName isEqualToString:@"popular"])
+        {
+            //点击帖子详情
+            if(self.popularData.list>0)
+            {
+                PostBaseData_summary * data=self.popularData.list[0];
+                [self pushToPostsDetail:data.tid andFid:data.fid];
+            }
+        }
+    }else
+    {
+        //点击帖子详情
+        PostBaseData_summary * celldata=self.mainDataList[indexPath.row-self.layoutData.count];
+        [self pushToPostsDetail:celldata.tid andFid:celldata.fid];
     }
+    
+    
 }
 
 
@@ -251,7 +314,8 @@
         CGFloat height = scrollView.frame.size.height;
         CGFloat contentYoffset = scrollView.contentOffset.y;
         CGFloat distance = scrollView.contentSize.height-height-contentYoffset;
-        if (distance<=0) {
+        if (distance<=0&&hasNewData) {
+            self.currentPage++;
             [self getInitData];
         }
     }
@@ -289,10 +353,6 @@
         [_layoutData addObject:@"popular"];
         [_layoutData addObject:@"ranking"];
         [_layoutData addObject:@"theme2"];
-        [_layoutData addObject:@"main"];
-        [_layoutData addObject:@"main2"];
-        [_layoutData addObject:@"main"];
-        [_layoutData addObject:@"main2"];
     }
     return _layoutData;
 }
@@ -305,6 +365,15 @@
         _bannelImgsData=[NSArray arrayWithObjects:@"timg",@"timg1",@"timg2",@"timg3",nil];
     }
     return _bannelImgsData;
+}
+
+-(NSMutableArray *)mainDataList
+{
+    if(_mainDataList==nil)
+    {
+        _mainDataList=[NSMutableArray array];
+    }
+    return _mainDataList;
 }
 
 #pragma mark - VC生命周期
@@ -347,6 +416,7 @@
     self.maindiscuzTableview.contentInset=UIEdgeInsetsMake(0, 0, self.tabBarController.tabBar.bounds.size.height, 0);
     
     [self.maindiscuzTableview addPullToRefreshWithActionHandler:^{
+        [self getInitData];
         [self.maindiscuzTableview.pullToRefreshView stopAnimating];
     }];
     
@@ -375,6 +445,7 @@
     }];
     
     //全局配置信息
+    self.currentPage=1;
     self.needNoNetTips=YES;
     self.needNoTableViewDataTips=YES;
     self.baseTableview=self.maindiscuzTableview;
@@ -383,22 +454,174 @@
 
 -(void)getInitData
 {
-    int random =100+(arc4random()%101);
-    if(random<150)
+    if(self.currentPage==1)
     {
-        hasNewData=YES;
+        [self getGroupModeData];
+        [self getCommunityModeData];
+        [self getQuickScanModeData];
+        [self getPopularModeData];
+        [self getRankingModeData];
+        [self getMainModeData];
     }else
     {
-        hasNewData=NO;
+        [self getMainModeData];
     }
-    [self.maindiscuzTableview reloadData];
-    [self setMainTableViewFooterView];
+    
 }
 
 -(void)nonetstatusGetData
 {
-    [super nonetstatusGetData];
+    [self getInitData];
 }
 
+#pragma mark - 网络访问
+
+-(void)getGroupModeData
+{
+    NSMutableDictionary * params = [NSMutableDictionary dictionary];
+    params[@"gcid="]=@"3";
+    params[@"ac"]=@"group";
+    [JSXHttpTool Post:Interface_FirstPageGroupMode params:params success:^(id json) {
+        NSNumber * returnCode = json[@"errcode"];
+        if([returnCode intValue]==0)
+        {
+             self.groupData=[GroupMainData mj_objectWithKeyValues:json];
+            [self.maindiscuzTableview reloadData];
+        }
+    } failure:^(NSError *error) {
+    }];
+}
+
+-(void)getCommunityModeData
+{
+    NSMutableDictionary * params = [NSMutableDictionary dictionary];
+    params[@"fcid="]=@"1";
+    params[@"ac"]=@"forum";
+    [JSXHttpTool Post:Interface_FirstPageCommunityMode params:params success:^(id json) {
+        NSNumber * returnCode = json[@"errcode"];
+        if([returnCode intValue]==0)
+        {
+            self.themeData=[GroupMainData mj_objectWithKeyValues:json];
+            [self.maindiscuzTableview reloadData];
+        }
+    } failure:^(NSError *error) {
+    }];
+}
+
+-(void)getQuickScanModeData
+{
+    NSMutableDictionary * params = [NSMutableDictionary dictionary];
+    params[@"mod"]=@"index_forumlist";
+    params[@"fcid"]=@"1";
+    params[@"page"]=@"1";
+    params[@"mould"]=@"2";
+    [JSXHttpTool Post:Interface_FirstPagePostsMode params:params success:^(id json) {
+        NSNumber * returnCode = json[@"errcode"];
+        if([returnCode intValue]==0)
+        {
+            self.quickScanData=[PostBaseData mj_objectWithKeyValues:json];
+            [self.maindiscuzTableview reloadData];
+        }
+
+    } failure:^(NSError *error) {
+    }];
+}
+
+-(void)getPopularModeData
+{
+    NSMutableDictionary * params = [NSMutableDictionary dictionary];
+    params[@"mod"]=@"index_forumlist";
+    params[@"fcid"]=@"1";
+    params[@"page"]=@"1";
+    params[@"mould"]=@"3";
+    [JSXHttpTool Post:Interface_FirstPagePostsMode params:params success:^(id json) {
+        NSNumber * returnCode = json[@"errcode"];
+        if([returnCode intValue]==0)
+        {
+            self.popularData=[PostBaseData mj_objectWithKeyValues:json];
+            [self.maindiscuzTableview reloadData];
+        }
+        
+    } failure:^(NSError *error) {
+    }];
+}
+
+-(void)getRankingModeData
+{
+    NSMutableDictionary * params = [NSMutableDictionary dictionary];
+    params[@"mod"]=@"index_forumlist";
+    params[@"fcid"]=@"1";
+    params[@"page"]=@"1";
+    params[@"mould"]=@"4";
+    [JSXHttpTool Post:Interface_FirstPagePostsMode params:params success:^(id json) {
+        NSNumber * returnCode = json[@"errcode"];
+        if([returnCode intValue]==0)
+        {
+            self.rankingData=[PostBaseData mj_objectWithKeyValues:json];
+            [self.maindiscuzTableview reloadData];
+        }
+        
+    } failure:^(NSError *error) {
+    }];
+}
+
+-(void)getMainModeData
+{
+    NSMutableDictionary * params = [NSMutableDictionary dictionary];
+    params[@"mod"]=@"index_forumlist";
+    params[@"fcid"]=@"1";
+    params[@"page"]=@(self.currentPage);
+    params[@"mould"]=@"";
+    [JSXHttpTool Post:Interface_FirstPagePostsMode params:params success:^(id json) {
+        NSNumber * returnCode = json[@"errcode"];
+        if([returnCode intValue]==0)
+        {
+            if(self.currentPage==1)
+            {
+                if(self.mainDataList.count>0)
+                {
+                    [self.mainDataList removeAllObjects];
+                }
+                self.currentMainData=[PostBaseData mj_objectWithKeyValues:json];
+                if(self.currentMainData.list.count==0)
+                {
+                    hasNewData=NO;
+                    [self setMainTableViewFooterView];
+                }else
+                {
+                    hasNewData=YES;
+                    [self setMainTableViewFooterView];
+                }
+                self.mainDataList=self.currentMainData.list;
+                [self.maindiscuzTableview reloadData];
+            }else
+            {
+                self.currentMainData=[PostBaseData mj_objectWithKeyValues:json];
+                if(self.currentMainData.list.count==0)
+                {
+                    hasNewData=NO;
+                    [self setMainTableViewFooterView];
+                }else
+                {
+                    hasNewData=YES;
+                    [self setMainTableViewFooterView];
+                }
+                [self.mainDataList addObjectsFromArray:self.currentMainData.list];
+                [self.maindiscuzTableview reloadData];
+            }
+        }else
+        {
+            if(self.currentPage>1)
+            {
+                self.currentPage--;
+            }
+        }
+    } failure:^(NSError *error) {
+        if(self.currentPage>1)
+        {
+            self.currentPage--;
+        }
+    }];
+}
 
 @end

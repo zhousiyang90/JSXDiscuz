@@ -9,9 +9,16 @@
 #import "RegisterViewController.h"
 #import "LoginViewController.h"
 
+#define SumCount 60
+
 @interface RegisterViewController ()
 {
     BOOL isSelectedAgreeOn;
+    
+    BOOL hasSend;
+    RACDisposable * racdis;
+    
+    NSString * randomPhone;
 }
 @end
 
@@ -71,7 +78,19 @@ static RegisterViewController *_instance;
         self.heightConstant.constant=64;
     }
     
+    [[self.phonetf rac_textSignal]subscribeNext:^(id x) {
+        
+    }];
+    
     [[self.randomBtn rac_signalForControlEvents:UIControlEventTouchUpInside]subscribeNext:^(id x) {
+        randomPhone=self.phonetf.text;
+        if([JSXNumberTool isValidPhoneNumber:randomPhone])
+        {
+            [self getRandomCode];
+        }else
+        {
+            [SVProgressHUD showErrorWithStatus:@"手机号不合法"];
+        }
         
     }];
     [[self.agreeboxBtn rac_signalForControlEvents:UIControlEventTouchUpInside]subscribeNext:^(id x) {
@@ -89,12 +108,99 @@ static RegisterViewController *_instance;
         [self dismissViewControllerAnimated:YES completion:nil];
     }];
     [[self.registerBtn rac_signalForControlEvents:UIControlEventTouchUpInside]subscribeNext:^(id x) {
+        if(!isSelectedAgreeOn)
+        {
+            [SVProgressHUD showErrorWithStatus:@"请同意用户协议"];
+            return;
+        }
+        if(self.phonetf.text.length==0 ||self.randomtf.text.length==0)
+        {
+            [SVProgressHUD showErrorWithStatus:@"输入内容为空"];
+            return;
+        }
+        if(![self.phonetf.text isEqualToString:randomPhone])
+        {
+            [SVProgressHUD showErrorWithStatus:@"手机号已变更"];
+            return;
+        }
         
+        [self userRegister];
     }];
 
 }
 
 - (IBAction)clickClose:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+
+#pragma mark - 注册
+
+-(void)userRegister
+{
+    NSMutableDictionary * params = [NSMutableDictionary dictionary];
+    params[@"mod"]=@"spacecp1";
+    params[@"ac"]=@"bindtel";
+    params[@"fouid"]=@"1";
+    params[@"type"]=@"phoneregister";
+    params[@"tel"]=self.phonetf.text;
+    params[@"verifycode"]=self.randomtf.text;
+    [JSXHttpTool Get:Interface_Register params:params success:^(id json) {
+        NSString * returnCode = json[@"errcode"];
+        if([returnCode isEqualToString:@"0"])
+        {
+            [SVProgressHUD showSuccessWithStatus:@"注册成功"];
+            [self dismissViewControllerAnimated:YES completion:^{
+                if(_block)
+                {
+                    _block();
+                }
+            }];
+        }else
+        {
+            [SVProgressHUD showErrorWithStatus:@"注册失败"];
+        }
+    } failure:^(NSError *error) {
+        [SVProgressHUD showErrorWithStatus:@"网络连接异常"];
+    }];
+}
+
+#pragma mark - 获取验证码
+
+-(void)getRandomCode
+{
+    NSMutableDictionary * params = [NSMutableDictionary dictionary];
+    params[@"mod"]=@"spacecp1";
+    params[@"ac"]=@"bindtel";
+    params[@"fouid"]=@"1";
+    params[@"type"]=@"registersend";
+    params[@"tel"]=randomPhone;
+    [JSXHttpTool Get:Interface_GetRandomCode params:params success:^(id json) {
+        NSString * returnCode = json[@"code"];
+        NSString * message = json[@"msg"];
+        if([returnCode isEqualToString:@"1"])
+        {
+            [SVProgressHUD showSuccessWithStatus:@"发送成功"];
+            self.randomBtn.enabled=NO;
+            __block int count=SumCount;
+            racdis=[[RACSignal interval:1 onScheduler:[RACScheduler mainThreadScheduler]]subscribeNext:^(id x) {
+                count--;
+                NSString * text =[NSString stringWithFormat:@"%d s",count];
+                [self.randomBtn setTitle:text forState:UIControlStateNormal];
+                if(count==0)
+                {
+                    self.randomBtn.enabled=YES;
+                    [self.randomBtn setTitle:@"获取验证码" forState:UIControlStateNormal];
+                    [racdis dispose];
+                }
+                
+            }];
+        }else
+        {
+            [SVProgressHUD showErrorWithStatus:message];
+        }
+    } failure:^(NSError *error) {
+        [SVProgressHUD showErrorWithStatus:@"网络连接异常"];
+    }];
 }
 @end

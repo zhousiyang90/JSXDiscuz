@@ -243,6 +243,9 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="bg1" destination="0eF-bG-2tn" id="I09-UB-SO9"/>
+                <outlet property="bg2" destination="84B-s0-wBC" id="7sb-Um-1fh"/>
+                <outlet property="bg3" destination="Y5y-12-Xlh" id="Ex2-1d-Vxk"/>
                 <outlet property="themeBtn1" destination="qQQ-LU-mah" id="nQi-0I-lD3"/>
                 <outlet property="themeBtn2" destination="aiP-mc-39K" id="WTf-tv-kFL"/>
                 <outlet property="themeBtn3" destination="c3j-2e-vip" id="rDP-xa-dsU"/>

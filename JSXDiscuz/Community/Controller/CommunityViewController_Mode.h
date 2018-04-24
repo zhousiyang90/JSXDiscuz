@@ -10,5 +10,7 @@
 
 @interface CommunityViewController_Mode : BaseViewController
 @property (weak, nonatomic) IBOutlet UITableView *tableview;
+@property (weak, nonatomic) IBOutlet UILabel *publicLab;
+@property (weak, nonatomic) IBOutlet UIView *publicBgView;
 
 @end

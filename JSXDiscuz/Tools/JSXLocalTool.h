@@ -8,6 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
+typedef void(^JSXLocalToolBlock)(CLLocation*);
+
 @interface JSXLocalTool : NSObject
+
++(instancetype)shareLocationTool;
+-(void)getLocationOnce:(JSXLocalToolBlock)block;
+@property(nonatomic,copy) JSXLocalToolBlock block;
 
 @end

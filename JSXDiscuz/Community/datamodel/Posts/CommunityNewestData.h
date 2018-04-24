@@ -7,11 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "CommunityPostsData.h"
 
 @interface CommunityNewestData : NSObject
 
-@property(nonatomic,copy) NSString * title;
+@property(nonatomic,strong) NSMutableArray * list;
+@property(nonatomic,copy) NSString * total;
 
+@property(nonatomic,copy) NSString * title;
 @property(nonatomic,assign) int imgCount;
 
 @end

@@ -16,6 +16,9 @@
     self.bgview.layer.borderWidth=1;
     self.bgview.layer.borderColor=SDColor(232, 232, 232).CGColor;
     
+    self.userImgV.layer.cornerRadius=17.5;
+    self.userImgV.layer.masksToBounds=YES;
+    
     UITapGestureRecognizer *tap1=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(clickuserImgV)];
     [self.userImgV setUserInteractionEnabled:YES];
     [self.userImgV addGestureRecognizer:tap1];

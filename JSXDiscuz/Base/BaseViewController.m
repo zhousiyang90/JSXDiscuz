@@ -273,4 +273,13 @@
     return NO;
 }
 
+
+-(void)pushToPostsDetail:(NSString*)tid andFid:(NSString*)fid
+{
+    PostsDetailViewController*vc=[[PostsDetailViewController alloc]init];
+    vc.tid=tid;
+    vc.fid=fid;
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
 @end

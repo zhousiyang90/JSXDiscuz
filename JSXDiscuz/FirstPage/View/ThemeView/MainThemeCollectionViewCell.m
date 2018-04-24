@@ -12,7 +12,10 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    // Initialization code
+    self.imgV.layer.cornerRadius=25;
+    self.imgV.layer.masksToBounds=YES;
 }
+
+
 
 @end

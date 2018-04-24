@@ -41,12 +41,16 @@ static NSString *const cellId = @"mainThemeCollectionViewCell";
 
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return 10;
+    return self.baseData.catlist.count;
 }
 
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     MainThemeCollectionViewCell *cell=[collectionView dequeueReusableCellWithReuseIdentifier:cellId forIndexPath:indexPath];
+    GroupMainData_summary * cellData=self.baseData.catlist[indexPath.row];
+    cell.titleLab.text=cellData.name;
+    [cell.imgV sd_setImageWithURL:[NSURL URLWithString:cellData.icon] placeholderImage:[UIImage imageNamed:PlaceHolderImg_Group]];
+    cell.memNumLab.text=[NSString stringWithFormat:@"%@话题/%@成员",cellData.threadnum,cellData.groupusernum];
     return cell;
 }
 
@@ -56,6 +60,13 @@ static NSString *const cellId = @"mainThemeCollectionViewCell";
     {
         _block(indexPath);
     }
+}
+
+-(void)setBaseData:(GroupMainData *)baseData
+{
+    _baseData=baseData;
+    [self.collectionView reloadData];
+    
 }
 
 @end

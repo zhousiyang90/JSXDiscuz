@@ -16,5 +16,12 @@
     self.topicImgV.layer.masksToBounds=YES;
 }
 
+-(void)setGroupData:(GroupMainData_summary *)groupData
+{
+    _groupData=groupData;
+    [self.topicImgV sd_setImageWithURL:[NSURL URLWithString:groupData.icon] placeholderImage:[UIImage imageNamed:PlaceHolderImg_Group]];
+    self.topicName.text=groupData.name;
+    self.topicDesc.text=groupData.desc;
+}
 
 @end

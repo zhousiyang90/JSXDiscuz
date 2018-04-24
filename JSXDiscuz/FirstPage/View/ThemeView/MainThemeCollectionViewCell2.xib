@@ -67,6 +67,11 @@
                 <constraint firstAttribute="trailing" secondItem="Gnt-3Z-vgQ" secondAttribute="trailing" id="vaI-Br-kOY"/>
             </constraints>
             <size key="customSize" width="230" height="125"/>
+            <connections>
+                <outlet property="imgV" destination="suA-Wx-AcW" id="ntS-y4-lVi"/>
+                <outlet property="postsNumLab" destination="M0t-kh-gye" id="18m-FI-b2l"/>
+                <outlet property="titleLab" destination="uXh-Vg-BpP" id="ouY-MX-GNL"/>
+            </connections>
             <point key="canvasLocation" x="-89" y="26"/>
         </collectionViewCell>
     </objects>

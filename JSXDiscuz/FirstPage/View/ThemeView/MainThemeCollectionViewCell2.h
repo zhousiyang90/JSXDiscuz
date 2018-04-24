@@ -10,4 +10,8 @@
 
 @interface MainThemeCollectionViewCell2 : UICollectionViewCell
 
+@property (weak, nonatomic) IBOutlet UIImageView *imgV;
+@property (weak, nonatomic) IBOutlet UILabel *titleLab;
+@property (weak, nonatomic) IBOutlet UILabel *postsNumLab;
+
 @end

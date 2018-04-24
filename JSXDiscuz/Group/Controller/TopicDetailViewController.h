@@ -21,4 +21,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *hotestBtn;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollview;
 
+@property(nonatomic,copy) NSString *fid;
+
 @end

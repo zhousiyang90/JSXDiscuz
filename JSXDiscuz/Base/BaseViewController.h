@@ -31,4 +31,8 @@
 -(void)registerNotification;
 //无网络状态下的获取数据
 -(void)nonetstatusGetData;
+
+//Router
+-(void)pushToPostsDetail:(NSString*)tid andFid:(NSString*)fid;
+
 @end

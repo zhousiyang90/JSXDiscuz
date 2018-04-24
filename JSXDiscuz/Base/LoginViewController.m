@@ -96,6 +96,10 @@ static LoginViewController *_instance;
     }];
     [[self.registerBtn rac_signalForControlEvents:UIControlEventTouchUpInside]subscribeNext:^(id x) {
         RegisterViewController *vc=[RegisterViewController shareRegisterViewController];
+        //注册成功回调
+        vc.block = ^{
+            [self dismissViewControllerAnimated:YES completion:nil];
+        };
         [self presentViewController:vc animated:YES completion:nil];
     }];
 

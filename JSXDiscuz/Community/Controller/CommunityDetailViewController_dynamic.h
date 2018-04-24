@@ -7,9 +7,13 @@
 //
 
 #import "BaseViewController.h"
+#import "CommunityPostsData.h"
 
 @interface CommunityDetailViewController_dynamic : BaseViewController
 
 @property (weak, nonatomic) IBOutlet UITableView *tableview;
+
+@property(nonatomic,strong) NSMutableArray * dataList;
+@property(nonatomic,copy) NSString * fid;
 
 @end

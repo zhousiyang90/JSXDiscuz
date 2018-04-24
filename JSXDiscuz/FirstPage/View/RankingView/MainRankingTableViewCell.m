@@ -23,12 +23,44 @@
     self.themeBtn3.layer.cornerRadius=5;
     self.themeBtn3.layer.borderWidth=1;
     self.themeBtn3.layer.borderColor=ThemeColor.CGColor;
+    
+    [self.bg1 setUserInteractionEnabled:YES];
+    UITapGestureRecognizer * tap1=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(clickBg1)];
+    [self.bg1 addGestureRecognizer:tap1];
+    
+    [self.bg2 setUserInteractionEnabled:YES];
+    UITapGestureRecognizer * tap2=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(clickBg2)];
+    [self.bg2 addGestureRecognizer:tap2];
+    
+    [self.bg3 setUserInteractionEnabled:YES];
+    UITapGestureRecognizer * tap3=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(clickBg3)];
+    [self.bg3 addGestureRecognizer:tap3];
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
+-(void)setBaseData:(PostBaseData *)baseData
+{
+    _baseData=baseData;
+    if(baseData.list.count>0)
+    {
+        PostBaseData_summary *data=baseData.list[0];
+        self.titleLab1.text=data.subject;
+        [self.themeBtn1 setTitle:[NSString stringWithFormat:@" %@ ",data.forumname] forState:UIControlStateNormal];
+        self.timeLab1.text=data.time;
+    }
+    if(baseData.list.count>1)
+    {
+        PostBaseData_summary *data=baseData.list[1];
+        self.titleLab2.text=data.subject;
+        [self.themeBtn2 setTitle:[NSString stringWithFormat:@" %@ ",data.forumname] forState:UIControlStateNormal];
+        self.timeLab2.text=data.time;
+    }
+    if(baseData.list.count>2)
+    {
+        PostBaseData_summary *data=baseData.list[2];
+        self.titleLab3.text=data.subject;
+        [self.themeBtn3 setTitle:[NSString stringWithFormat:@" %@ ",data.forumname] forState:UIControlStateNormal];
+        self.timeLab3.text=data.time;
+    }
 }
 
 - (IBAction)clickTheme1:(id)sender {
@@ -38,5 +70,27 @@
 }
 
 - (IBAction)clickTheme3:(id)sender {
+}
+
+-(void)clickBg1
+{
+    if(_block)
+    {
+        _block(0);
+    }
+}
+-(void)clickBg2
+{
+    if(_block)
+    {
+        _block(1);
+    }
+}
+-(void)clickBg3
+{
+    if(_block)
+    {
+        _block(2);
+    }
 }
 @end

@@ -17,4 +17,7 @@ typedef void(^DiscuzMainTableViewCell2Block)(void);
 @property (weak, nonatomic) IBOutlet UIButton *topicBtn;
 
 @property(nonatomic,copy)DiscuzMainTableViewCell2Block block;
+
+@property(nonatomic,strong) PostBaseData_summary * baseData;
+
 @end

@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface CommunityTableViewCollectionCell_Newest : UICollectionViewCell
-
+@property (weak, nonatomic) IBOutlet UIImageView *imgV;
 @end

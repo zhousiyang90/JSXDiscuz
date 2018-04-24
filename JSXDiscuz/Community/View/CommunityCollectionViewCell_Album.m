@@ -15,4 +15,14 @@
     // Initialization code
 }
 
+-(void)setPostdata:(CommunityPostsData *)postdata
+{
+    _postdata=postdata;
+    if(postdata.pics.count>0)
+    {
+        [self.imgV sd_setImageWithURL:[NSURL URLWithString:postdata.pics[0]] placeholderImage:[UIImage imageNamed:PlaceHolderImg_Post]];
+    }
+    self.titleLab.text=postdata.subject;
+}
+
 @end

@@ -9,5 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface MainThemeCollectionViewCell : UICollectionViewCell
+@property (weak, nonatomic) IBOutlet UIImageView *imgV;
+@property (weak, nonatomic) IBOutlet UILabel *titleLab;
+@property (weak, nonatomic) IBOutlet UILabel *memNumLab;
+
+
 
 @end

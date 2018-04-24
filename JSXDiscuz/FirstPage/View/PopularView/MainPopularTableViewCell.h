@@ -21,4 +21,6 @@ typedef void(^MainPopularTableViewCellBlock)(void);
 
 @property(nonatomic,copy) MainPopularTableViewCellBlock block;
 
+@property(nonatomic,strong) PostBaseData * baseData;
+
 @end

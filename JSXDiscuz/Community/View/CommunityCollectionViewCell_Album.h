@@ -7,7 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CommunityPostsData.h"
+#import "CommunityNewestData.h"
 
 @interface CommunityCollectionViewCell_Album : UICollectionViewCell
+
+@property (weak, nonatomic) IBOutlet UILabel *titleLab;
+@property (weak, nonatomic) IBOutlet UIImageView *imgV;
+
+@property(nonatomic,strong) CommunityPostsData * postdata;
 
 @end

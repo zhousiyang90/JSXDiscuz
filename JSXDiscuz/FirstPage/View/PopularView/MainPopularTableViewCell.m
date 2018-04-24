@@ -13,6 +13,9 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     
+    self.userHeadImgV.layer.cornerRadius=12.5;
+    self.userHeadImgV.layer.masksToBounds=YES;
+    
     UITapGestureRecognizer *tap1=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(clickuserImgV)];
     [self.userHeadImgV setUserInteractionEnabled:YES];
     [self.userHeadImgV addGestureRecognizer:tap1];
@@ -27,6 +30,24 @@
     if(_block)
     {
         _block();
+    }
+}
+
+-(void)setBaseData:(PostBaseData *)baseData
+{
+    _baseData=baseData;
+    if(baseData.list.count>0)
+    {
+        PostBaseData_summary * data=baseData.list[0];
+        self.titleNameLab.text=data.subject;
+        if(data.pics.count>0)
+        {
+            NSString *picurl=data.pics[0];
+            [self.popularImgv sd_setImageWithURL:[NSURL URLWithString:picurl] placeholderImage:[UIImage imageNamed:PlaceHolderImg_Post]];
+        }
+        [self.userHeadImgV sd_setImageWithURL:[NSURL URLWithString:data.avatar] placeholderImage:[UIImage imageNamed:PlaceHolderImg_Head]];
+        self.userNameLab.text=data.author;
+        self.readNumLab.text=[NSString stringWithFormat:@"阅读%@|评论%@",data.views,data.replies];
     }
 }
 

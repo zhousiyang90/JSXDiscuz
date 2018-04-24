@@ -15,9 +15,10 @@
 {
     BOOL hasNewData;
 }
-
+@property(nonatomic,strong) GroupMainData * currentIndexData;
 @property(nonatomic,strong) NSMutableArray * indexList;
 
+@property(nonatomic,strong) GroupMainData * currentContentData;
 @property(nonatomic,strong) NSMutableArray * contentList;
 
 @end
@@ -34,7 +35,7 @@
         CGFloat contentYoffset = scrollView.contentOffset.y;
         CGFloat distance = scrollView.contentSize.height-height-contentYoffset;
         if (distance<=0) {
-            [self getInitData];
+            //[self getInitData];
         }
     }
 }
@@ -61,7 +62,7 @@
         return self.indexList.count;
     }else
     {
-        return 15;
+        return self.contentList.count;
     }
     
 }
@@ -83,8 +84,8 @@
     {
         TopicListTableViewCell_index * cell = [tableView dequeueReusableCellWithIdentifier:@"topicListTableViewCell_index"];
         cell.selectionStyle=UITableViewCellSelectionStyleNone;
-        NSString * topicType = self.indexList[indexPath.row];
-        cell.topicLab.text=topicType;
+        GroupMainData_summary * topicType = self.indexList[indexPath.row];
+        cell.topicLab.text=topicType.name;
         if(self.currentPage==indexPath.row)
         {
             cell.tintView.hidden=NO;
@@ -99,6 +100,8 @@
     {
         TopicListTableViewCell_content * cell = [tableView dequeueReusableCellWithIdentifier:@"topicListTableViewCell_content"];
         cell.selectionStyle=UITableViewCellSelectionStyleNone;
+        GroupMainData_summary * contentData = self.contentList[indexPath.row];
+        cell.groupData=contentData;
         return cell;
     }
     
@@ -111,11 +114,15 @@
     {
         self.currentPage=indexPath.row;
         [self.indextableview reloadData];
-        [self.contenttableview reloadData];
+        
+        GroupMainData_summary * indexdata = self.indexList[indexPath.row];
+        [self getTypeListData:indexdata.fid];
     }else
     {
+        GroupMainData_summary * contentdata = self.contentList[indexPath.row];
         //主题详情
         TopicDetailViewController * vc=[[TopicDetailViewController alloc]init];
+        vc.fid=contentdata.fid;
         [self.navigationController pushViewController:vc animated:YES];
     }
     
@@ -128,19 +135,17 @@
     if(_indexList==nil)
     {
         _indexList=[NSMutableArray array];
-        [_indexList addObject:@"科学技术"];
-        [_indexList addObject:@"数码"];
-        [_indexList addObject:@"情感"];
-        [_indexList addObject:@"人文自然"];
-        [_indexList addObject:@"地区"];
-        [_indexList addObject:@"学校"];
-        [_indexList addObject:@"兴趣"];
-        [_indexList addObject:@"休闲"];
-        [_indexList addObject:@"游戏"];
-        [_indexList addObject:@"动漫"];
-        [_indexList addObject:@"小说"];
     }
     return _indexList;
+}
+
+-(NSMutableArray *)contentList
+{
+    if(_contentList==nil)
+    {
+        _contentList=[NSMutableArray array];
+    }
+    return _contentList;
 }
 
 #pragma mark - 生命周期
@@ -171,14 +176,66 @@
 
 -(void)getInitData
 {
-    hasNewData=NO;
-    [self.contenttableview reloadData];
-    [self setMainTableViewFooterView];
+    [self getTypeData];
 }
 
 -(void)nonetstatusGetData
 {
-    
+    [self getInitData];
+}
+
+#pragma mark - 网络访问
+
+-(void)getTypeData
+{
+    NSMutableDictionary * params = [NSMutableDictionary dictionary];
+    params[@"uid"]=@"11";
+    params[@"gcid"]=@"3";
+    [JSXHttpTool Get:Interface_GroupAllList params:params success:^(id json) {
+        NSNumber * returnCode = json[@"errcode"];
+        NSString * message = json[@"errmsg"];
+        if([returnCode intValue]==0)
+        {
+            self.currentIndexData = [GroupMainData mj_objectWithKeyValues:json];
+            self.indexList=self.currentIndexData.alllist;
+            //请求默认页数据
+            if(self.currentIndexData.alllist.count>0)
+            {
+                GroupMainData_summary *detailData=self.currentIndexData.alllist[0];
+                [self getTypeListData:detailData.fid];
+            }
+            [self.indextableview reloadData];
+        }else
+        {
+            [SVProgressHUD showErrorWithStatus:message];
+        }
+    } failure:^(NSError *error) {
+    }];
+}
+
+-(void)getTypeListData:(NSString*)fid
+{
+    [SVProgressHUD showWithStatus:@"加载中..."];
+    NSMutableDictionary * params = [NSMutableDictionary dictionary];
+    params[@"uid"]=@"11";
+    params[@"fid"]=fid;
+    [JSXHttpTool Get:Interface_GroupAllTypeList params:params success:^(id json) {
+        NSNumber * returnCode = json[@"errcode"];
+        NSString * message = json[@"errmsg"];
+        if([returnCode intValue]==0)
+        {
+            self.currentContentData = [GroupMainData mj_objectWithKeyValues:json];
+            self.contentList=self.currentContentData.glist;
+            [self.contenttableview reloadData];
+            [SVProgressHUD dismiss];
+        }else
+        {
+            [SVProgressHUD dismiss];
+            [SVProgressHUD showErrorWithStatus:message];
+        }
+    } failure:^(NSError *error) {
+        [SVProgressHUD dismiss];
+    }];
 }
 
 @end

@@ -13,8 +13,11 @@
 #import "TopicDetailViewController.h"
 #import "TopicListViewController.h"
 #import "GroupSearchResultViewController.h"
+#import "GroupMainData.h"
 
 @interface GroupViewController ()<UITableViewDataSource,UITableViewDelegate,UISearchBarDelegate>
+
+@property(nonatomic,strong) GroupMainData * data;
 
 @end
 
@@ -44,7 +47,13 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 8;
+    if(section==0)
+    {
+        return self.data.myforumlist.count;
+    }else
+    {
+        return self.data.forumlist.count;
+    }
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
@@ -87,15 +96,35 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    GroupMainData_summary * celldatas;
+    if(indexPath.section==0)
+    {
+        celldatas=self.data.myforumlist[indexPath.row];
+    }else
+    {
+        celldatas=self.data.forumlist[indexPath.row];
+    }
     GroupViewTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"groupViewTableViewCell"];
     cell.selectionStyle=UITableViewCellSelectionStyleNone;
+    [cell.imgV sd_setImageWithURL:[NSURL URLWithString:celldatas.icon] placeholderImage:[UIImage imageNamed:PlaceHolderImg_Head]];
+    cell.descLab.text=celldatas.desc;
+    cell.nameLab.text=celldatas.name;
     return cell;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    GroupMainData_summary * celldatas;
+    if(indexPath.section==0)
+    {
+        celldatas=self.data.myforumlist[indexPath.row];
+    }else
+    {
+        celldatas=self.data.forumlist[indexPath.row];
+    }
     //话题详情
     TopicDetailViewController * vc=[[TopicDetailViewController alloc]init];
+    vc.fid=celldatas.fid;
     [self.navigationController pushViewController:vc animated:YES];
 }
 
@@ -116,6 +145,10 @@
     
     self.groupTableView.separatorStyle=UITableViewCellSeparatorStyleNone;
     
+    [self.groupTableView addPullToRefreshWithActionHandler:^{
+        [self getInitData];
+    }];
+    
     self.needNoNetTips=YES;
     self.needNoTableViewDataTips=YES;
     self.baseTableview=self.groupTableView;
@@ -128,7 +161,33 @@
 
 -(void)getInitData
 {
-    
+    [SVProgressHUD showWithStatus:@"加载中"];
+    NSMutableDictionary * params = [NSMutableDictionary dictionary];
+    params[@"uid"]=@"11";
+    [JSXHttpTool Get:Interface_GroupMainPage params:params success:^(id json) {
+        NSNumber * returnCode = json[@"errcode"];
+        NSString * message = json[@"errmsg"];
+        if([returnCode intValue]==0)
+        {
+            self.data = [GroupMainData mj_objectWithKeyValues:json];
+            [self.groupTableView reloadData];
+            [SVProgressHUD dismiss];
+            [self.groupTableView.pullToRefreshView stopAnimating];
+        }else
+        {
+            [SVProgressHUD dismiss];
+            [SVProgressHUD showErrorWithStatus:message];
+            [self.groupTableView.pullToRefreshView stopAnimating];
+        }
+    } failure:^(NSError *error) {
+        [SVProgressHUD dismiss];
+        [self.groupTableView.pullToRefreshView stopAnimating];
+    }];
+}
+
+-(void)nonetstatusGetData
+{
+    [self getInitData];
 }
 
 @end

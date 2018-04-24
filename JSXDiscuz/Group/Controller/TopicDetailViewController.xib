@@ -39,7 +39,7 @@
                                 <constraint firstAttribute="height" constant="1" id="9Q2-Xf-X3y"/>
                             </constraints>
                         </view>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="community_tu01" translatesAutoresizingMaskIntoConstraints="NO" id="3fT-rK-LOw">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder_group" translatesAutoresizingMaskIntoConstraints="NO" id="3fT-rK-LOw">
                             <rect key="frame" x="10" y="15" width="70" height="70"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="70" id="fs5-TN-Yro"/>
@@ -74,7 +74,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="小组介绍" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xx6-4T-a9K">
-                            <rect key="frame" x="90" y="63" width="54" height="20"/>
+                            <rect key="frame" x="90" y="63" width="275" height="20"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="20" id="5ky-Hy-PED"/>
                             </constraints>
@@ -132,6 +132,7 @@
                         <constraint firstItem="Pgq-1W-FMs" firstAttribute="leading" secondItem="fUa-G3-hjD" secondAttribute="trailing" constant="10" id="JZt-H2-0bD"/>
                         <constraint firstAttribute="trailing" secondItem="5zM-DV-N6t" secondAttribute="trailing" id="LiT-aK-3mA"/>
                         <constraint firstItem="a1N-Td-X76" firstAttribute="centerY" secondItem="rMc-wT-Wr4" secondAttribute="centerY" id="Mpz-Ob-1C0"/>
+                        <constraint firstAttribute="trailing" secondItem="Xx6-4T-a9K" secondAttribute="trailing" constant="10" id="Myh-dx-Ifd"/>
                         <constraint firstItem="fUa-G3-hjD" firstAttribute="leading" secondItem="3fT-rK-LOw" secondAttribute="trailing" constant="10" id="OMP-W2-n6d"/>
                         <constraint firstItem="Sv1-vH-I58" firstAttribute="centerY" secondItem="gfH-GG-wWY" secondAttribute="centerY" id="UCv-AT-YwN"/>
                         <constraint firstItem="3fT-rK-LOw" firstAttribute="top" secondItem="6ao-ui-F0u" secondAttribute="top" constant="15" id="VdB-FB-fGk"/>
@@ -168,6 +169,6 @@
         </view>
     </objects>
     <resources>
-        <image name="community_tu01" width="351" height="250"/>
+        <image name="placeholder_group" width="75" height="75"/>
     </resources>
 </document>

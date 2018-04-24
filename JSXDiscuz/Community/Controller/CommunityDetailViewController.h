@@ -11,7 +11,6 @@
 @interface CommunityDetailViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UIView *bgview;
-
 @property (weak, nonatomic) IBOutlet UIImageView *topicImgV;
 @property (weak, nonatomic) IBOutlet UILabel *topicName;
 @property (weak, nonatomic) IBOutlet UILabel *topicNumberLab;
@@ -21,5 +20,6 @@
 @property (weak, nonatomic) IBOutlet UIScrollView *indexscrollview;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollview;
 
+@property(nonatomic,copy) NSString * fid;
 
 @end

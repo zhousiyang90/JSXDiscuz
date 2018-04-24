@@ -7,11 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GroupMainData_summary.h"
 
 @interface TopicListTableViewCell_content : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *topicImgV;
 @property (weak, nonatomic) IBOutlet UILabel *topicName;
 
 @property (weak, nonatomic) IBOutlet UILabel *topicDesc;
+
+@property(nonatomic,strong)GroupMainData_summary * groupData;
 
 @end

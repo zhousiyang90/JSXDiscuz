@@ -18,4 +18,6 @@ typedef void(^MainQuickScanTableViewCellBlock)(int,NSIndexPath*);
 
 @property(nonatomic,copy) MainQuickScanTableViewCellBlock block;
 
+@property(nonatomic,strong) PostBaseData * baseData;
+
 @end

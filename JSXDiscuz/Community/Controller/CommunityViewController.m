@@ -39,7 +39,7 @@
     
     self.contentScrollView.delegate=self;
     self.contentScrollView.pagingEnabled=YES;
-    self.contentScrollView.contentSize=CGSizeMake(SDScreenWidth*4,self.contentScrollView.height);
+    self.contentScrollView.contentSize=CGSizeMake(SDScreenWidth*4,self.contentScrollView.height-self.tabBarController.tabBar.height);
     
     //默认选中第一个标签页
     lineView = [[UIView alloc]initWithFrame:CGRectMake(SDScreenWidth/8-30, 39, 60, 1)];

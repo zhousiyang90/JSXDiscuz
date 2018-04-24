@@ -10,4 +10,9 @@
 
 @implementation CommunityNewestData
 
++(NSDictionary*)mj_objectClassInArray
+{
+    return @{@"list":[CommunityPostsData class]};
+}
+
 @end

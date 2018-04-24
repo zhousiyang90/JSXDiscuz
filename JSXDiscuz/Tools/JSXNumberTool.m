@@ -43,6 +43,10 @@
 
 +(BOOL)isValidPhoneNumber:(NSString *)phone
 {
+    if(phone.length==0)
+    {
+        return NO;
+    }
     NSString *MOBILE = @"^1(3[0-9]|4[57]|5[0-35-9]|8[0-9]|7[0678])\\d{8}$";
     NSPredicate *regextestmobile = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", MOBILE];
     return [regextestmobile evaluateWithObject:phone];

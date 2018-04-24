@@ -24,6 +24,7 @@
                         <color key="backgroundColor" red="0.94172058552919136" green="1" blue="0.30886353741280959" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="tac-Sb-33w" secondAttribute="height" multiplier="115:83" id="7rO-aK-AC6"/>
+                            <constraint firstAttribute="width" constant="109.5" id="qaF-v3-Hh4"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="标题" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eg5-lo-IQB">

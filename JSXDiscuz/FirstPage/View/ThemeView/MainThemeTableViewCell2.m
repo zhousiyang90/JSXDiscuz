@@ -41,12 +41,16 @@ static NSString *const cellId = @"mainThemeCollectionViewCell2";
 
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return 10;
+    return self.baseData.catlist.count;
 }
 
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     MainThemeCollectionViewCell2 *cell=[collectionView dequeueReusableCellWithReuseIdentifier:cellId forIndexPath:indexPath];
+    GroupMainData_summary * cellData=self.baseData.catlist[indexPath.row];
+    cell.titleLab.text=cellData.name;
+    [cell.imgV sd_setImageWithURL:[NSURL URLWithString:cellData.icon] placeholderImage:[UIImage imageNamed:PlaceHolderImg_Group]];
+    cell.postsNumLab.text=[NSString stringWithFormat:@"%@主题/%@帖子",cellData.threadnum,cellData.repliesnum];
     return cell;
 }
 
@@ -58,5 +62,11 @@ static NSString *const cellId = @"mainThemeCollectionViewCell2";
     }
 }
 
+-(void)setBaseData:(GroupMainData *)baseData
+{
+    _baseData=baseData;
+    [self.collectionView reloadData];
+    
+}
 
 @end

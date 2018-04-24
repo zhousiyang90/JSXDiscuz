@@ -7,6 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PostBaseData.h"
+
+typedef void(^MainRankingTableViewCellBlock)(int);
 
 @interface MainRankingTableViewCell : UITableViewCell
 
@@ -23,5 +26,10 @@
 - (IBAction)clickTheme2:(id)sender;
 - (IBAction)clickTheme3:(id)sender;
 
+@property (weak, nonatomic) IBOutlet UIView *bg1;
+@property (weak, nonatomic) IBOutlet UIView *bg2;
+@property (weak, nonatomic) IBOutlet UIView *bg3;
 
+@property(nonatomic,strong) PostBaseData * baseData;
+@property(nonatomic,copy) MainRankingTableViewCellBlock block;
 @end

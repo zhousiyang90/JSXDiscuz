@@ -14,7 +14,8 @@
 {
     BOOL hasNewData;
 }
-@property(nonatomic,strong) NSMutableArray * testList;
+@property(nonatomic,assign) int currentPage;
+@property(nonatomic,strong) CommunityNewestData * currentPagedata;
 
 @end
 
@@ -30,7 +31,7 @@
         CGFloat contentYoffset = scrollView.contentOffset.y;
         CGFloat distance = scrollView.contentSize.height-height-contentYoffset;
         if (distance<=0) {
-            [self getInitData];
+            //[self getInitData];
         }
     }
 }
@@ -52,7 +53,7 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.testList.count;
+    return self.dataList.count;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -74,39 +75,22 @@
 
 -(void)configCell:(CommunityTableViewCell_Newest*)cell andIndexPath:(NSIndexPath*)indexpath
 {
-    cell.data=self.testList[indexpath.row];
+    cell.postdata=self.dataList[indexpath.row];
     [cell.collectionView reloadData];
 }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    CommunityPostsData * postData=self.dataList[indexPath.row];
+    [self pushToPostsDetail:postData.tid andFid:postData.fid];
+}
 
 #pragma mark - LazyLoad
 
--(NSMutableArray *)testList
+-(void)setDataList:(NSMutableArray *)dataList
 {
-    if(_testList==nil)
-    {
-        _testList=[NSMutableArray array];
-        CommunityNewestData * data = [[CommunityNewestData alloc]init];
-        data.title=@"sad撒大所大所大所大所大所大所大所多撒大所多sad撒大所大所大所大所大所大所大所多撒大所多sad撒大所大所大所大所大所大所大所多s大所多s大所多s大所多s大所多s大所多s大所多撒大所多";
-        data.imgCount=5;
-        [_testList addObject:data];
-        
-        CommunityNewestData * data2 = [[CommunityNewestData alloc]init];
-        data2.title=@"s大所多";
-        data2.imgCount=9;
-        [_testList addObject:data2];
-        
-        CommunityNewestData * data3 = [[CommunityNewestData alloc]init];
-        data3.title=@"s大所多s大所多ss大所多大所s大所多多";
-        data3.imgCount=0;
-        [_testList addObject:data3];
-        
-        CommunityNewestData * data4 = [[CommunityNewestData alloc]init];
-        data4.title=@"ss大所多s大所多s大所多大所多";
-        data4.imgCount=2;
-        [_testList addObject:data4];
-    }
-    return _testList;
+    _dataList=dataList;
+    [self.tableview reloadData];
 }
 
 #pragma mark - 生命周期
@@ -129,14 +113,38 @@
 
 -(void)getInitData
 {
-    hasNewData=NO;
-    [self.tableview reloadData];
-    [self setMainTableViewFooterView];
+    if(self.dataList==nil&&self.fid.length>0)
+    {
+        NSMutableDictionary * params = [NSMutableDictionary dictionary];
+        params[@"uid"]=@"11";
+        params[@"fid"]=self.fid;
+        [JSXHttpTool Get:Interface_GroupMainPageDetail params:params success:^(id json) {
+            NSNumber * returnCode = json[@"errcode"];
+            NSString * message = json[@"errmsg"];
+            if([returnCode intValue]==0)
+            {
+                self.currentPagedata = [CommunityNewestData mj_objectWithKeyValues:json];
+                self.dataList=self.currentPagedata.list;
+                
+                [self.tableview reloadData];
+                [SVProgressHUD dismiss];
+                [self.tableview.pullToRefreshView stopAnimating];
+            }else
+            {
+                [SVProgressHUD dismiss];
+                [SVProgressHUD showErrorWithStatus:message];
+                [self.tableview.pullToRefreshView stopAnimating];
+            }
+        } failure:^(NSError *error) {
+            [SVProgressHUD dismiss];
+            [self.tableview.pullToRefreshView stopAnimating];
+        }];
+    }
 }
 
 -(void)nonetstatusGetData
 {
-    
+    [self getInitData];
 }
 
 @end

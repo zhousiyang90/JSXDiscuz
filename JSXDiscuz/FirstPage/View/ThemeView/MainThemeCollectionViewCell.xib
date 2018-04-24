@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -21,15 +21,15 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tr0-h6-hPC">
                         <rect key="frame" x="5" y="10" width="190" height="80"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="che" translatesAutoresizingMaskIntoConstraints="NO" id="mjj-G3-DxT">
-                                <rect key="frame" x="10" y="10.5" width="60" height="60"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="che" translatesAutoresizingMaskIntoConstraints="NO" id="mjj-G3-DxT">
+                                <rect key="frame" x="10" y="15.5" width="50" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="kyB-0N-9Z8"/>
-                                    <constraint firstAttribute="width" constant="60" id="wAA-ie-R4W"/>
+                                    <constraint firstAttribute="height" constant="50" id="kyB-0N-9Z8"/>
+                                    <constraint firstAttribute="width" constant="50" id="wAA-ie-R4W"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="主题名称" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y6b-k5-Ade">
-                                <rect key="frame" x="80" y="15" width="100" height="20"/>
+                                <rect key="frame" x="70" y="15" width="110" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="nFA-97-cwI"/>
                                 </constraints>
@@ -38,7 +38,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="话题/成员" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZvL-Gb-YHO">
-                                <rect key="frame" x="80" y="45" width="100" height="20"/>
+                                <rect key="frame" x="70" y="45" width="110" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="Dml-ga-eep"/>
                                 </constraints>
@@ -74,6 +74,11 @@
                 <constraint firstItem="Tr0-h6-hPC" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="YAZ-Eu-Kxm"/>
             </constraints>
             <size key="customSize" width="257" height="148"/>
+            <connections>
+                <outlet property="imgV" destination="mjj-G3-DxT" id="pPr-T4-VVu"/>
+                <outlet property="memNumLab" destination="ZvL-Gb-YHO" id="Wwg-xO-4rI"/>
+                <outlet property="titleLab" destination="y6b-k5-Ade" id="Ghd-6b-0YU"/>
+            </connections>
             <point key="canvasLocation" x="-413" y="-108"/>
         </collectionViewCell>
     </objects>

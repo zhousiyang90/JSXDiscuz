@@ -16,4 +16,6 @@ typedef void(^MainThemeTableViewCellBlock)(NSIndexPath*);
 
 @property(nonatomic,copy) MainThemeTableViewCellBlock block;
 
+@property(nonatomic,strong) GroupMainData * baseData;
+
 @end

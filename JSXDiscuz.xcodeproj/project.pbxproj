@@ -144,6 +144,7 @@
 		31282A6C2089D44C00B8A4FD /* NSString+ZSHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = 31282A6B2089D44C00B8A4FD /* NSString+ZSHeight.m */; };
 		31282A6F208D742100B8A4FD /* CommentBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 31282A6E208D742000B8A4FD /* CommentBottomView.m */; };
 		31282A71208D742E00B8A4FD /* CommentBottomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31282A70208D742E00B8A4FD /* CommentBottomView.xib */; };
+		31420C64209062490047DC12 /* UIViewController+Login.m in Sources */ = {isa = PBXBuildFile; fileRef = 31420C63209062490047DC12 /* UIViewController+Login.m */; };
 		3144AFD1205B5C8A00F55063 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3144AFD0205B5C8A00F55063 /* AppDelegate.m */; };
 		3144AFD9205B5C8A00F55063 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3144AFD8205B5C8A00F55063 /* Assets.xcassets */; };
 		3144AFDC205B5C8A00F55063 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3144AFDA205B5C8A00F55063 /* LaunchScreen.storyboard */; };
@@ -533,6 +534,8 @@
 		31282A6D208D741F00B8A4FD /* CommentBottomView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommentBottomView.h; sourceTree = "<group>"; };
 		31282A6E208D742000B8A4FD /* CommentBottomView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommentBottomView.m; sourceTree = "<group>"; };
 		31282A70208D742E00B8A4FD /* CommentBottomView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentBottomView.xib; sourceTree = "<group>"; };
+		31420C62209062490047DC12 /* UIViewController+Login.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Login.h"; sourceTree = "<group>"; };
+		31420C63209062490047DC12 /* UIViewController+Login.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Login.m"; sourceTree = "<group>"; };
 		3144AFCC205B5C8A00F55063 /* JSXDiscuz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JSXDiscuz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3144AFCF205B5C8A00F55063 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3144AFD0205B5C8A00F55063 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -1079,6 +1082,8 @@
 				31282A6B2089D44C00B8A4FD /* NSString+ZSHeight.m */,
 				31BE275C208EC23E004CE714 /* UITableView+ZSTableView.h */,
 				31BE275D208EC23E004CE714 /* UITableView+ZSTableView.m */,
+				31420C62209062490047DC12 /* UIViewController+Login.h */,
+				31420C63209062490047DC12 /* UIViewController+Login.m */,
 			);
 			path = CategoryClass;
 			sourceTree = "<group>";
@@ -1216,6 +1221,43 @@
 				31BE2757208D88E8004CE714 /* PostsDetailData_comment.m */,
 			);
 			path = PostsDetail;
+			sourceTree = "<group>";
+		};
+		31420C60209028DB0047DC12 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				31263393207F48E0003EA5E5 /* LoginViewController.h */,
+				31263394207F48E0003EA5E5 /* LoginViewController.m */,
+				31263395207F48E0003EA5E5 /* LoginViewController.xib */,
+				31263398207F48FE003EA5E5 /* RegisterViewController.h */,
+				31263399207F48FE003EA5E5 /* RegisterViewController.m */,
+				3126339A207F48FE003EA5E5 /* RegisterViewController.xib */,
+				3126339D20804842003EA5E5 /* UserData.h */,
+				3126339E20804843003EA5E5 /* UserData.m */,
+				312633A020804902003EA5E5 /* UserDataTools.h */,
+				312633A120804902003EA5E5 /* UserDataTools.m */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		31420C612090291A0047DC12 /* BaseFrame */ = {
+			isa = PBXGroup;
+			children = (
+				310D909120634BA400756558 /* NoNetView.h */,
+				310D909020634BA400756558 /* NoNetView.m */,
+				310D909220634BA400756558 /* NoNetView.xib */,
+				310D908B2061F29000756558 /* BaseWKViewController.h */,
+				310D908C2061F29100756558 /* BaseWKViewController.m */,
+				31B9848A2060D8240041E910 /* BaseTabBarViewController.h */,
+				31B9848B2060D8240041E910 /* BaseTabBarViewController.m */,
+				31B9848D2060D8520041E910 /* BaseNavigationViewController.h */,
+				31B9848E2060D8520041E910 /* BaseNavigationViewController.m */,
+				3119D2E72069E60D0094DB60 /* UIBarButtonItem+BackButtun.h */,
+				3119D2E62069E60C0094DB60 /* UIBarButtonItem+BackButtun.m */,
+				31B984902060D8630041E910 /* BaseViewController.h */,
+				31B984912060D8630041E910 /* BaseViewController.m */,
+			);
+			path = BaseFrame;
 			sourceTree = "<group>";
 		};
 		3144AFC3205B5C8A00F55063 = {
@@ -1727,32 +1769,11 @@
 		31B984892060D7F00041E910 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				31420C612090291A0047DC12 /* BaseFrame */,
+				31420C60209028DB0047DC12 /* Login */,
 				31282A5520898EA600B8A4FD /* PostsDetail */,
-				310D909120634BA400756558 /* NoNetView.h */,
-				310D909020634BA400756558 /* NoNetView.m */,
-				310D909220634BA400756558 /* NoNetView.xib */,
-				310D908B2061F29000756558 /* BaseWKViewController.h */,
-				310D908C2061F29100756558 /* BaseWKViewController.m */,
-				31B9848A2060D8240041E910 /* BaseTabBarViewController.h */,
-				31B9848B2060D8240041E910 /* BaseTabBarViewController.m */,
-				31B9848D2060D8520041E910 /* BaseNavigationViewController.h */,
-				31B9848E2060D8520041E910 /* BaseNavigationViewController.m */,
-				3119D2E72069E60D0094DB60 /* UIBarButtonItem+BackButtun.h */,
-				3119D2E62069E60C0094DB60 /* UIBarButtonItem+BackButtun.m */,
-				31B984902060D8630041E910 /* BaseViewController.h */,
-				31B984912060D8630041E910 /* BaseViewController.m */,
 				31282A302085F6BE00B8A4FD /* InterfaceSet.h */,
 				31B984A22060E8DF0041E910 /* Header.pch */,
-				31263393207F48E0003EA5E5 /* LoginViewController.h */,
-				31263394207F48E0003EA5E5 /* LoginViewController.m */,
-				31263395207F48E0003EA5E5 /* LoginViewController.xib */,
-				31263398207F48FE003EA5E5 /* RegisterViewController.h */,
-				31263399207F48FE003EA5E5 /* RegisterViewController.m */,
-				3126339A207F48FE003EA5E5 /* RegisterViewController.xib */,
-				3126339D20804842003EA5E5 /* UserData.h */,
-				3126339E20804843003EA5E5 /* UserData.m */,
-				312633A020804902003EA5E5 /* UserDataTools.h */,
-				312633A120804902003EA5E5 /* UserDataTools.m */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -2102,6 +2123,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31420C64209062490047DC12 /* UIViewController+Login.m in Sources */,
 				31608B2320737A31005C5338 /* MineCenterViewController_circle.m in Sources */,
 				31ACC9DE207CB00200B89984 /* TopicListTableViewCell_index.m in Sources */,
 				31ACC93E2079BABB00B89984 /* MineCenterSettingViewController_bondPhone.m in Sources */,

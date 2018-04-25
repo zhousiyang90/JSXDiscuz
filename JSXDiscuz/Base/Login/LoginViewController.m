@@ -1,33 +1,33 @@
 //
-//  RegisterViewController.m
+//  LoginViewController.m
 //  JSXDiscuz
 //
 //  Created by 周思扬 on 2018/4/12.
 //  Copyright © 2018年 周思扬. All rights reserved.
 //
 
-#import "RegisterViewController.h"
 #import "LoginViewController.h"
+#import "RegisterViewController.h"
 
 #define SumCount 60
 
-@interface RegisterViewController ()
+@interface LoginViewController ()
 {
-    BOOL isSelectedAgreeOn;
-    
     BOOL hasSend;
     RACDisposable * racdis;
     
     NSString * randomPhone;
 }
+@property(nonatomic,strong) UserData *user;
+
 @end
 
-@implementation RegisterViewController
+@implementation LoginViewController
 
 /*
-#pragma mark - 保证RegisterViewController单例
+#pragma mark - 保证LoginViewController单例
 // 创建静态对象 防止外部访问
-static RegisterViewController *_instance;
+static LoginViewController *_instance;
 +(instancetype)allocWithZone:(struct _NSZone *)zone
 {
     static dispatch_once_t onceToken;
@@ -42,6 +42,7 @@ static RegisterViewController *_instance;
 // 类方法命名规范 share类名|default类名|类名
 
 
+
 // 为了严谨，也要重写copyWithZone 和 mutableCopyWithZone
 -(id)copyWithZone:(NSZone *)zone
 {
@@ -52,24 +53,21 @@ static RegisterViewController *_instance;
     return _instance;
 }
 */
-+(instancetype)shareRegisterViewController
+
++(instancetype)shareLoginViewController
 {
     //return _instance;
     // 最好用self 用Tools他的子类调用时会出现错误
     return [[self alloc]init];
 }
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     self.randomBtn.layer.cornerRadius=5;
-    self.registerBtn.layer.cornerRadius=5;
     self.loginBtn.layer.cornerRadius=5;
-    self.loginBtn.layer.borderWidth=1;
-    self.loginBtn.layer.borderColor=ThemeColor.CGColor;
-    
-    self.agreeboxBtn.layer.cornerRadius=2;
-    self.agreeboxBtn.layer.borderColor=SDColor(192, 192, 192).CGColor;
-    self.agreeboxBtn.layer.borderWidth=1;
+    self.registerBtn.layer.cornerRadius=5;
+    self.registerBtn.layer.borderWidth=1;
+    self.registerBtn.layer.borderColor=ThemeColor.CGColor;
     if(IS_IPHONEX)
     {
         self.heightConstant.constant=88;
@@ -81,7 +79,7 @@ static RegisterViewController *_instance;
     [[self.phonetf rac_textSignal]subscribeNext:^(id x) {
         
     }];
-    
+
     [[self.randomBtn rac_signalForControlEvents:UIControlEventTouchUpInside]subscribeNext:^(id x) {
         randomPhone=self.phonetf.text;
         if([JSXNumberTool isValidPhoneNumber:randomPhone])
@@ -91,40 +89,30 @@ static RegisterViewController *_instance;
         {
             [SVProgressHUD showErrorWithStatus:@"手机号不合法"];
         }
-        
-    }];
-    [[self.agreeboxBtn rac_signalForControlEvents:UIControlEventTouchUpInside]subscribeNext:^(id x) {
-        isSelectedAgreeOn=!isSelectedAgreeOn;
-        self.agreeboxBtn.selected=isSelectedAgreeOn;
-    }];
-    [[self.agreeBtn rac_signalForControlEvents:UIControlEventTouchUpInside]subscribeNext:^(id x) {
-        isSelectedAgreeOn=!isSelectedAgreeOn;
-        self.agreeboxBtn.selected=isSelectedAgreeOn;
-    }];
-    [[self.useragreeonBtn rac_signalForControlEvents:UIControlEventTouchUpInside]subscribeNext:^(id x) {
-        
     }];
     [[self.loginBtn rac_signalForControlEvents:UIControlEventTouchUpInside]subscribeNext:^(id x) {
-        [self dismissViewControllerAnimated:YES completion:nil];
-    }];
-    [[self.registerBtn rac_signalForControlEvents:UIControlEventTouchUpInside]subscribeNext:^(id x) {
-        if(!isSelectedAgreeOn)
+        if(![randomPhone isEqualToString:self.phonetf.text])
         {
-            [SVProgressHUD showErrorWithStatus:@"请同意用户协议"];
+            [SVProgressHUD showErrorWithStatus:@"手机号改变！"];
             return;
         }
-        if(self.phonetf.text.length==0 ||self.randomtf.text.length==0)
+        if(![JSXNumberTool isValidPhoneNumber:self.phonetf.text])
         {
-            [SVProgressHUD showErrorWithStatus:@"输入内容为空"];
-            return;
-        }
-        if(![self.phonetf.text isEqualToString:randomPhone])
-        {
-            [SVProgressHUD showErrorWithStatus:@"手机号已变更"];
+            [SVProgressHUD showErrorWithStatus:@"手机号不合理！"];
             return;
         }
         
-        [self userRegister];
+         [self loginInterface];
+        
+        
+    }];
+    [[self.registerBtn rac_signalForControlEvents:UIControlEventTouchUpInside]subscribeNext:^(id x) {
+        RegisterViewController *vc=[RegisterViewController shareRegisterViewController];
+        //注册成功回调
+        vc.block = ^{
+            [self dismissViewControllerAnimated:YES completion:nil];
+        };
+        [self presentViewController:vc animated:YES completion:nil];
     }];
 
 }
@@ -134,35 +122,15 @@ static RegisterViewController *_instance;
 }
 
 
-#pragma mark - 注册
+#pragma mark - LazyLoad
 
--(void)userRegister
+-(UserData *)user
 {
-    NSMutableDictionary * params = [NSMutableDictionary dictionary];
-    params[@"mod"]=@"spacecp1";
-    params[@"ac"]=@"bindtel";
-    params[@"fouid"]=@"1";
-    params[@"type"]=@"phoneregister";
-    params[@"tel"]=self.phonetf.text;
-    params[@"verifycode"]=self.randomtf.text;
-    [JSXHttpTool Get:Interface_Register params:params success:^(id json) {
-        NSString * returnCode = json[@"errcode"];
-        if([returnCode isEqualToString:@"0"])
-        {
-            [SVProgressHUD showSuccessWithStatus:@"注册成功"];
-            [self dismissViewControllerAnimated:YES completion:^{
-                if(_block)
-                {
-                    _block();
-                }
-            }];
-        }else
-        {
-            [SVProgressHUD showErrorWithStatus:@"注册失败"];
-        }
-    } failure:^(NSError *error) {
-        [SVProgressHUD showErrorWithStatus:@"网络连接异常"];
-    }];
+    if(_user==nil)
+    {
+        _user=[[UserData alloc]init];
+    }
+    return _user;
 }
 
 #pragma mark - 获取验证码
@@ -173,7 +141,7 @@ static RegisterViewController *_instance;
     params[@"mod"]=@"spacecp1";
     params[@"ac"]=@"bindtel";
     params[@"fouid"]=@"1";
-    params[@"type"]=@"registersend";
+    params[@"doup"]=@"logincode";
     params[@"tel"]=randomPhone;
     [JSXHttpTool Get:Interface_GetRandomCode params:params success:^(id json) {
         NSString * returnCode = json[@"code"];
@@ -203,4 +171,35 @@ static RegisterViewController *_instance;
         [SVProgressHUD showErrorWithStatus:@"网络连接异常"];
     }];
 }
+
+#pragma mark - 登录
+
+-(void)loginInterface
+{
+    NSMutableDictionary * params = [NSMutableDictionary dictionary];
+    params[@"mod"]=@"spacecp1";
+    params[@"ac"]=@"bindtel";
+    params[@"fouid"]=@"1";
+    params[@"doup"]=@"phonelogin";
+    params[@"tel"]=self.phonetf.text;
+    params[@"verifycode"]=self.randomtf.text;
+    [JSXHttpTool Get:Interface_Login params:params success:^(id json) {
+        NSNumber * returnCode = json[@"errcode"];
+        NSString * errmsg = json[@"errmsg"];
+        if([returnCode intValue]==0)
+        {
+            [SVProgressHUD showSuccessWithStatus:@"登录成功"];
+            UserData * userData=[UserData mj_objectWithKeyValues:json];
+            [UserDataTools saveUserInfo:userData];
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }else
+        {
+            [SVProgressHUD showErrorWithStatus:errmsg];
+        }
+    } failure:^(NSError *error) {
+        [SVProgressHUD showErrorWithStatus:@"网络连接异常"];
+    }];
+}
+
+
 @end

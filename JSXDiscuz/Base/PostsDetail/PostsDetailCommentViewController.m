@@ -24,13 +24,21 @@
             [SVProgressHUD showErrorWithStatus:@"参数为空"];
             return;
         }
-        [SVProgressHUD showWithStatus:@"回帖中..."];
+        
         NSMutableDictionary * params = [NSMutableDictionary dictionary];
         params[@"tid"]=self.tid;
         params[@"fid"]=self.fid;
         params[@"subject"]=self.subject;
-        params[@"uid"]=@"11";
+        if([UserDataTools getUserInfo].uid.length==0)
+        {
+        [self showLoginView];
+        return;
+        }else
+        {
+            params[@"uid"]=[UserDataTools getUserInfo].uid;
+        }
         params[@"message"]=self.textview.text;
+        [SVProgressHUD showWithStatus:@"回帖中..."];
         [JSXHttpTool Get:Interface_PostsReply params:params success:^(id json) {
             NSNumber * returnCode = json[@"errcode"];
             NSString * returnMes = json[@"errmsg"];

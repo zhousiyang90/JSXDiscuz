@@ -52,6 +52,7 @@
         return self.data.myforumlist.count;
     }else
     {
+        SDLog(@"self.data.forumlist.count:%d",self.data.forumlist.count);
         return self.data.forumlist.count;
     }
 }
@@ -161,9 +162,16 @@
 
 -(void)getInitData
 {
-    [SVProgressHUD showWithStatus:@"加载中"];
     NSMutableDictionary * params = [NSMutableDictionary dictionary];
-    params[@"uid"]=@"11";
+    if([UserDataTools getUserInfo].uid.length==0)
+    {
+        [self showLoginView];
+        return;
+    }else
+    {
+        params[@"uid"]=[UserDataTools getUserInfo].uid;
+    }
+    [SVProgressHUD showWithStatus:@"加载中"];
     [JSXHttpTool Get:Interface_GroupMainPage params:params success:^(id json) {
         NSNumber * returnCode = json[@"errcode"];
         NSString * message = json[@"errmsg"];
@@ -186,6 +194,11 @@
 }
 
 -(void)nonetstatusGetData
+{
+    [self getInitData];
+}
+
+-(void)nodatasGetData
 {
     [self getInitData];
 }

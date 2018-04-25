@@ -11,6 +11,7 @@
 #import "CommunityNewestData.h"
 #import "OtherCenterViewController.h"
 #import "TopicDetailViewController.h"
+#import "CommunityDetailViewController.h"
 
 @interface CommunityViewController_Rec ()<UITableViewDelegate,UITableViewDataSource>
 {
@@ -71,6 +72,19 @@
 {
     CommunityTableViewCell_Newest * cell = [tableView dequeueReusableCellWithIdentifier:@"communityTableViewCell_Newest"];
     cell.selectionStyle=UITableViewCellSelectionStyleNone;
+    cell.block = ^(int type) {
+        if(type==0)
+        {
+            //点击头像和名称
+            OtherCenterViewController *vc=[[OtherCenterViewController alloc]init];
+            [self.navigationController pushViewController:vc animated:YES];
+        }else if(type==1)
+        {
+            //社区详情
+            CommunityPostsData * celldata=self.dataList[indexPath.row];
+            [self pushToCommunityDetail:celldata.fid];
+        }
+    };
     [self configCell:cell andIndexPath:indexPath];
     return cell;
 }
@@ -121,9 +135,16 @@
 
 -(void)getInitData
 {
-    [SVProgressHUD showWithStatus:@"加载中"];
     NSMutableDictionary * params = [NSMutableDictionary dictionary];
-    params[@"uid"]=@"11";
+    if([UserDataTools getUserInfo].uid.length==0)
+    {
+        [self showLoginView];
+        return;
+    }else
+    {
+        params[@"uid"]=[UserDataTools getUserInfo].uid;
+    }
+    [SVProgressHUD showWithStatus:@"加载中"];
     [JSXHttpTool Get:Interface_CommuityRec params:params success:^(id json) {
         NSNumber * returnCode = json[@"errcode"];
         NSString * message = json[@"errmsg"];
@@ -146,6 +167,11 @@
 }
 
 -(void)nonetstatusGetData
+{
+    [self getInitData];
+}
+
+-(void)nodatasGetData
 {
     [self getInitData];
 }

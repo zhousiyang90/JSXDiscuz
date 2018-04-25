@@ -18,6 +18,13 @@
     self.imgV.layer.masksToBounds=YES;
     
     self.focusBtn.layer.cornerRadius=5;
+    
+    [[self.themeBtn rac_signalForControlEvents:UIControlEventTouchUpInside]subscribeNext:^(id x) {
+       if(_clickblock)
+       {
+           _clickblock();
+       }
+    }];
 }
 
 -(void)setContentData:(PostsDetailData_content *)contentData
@@ -65,7 +72,7 @@
     {
         self.readNumLab.text=[NSString stringWithFormat:@"评论%@ 阅读%@",contentData.replies,contentData.views];
     }
-    [self.themeBtn setTitle:contentData.forumname forState:UIControlStateNormal];
+    [self.themeBtn setTitle:contentData.name forState:UIControlStateNormal];
     
     _contentData=contentData;
 }

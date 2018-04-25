@@ -79,11 +79,38 @@
     {
         MineHeaderTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"mineHeaderTableViewCell"];
         cell.selectionStyle=UITableViewCellSelectionStyleNone;
-        [[cell rac_signalForSelector:@selector(clickSetting:)]subscribeNext:^(id x) {
-            //点击设置
-            MineCenterSettingViewController * vc =[[MineCenterSettingViewController alloc]init];
-            [self.navigationController pushViewController:vc animated:YES];
-        }];
+        [cell.headImgeView sd_setImageWithURL:[NSURL URLWithString:[UserDataTools getUserInfo].avatar] placeholderImage:[UIImage imageNamed:PlaceHolderImg_Head]];
+        cell.nameLab.text=[UserDataTools getUserInfo].username;
+        @weakify(cell);
+        cell.block = ^(int type){
+            @strongify(cell);
+            if(type==0)
+            {
+                //点击设置
+                MineCenterSettingViewController * vc =[[MineCenterSettingViewController alloc]init];
+                [self.navigationController pushViewController:vc animated:YES];
+            }else if(type==1)
+            {
+                //点击上传头像
+                [self showSystemPhotos:^(NSArray *photos) {
+                    if(photos.count>0)
+                    {
+                        NSMutableDictionary * params = [NSMutableDictionary dictionary];
+                        params[@"fouid="]=[UserDataTools getUserInfo].uid;
+                        NSMutableDictionary * paramsofImg = [NSMutableDictionary dictionary];
+                        paramsofImg[@"avatar"]=photos[0];
+                        [JSXHttpTool upLoadImageofAFN:Interface_UploadHeadImg params:params img:paramsofImg success:^(id json) {
+                            
+                        } failure:^(NSError *error) {
+                            
+                        }];
+                        //[cell.headImgeView setImage:photos[0]];
+                    }
+
+                }];
+            }
+            
+        };
         return cell;
         
     }else if(indexPath.section==self.layoutData.count-1)
@@ -250,6 +277,11 @@
 -(void)getInitData
 {
     
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [self.tableview reloadData];
 }
 
 @end

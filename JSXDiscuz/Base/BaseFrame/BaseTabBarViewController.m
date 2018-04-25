@@ -165,7 +165,7 @@ static BaseTabBarViewController *_instance;
         UIViewController * vc=viewController.childViewControllers.firstObject;
         if(vc.class==MineViewController.class)
         {
-            if([UserDataTools getUserInfo].userPhone.length==0)
+            if([UserDataTools getUserInfo].uid.length==0)
             {
                 UIAlertController * alertController = [UIAlertController alertControllerWithTitle:@"登录"message:@"登录后才能查看"
                                                                                    preferredStyle:UIAlertControllerStyleAlert];

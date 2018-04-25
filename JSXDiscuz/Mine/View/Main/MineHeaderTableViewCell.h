@@ -8,10 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void(^MineHeaderTableViewCellBlock)(int);
+
 @interface MineHeaderTableViewCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *nameLab;
 @property (weak, nonatomic) IBOutlet UIImageView *headImgeView;
 - (IBAction)clickSetting:(id)sender;
+
+@property(nonatomic,copy) MineHeaderTableViewCellBlock block;
 
 @end

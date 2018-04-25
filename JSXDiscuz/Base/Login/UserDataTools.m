@@ -12,24 +12,32 @@
 
 +(void)saveUserInfo:(UserData *)userdata
 {
-    EGOCache *egocache = [[EGOCache globalCache] initWithCacheDirectory:[self createCacheDirection]];
-    egocache.defaultTimeoutInterval=60*60*24*30;
-    [egocache setString:userdata.userPhone forKey:@"userdata_phone"];
+    WZLSERIALIZE_ARCHIVE(userdata, @"userdata",[[self createCacheDirection]stringByAppendingPathComponent:@"user.data"]);
 }
 
 +(UserData *)getUserInfo
 {
-    EGOCache *egocache = [[EGOCache globalCache] initWithCacheDirectory:[self createCacheDirection]];
-    NSString * userPhone = [egocache stringForKey:@"userdata_phone"];
-    UserData * userData =[[UserData alloc]init];
-    userData.userPhone=userPhone;
+    UserData *userData = nil;
+    WZLSERIALIZE_UNARCHIVE(userData,@"userdata",[[self createCacheDirection]stringByAppendingPathComponent:@"user.data"]);
     return userData;
 }
 
 +(void)clearUserInfo
 {
-    EGOCache *egocache = [[EGOCache globalCache] initWithCacheDirectory:[self createCacheDirection]];
-    [egocache clearCache];
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSError * error;
+    NSString * userPath=[[self createCacheDirection]stringByAppendingPathComponent:@"user.data"];
+    if([fileManager fileExistsAtPath:userPath])
+    {
+        [fileManager removeItemAtPath:userPath error:&error];
+        if(error==nil)
+        {
+            //SDLog(@"user删除成功");
+        }
+    }else
+    {
+        //SDLog(@"user文件不存在");
+    }
     [[NSNotificationCenter defaultCenter]postNotificationName:Notification_Logout object:nil];
 }
 
@@ -39,7 +47,7 @@
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *pathDocuments = [paths objectAtIndex:0];
     //创建缓存目录
-    NSString *createPath = [NSString stringWithFormat:@"%@/UserData", pathDocuments];
+    NSString *createPath = [pathDocuments stringByAppendingPathComponent:@"UserData"];
     // 判断文件夹是否存在，如果不存在，则创建
     if (![[NSFileManager defaultManager] fileExistsAtPath:createPath]) {
         NSFileManager *fileManager = [[NSFileManager alloc] init];
@@ -51,7 +59,7 @@
             return nil;
         }
     } else {
-        SDLog(@"FileDir is exists.");
+        //SDLog(@"文件夹存在:%@",createPath);
         return createPath;
     }
 }

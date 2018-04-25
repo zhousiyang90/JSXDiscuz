@@ -119,11 +119,9 @@
         [self getTypeListData:indexdata.fid];
     }else
     {
+        //小组详情
         GroupMainData_summary * contentdata = self.contentList[indexPath.row];
-        //主题详情
-        TopicDetailViewController * vc=[[TopicDetailViewController alloc]init];
-        vc.fid=contentdata.fid;
-        [self.navigationController pushViewController:vc animated:YES];
+        [self pushToGroupDetail:contentdata.fid];
     }
     
 }
@@ -189,7 +187,14 @@
 -(void)getTypeData
 {
     NSMutableDictionary * params = [NSMutableDictionary dictionary];
-    params[@"uid"]=@"11";
+    if([UserDataTools getUserInfo].uid.length==0)
+    {
+        [self showLoginView];
+        return;
+    }else
+    {
+        params[@"uid"]=[UserDataTools getUserInfo].uid;
+    }
     params[@"gcid"]=@"3";
     [JSXHttpTool Get:Interface_GroupAllList params:params success:^(id json) {
         NSNumber * returnCode = json[@"errcode"];
@@ -215,10 +220,17 @@
 
 -(void)getTypeListData:(NSString*)fid
 {
-    [SVProgressHUD showWithStatus:@"加载中..."];
     NSMutableDictionary * params = [NSMutableDictionary dictionary];
-    params[@"uid"]=@"11";
+    if([UserDataTools getUserInfo].uid.length==0)
+    {
+        [self showLoginView];
+        return;
+    }else
+    {
+        params[@"uid"]=[UserDataTools getUserInfo].uid;
+    }
     params[@"fid"]=fid;
+    [SVProgressHUD showWithStatus:@"加载中..."];
     [JSXHttpTool Get:Interface_GroupAllTypeList params:params success:^(id json) {
         NSNumber * returnCode = json[@"errcode"];
         NSString * message = json[@"errmsg"];

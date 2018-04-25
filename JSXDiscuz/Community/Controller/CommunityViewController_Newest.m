@@ -11,6 +11,7 @@
 #import "CommunityNewestData.h"
 #import "OtherCenterViewController.h"
 #import "TopicDetailViewController.h"
+#import "CommunityDetailViewController.h"
 
 @interface CommunityViewController_Newest ()<UITableViewDelegate,UITableViewDataSource>
 {
@@ -79,9 +80,9 @@
             [self.navigationController pushViewController:vc animated:YES];
         }else if(type==1)
         {
-            //点击主题
-            TopicDetailViewController *vc=[[TopicDetailViewController alloc]init];
-            [self.navigationController pushViewController:vc animated:YES];
+            //社区详情
+            CommunityPostsData * celldata=self.dataList[indexPath.row];
+            [self pushToCommunityDetail:celldata.fid];
         }
     };
     [self configCell:cell andIndexPath:indexPath];
@@ -133,9 +134,16 @@
 
 -(void)getInitData
 {
-    [SVProgressHUD showWithStatus:@"加载中"];
     NSMutableDictionary * params = [NSMutableDictionary dictionary];
-    params[@"uid"]=@"11";
+    if([UserDataTools getUserInfo].uid.length==0)
+    {
+        [self showLoginView];
+        return;
+    }else
+    {
+        params[@"uid"]=[UserDataTools getUserInfo].uid;
+    }
+    [SVProgressHUD showWithStatus:@"加载中"];
     [JSXHttpTool Get:Interface_CommuityNewest params:params success:^(id json) {
         NSNumber * returnCode = json[@"errcode"];
         NSString * message = json[@"errmsg"];
@@ -160,6 +168,11 @@
 }
 
 -(void)nonetstatusGetData
+{
+    [self getInitData];
+}
+
+-(void)nodatasGetData
 {
     [self getInitData];
 }

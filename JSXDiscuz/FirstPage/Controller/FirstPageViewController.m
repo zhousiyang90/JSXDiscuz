@@ -180,10 +180,8 @@
         cell.baseData=self.groupData;
         cell.block = ^(NSIndexPath * indexPath) {
             GroupMainData_summary * cellData=self.groupData.catlist[indexPath.row];
-            //主题详情
-            TopicDetailViewController * vc=[[TopicDetailViewController alloc]init];
-            vc.fid=cellData.fid;
-            [self.navigationController pushViewController:vc animated:YES];
+            //小组详情
+            [self pushToGroupDetail:cellData.fid];
         };
         return cell;
     }else if([cellName isEqualToString:@"popular"])
@@ -202,24 +200,29 @@
         MainRankingTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"mainRankingTableViewCell"];
         cell.selectionStyle=UITableViewCellSelectionStyleNone;
         cell.baseData=self.rankingData;
-        [[cell rac_signalForSelector:@selector(clickTheme1:)]subscribeNext:^(id x) {
-            //主题详情
-            TopicDetailViewController * vc=[[TopicDetailViewController alloc]init];
-            [self.navigationController pushViewController:vc animated:YES];
-        }];
-        [[cell rac_signalForSelector:@selector(clickTheme2:)]subscribeNext:^(id x) {
-            //主题详情
-            TopicDetailViewController * vc=[[TopicDetailViewController alloc]init];
-            [self.navigationController pushViewController:vc animated:YES];
-        }];
-        [[cell rac_signalForSelector:@selector(clickTheme3:)]subscribeNext:^(id x) {
-            //主题详情
-            TopicDetailViewController * vc=[[TopicDetailViewController alloc]init];
-            [self.navigationController pushViewController:vc animated:YES];
-        }];
+        //社区详情
+        cell.clickblock = ^(int index) {
+            if(index==0&&self.rankingData.list.count>0)
+            {
+                PostBaseData_summary *data=self.rankingData.list[index];
+                [self pushToCommunityDetail:data.fid];
+            }else if(index==1&&self.rankingData.list.count>1)
+            {
+                PostBaseData_summary *data=self.rankingData.list[index];
+                [self pushToCommunityDetail:data.fid];
+            }else if(index==2&&self.rankingData.list.count>2)
+            {
+                PostBaseData_summary *data=self.rankingData.list[index];
+                [self pushToCommunityDetail:data.fid];
+            }else
+            {
+                [SVProgressHUD showErrorWithStatus:@"主题数据为空"];
+            }
+        };
         
+        //点击帖子详情
         cell.block = ^(int type) {
-            if(type==0&&self.rankingData.list>0)
+            if(type==0&&self.rankingData.list.count>0)
             {
                 PostBaseData_summary *cellData=self.rankingData.list[type];
                 [self pushToPostsDetail:cellData.tid andFid:cellData.fid];
@@ -245,9 +248,7 @@
         cell.block = ^(NSIndexPath * indexPath) {
             GroupMainData_summary * cellData=self.themeData.catlist[indexPath.row];
             //社区详情
-            CommunityDetailViewController * vc=[[CommunityDetailViewController alloc]init];
-            vc.fid=cellData.fid;
-            [self.navigationController pushViewController:vc animated:YES];
+            [self pushToCommunityDetail:cellData.fid];
         };
         return cell;
     }else
@@ -259,9 +260,8 @@
             cell.selectionStyle=UITableViewCellSelectionStyleNone;
             cell.baseData=celldata;
             cell.block = ^{
-                //主题详情
-                TopicDetailViewController * vc=[[TopicDetailViewController alloc]init];
-                [self.navigationController pushViewController:vc animated:YES];
+                //社区详情
+                [self pushToCommunityDetail:celldata.fid];
             };
             return cell;
         }else
@@ -270,9 +270,8 @@
             cell.selectionStyle=UITableViewCellSelectionStyleNone;
             cell.baseData=celldata;
             cell.block = ^{
-                //主题详情
-                TopicDetailViewController * vc=[[TopicDetailViewController alloc]init];
-                [self.navigationController pushViewController:vc animated:YES];
+                //社区详情
+                [self pushToCommunityDetail:celldata.fid];
             };
             return cell;
         }

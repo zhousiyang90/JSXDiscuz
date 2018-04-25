@@ -89,13 +89,24 @@ static NSString *const cellId = @"communityCollectionViewCell_Album";
     
     self.collectionView.collectionViewLayout=layout;
     [self.collectionView registerNib:[UINib nibWithNibName:@"CommunityCollectionViewCell_Album" bundle:nil] forCellWithReuseIdentifier:cellId];
+    
+    self.needNoNetTips=YES;
+    self.needNoTableViewDataTips=YES;
+    self.baseCollectionview=self.collectionView;
 }
 
 -(void)getInitData
 {
-    [SVProgressHUD showWithStatus:@"加载中"];
     NSMutableDictionary * params = [NSMutableDictionary dictionary];
-    params[@"uid"]=@"11";
+    if([UserDataTools getUserInfo].uid.length==0)
+    {
+        [self showLoginView];
+        return;
+    }else
+    {
+        params[@"uid"]=[UserDataTools getUserInfo].uid;
+    }
+    [SVProgressHUD showWithStatus:@"加载中"];
     [JSXHttpTool Get:Interface_CommuityAlbum params:params success:^(id json) {
         NSNumber * returnCode = json[@"errcode"];
         NSString * message = json[@"errmsg"];
@@ -118,6 +129,11 @@ static NSString *const cellId = @"communityCollectionViewCell_Album";
 }
 
 -(void)nonetstatusGetData
+{
+    [self getInitData];
+}
+
+-(void)nodatasGetData
 {
     [self getInitData];
 }

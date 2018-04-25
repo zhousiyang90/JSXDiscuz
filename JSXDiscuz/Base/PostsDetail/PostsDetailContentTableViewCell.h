@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 typedef void(^PostsDetailContentTableViewCellBlock)(int);
+typedef void(^PostsDetailContentTableViewCellBlock2)(void);
 
 @interface PostsDetailContentTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *titleLab;
@@ -25,6 +26,6 @@ typedef void(^PostsDetailContentTableViewCellBlock)(int);
 @property(nonatomic,strong) PostsDetailData_content * contentData;
 
 @property(nonatomic,copy) PostsDetailContentTableViewCellBlock  block;
-
+@property(nonatomic,copy) PostsDetailContentTableViewCellBlock2  clickblock;
 
 @end

@@ -88,9 +88,7 @@
     //社区详情
     CommunityMainPageData_mode *mode=self.data.catlist[indexPath.section];
     CommunityMainPageData_submode *submode=mode.forumlist[indexPath.row];
-    CommunityDetailViewController *vc=[[CommunityDetailViewController alloc]init];
-    vc.fid=submode.fid;
-    [self.navigationController pushViewController:vc animated:YES];
+    [self pushToCommunityDetail:submode.fid];
 }
 
 -(void)clickHeader:(UITapGestureRecognizer*)tapges
@@ -134,9 +132,16 @@
 
 -(void)getInitData
 {
-    [SVProgressHUD showWithStatus:@"加载中"];
     NSMutableDictionary * params = [NSMutableDictionary dictionary];
-    params[@"uid"]=@"11";
+    if([UserDataTools getUserInfo].uid.length==0)
+    {
+        [self showLoginView];
+        return;
+    }else
+    {
+        params[@"uid"]=[UserDataTools getUserInfo].uid;
+    }
+    [SVProgressHUD showWithStatus:@"加载中"];
     [JSXHttpTool Get:Interface_CommuityMainPage params:params success:^(id json) {
         NSNumber * returnCode = json[@"errcode"];
         NSString * message = json[@"errmsg"];
@@ -160,6 +165,11 @@
 }
 
 -(void)nonetstatusGetData
+{
+    [self getInitData];
+}
+
+-(void)nodatasGetData
 {
     [self getInitData];
 }

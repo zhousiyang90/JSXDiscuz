@@ -64,12 +64,24 @@
 }
 
 - (IBAction)clickTheme1:(id)sender {
+    if(_clickblock)
+    {
+        _clickblock(0);
+    }
 }
 
 - (IBAction)clickTheme2:(id)sender {
+    if(_clickblock)
+    {
+        _clickblock(1);
+    }
 }
 
 - (IBAction)clickTheme3:(id)sender {
+    if(_clickblock)
+    {
+        _clickblock(2);
+    }
 }
 
 -(void)clickBg1

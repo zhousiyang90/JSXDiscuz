@@ -117,7 +117,14 @@
     if(self.dataList==nil&&self.fid.length>0)
     {
         NSMutableDictionary * params = [NSMutableDictionary dictionary];
-        params[@"uid"]=@"11";
+        if([UserDataTools getUserInfo].uid.length==0)
+    {
+        [self showLoginView];
+        return;
+    }else
+    {
+        params[@"uid"]=[UserDataTools getUserInfo].uid;
+    }
         params[@"fid"]=self.fid;
         [JSXHttpTool Get:Interface_GroupMainPageDetail params:params success:^(id json) {
             NSNumber * returnCode = json[@"errcode"];

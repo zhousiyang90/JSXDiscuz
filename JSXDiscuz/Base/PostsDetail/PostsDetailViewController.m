@@ -12,6 +12,8 @@
 #import "CommentBottomView.h"
 #import "PostsDetailCommentViewController.h"
 #import "PostDetailData.h"
+#import "CommunityDetailViewController.h"
+#import "TopicDetailViewController.h"
 
 @interface PostsDetailViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -35,6 +37,7 @@
         PostsDetailContentTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"postsDetailContentTableViewCell"];
         cell.selectionStyle=UITableViewCellSelectionStyleNone;
         cell.contentData=self.currentData.pinfo;
+        //点击图片
         cell.block = ^(int imgIndex) {
             NSMutableArray * photos=[NSMutableArray array];
             for (NSString * picurl in self.currentData.pinfo.pics) {
@@ -45,6 +48,12 @@
             brower.displayActionButton=NO;
             [brower setCurrentPhotoIndex:imgIndex];
             [self.navigationController pushViewController:brower animated:YES];
+        };
+        //点击主题
+        cell.clickblock = ^{
+            TopicDetailViewController *vc=[[TopicDetailViewController alloc]init];
+            vc.fid=self.currentData.pinfo.fid;
+            [self.navigationController pushViewController:vc animated:YES];
         };
         return cell;
     }else
@@ -98,6 +107,9 @@
         bottom.comment_collectBtn.selected=!bottom.comment_collectBtn.selected;
     }];
     
+    [[bottom.comment_shareBtn rac_signalForControlEvents:UIControlEventTouchUpInside]subscribeNext:^(id x) {
+    }];
+    
     [self.bgBottomView addSubview:bottom];
 }
 
@@ -108,11 +120,19 @@
         [SVProgressHUD showErrorWithStatus:@"参数为空"];
         return;
     }
-    [SVProgressHUD showWithStatus:@"加载中..."];
+    
     NSMutableDictionary * params = [NSMutableDictionary dictionary];
     params[@"tid"]=self.tid;
     params[@"fid"]=self.fid;
-    params[@"uid"]=@"11";
+    if([UserDataTools getUserInfo].uid.length==0)
+    {
+        [self showLoginView];
+        return;
+    }else
+    {
+        params[@"uid"]=[UserDataTools getUserInfo].uid;
+    }
+    [SVProgressHUD showWithStatus:@"加载中..."];
     [JSXHttpTool Post:Interface_PostsDetail params:params success:^(id json) {
         NSNumber * returnCode = json[@"errcode"];
         NSString * returnMes = json[@"errmsg"];

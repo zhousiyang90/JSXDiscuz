@@ -10,6 +10,7 @@
 #import "PostBaseData.h"
 
 typedef void(^MainRankingTableViewCellBlock)(int);
+typedef void(^MainRankingTableViewCellBlock2)(int);
 
 @interface MainRankingTableViewCell : UITableViewCell
 
@@ -32,4 +33,5 @@ typedef void(^MainRankingTableViewCellBlock)(int);
 
 @property(nonatomic,strong) PostBaseData * baseData;
 @property(nonatomic,copy) MainRankingTableViewCellBlock block;
+@property(nonatomic,copy) MainRankingTableViewCellBlock2 clickblock;
 @end

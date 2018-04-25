@@ -41,6 +41,7 @@ PODS:
   - SVPullToRefresh (0.4.1)
   - TZImagePickerController (2.0.0.9)
   - UITableView+FDTemplateLayoutCell (1.6)
+  - WZLSerializeKit (1.2.2)
 
 DEPENDENCIES:
   - AFNetworking (~> 3.0.4)
@@ -59,6 +60,7 @@ DEPENDENCIES:
   - SVPullToRefresh
   - TZImagePickerController
   - UITableView+FDTemplateLayoutCell (~> 1.4)
+  - WZLSerializeKit
 
 SPEC CHECKSUMS:
   AFNetworking: a0075feb321559dc78d9d85b55d11caa19eabb93
@@ -78,7 +80,8 @@ SPEC CHECKSUMS:
   SVPullToRefresh: ba2e718695a43253d8bea6852d2960097dc15d8c
   TZImagePickerController: 9bf89512bb6de53e87897f2e17e607c126a199d6
   UITableView+FDTemplateLayoutCell: 5c949b4a5059c404b442926c0e80f81d10a2d66f
+  WZLSerializeKit: 7770a4a673bc80d7db3cf593f759663b4d745582
 
-PODFILE CHECKSUM: 3744307810ad5d3347eb982b21409133e8155914
+PODFILE CHECKSUM: fb8a6fc88fa60ad9b917e4d7e8e04e2424e97d03
 
 COCOAPODS: 1.4.0

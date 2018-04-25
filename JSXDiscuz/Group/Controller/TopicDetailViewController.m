@@ -115,10 +115,18 @@
         return;
     }
     
-    [SVProgressHUD showWithStatus:@"加载中..."];
     NSMutableDictionary * params = [NSMutableDictionary dictionary];
-    params[@"uid"]=@"11";
+    if([UserDataTools getUserInfo].uid.length==0)
+    {
+        [self showLoginView];
+        return;
+    }else
+    {
+        params[@"uid"]=[UserDataTools getUserInfo].uid;
+    }
     params[@"fid"]=self.fid;
+    
+    [SVProgressHUD showWithStatus:@"加载中..."];
     [JSXHttpTool Get:Interface_GroupMainPageDetail params:params success:^(id json) {
         NSNumber * returnCode = json[@"errcode"];
         NSString * message = json[@"errmsg"];

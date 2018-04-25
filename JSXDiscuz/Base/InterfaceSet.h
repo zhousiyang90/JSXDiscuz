@@ -14,6 +14,10 @@
 #define Interface_GetRandomCode @JSXInterface
 //注册
 #define Interface_Register @JSXInterface
+//登录
+#define Interface_Login @JSXInterface
+//修改头像
+#define Interface_UploadHeadImg @""JSXInterface"?mod=spacecp1&ac=bindtel&doup=upavatar"
 
 #pragma mark - 社区模块
 //首页列表

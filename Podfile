@@ -16,4 +16,5 @@ pod 'EGOCache'
 pod 'SVPullToRefresh'
 pod 'IQKeyboardManager'
 pod 'TZImagePickerController'
+pod 'WZLSerializeKit'
 end

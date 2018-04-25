@@ -100,6 +100,17 @@
     }
 }
 
+-(void)setBaseCollectionview:(UICollectionView *)baseCollectionview
+{
+    _baseCollectionview=baseCollectionview;
+    
+    if(self.needNoTableViewDataTips)
+    {
+        _baseCollectionview.emptyDataSetSource=self;
+        _baseCollectionview.emptyDataSetDelegate=self;
+    }
+}
+
 #pragma mark - 无网络连接相关方法(私有)
 
 -(BOOL)isMayUseInternet
@@ -153,6 +164,11 @@
     {
         [self hideNoNetView];
     }
+}
+
+-(void)nodatasGetData
+{
+    
 }
 
 #pragma mark - TableView空数据相关方法(私有)
@@ -258,6 +274,11 @@
 
 #pragma mark DZNEmptyDataSetDelegate Methods
 
+-(void)emptyDataSet:(UIScrollView *)scrollView didTapView:(UIView *)view
+{
+    [self nodatasGetData];
+}
+
 - (BOOL)emptyDataSetShouldDisplay:(UIScrollView *)scrollView
 {
     return YES;
@@ -265,7 +286,7 @@
 
 - (BOOL)emptyDataSetShouldAllowTouch:(UIScrollView *)scrollView
 {
-    return NO;
+    return YES;
 }
 
 - (BOOL)emptyDataSetShouldAllowScroll:(UIScrollView *)scrollView
@@ -278,6 +299,20 @@
 {
     PostsDetailViewController*vc=[[PostsDetailViewController alloc]init];
     vc.tid=tid;
+    vc.fid=fid;
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+-(void)pushToGroupDetail:(NSString*)fid
+{
+    TopicDetailViewController * vc=[[TopicDetailViewController alloc]init];
+    vc.fid=fid;
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+-(void)pushToCommunityDetail:(NSString*)fid
+{
+    CommunityDetailViewController * vc=[[CommunityDetailViewController alloc]init];
     vc.fid=fid;
     [self.navigationController pushViewController:vc animated:YES];
 }

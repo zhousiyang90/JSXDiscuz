@@ -54,7 +54,11 @@
 #import "PostDetailData.h"
 #import "UITableView+ZSTableView.h"
 #import <MWPhotoBrowser.h>
-
+#import "CommunityDetailViewController.h"
+#import "TopicDetailViewController.h"
+#import <WZLSerializeKit.h>
+#import "UserDataTools.h"
+#import "UIViewController+Login.h"
 
 //占位图
 #define PlaceHolderImg_Head @"placeholder_head"

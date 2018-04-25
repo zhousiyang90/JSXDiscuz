@@ -18,6 +18,7 @@
 
 //如果BaseView是TableView，那么传递数据给baseTableview
 @property(nonatomic,weak) UITableView * baseTableview;
+@property(nonatomic,weak) UICollectionView * baseCollectionview;
 @property (nonatomic, copy) NSString *noDataString;
 @property (nonatomic, copy) NSString *noDataImage;
 
@@ -31,8 +32,12 @@
 -(void)registerNotification;
 //无网络状态下的获取数据
 -(void)nonetstatusGetData;
+//无数据状态下获取数据
+-(void)nodatasGetData;
 
 //Router
 -(void)pushToPostsDetail:(NSString*)tid andFid:(NSString*)fid;
+-(void)pushToGroupDetail:(NSString*)fid;
+-(void)pushToCommunityDetail:(NSString*)fid;
 
 @end

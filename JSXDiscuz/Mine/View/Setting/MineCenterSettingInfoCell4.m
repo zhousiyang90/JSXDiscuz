@@ -8,6 +8,10 @@
 
 #import "MineCenterSettingInfoCell4.h"
 
+@interface MineCenterSettingInfoCell4()
+@property(nonatomic,strong) NSMutableDictionary * dictType;
+@end
+
 @implementation MineCenterSettingInfoCell4
 
 - (void)awakeFromNib {
@@ -47,6 +51,56 @@
     self.insBtn12.selected=[insData[11] boolValue];
     self.insBtn13.selected=[insData[12] boolValue];
     self.insBtn14.selected=[insData[13] boolValue];
+}
+
+-(void)setIntrestStr:(NSString *)intrestStr
+{
+    _intrestStr=intrestStr;
+    NSArray * arr=[intrestStr componentsSeparatedByString:@","];
+    NSMutableArray * indexArr=[NSMutableArray array];
+    if(arr.count>0)
+    {
+        for(int i=0;i<arr.count;i++)
+        {
+            NSString * arrStr=arr[i];
+            for (int j=0; j<self.dictType.allKeys.count; j++){
+                [indexArr addObject:@"0"];
+                NSString *key=self.dictType.allKeys[j];
+                NSString *value=self.dictType[key];
+                if([arrStr isEqualToString:value])
+                {
+                    [indexArr replaceObjectAtIndex:i withObject:@"1"];
+                    break;
+                }
+            }
+        }
+        [self setInsData:indexArr];
+    }
+    
+}
+
+
+-(NSMutableDictionary *)dictType
+{
+    if(_dictType==nil)
+    {
+        _dictType=[NSMutableDictionary dictionary];
+        [_dictType setObject:@"音乐" forKey:@"0"];
+        [_dictType setObject:@"影视" forKey:@"1"];
+        [_dictType setObject:@"读书" forKey:@"2"];
+        [_dictType setObject:@"动漫" forKey:@"3"];
+        [_dictType setObject:@"游戏" forKey:@"4"];
+        [_dictType setObject:@"美食" forKey:@"5"];
+        [_dictType setObject:@"旅游" forKey:@"6"];
+        [_dictType setObject:@"运动" forKey:@"7"];
+        [_dictType setObject:@"手工" forKey:@"8"];
+        [_dictType setObject:@"宠物" forKey:@"9"];
+        [_dictType setObject:@"收集" forKey:@"10"];
+        [_dictType setObject:@"唱歌" forKey:@"11"];
+        [_dictType setObject:@"跳舞" forKey:@"12"];
+        [_dictType setObject:@"广泛" forKey:@"13"];
+    }
+    return _dictType;
 }
 
 @end

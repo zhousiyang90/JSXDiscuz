@@ -55,6 +55,8 @@
 
 @property(nonatomic,strong) NSMutableArray * interstedData;
 
+@property(nonatomic,strong) PersonalDataInfo * personalDataInfo;
+
 @end
 
 @implementation MineCenterSettingViewController_info
@@ -119,24 +121,41 @@
     {
         MineCenterSettingInfoCell * cell = [tableView dequeueReusableCellWithIdentifier:@"mineCenterSettingInfoCell"];
         cell.selectionStyle=UITableViewCellSelectionStyleNone;
-        if(sexStr.length>0)
+        if(self.personalDataInfo.gender.length>0)
         {
-            cell.contentLab1.text=sexStr;
+            if([self.personalDataInfo.gender isEqualToString:@"0"])
+            {
+                cell.contentLab1.text=@"保密";
+            }else if([self.personalDataInfo.gender isEqualToString:@"1"])
+            {
+                cell.contentLab1.text=@"男";
+            }else
+            {
+                cell.contentLab1.text=@"女";
+            }
         }
-        if(bloodStr.length>0)
+        if(self.personalDataInfo.bloodtype.length>0)
         {
-            cell.contentLab2.text=bloodStr;
+            cell.contentLab2.text=self.personalDataInfo.bloodtype;
         }
-        if(emotionStr.length>0)
+        if(self.personalDataInfo.affectivestatus.length>0)
         {
-            cell.contentLab3.text=emotionStr;
+            cell.contentLab3.text=self.personalDataInfo.affectivestatus;
         }
-        if(dateStr.length>0)
+        if(self.personalDataInfo.birthyear.length>0)
         {
-            cell.contentLab4.text=dateStr;
+            cell.contentLab4.text=[NSString stringWithFormat:@"%@-%@-%@",self.personalDataInfo.birthyear,self.personalDataInfo.birthmonth,self.personalDataInfo.birthday];
         }
-        cell.tfview1.text=heightStr;
-        cell.tfview2.text=weightStr;
+        
+        if(self.personalDataInfo.height.length>0)
+        {
+            cell.tfview1.text=self.personalDataInfo.height;
+        }
+        
+        if(self.personalDataInfo.weight.length>0)
+        {
+            cell.tfview2.text=self.personalDataInfo.weight;
+        }
         
         cell.block = ^(int viewtype) {
           if(viewtype==0)
@@ -146,7 +165,7 @@
               @weakify(self);
               picker.block = ^(NSInteger index) {
                   @strongify(self);
-                  sexStr=self.sexArr[index];
+                  self.personalDataInfo.gender=[NSString stringWithFormat:@"%ld",index];
                   [self.tableview reloadSections:[NSMutableIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:UITableViewRowAnimationNone];
               };
           }else if(viewtype==1)
@@ -156,7 +175,7 @@
               @weakify(self);
               picker.block = ^(NSInteger index) {
                   @strongify(self);
-                  bloodStr=self.bloodArr[index];
+                  self.personalDataInfo.bloodtype=self.bloodArr[index];
                   [self.tableview reloadSections:[NSMutableIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:UITableViewRowAnimationNone];
               };
           }else if(viewtype==2)
@@ -166,7 +185,7 @@
               @weakify(self);
               picker.block = ^(NSInteger index) {
                   @strongify(self);
-                  emotionStr=self.emotionArr[index];
+                  self.personalDataInfo.affectivestatus=self.emotionArr[index];
                   [self.tableview reloadSections:[NSMutableIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:UITableViewRowAnimationNone];
               };
           }else if(viewtype==3)
@@ -175,34 +194,49 @@
               @weakify(self);
               datepicker.block = ^(NSString* date) {
                   @strongify(self);
-                  dateStr=date;
+                  NSArray * dateArr=[date componentsSeparatedByString:@"-"];
+                  if(dateArr.count==3)
+                  {
+                      self.personalDataInfo.birthyear=dateArr[0];
+                      self.personalDataInfo.birthmonth=dateArr[1];
+                      self.personalDataInfo.birthday=dateArr[2];
+                  }
                   [self.tableview reloadSections:[NSMutableIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:UITableViewRowAnimationNone];
               };
           }
         };
         [[cell.tfview1 rac_textSignal]subscribeNext:^(id x) {
-            heightStr=x;
+            self.personalDataInfo.height=x;
         }];
         
         [[cell.tfview2 rac_textSignal]subscribeNext:^(id x) {
-            weightStr=x;
+            self.personalDataInfo.weight=x;
         }];
         return cell;
     }else if(indexPath.section==1)
     {
         MineCenterSettingInfoCell2 * cell = [tableView dequeueReusableCellWithIdentifier:@"mineCenterSettingInfoCell2"];
         cell.selectionStyle=UITableViewCellSelectionStyleNone;
-        if(friendsStr.length>0)
+        if(self.personalDataInfo.lookingfor.length>0)
         {
-            cell.contentLab1.text=friendsStr;
+            cell.contentLab1.text=self.personalDataInfo.lookingfor;
         }
-        if(eduStr.length>0)
+        if(self.personalDataInfo.education.length>0)
         {
-            cell.contentLab2.text=eduStr;
+            cell.contentLab2.text=self.personalDataInfo.education;
         }
-        cell.tfview1.text=qqStr;
-        cell.tfview2.text=nameStr;
-        cell.tfview3.text=schoolStr;
+        if(self.personalDataInfo.qq.length>0)
+        {
+            cell.tfview1.text=self.personalDataInfo.qq;
+        }
+        if(self.personalDataInfo.realname.length>0)
+        {
+            cell.tfview2.text=self.personalDataInfo.realname;
+        }
+        if(self.personalDataInfo.graduateschool.length>0)
+        {
+            cell.tfview3.text=self.personalDataInfo.graduateschool;
+        }
         
         cell.block = ^(int viewtype) {
             if(viewtype==0)
@@ -212,7 +246,7 @@
                 @weakify(self);
                 picker.block = ^(NSInteger index) {
                     @strongify(self);
-                    friendsStr=self.friendsArr[index];
+                    self.personalDataInfo.lookingfor=self.friendsArr[index];
                     [self.tableview reloadSections:[NSMutableIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:UITableViewRowAnimationNone];
                 };
             }else if(viewtype==1)
@@ -222,39 +256,42 @@
                 @weakify(self);
                 picker.block = ^(NSInteger index) {
                     @strongify(self);
-                    eduStr=self.eduArr[index];
+                    self.personalDataInfo.education=self.eduArr[index];
                     [self.tableview reloadSections:[NSMutableIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:UITableViewRowAnimationNone];
                 };
             }
         };
         [[cell.tfview1 rac_textSignal]subscribeNext:^(id x) {
-            qqStr=x;
+            self.personalDataInfo.qq=x;
         }];
         [[cell.tfview2 rac_textSignal]subscribeNext:^(id x) {
-            nameStr=x;
+            self.personalDataInfo.realname=x;
         }];
         [[cell.tfview3 rac_textSignal]subscribeNext:^(id x) {
-            schoolStr=x;
+            self.personalDataInfo.graduateschool=x;
         }];
         return cell;
     }else if(indexPath.section==2)
     {
         MineCenterSettingInfoCell3 * cell = [tableView dequeueReusableCellWithIdentifier:@"mineCenterSettingInfoCell3"];
         cell.selectionStyle=UITableViewCellSelectionStyleNone;
-        if(professionStr.length>0)
+        if(self.personalDataInfo.occupation.length>0)
         {
-            cell.contentLab1.text=professionStr;
+            cell.contentLab1.text=self.personalDataInfo.occupation;
         }
-        if(positionStr.length>0)
+        if(self.personalDataInfo.position.length>0)
         {
-            cell.contentLab2.text=positionStr;
+            cell.contentLab2.text=self.personalDataInfo.position;
         }
         if(incomeStr.length>0)
         {
             cell.contentLab3.text=incomeStr;
         }
-        cell.tfview1.text=companyStr;
-        
+        if(self.personalDataInfo.company.length>0)
+        {
+            cell.tfview1.text=self.personalDataInfo.company;
+        }
+ 
         cell.block = ^(int viewtype) {
             if(viewtype==0)
             {
@@ -263,7 +300,7 @@
                 @weakify(self);
                 picker.block = ^(NSInteger index) {
                     @strongify(self);
-                    professionStr=self.professionArr[index];
+                    self.personalDataInfo.occupation=self.professionArr[index];
                     [self.tableview reloadSections:[NSMutableIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:UITableViewRowAnimationNone];
                 };
             }else if(viewtype==1)
@@ -273,7 +310,7 @@
                 @weakify(self);
                 picker.block = ^(NSInteger index) {
                     @strongify(self);
-                    positionStr=self.positionArr[index];
+                    self.personalDataInfo.position=self.positionArr[index];
                     [self.tableview reloadSections:[NSMutableIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:UITableViewRowAnimationNone];
                 };
 
@@ -291,14 +328,15 @@
             }
         };
         [[cell.tfview1 rac_textSignal]subscribeNext:^(id x) {
-            companyStr=x;
+            self.personalDataInfo.company=x;
         }];
         return cell;
     }else if(indexPath.section==3)
     {
         MineCenterSettingInfoCell4 * cell = [tableView dequeueReusableCellWithIdentifier:@"mineCenterSettingInfoCell4"];
         cell.selectionStyle=UITableViewCellSelectionStyleNone;
-        cell.insData=self.interstedData;
+        cell.intrestStr=self.personalDataInfo.interest;
+        //cell.insData=self.interstedData;
         [cell.insBtn1 addTarget:self action:@selector(changeInterstedData:) forControlEvents:UIControlEventTouchUpInside];
         [cell.insBtn2 addTarget:self action:@selector(changeInterstedData:) forControlEvents:UIControlEventTouchUpInside];
         [cell.insBtn3 addTarget:self action:@selector(changeInterstedData:) forControlEvents:UIControlEventTouchUpInside];
@@ -318,15 +356,21 @@
     {
         MineCenterSettingInfoCell5 * cell = [tableView dequeueReusableCellWithIdentifier:@"mineCenterSettingInfoCell5"];
         cell.selectionStyle=UITableViewCellSelectionStyleNone;
-        cell.tfview.text=aboutmeStr;
+        if(self.personalDataInfo.bio.length>0)
+        {
+            cell.tfview.text=self.personalDataInfo.bio;
+        }
         [[cell.tfview rac_textSignal]subscribeNext:^(id x) {
-            aboutmeStr=x;
+            self.personalDataInfo.bio=x;
         }];
         return cell;
     }else if(indexPath.section==5)
     {
         MineCommitCell * cell = [tableView dequeueReusableCellWithIdentifier:@"mineCommitCell"];
         cell.selectionStyle=UITableViewCellSelectionStyleNone;
+        cell.block = ^{
+            [self commitInfo];
+        };
         return cell;
     }
     
@@ -448,6 +492,7 @@
 }
 
 
+
 #pragma mark - 生命周期
 
 -(void)addSubViews
@@ -467,5 +512,66 @@
     self.baseTableview=self.tableview;
 }
 
+-(void)getInitData
+{
+    NSMutableDictionary * params = [NSMutableDictionary dictionary];
+    NSString * url=[NSString stringWithFormat:@"%@&fouid=%@",Interface_PersonalInfo,[UserDataTools getUserInfo].uid];
+    [JSXHttpTool Post:url params:params success:^(id json) {
+        NSNumber * returnCode = json[@"errcode"];
+        NSString * errmsg = json[@"errmsg"];
+        if([returnCode intValue]==0)
+        {
+            self.personalDataInfo=[PersonalDataInfo mj_objectWithKeyValues:json];
+            [self.tableview reloadData];
+        }else
+        {
+            [SVProgressHUD showErrorWithStatus:errmsg];
+        }
+    } failure:^(NSError *error) {
+        [SVProgressHUD showErrorWithStatus:@"网络连接失败"];
+    }];
+}
+
+#pragma mark - 网络访问
+
+-(void)commitInfo
+{
+    NSMutableDictionary * params = [NSMutableDictionary dictionary];
+    //params[@"fouid"]=[UserDataTools getUserInfo].uid;
+    params[@"gender"]=self.personalDataInfo.gender;
+    params[@"bloodtype"]=self.personalDataInfo.bloodtype;
+    params[@"affectivestatus"]=self.personalDataInfo.affectivestatus;
+    params[@"birthyear"]=self.personalDataInfo.birthyear;
+    params[@"birthmonth"]=self.personalDataInfo.birthmonth;
+    params[@"birthday"]=self.personalDataInfo.birthday;
+    params[@"height"]=self.personalDataInfo.height;
+    params[@"weight"]=self.personalDataInfo.weight;
+    params[@"lookingfor"]=self.personalDataInfo.lookingfor;
+    params[@"education"]=self.personalDataInfo.education;
+    params[@"qq"]=self.personalDataInfo.qq;
+    params[@"realname"]=self.personalDataInfo.realname;
+    params[@"graduateschool"]=self.personalDataInfo.graduateschool;
+    params[@"occupation"]=self.personalDataInfo.occupation;
+    params[@"company"]=self.personalDataInfo.company;
+    params[@"position"]=self.personalDataInfo.position;
+    params[@"bio"]=self.personalDataInfo.bio;
+    params[@"interest"]=self.personalDataInfo.interest;
+    
+    NSString * url=[NSString stringWithFormat:@"%@&fouid=%@",Interface_PersonalInfoCommit,[UserDataTools getUserInfo].uid];
+    [JSXHttpTool Post:url params:params success:^(id json) {
+        NSNumber * returnCode = json[@"errcode"];
+        if([returnCode intValue]==0)
+        {
+            [SVProgressHUD showSuccessWithStatus:@"修改成功"];
+            self.personalDataInfo=[PersonalDataInfo mj_objectWithKeyValues:json];
+            [self.tableview reloadData];
+        }else
+        {
+            [SVProgressHUD showErrorWithStatus:@"修改失败"];
+        }
+    } failure:^(NSError *error) {
+        [SVProgressHUD showErrorWithStatus:@"网络连接失败"];
+    }];
+}
 
 @end

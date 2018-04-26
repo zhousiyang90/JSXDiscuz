@@ -30,13 +30,9 @@
 
 + (void)upLoadImageofAFN:(NSString *)url params:(NSDictionary *)params img:(NSDictionary*)imgDict success:(void (^)(id json))success failure:(void (^)(NSError *error))failure;
 
-#pragma mark 上传图片
+#pragma mark 上传一张图片
 
-+ (void)upLoadImage:(NSString *)url params:(NSDictionary *)params img:(NSDictionary*)imgDict success:(void (^)(id json))success failure:(void (^)(NSError *error))failure;
-
-#pragma mark 断点续传图片
-
-+ (void)upLoadBreakPointImage:(NSString *)paramsurl params:(NSDictionary *)params imgurl:(NSString*)imgurl img:(NSDictionary*)imgDict imgparams:(NSDictionary*)imgParams success:(void (^)(id json))bothsuccess onesuccess:(void (^)(id json))paramsuccess failure:(void (^)(NSError *error))bothfailure;
++ (void)upLoadOnePic:(NSString *)url params:(NSDictionary *)params img:(NSDictionary*)imgDict andCompress:(float)comress success:(void (^)(id json))success failure:(void (^)(NSError *error))failure;
 
 #pragma mark 下载文件
 

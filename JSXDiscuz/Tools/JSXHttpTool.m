@@ -224,96 +224,37 @@
 }
 
 
-+ (void)upLoadImage:(NSString *)url params:(NSDictionary *)params img:(NSDictionary*)imgDict success:(void (^)(id json))success failure:(void (^)(NSError *error))failure;
++ (void)upLoadOnePic:(NSString *)url params:(NSDictionary *)params img:(NSDictionary*)imgDict andCompress:(float)comress success:(void (^)(id json))success failure:(void (^)(NSError *error))failure
 {
-    SDLog(@"请求:%@-%@",url,params);
-    NSString *TWITTERFON_FORM_BOUNDARY = @"--";
-    NSURL * requrl = [NSURL URLWithString:url];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:requrl];
-    NSString *MPboundary=[[NSString alloc]initWithFormat:@"--%@",TWITTERFON_FORM_BOUNDARY];
-    NSString *endMPboundary=[[NSString alloc]initWithFormat:@"%@--",MPboundary];
-    NSMutableString *body=[[NSMutableString alloc]init];
-    //参数的集合的所有key的集合
-    NSArray *keys= [params allKeys];
-    //遍历keys
-    for(int i=0;i<[keys count];i++){
-        //得到当前key
-        NSString *key=[keys objectAtIndex:i];
-        //添加分界线，换行
-        [body appendFormat:@"%@\r\n",MPboundary];
-        //添加字段名称，换2行
-        [body appendFormat:@"Content-Disposition: form-data; name=\"%@\"\r\n\r\n",key];
-        //添加字段的值
-        [body appendFormat:@"%@\r\n",[params objectForKey:key]];
-    }
-    //声明myRequestData，用来放入http body
-    NSMutableData *myRequestData=[NSMutableData data];
-    //将body字符串转化为UTF8格式的二进制
-    [myRequestData appendData:[body dataUsingEncoding:NSUTF8StringEncoding]];
-    NSArray * imgkeys = [imgDict allKeys];
-    for(int i = 0; i< [imgkeys count] ; i++){
-        UIImage *  img = [imgDict objectForKey:[imgkeys objectAtIndex:i]];
-        NSData* data =  UIImageJPEGRepresentation(img, 0.3);
-        NSMutableString *imgbody = [[NSMutableString alloc] init];
-        [imgbody appendFormat:@"%@\r\n",MPboundary];
-        [imgbody appendFormat:@"Content-Disposition: form-data; name=\"%@\"; filename=\"%@.jpg\"\r\n",[imgkeys objectAtIndex:i],[imgkeys objectAtIndex:i]];
-        [imgbody appendFormat:@"Content-Type: application/octet-stream; charset=utf-8\r\n\r\n"];
-        [myRequestData appendData:[imgbody dataUsingEncoding:NSUTF8StringEncoding]];
-        [myRequestData appendData:data];
-        [myRequestData appendData:[ @"\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
- 
-    }
-
-    NSString *end=[[NSString alloc]initWithFormat:@"%@\r\n",endMPboundary];
-    [myRequestData appendData:[end dataUsingEncoding:NSUTF8StringEncoding]];
-    //设置HTTPHeader中Content-Type的值
-    NSString *content=[[NSString alloc]initWithFormat:@"multipart/form-data; boundary=%@",TWITTERFON_FORM_BOUNDARY];
-    //设置HTTPHeader
-    [request setValue:content forHTTPHeaderField:@"Content-Type"];
-    [request setValue:[NSString stringWithFormat:@"%lu", (unsigned long)[myRequestData length]] forHTTPHeaderField:@"Content-Length"];
-    //设置http body
-    [request setHTTPBody:myRequestData];
-    //http method
-    [request setHTTPMethod:@"POST"];
-    NSData *mResponseData;
-    NSError *err = nil;
-    mResponseData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&err];
-    if(err)
+    if(imgDict.allKeys.count>0)
     {
-        SDLog(@"失败:%@",err.description);
-        failure(err);
-        
+        SDLog(@"请求:%@-%@",url,params);
+        NSString * key=imgDict.allKeys[0];
+        UIImage * img=imgDict[key];
+        NSData *imageData =UIImageJPEGRepresentation(img,comress);
+        AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+        manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+        manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+        [manager POST:Interface_UploadHeadImg parameters:params constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+            [formData appendPartWithFileData:imageData name:key fileName:[NSString stringWithFormat:@"%@.jpeg",key] mimeType:@"image/jpeg"];
+        } progress:^(NSProgress * _Nonnull uploadProgress) {
+        } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:nil];
+            SDLog(@"成功:%@",dictionary);
+            if(success) {
+                success(dictionary);
+            }
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            SDLog(@"失败:%@",error);
+            if(failure) {
+                failure(error);
+            }
+        }];
     }else
     {
-        NSString * res = [[NSString alloc] initWithData:mResponseData encoding:NSUTF8StringEncoding];
-        SDLog(@"成功:%@",res);
-        success(res);
+        SDLog(@"图片数据为空!");
     }
-    
 }
-
-+(void)upLoadBreakPointImage:(NSString *)paramsurl params:(NSDictionary *)params imgurl:(NSString *)imgurl img:(NSDictionary *)imgDict imgparams:(NSDictionary *)imgParams success:(void (^)(id))bothsuccess onesuccess:(void (^)(id))paramsuccess failure:(void (^)(NSError *))bothfailure
-{
-    [self Post:paramsurl params:params success:^(id json) {
-        //1.上传参数成功
-        //2.上传图片
-        [self upLoadImage:imgurl params:imgParams img:imgDict success:^(id json) {
-            //2.1上传图片成功
-            SDLog(@"上传图片成功");
-            bothsuccess(json);
-        } failure:^(NSError *error) {
-            //2.2上传图片失败
-            SDLog(@"上传图片失败");
-            paramsuccess(json);
-        }];
-    } failure:^(NSError *error) {
-        //2.上传参数失败
-        SDLog(@"上传参数失败");
-        bothfailure(error);
-    }];
-}
-
-
 
 //检测网络连接状态
 

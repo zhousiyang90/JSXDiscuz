@@ -166,7 +166,21 @@
 
 -(void)getInitData
 {
-    
+    NSMutableDictionary * params = [NSMutableDictionary dictionary];
+    params[@"fouid"]=[UserDataTools getUserInfo].uid;
+    [JSXHttpTool Get:Interface_PersonaUserPermission params:params success:^(id json) {
+        NSNumber * returnCode = json[@"errcode"];
+        NSString * errmsg = json[@"errmsg"];
+        if([returnCode intValue]==0)
+        {
+            [self.tableview reloadData];
+        }else
+        {
+            [SVProgressHUD showErrorWithStatus:errmsg];
+        }
+    } failure:^(NSError *error) {
+        [SVProgressHUD showErrorWithStatus:@"网络连接失败"];
+    }];
 }
 
 

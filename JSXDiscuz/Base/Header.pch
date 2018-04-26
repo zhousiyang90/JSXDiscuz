@@ -59,6 +59,7 @@
 #import <WZLSerializeKit.h>
 #import "UserDataTools.h"
 #import "UIViewController+Login.h"
+#import "PersonalDataInfo.h"
 
 //占位图
 #define PlaceHolderImg_Head @"placeholder_head"

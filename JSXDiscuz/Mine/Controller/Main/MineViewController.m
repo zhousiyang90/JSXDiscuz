@@ -71,19 +71,15 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
     NSArray * sections = self.layoutData[indexPath.section];
     MineMainDataModel * data=sections[indexPath.row];
-    
     if(indexPath.section==0)
     {
         MineHeaderTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"mineHeaderTableViewCell"];
         cell.selectionStyle=UITableViewCellSelectionStyleNone;
         [cell.headImgeView sd_setImageWithURL:[NSURL URLWithString:[UserDataTools getUserInfo].avatar] placeholderImage:[UIImage imageNamed:PlaceHolderImg_Head]];
         cell.nameLab.text=[UserDataTools getUserInfo].username;
-        @weakify(cell);
         cell.block = ^(int type){
-            @strongify(cell);
             if(type==0)
             {
                 //点击设置
@@ -96,15 +92,28 @@
                     if(photos.count>0)
                     {
                         NSMutableDictionary * params = [NSMutableDictionary dictionary];
-                        params[@"fouid="]=[UserDataTools getUserInfo].uid;
+                        NSString *url=[NSString stringWithFormat:@"%@&fouid=%@",Interface_UploadHeadImg,[UserDataTools getUserInfo].uid];
                         NSMutableDictionary * paramsofImg = [NSMutableDictionary dictionary];
                         paramsofImg[@"avatar"]=photos[0];
-                        [JSXHttpTool upLoadImageofAFN:Interface_UploadHeadImg params:params img:paramsofImg success:^(id json) {
+                        [JSXHttpTool upLoadOnePic:url params:params img:paramsofImg andCompress:0.5 success:^(id json) {
+                            NSNumber * errcode=json[@"errcode"];
+                            NSString * errmsg=json[@"errmsg"];
+                            if(errcode==0)
+                            {
+                                NSString * imgUrl=json[@"img"];
+                                UserData *user=[UserDataTools getUserInfo];
+                                user.avatar=imgUrl;
+                                [UserDataTools saveUserInfo:user];
+                                [self.tableview reloadData];
+                                
+                            }else
+                            {
+                                [SVProgressHUD showErrorWithStatus:errmsg];
+                            }
                             
                         } failure:^(NSError *error) {
-                            
+                            [SVProgressHUD showErrorWithStatus:error.description];
                         }];
-                        //[cell.headImgeView setImage:photos[0]];
                     }
 
                 }];
@@ -142,6 +151,7 @@
         MineMainTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"mineMainTableViewCell"];
         cell.selectionStyle=UITableViewCellSelectionStyleNone;
         cell.leftLab.text=data.leftTitle;
+        cell.leftLab.text=[UserDataTools getUserInfo].grouptitle;
         cell.rightLab.text=data.rightTitle;
         return cell;
     }
@@ -214,7 +224,7 @@
         MineMainDataModel * base1=[[MineMainDataModel alloc]init];
         base1.leftTitle=@"修改用户名";
         MineMainDataModel * base2=[[MineMainDataModel alloc]init];
-        base2.leftTitle=@"一级会员";
+        base2.leftTitle=@"会员";
         MineMainDataModel * base3=[[MineMainDataModel alloc]init];
         base3.leftTitle=@"我的收藏";;
         NSMutableArray * section2=[NSMutableArray arrayWithObjects:base1,base2,base3,nil];

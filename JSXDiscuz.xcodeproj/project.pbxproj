@@ -145,6 +145,8 @@
 		31282A6F208D742100B8A4FD /* CommentBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 31282A6E208D742000B8A4FD /* CommentBottomView.m */; };
 		31282A71208D742E00B8A4FD /* CommentBottomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31282A70208D742E00B8A4FD /* CommentBottomView.xib */; };
 		31420C64209062490047DC12 /* UIViewController+Login.m in Sources */ = {isa = PBXBuildFile; fileRef = 31420C63209062490047DC12 /* UIViewController+Login.m */; };
+		31420C672091B1A20047DC12 /* PersonalDataInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 31420C662091B1A20047DC12 /* PersonalDataInfo.m */; };
+		31420C6A2091D1280047DC12 /* PersonalDataPermisionInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 31420C692091D1280047DC12 /* PersonalDataPermisionInfo.m */; };
 		3144AFD1205B5C8A00F55063 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3144AFD0205B5C8A00F55063 /* AppDelegate.m */; };
 		3144AFD9205B5C8A00F55063 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3144AFD8205B5C8A00F55063 /* Assets.xcassets */; };
 		3144AFDC205B5C8A00F55063 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3144AFDA205B5C8A00F55063 /* LaunchScreen.storyboard */; };
@@ -536,6 +538,10 @@
 		31282A70208D742E00B8A4FD /* CommentBottomView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentBottomView.xib; sourceTree = "<group>"; };
 		31420C62209062490047DC12 /* UIViewController+Login.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Login.h"; sourceTree = "<group>"; };
 		31420C63209062490047DC12 /* UIViewController+Login.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Login.m"; sourceTree = "<group>"; };
+		31420C652091B1A20047DC12 /* PersonalDataInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PersonalDataInfo.h; sourceTree = "<group>"; };
+		31420C662091B1A20047DC12 /* PersonalDataInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PersonalDataInfo.m; sourceTree = "<group>"; };
+		31420C682091D1270047DC12 /* PersonalDataPermisionInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PersonalDataPermisionInfo.h; sourceTree = "<group>"; };
+		31420C692091D1280047DC12 /* PersonalDataPermisionInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PersonalDataPermisionInfo.m; sourceTree = "<group>"; };
 		3144AFCC205B5C8A00F55063 /* JSXDiscuz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JSXDiscuz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3144AFCF205B5C8A00F55063 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3144AFD0205B5C8A00F55063 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -1541,6 +1547,10 @@
 			children = (
 				31608B182073651C005C5338 /* MineMainDataModel.h */,
 				31608B192073651C005C5338 /* MineMainDataModel.m */,
+				31420C652091B1A20047DC12 /* PersonalDataInfo.h */,
+				31420C662091B1A20047DC12 /* PersonalDataInfo.m */,
+				31420C682091D1270047DC12 /* PersonalDataPermisionInfo.h */,
+				31420C692091D1280047DC12 /* PersonalDataPermisionInfo.m */,
 			);
 			path = datamodel;
 			sourceTree = "<group>";
@@ -2171,6 +2181,7 @@
 				31263338207DA7EE003EA5E5 /* CommunityDetailViewController_dynamic.m in Sources */,
 				3126333D207E038E003EA5E5 /* VideoLogViewController.m in Sources */,
 				3119D304206B61860094DB60 /* WritingLogTextView.m in Sources */,
+				31420C672091B1A20047DC12 /* PersonalDataInfo.m in Sources */,
 				31ACC91B2079A83900B89984 /* MineVIPStatusViewController.m in Sources */,
 				31608AB82071D8AD005C5338 /* GroupViewController.m in Sources */,
 				31608AF5207313C9005C5338 /* CommunityTableViewCollectionCell_Newest.m in Sources */,
@@ -2190,6 +2201,7 @@
 				3119D307206B6EF60094DB60 /* WritingLogTitleView.m in Sources */,
 				31ACC9BA207C651E00B89984 /* OtherCenterNavBarView.m in Sources */,
 				31608B1520736366005C5338 /* MineLogoutTableView.m in Sources */,
+				31420C6A2091D1280047DC12 /* PersonalDataPermisionInfo.m in Sources */,
 				31608ACF20720DA0005C5338 /* CommunityViewController_Mode.m in Sources */,
 				31282A6C2089D44C00B8A4FD /* NSString+ZSHeight.m in Sources */,
 				31ACC976207B3F4400B89984 /* ZSDatePickerView.m in Sources */,

@@ -18,6 +18,12 @@
 #define Interface_Login @JSXInterface
 //修改头像
 #define Interface_UploadHeadImg @""JSXInterface"?mod=spacecp1&ac=bindtel&doup=upavatar"
+//个人信息
+#define Interface_PersonalInfo @""JSXInterface"?mod=spacecp1&ac=profiler"
+//个人信息提交
+#define Interface_PersonalInfoCommit @""JSXInterface"?mod=spacecp1&ac=setmember"
+//个人用户组权限
+#define Interface_PersonaUserPermission @""JSXInterface"?mod=spacecp1&ac=usergroup&gid=1"
 
 #pragma mark - 社区模块
 //首页列表

@@ -54,7 +54,7 @@
     headImageView.layer.borderWidth=1;
     headImageView.layer.masksToBounds=YES;
     headImageView.layer.borderColor=[UIColor whiteColor].CGColor;
-    headImageView.image=[UIImage imageNamed:@"timg"];
+    [headImageView sd_setImageWithURL:[NSURL URLWithString:[UserDataTools getUserInfo].avatar] placeholderImage:[UIImage imageNamed:PlaceHolderImg_Head]];
     [self.bgView addSubview:headImageView];
     
     settingBtn=[UIButton buttonWithType:UIButtonTypeCustom];

@@ -25,4 +25,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *insBtn14;
 
 @property(nonatomic,strong) NSMutableArray * insData;
+
+@property(nonatomic,copy) NSString * intrestStr;
+
 @end

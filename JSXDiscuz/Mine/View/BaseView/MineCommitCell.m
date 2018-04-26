@@ -22,5 +22,9 @@
 }
 
 - (IBAction)clickCommit:(id)sender {
+    if(_block)
+    {
+        _block();
+    }
 }
 @end

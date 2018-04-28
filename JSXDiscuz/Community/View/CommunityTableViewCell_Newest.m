@@ -57,7 +57,13 @@ static NSString *const cellId = @"communityTableViewCollectionCell_Newest";
 {
     _postdata=postdata;
     self.contentLab.text=postdata.subject;
-    [self.headImage sd_setImageWithURL:[NSURL URLWithString:postdata.uesicon] placeholderImage:[UIImage imageNamed:PlaceHolderImg_Group]];
+    if(postdata.uesicon.length>0)
+    {
+        [self.headImage sd_setImageWithURL:[NSURL URLWithString:postdata.uesicon] placeholderImage:[UIImage imageNamed:PlaceHolderImg_Group]];
+    }else if(postdata.avatar.length>0)
+    {
+        [self.headImage sd_setImageWithURL:[NSURL URLWithString:postdata.avatar] placeholderImage:[UIImage imageNamed:PlaceHolderImg_Group]];
+    }
     self.nameLab.text=postdata.author;
     self.timeLab.text=postdata.time;
     [self.themeBtn setTitle:postdata.forumname forState:UIControlStateNormal];

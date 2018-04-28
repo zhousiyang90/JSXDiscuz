@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "0D6D68187F939C32B31F8FE06F055CF1"
+               BlueprintIdentifier = "E4FD50A2058C7D8AD98BB438756586F6"
                BlueprintName = "Pods-JSXDiscuz"
                ReferencedContainer = "container:Pods.xcodeproj"
                BuildableName = "libPods-JSXDiscuz.a">

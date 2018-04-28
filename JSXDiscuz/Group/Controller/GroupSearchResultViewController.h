@@ -12,4 +12,6 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *contenttableview;
 
+@property (copy, nonatomic) NSString *searchText;
+
 @end

@@ -12,4 +12,6 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *tableview;
 
+@property(nonatomic,copy) NSString * searchText;
+
 @end

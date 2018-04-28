@@ -24,6 +24,10 @@
 #define Interface_PersonalInfoCommit @""JSXInterface"?mod=spacecp1&ac=setmember"
 //个人用户组权限
 #define Interface_PersonaUserPermission @""JSXInterface"?mod=spacecp1&ac=usergroup&gid=1"
+//个人中心-朋友圈
+#define Interface_PersonnalFriendCircle @""JSXInterface"index.php?mod=my_userpost&type=friend&view=all"
+//个人中心-我的
+#define Interface_PersonnalMine @""JSXInterface"index.php?mod=my_userpost&type=friend&view=me"
 
 #pragma mark - 社区模块
 //首页列表
@@ -46,6 +50,12 @@
 #define Interface_GroupAllList @""JSXInterface"index.php?mod=group&a=alllist"
 //全部小组列表(分类列表)
 #define Interface_GroupAllTypeList @""JSXInterface"index.php?mod=group&a=allfuplist"
+//小组搜
+#define Interface_GroupSearch @""JSXInterface"index.php?mod=group&a=search"
+//小组申请加入
+#define Interface_GroupJoin @""JSXInterface"index.php?mod=groupadd&a=addmember"
+//小组申请退出
+#define Interface_GroupLogout @""JSXInterface"index.php?mod=groupsystem&a=memberdel"
 
 #pragma mark - 首页
 //首页小组模块
@@ -60,5 +70,9 @@
 #define Interface_PostsDetail @""JSXInterface"index.php?mod=group&a=third"
 //回帖提交
 #define Interface_PostsReply @""JSXInterface"index.php?mod=addreply"
+
+#pragma mark - 发现
+//帖子搜索
+#define Interface_DiscoverySearch @""JSXInterface"index.php?mod=index_forumlist&fcid=1"
 
 #endif /* InterfaceSet_h */

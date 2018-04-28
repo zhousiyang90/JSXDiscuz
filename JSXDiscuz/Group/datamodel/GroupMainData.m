@@ -16,7 +16,8 @@
              @"forumlist":GroupMainData_summary.class,
              @"catlist":GroupMainData_summary.class,
              @"alllist":GroupMainData_summary.class,
-             @"glist":GroupMainData_summary.class
+             @"glist":GroupMainData_summary.class,
+             @"search":GroupMainData_summary.class
              };
 }
 

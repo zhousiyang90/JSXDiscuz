@@ -14,7 +14,9 @@
 {
     BOOL hasNewData;
 }
-@property(nonatomic,strong) NSMutableArray * testList;
+@property(nonatomic,assign) int currentPage;
+@property(nonatomic,strong) CommunityNewestData * currentPagedata;
+@property(nonatomic,strong) NSMutableArray * dataList;
 
 @end
 
@@ -30,7 +32,7 @@
         CGFloat contentYoffset = scrollView.contentOffset.y;
         CGFloat distance = scrollView.contentSize.height-height-contentYoffset;
         if (distance<=0) {
-            [self getInitData];
+            //[self getInitData];
         }
     }
 }
@@ -52,7 +54,7 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.testList.count;
+    return self.dataList.count;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -68,46 +70,38 @@
     CommunityTableViewCell_Newest * cell = [tableView dequeueReusableCellWithIdentifier:@"communityTableViewCell_Newest"];
     cell.selectionStyle=UITableViewCellSelectionStyleNone;
     [self configCell:cell andIndexPath:indexPath];
+    cell.block = ^(int type) {
+        if(type==0)
+        {
+            //点击头像和名称
+            OtherCenterViewController *vc=[[OtherCenterViewController alloc]init];
+            [self.navigationController pushViewController:vc animated:YES];
+        }else if(type==1)
+        {
+            //社区详情
+            CommunityPostsData * celldata=self.dataList[indexPath.row];
+            [self pushToCommunityDetail:celldata.fid];
+        }
+    };
     return cell;
 }
 
 
 -(void)configCell:(CommunityTableViewCell_Newest*)cell andIndexPath:(NSIndexPath*)indexpath
 {
-    cell.data=self.testList[indexpath.row];
+    cell.postdata=self.dataList[indexpath.row];
     [cell.collectionView reloadData];
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    //点击帖子详情
+    CommunityPostsData * celldata=self.dataList[indexPath.row];
+    [self pushToPostsDetail:celldata.tid andFid:celldata.fid];
+}
 
 #pragma mark - LazyLoad
 
--(NSMutableArray *)testList
-{
-    if(_testList==nil)
-    {
-        _testList=[NSMutableArray array];
-        CommunityNewestData * data = [[CommunityNewestData alloc]init];
-        data.title=@"sad撒大所大所大所大所大所大所大所多撒大所多sad撒大所大所大所大所大所大所大所多撒大所多sad撒大所大所大所大所大所大所大所多s大所多s大所多s大所多s大所多s大所多s大所多撒大所多";
-        data.imgCount=5;
-        [_testList addObject:data];
-        
-        CommunityNewestData * data2 = [[CommunityNewestData alloc]init];
-        data2.title=@"s大所多";
-        data2.imgCount=9;
-        [_testList addObject:data2];
-        
-        CommunityNewestData * data3 = [[CommunityNewestData alloc]init];
-        data3.title=@"s大所多s大所多ss大所多大所s大所多多";
-        data3.imgCount=0;
-        [_testList addObject:data3];
-        
-        CommunityNewestData * data4 = [[CommunityNewestData alloc]init];
-        data4.title=@"ss大所多s大所多s大所多大所多";
-        data4.imgCount=2;
-        [_testList addObject:data4];
-    }
-    return _testList;
-}
 
 #pragma mark - 生命周期
 
@@ -119,7 +113,7 @@
     self.tableview.rowHeight=UITableViewAutomaticDimension;
     
     [self.tableview addPullToRefreshWithActionHandler:^{
-        [self.tableview.pullToRefreshView stopAnimating];
+        [self getInitData];
     }];
     
     self.needNoNetTips=YES;
@@ -134,9 +128,31 @@
 
 -(void)getInitData
 {
-    hasNewData=NO;
-    [self.tableview reloadData];
-    [self setMainTableViewFooterView];
+    NSMutableDictionary * params = [NSMutableDictionary dictionary];
+    params[@"subject"]=self.searchText;
+    
+    [SVProgressHUD showWithStatus:@"加载中"];
+    [JSXHttpTool Get:Interface_DiscoverySearch params:params success:^(id json) {
+        NSNumber * returnCode = json[@"errcode"];
+        NSString * message = json[@"errmsg"];
+        if([returnCode intValue]==0)
+        {
+            self.currentPagedata = [CommunityNewestData mj_objectWithKeyValues:json];
+            self.dataList=self.currentPagedata.list;
+            
+            [self.tableview reloadData];
+            [SVProgressHUD dismiss];
+            [self.tableview.pullToRefreshView stopAnimating];
+        }else
+        {
+            [SVProgressHUD dismiss];
+            [SVProgressHUD showErrorWithStatus:message];
+            [self.tableview.pullToRefreshView stopAnimating];
+        }
+    } failure:^(NSError *error) {
+        [SVProgressHUD dismiss];
+        [self.tableview.pullToRefreshView stopAnimating];
+    }];
 }
 
 -(void)nonetstatusGetData

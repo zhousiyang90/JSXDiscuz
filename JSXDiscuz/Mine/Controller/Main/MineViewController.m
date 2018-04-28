@@ -150,8 +150,13 @@
     {
         MineMainTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"mineMainTableViewCell"];
         cell.selectionStyle=UITableViewCellSelectionStyleNone;
-        cell.leftLab.text=data.leftTitle;
-        cell.leftLab.text=[UserDataTools getUserInfo].grouptitle;
+        if([data.leftTitle isEqualToString:@"会员"])
+        {
+            cell.leftLab.text=[UserDataTools getUserInfo].grouptitle;
+        }else
+        {
+            cell.leftLab.text=data.leftTitle;
+        }
         cell.rightLab.text=data.rightTitle;
         return cell;
     }

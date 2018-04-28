@@ -15,6 +15,8 @@
 @property(nonatomic,strong) NSMutableArray * forumlist;
 @property(nonatomic,strong) NSMutableArray * alllist;
 @property(nonatomic,strong) NSMutableArray * glist;
+@property(nonatomic,strong) NSMutableArray * search;
+
 
 //首页小组
 @property(nonatomic,strong) NSMutableArray * catlist;

@@ -12,6 +12,8 @@
 
 @interface GroupSearchResultViewController ()<UITableViewDelegate,UITableViewDataSource>
 
+@property(nonatomic,strong) GroupMainData * data;
+
 @end
 
 @implementation GroupSearchResultViewController
@@ -20,7 +22,7 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 5;
+    return self.data.search.count;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -30,8 +32,10 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    GroupMainData_summary *cellData=self.data.search[indexPath.row];
     TopicListTableViewCell_content * cell = [tableView dequeueReusableCellWithIdentifier:@"topicListTableViewCell_content"];
     cell.selectionStyle=UITableViewCellSelectionStyleNone;
+    cell.groupData=cellData;
     return cell;
  
 }
@@ -39,9 +43,9 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    //主题详情
-    TopicDetailViewController * vc=[[TopicDetailViewController alloc]init];
-    [self.navigationController pushViewController:vc animated:YES];
+    //小组详情
+    GroupMainData_summary *cellData=self.data.search[indexPath.row];
+    [self pushToGroupDetail:cellData.fid];
 }
 
 
@@ -59,17 +63,38 @@
 
 -(void)setNavigationBar
 {
-    self.title=@"搜索";
+    self.title=@"搜索列表";
 }
 
 -(void)getInitData
 {
-
+    NSMutableDictionary * params = [NSMutableDictionary dictionary];
+    params[@"uid"]=[UserDataTools getUserInfo].uid;
+    params[@"gcid"]=@"3";
+    params[@"stxt"]=self.searchText;
+    
+    [SVProgressHUD showWithStatus:@"加载中"];
+    [JSXHttpTool Get:Interface_GroupSearch params:params success:^(id json) {
+        NSNumber * returnCode = json[@"errcode"];
+        NSString * message = json[@"errmsg"];
+        if([returnCode intValue]==0)
+        {
+            self.data = [GroupMainData mj_objectWithKeyValues:json];
+            [self.contenttableview reloadData];
+            [SVProgressHUD dismiss];
+        }else
+        {
+            [SVProgressHUD dismiss];
+            [SVProgressHUD showErrorWithStatus:message];
+        }
+    } failure:^(NSError *error) {
+        [SVProgressHUD dismiss];
+    }];
 }
 
 -(void)nonetstatusGetData
 {
-    
+    [self getInitData];
 }
 
 @end

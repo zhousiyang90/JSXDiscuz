@@ -67,6 +67,52 @@
     
     [self refreshNavBar];
     
+    [[self.joinBtn rac_signalForControlEvents:UIControlEventTouchUpInside]subscribeNext:^(id x) {
+        //判断数据
+        if([self.currentData.forum.usess isEqualToString:@"1"]||[self.currentData.forum.usess isEqualToString:@"2"])
+        {
+            //拥有管理权限
+            UIAlertController * alertController = [UIAlertController alertControllerWithTitle:@""message:@"小组管理" preferredStyle:UIAlertControllerStyleActionSheet];
+            
+            UIAlertAction *logoutAction = [UIAlertAction actionWithTitle:@"退出" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                [self logoutGroupInterface];
+            }];
+            UIAlertAction *managerAction = [UIAlertAction actionWithTitle:@"管理" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                
+            }];
+            UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+                
+            }];
+            
+            [alertController addAction:logoutAction];
+            [alertController addAction:managerAction];
+            [alertController addAction:cancelAction];
+            [self presentViewController:alertController animated:YES completion:nil];
+            
+        }else if([self.currentData.forum.usess isEqualToString:@"3"]||[self.currentData.forum.usess isEqualToString:@"4"])
+        {
+            //无管理权限
+            //拥有管理权限
+            UIAlertController * alertController = [UIAlertController alertControllerWithTitle:@""message:@"小组管理" preferredStyle:UIAlertControllerStyleActionSheet];
+            
+            UIAlertAction *logoutAction = [UIAlertAction actionWithTitle:@"退出" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                [self logoutGroupInterface];
+            }];
+            UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+                
+            }];
+            
+            [alertController addAction:logoutAction];
+            [alertController addAction:cancelAction];
+            [self presentViewController:alertController animated:YES completion:nil];
+        }else
+        {
+            //加入群组
+            [self joinGroupInterface];
+        }
+       
+    }];
+    
     [self getInitData];
 }
 
@@ -140,6 +186,13 @@
             self.topicMemLab.text=[NSString stringWithFormat:@"成员数 %@",self.currentData.forum.membernum];
             self.title=self.currentData.forum.name;
             //设置子控制器数据
+            if([self.currentData.forum.usess isEqualToString:@"1"]||[self.currentData.forum.usess isEqualToString:@"2"]||[self.currentData.forum.usess isEqualToString:@"3"]||[self.currentData.forum.usess isEqualToString:@"4"])
+            {
+                [self.joinBtn setTitle:@". . ." forState:UIControlStateNormal];
+            }else
+            {
+                [self.joinBtn setTitle:@"加入" forState:UIControlStateNormal];
+            }
             [self setsubvcData:self.currentData];
             [SVProgressHUD dismiss];
             
@@ -166,6 +219,65 @@
             modevc.dataList=detailData.rlist;
         }
     }
+}
+
+#pragma mark -网络访问
+
+-(void)joinGroupInterface
+{
+    if(self.fid.length==0)
+    {
+        return;
+    }
+    
+    NSMutableDictionary * params = [NSMutableDictionary dictionary];
+    params[@"uid"]=[UserDataTools getUserInfo].uid;
+    params[@"fid"]=self.fid;
+    
+    [SVProgressHUD showWithStatus:@"加载中..."];
+    [JSXHttpTool Get:Interface_GroupJoin params:params success:^(id json) {
+        NSNumber * returnCode = json[@"errcode"];
+        NSString * message = json[@"errmsg"];
+        if([returnCode intValue]==0)
+        {
+            [SVProgressHUD showSuccessWithStatus:@"加入成功"];
+            [self getInitData];
+            [SVProgressHUD dismiss];
+        }else
+        {
+            [SVProgressHUD dismiss];
+            [SVProgressHUD showErrorWithStatus:message];
+        }
+    } failure:^(NSError *error) {
+        [SVProgressHUD dismiss];
+    }];
+    
+}
+
+-(void)logoutGroupInterface
+{
+    if(self.fid.length==0)
+    {
+        return;
+    }
+    
+    NSMutableDictionary * params = [NSMutableDictionary dictionary];
+    params[@"uid"]=[UserDataTools getUserInfo].uid;
+    params[@"fid"]=self.fid;
+    
+    [JSXHttpTool Get:Interface_GroupLogout params:params success:^(id json) {
+        NSNumber * returnCode = json[@"errcode"];
+        NSString * message = json[@"errmsg"];
+        if([returnCode intValue]==0)
+        {
+            [SVProgressHUD showSuccessWithStatus:@"退出成功"];
+            [self getInitData];
+        }else
+        {
+            [SVProgressHUD showErrorWithStatus:message];
+        }
+    } failure:^(NSError *error) {
+    }];
 }
 
 @end

@@ -18,7 +18,10 @@
 @property(nonatomic,copy) NSString * icon;
 @property(nonatomic,copy) NSString * icon1;
 @property(nonatomic,copy) NSString * icon2;
+//成员等级 (0:未加入 1:群主)
 @property(nonatomic,copy) NSString * showg;
 @property(nonatomic,copy) NSString * focus;
+//成员等级 (0:待审核 1:群主 2:副群主 3:明星成员 4:普通成员)
+@property(nonatomic,copy) NSString * usess;
 
 @end

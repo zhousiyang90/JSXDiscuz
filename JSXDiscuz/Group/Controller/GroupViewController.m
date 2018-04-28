@@ -28,8 +28,14 @@
 -(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
     [self.view endEditing:YES];
+    if(searchBar.text.length==0)
+    {
+        [SVProgressHUD showErrorWithStatus:@"搜索内容为空"];
+        return;
+    }
     //主题详情
     GroupSearchResultViewController * vc=[[GroupSearchResultViewController alloc]init];
+    vc.searchText=searchBar.text;
     [self.navigationController pushViewController:vc animated:YES];
 }
 
@@ -52,7 +58,6 @@
         return self.data.myforumlist.count;
     }else
     {
-        SDLog(@"self.data.forumlist.count:%d",self.data.forumlist.count);
         return self.data.forumlist.count;
     }
 }
@@ -200,6 +205,12 @@
 
 -(void)nodatasGetData
 {
+    [self getInitData];
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
     [self getInitData];
 }
 

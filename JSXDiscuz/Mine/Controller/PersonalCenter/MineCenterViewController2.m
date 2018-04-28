@@ -27,12 +27,19 @@
     UIView * lineView;
     
     MineCenterNavBarView2 * header;
-
+    
+    BOOL hasNewData;
 }
+
+@property(nonatomic,strong) CommunityNewestData * currentPagedata1;
+@property(nonatomic,strong) NSMutableArray * dataList1;
+@property(nonatomic,strong) CommunityNewestData * currentPagedata2;
+@property(nonatomic,strong) NSMutableArray * dataList2;
+@property(nonatomic,strong) CommunityNewestData * currentPagedata3;
+@property(nonatomic,strong) NSMutableArray * dataList3;
 
 @property(nonatomic,strong) NSMutableArray * testList;
 @property(nonatomic,strong) NSMutableArray * testList2;
-@property(nonatomic,strong) NSMutableArray * testList3;
 @property(nonatomic,strong) NSMutableArray * layoutData;
 @end
 
@@ -79,7 +86,7 @@
             return self.testList2.count;
         }else if(self.currentPage==2)
         {
-            return self.testList3.count;
+            return self.dataList3.count;
         }else
         {
             return 0;
@@ -137,7 +144,7 @@
         [cell.collectionView reloadData];
     }else if(self.currentPage==2)
     {
-        cell.data=self.testList3[indexpath.row];
+        cell.postdata=self.dataList3[indexpath.row];
         [cell.collectionView reloadData];
     }
 }
@@ -328,34 +335,6 @@
 }
 
 
--(NSMutableArray *)testList3
-{
-    if(_testList3==nil)
-    {
-        _testList3=[NSMutableArray array];
-        CommunityNewestData * data = [[CommunityNewestData alloc]init];
-        data.title=@"A大萨达撒多撒A大萨达撒多撒多奥术大师多撒A大萨达撒多撒多奥术大师多撒A大萨达撒多撒多奥术大师多撒A大萨达撒多撒多奥术大师多撒A大萨达撒多撒多奥术大师多撒A大萨达撒多撒多奥术大师多撒A大萨达撒多撒多奥术大师多撒多奥术大师多撒";
-        data.imgCount=0;
-        [_testList3 addObject:data];
-        
-        CommunityNewestData * data2 = [[CommunityNewestData alloc]init];
-        data2.title=@"BA大萨达撒多撒多奥术大师多撒A大萨达撒多撒多奥术大师多撒A大萨达撒多撒多奥术大师多撒A大萨达撒多撒多奥术大师多撒A大萨达撒多撒多奥术大师多撒B";
-        data2.imgCount=0;
-        [_testList3 addObject:data2];
-        
-        CommunityNewestData * data3 = [[CommunityNewestData alloc]init];
-        data3.title=@"CCA大萨达撒多撒多奥术大师多撒A大萨达撒多撒多奥术大师多撒C";
-        data3.imgCount=0;
-        [_testList2 addObject:data3];
-        
-        CommunityNewestData * data4 = [[CommunityNewestData alloc]init];
-        data4.title=@"DDA大萨达撒多撒多奥术大师多撒D";
-        data4.imgCount=0;
-        [_testList3 addObject:data4];
-    }
-    return _testList3;
-}
-
 -(NSMutableArray *)layoutData
 {
     if(_layoutData==nil)
@@ -465,6 +444,10 @@
     
     self.tableview.separatorStyle=UITableViewCellSeparatorStyleNone;
     
+    [self.tableview addPullToRefreshWithActionHandler:^{
+        [self getInitData];
+    }];
+    
     self.needNoNetTips=NO;
     self.needNoTableViewDataTips=NO;
     self.baseTableview=self.tableview;
@@ -478,8 +461,43 @@
 
 -(void)getInitData
 {
+    [self getMineData];
+}
+
+#pragma mark - 网络访问
+
+-(void)getFriendCircleData
+{
     
 }
 
+-(void)getMineData
+{
+    NSMutableDictionary * params = [NSMutableDictionary dictionary];
+    if([UserDataTools getUserInfo].uid.length==0)
+    {
+        [self showLoginView];
+        return;
+    }else
+    {
+        params[@"selfuid"]=[UserDataTools getUserInfo].uid;
+    }
+    [JSXHttpTool Get:Interface_PersonnalMine params:params success:^(id json) {
+        NSNumber * returnCode = json[@"errcode"];
+        if([returnCode intValue]==0)
+        {
+            self.currentPagedata3 = [CommunityNewestData mj_objectWithKeyValues:json];
+            self.dataList3=self.currentPagedata3.list;
+            
+            [self.tableview reloadData];
+            [self.tableview.pullToRefreshView stopAnimating];
+        }else
+        {
+            [self.tableview.pullToRefreshView stopAnimating];
+        }
+    } failure:^(NSError *error) {
+        [self.tableview.pullToRefreshView stopAnimating];
+    }];
+}
 
 @end

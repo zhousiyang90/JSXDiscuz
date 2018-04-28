@@ -60,6 +60,8 @@
 #import "UserDataTools.h"
 #import "UIViewController+Login.h"
 #import "PersonalDataInfo.h"
+#import "OtherCenterViewController.h"
+#import <Masonry.h>
 
 //占位图
 #define PlaceHolderImg_Head @"placeholder_head"

@@ -89,8 +89,15 @@
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField
 {
+    if(textField.text.length==0)
+    {
+        [SVProgressHUD showErrorWithStatus:@"请输入搜索内容"];
+        return NO;
+    }
+    [self.view endEditing:YES];
     //搜索结果
     SearchResultViewController * vc=[[SearchResultViewController alloc]init];
+    vc.searchText=textField.text;
     [self.navigationController pushViewController:vc animated:YES];
     return YES;
 }

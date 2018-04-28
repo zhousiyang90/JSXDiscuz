@@ -17,4 +17,5 @@ pod 'SVPullToRefresh'
 pod 'IQKeyboardManager'
 pod 'TZImagePickerController'
 pod 'WZLSerializeKit'
+pod 'Masonry'
 end

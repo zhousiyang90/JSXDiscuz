@@ -14,7 +14,9 @@
 @property(nonatomic,copy) NSString * allowvisit;
 @property(nonatomic,copy) NSString * allowpost;
 @property(nonatomic,copy) NSString * allowreply;
-
+@property(nonatomic,copy) NSString * allowbuildgroup;
+@property(nonatomic,copy) NSString * allowfriend;
+@property(nonatomic,copy) NSString * allowsendpm;
 
 
 @end

@@ -27,7 +27,7 @@
                             <constraint firstAttribute="height" constant="1" id="dRW-0L-zur"/>
                         </constraints>
                     </view>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="group_che" translatesAutoresizingMaskIntoConstraints="NO" id="SfK-Pm-bGw">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder_group" translatesAutoresizingMaskIntoConstraints="NO" id="SfK-Pm-bGw">
                         <rect key="frame" x="10" y="10" width="50" height="50"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="50" id="9d2-m4-9MJ"/>
@@ -83,6 +83,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="group_che" width="50" height="50"/>
+        <image name="placeholder_group" width="75" height="75"/>
     </resources>
 </document>

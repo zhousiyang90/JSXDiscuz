@@ -56,6 +56,8 @@
 #define Interface_GroupJoin @""JSXInterface"index.php?mod=groupadd&a=addmember"
 //小组申请退出
 #define Interface_GroupLogout @""JSXInterface"index.php?mod=groupsystem&a=memberdel"
+//创建小组
+#define Interface_GroupCreate @""JSXInterface"index.php?mod=addthread"
 
 #pragma mark - 首页
 //首页小组模块
@@ -70,9 +72,23 @@
 #define Interface_PostsDetail @""JSXInterface"index.php?mod=group&a=third"
 //回帖提交
 #define Interface_PostsReply @""JSXInterface"index.php?mod=addreply"
+//帖子点赞
+#define Interface_PostsLike @""JSXInterface"index.php?mod=group&a=dzan"
+//是否收藏贴子
+#define Interface_PostsHasCollection @""JSXInterface"index.php?mod=group&a=collectsun"
+//收藏贴子
+#define Interface_PostsCollection @""JSXInterface"index.php?mod=group&a=collect"
+//取消收藏贴子
+#define Interface_PostsDeCollection @""JSXInterface"index.php?mod=group&a=delcollect"
+//是否已阅帖子
+#define Interface_PostsHasRead @""JSXInterface"index.php?mod=group&a=yysun"
+//已阅帖子
+#define Interface_PostsRead @""JSXInterface"index.php?mod=addreply"
 
 #pragma mark - 发现
 //帖子搜索
 #define Interface_DiscoverySearch @""JSXInterface"index.php?mod=index_forumlist&fcid=1"
+//朋友搜索
+#define Interface_DiscoverySearchFriend @""JSXInterface"index.php?mod=friend&op=search"
 
 #endif /* InterfaceSet_h */

@@ -44,5 +44,4 @@
 @property(nonatomic,copy) NSString * forumname;
 @property(nonatomic,strong) NSMutableArray * pics;
 
-
 @end

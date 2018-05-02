@@ -13,6 +13,7 @@
 {
     ZSPickerView * picker;
     
+    NSString * username;
     NSString * sexStr;
     NSString * emotionStr;
     NSString * friendsStr;
@@ -65,12 +66,22 @@
     [self.bgview6 addGestureRecognizer:tap6];
     
     [[self.searchtf rac_textSignal]subscribeNext:^(id x) {
-        
+        username=x;
     }];
     
     [[self.searchBtn rac_signalForControlEvents:UIControlEventTouchUpInside]subscribeNext:^(id x) {
+        [self.view endEditing:YES];
+        
         //搜索
         NearByPersonViewController * vc=[[NearByPersonViewController alloc]init];
+        vc.navTitle=@"找朋友";
+        vc.username=username;
+        vc.gender=sexStr;
+        vc.affectivestatus=emotionStr;
+        vc.lookingfor=friendsStr;
+        vc.education=eduStr;
+        vc.revenue=incomeStr;
+        vc.age=ageStr;
         [self.navigationController pushViewController:vc animated:YES];
     }];
     
@@ -94,7 +105,13 @@
     @weakify(self);
     picker.block = ^(NSInteger index) {
         @strongify(self);
-        sexStr=self.sexArr[index];
+        if(index==0)
+        {
+            sexStr=@"";
+        }else
+        {
+            sexStr=[NSString stringWithFormat:@"%ld",(long)index];
+        }
         self.lab1.text=self.sexArr[index];
     };
 }
@@ -106,7 +123,13 @@
     @weakify(self);
     picker.block = ^(NSInteger index) {
         @strongify(self);
-        emotionStr=self.emotionArr[index];
+        if(index==0)
+        {
+            emotionStr=@"";
+        }else
+        {
+            emotionStr=[NSString stringWithFormat:@"%ld",(long)index];
+        }
         self.lab2.text=self.emotionArr[index];
     };
 }
@@ -118,7 +141,13 @@
     @weakify(self);
     picker.block = ^(NSInteger index) {
         @strongify(self);
-        friendsStr=self.friendsArr[index];
+        if(index==0)
+        {
+            friendsStr=@"";
+        }else
+        {
+            friendsStr=[NSString stringWithFormat:@"%ld",(long)index];
+        }
         self.lab3.text=self.friendsArr[index];
     };
 }
@@ -130,7 +159,13 @@
     @weakify(self);
     picker.block = ^(NSInteger index) {
         @strongify(self);
-        eduStr=self.eduArr[index];
+        if(index==0)
+        {
+            eduStr=@"";
+        }else
+        {
+            eduStr=[NSString stringWithFormat:@"%ld",(long)index];
+        }
         self.lab4.text=self.eduArr[index];
     };
 }
@@ -142,7 +177,13 @@
     @weakify(self);
     picker.block = ^(NSInteger index) {
         @strongify(self);
-        incomeStr=self.incomeArr[index];
+        if(index==0)
+        {
+            incomeStr=@"";
+        }else
+        {
+            incomeStr=[NSString stringWithFormat:@"%ld",(long)index];
+        }
         self.lab5.text=self.incomeArr[index];
     };
 }
@@ -154,7 +195,13 @@
     @weakify(self);
     picker.block = ^(NSInteger index) {
         @strongify(self);
-        ageStr=self.ageArr[index];
+        if(index==0)
+        {
+            ageStr=@"";
+        }else
+        {
+            ageStr=[NSString stringWithFormat:@"%ld",(long)index];
+        }
         self.lab6.text=self.ageArr[index];
     };
 }
@@ -183,7 +230,7 @@
 {
     if(_friendsArr==nil)
     {
-        _friendsArr=[NSMutableArray arrayWithObjects:@"不限",@"兴趣交友",@"谈恋爱",@"结婚对象",@"其他",nil];
+        _friendsArr=[NSMutableArray arrayWithObjects:@"不限",@"谈恋爱",@"结婚对象",@"其他",nil];
     }
     return _friendsArr;
 }
@@ -215,5 +262,6 @@
     }
     return _ageArr;
 }
+
 
 @end

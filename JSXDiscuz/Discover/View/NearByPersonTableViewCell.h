@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FriendDetailData.h"
 
 @interface NearByPersonTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *headImgView;
@@ -14,5 +15,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *rankLab;
 @property (weak, nonatomic) IBOutlet UILabel *signLab;
 @property (weak, nonatomic) IBOutlet UILabel *distanceLab;
+
+@property(nonatomic,strong) FriendDetailData * friendData;
 
 @end

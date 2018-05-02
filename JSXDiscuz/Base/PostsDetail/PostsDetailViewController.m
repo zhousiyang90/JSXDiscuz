@@ -16,7 +16,11 @@
 #import "TopicDetailViewController.h"
 
 @interface PostsDetailViewController ()<UITableViewDelegate,UITableViewDataSource>
-
+{
+    BOOL hasRead;
+    
+    CommentBottomView * bottom;
+}
 @property(nonatomic,strong) PostDetailData * currentData;
 
 @end
@@ -62,6 +66,10 @@
         PostsDetailCommentTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"postsDetailCommentTableViewCell"];
         cell.selectionStyle=UITableViewCellSelectionStyleNone;
         cell.comment=cellData;
+        //评论点赞
+        cell.block = ^{
+            
+        };
         return cell;
     }
     
@@ -85,7 +93,7 @@
     self.needNoTableViewDataTips=YES;
     self.baseTableview=self.tableview;
     
-    CommentBottomView * bottom=[CommentBottomView shareView];
+    bottom=[CommentBottomView shareView];
     bottom.frame=self.bgBottomView.bounds;
     [[bottom.commentBtn rac_signalForControlEvents:UIControlEventTouchUpInside]subscribeNext:^(id x) {
         PostsDetailCommentViewController *vc=[[PostsDetailCommentViewController alloc]init];
@@ -100,14 +108,21 @@
     }];
     
     [[bottom.comment_likeBtn rac_signalForControlEvents:UIControlEventTouchUpInside]subscribeNext:^(id x) {
-        bottom.comment_likeBtn.selected=!bottom.comment_likeBtn.selected;
+        [self likeInterface];
     }];
     
     [[bottom.comment_collectBtn rac_signalForControlEvents:UIControlEventTouchUpInside]subscribeNext:^(id x) {
-        bottom.comment_collectBtn.selected=!bottom.comment_collectBtn.selected;
+        if([self.currentData.shoucsun isEqualToString:@"0"])
+        {
+            [self collectionInterface];
+        }else
+        {
+            [self decollectionInterface];
+        }
     }];
     
     [[bottom.comment_shareBtn rac_signalForControlEvents:UIControlEventTouchUpInside]subscribeNext:^(id x) {
+        [self hasReadPost];
     }];
     
     [self.bgBottomView addSubview:bottom];
@@ -121,6 +136,19 @@
         return;
     }
     
+    [self getPostData];
+    [self verifyHasReadPost];
+}
+
+-(void)nonetstatusGetData
+{
+    [self getInitData];
+}
+
+#pragma mark - 网络访问
+
+-(void)getPostData
+{
     NSMutableDictionary * params = [NSMutableDictionary dictionary];
     params[@"tid"]=self.tid;
     params[@"fid"]=self.fid;
@@ -140,6 +168,28 @@
         {
             self.currentData=[PostDetailData mj_objectWithKeyValues:json];
             self.title=self.currentData.pinfo.subject;
+            
+            //点赞
+            if([self.currentData.usezan isEqualToString:@"0"])
+            {
+                bottom.likeLab.hidden=YES;
+                bottom.comment_likeBtn.selected=NO;
+            }else
+            {
+                bottom.likeLab.hidden=NO;
+                bottom.likeLab.text=self.currentData.zan;
+                bottom.comment_likeBtn.selected=YES;
+            }
+            
+            //收藏
+            if([self.currentData.shoucsun isEqualToString:@"0"])
+            {
+                bottom.comment_collectBtn.selected=NO;
+            }else
+            {
+                bottom.comment_collectBtn.selected=YES;
+            }
+            
             [self.tableview reloadData];
             [SVProgressHUD dismiss];
         }else
@@ -153,9 +203,155 @@
     }];
 }
 
--(void)nonetstatusGetData
+-(void)likeInterface
 {
-    [self getInitData];
+    if(self.tid.length==0 ||self.fid.length==0)
+    {
+        [SVProgressHUD showErrorWithStatus:@"参数为空"];
+        return;
+    }
+    
+    NSMutableDictionary * params = [NSMutableDictionary dictionary];
+    params[@"tid"]=self.tid;
+    params[@"uid"]=[UserDataTools getUserInfo].uid;
+    
+    [JSXHttpTool Post:Interface_PostsLike params:params success:^(id json) {
+        NSNumber * returnCode = json[@"errcode"];
+        NSString * returnMes = json[@"errmsg"];
+        
+        if([self.currentData.usezan isEqualToString:@"0"])
+        {
+            if([returnCode intValue]==0)
+            {
+                bottom.comment_likeBtn.selected=YES;
+                [SVProgressHUD showSuccessWithStatus:@"点赞成功"];
+                [self getPostData];
+            }else
+            {
+                bottom.comment_likeBtn.selected=NO;
+                [SVProgressHUD showErrorWithStatus:returnMes];
+            }
+        }else
+        {
+            if([returnCode intValue]==0)
+            {
+                bottom.comment_likeBtn.selected=NO;
+                [SVProgressHUD showSuccessWithStatus:@"取消点赞成功"];
+                [self getPostData];
+            }else
+            {
+                bottom.comment_likeBtn.selected=YES;
+                [SVProgressHUD showErrorWithStatus:returnMes];
+            }
+        }
+        
+    } failure:^(NSError *error) {
+        [SVProgressHUD showErrorWithStatus:@"网络连接异常"];
+    }];
+}
+
+-(void)collectionInterface
+{
+    NSMutableDictionary * params = [NSMutableDictionary dictionary];
+    params[@"tid"]=self.tid;
+    params[@"uid"]=[UserDataTools getUserInfo].uid;
+    
+    [JSXHttpTool Post:Interface_PostsCollection params:params success:^(id json) {
+        NSNumber * returnCode = json[@"errcode"];
+        NSString * errmsg = json[@"errmsg"];
+        if([returnCode intValue]==0)
+        {
+            [SVProgressHUD showSuccessWithStatus:@"收藏成功"];
+            bottom.comment_collectBtn.selected=YES;
+            [self getPostData];
+        }else
+        {
+            [SVProgressHUD showErrorWithStatus:errmsg];
+            bottom.comment_collectBtn.selected=NO;
+        }
+    } failure:^(NSError *error) {
+    }];
+}
+
+-(void)decollectionInterface
+{
+    NSMutableDictionary * params = [NSMutableDictionary dictionary];
+    params[@"tid"]=self.tid;
+    params[@"uid"]=[UserDataTools getUserInfo].uid;
+    
+    [JSXHttpTool Post:Interface_PostsDeCollection params:params success:^(id json) {
+        NSNumber * returnCode = json[@"errcode"];
+        NSString * errmsg = json[@"errmsg"];
+        if([returnCode intValue]==0)
+        {
+            [SVProgressHUD showSuccessWithStatus:@"取消收藏成功"];
+            bottom.comment_collectBtn.selected=NO;
+            [self getPostData];
+        }else
+        {
+            [SVProgressHUD showErrorWithStatus:errmsg];
+            bottom.comment_collectBtn.selected=YES;
+        }
+    } failure:^(NSError *error) {
+    }];
+}
+
+-(void)verifyHasReadPost
+{
+    NSMutableDictionary * params = [NSMutableDictionary dictionary];
+    params[@"tid"]=self.tid;
+    params[@"uid"]=[UserDataTools getUserInfo].uid;
+    
+    [JSXHttpTool Post:Interface_PostsHasRead params:params success:^(id json) {
+        NSNumber * returnCode = json[@"errcode"];
+        NSString * errmsg = json[@"errmsg"];
+        NSString * sun = json[@"sun"];
+        if([returnCode intValue]==0)
+        {
+            if([sun isEqualToString:@"0"])
+            {
+                hasRead=NO;
+            }else
+            {
+                hasRead=YES;
+            }
+        }
+        else
+        {
+            [SVProgressHUD showErrorWithStatus:errmsg];
+        }
+        } failure:^(NSError *error) {
+        }];
+}
+
+-(void)hasReadPost
+{
+    if(!hasRead)
+    {
+        NSMutableDictionary * params = [NSMutableDictionary dictionary];
+        params[@"tid"]=self.tid;
+        params[@"fid"]=self.fid;
+        params[@"uid"]=[UserDataTools getUserInfo].uid;
+        params[@"subject"]=@" ";
+        params[@"message"]=@"已阅";
+    
+        [JSXHttpTool Post:Interface_PostsRead params:params success:^(id json) {
+            NSNumber * returnCode = json[@"errcode"];
+            NSString * errmsg = json[@"errmsg"];
+            if([returnCode intValue]==0)
+            {
+                [self getInitData];
+                [self.tableview reloadData];
+            }else
+            {
+                [SVProgressHUD showErrorWithStatus:errmsg];
+            }
+        } failure:^(NSError *error) {
+        }];
+    }else
+    {
+        [SVProgressHUD showSuccessWithStatus:@"已阅该帖子"];
+    }
 }
 
 @end

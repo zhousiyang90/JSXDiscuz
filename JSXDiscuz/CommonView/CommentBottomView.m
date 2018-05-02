@@ -14,6 +14,8 @@
 {
     [super awakeFromNib];
     self.commentBtn.layer.cornerRadius=5;
+    self.likeLab.layer.cornerRadius=7.5;
+    self.likeLab.layer.masksToBounds=YES;
 }
 
 @end

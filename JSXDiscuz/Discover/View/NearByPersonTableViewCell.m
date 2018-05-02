@@ -16,6 +16,16 @@
     self.rankLab.layer.borderColor=ThemeColor.CGColor;
     self.rankLab.layer.borderWidth=1;
     self.rankLab.layer.cornerRadius=5;
+    self.headImgView.layer.cornerRadius=40;
+    self.headImgView.layer.masksToBounds=YES;
+}
+
+-(void)setFriendData:(FriendDetailData *)friendData
+{
+    _friendData=friendData;
+    self.nameLab.text=friendData.username;
+    [self.headImgView sd_setImageWithURL:[NSURL URLWithString:friendData.avatar] placeholderImage:[UIImage imageNamed:PlaceHolderImg_Head]];
+    self.rankLab.text=friendData.grouptitle;
 }
 
 @end

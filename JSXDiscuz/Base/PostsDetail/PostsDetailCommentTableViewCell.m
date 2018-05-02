@@ -46,6 +46,13 @@
     self.tableview.estimatedRowHeight=40;
     self.tableview.rowHeight=UITableViewAutomaticDimension;
     self.tableview.layer.cornerRadius=5;
+    
+    [[self.likeBtn rac_signalForControlEvents:UIControlEventTouchUpInside]subscribeNext:^(id x) {
+        if(_block)
+        {
+            _block();
+        }
+    }];
    
 }
 
@@ -59,6 +66,16 @@
     [self.nameBtn setTitle:comment.author forState:UIControlStateNormal];
     self.commentLab.text=comment.message;
     self.timeLab.text=comment.linedate;
+    if(comment.zanj.length>0)
+    {
+        self.likeBtn.selected=YES;
+        [self.likeBtn setTitle:comment.zanj forState:UIControlStateNormal];
+    }else
+    {
+        self.likeBtn.selected=NO;
+        [self.likeBtn setTitle:@"" forState:UIControlStateNormal];
+    }
+    
 }
 
 @end

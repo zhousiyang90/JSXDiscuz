@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		00471DCCCEB2600D55EE8139 /* libPods-JSXDiscuz.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 75C8B7842C0327D966AE576F /* libPods-JSXDiscuz.a */; };
+		310416772099BD04005516DD /* FriendDetailData.m in Sources */ = {isa = PBXBuildFile; fileRef = 310416762099BD04005516DD /* FriendDetailData.m */; };
 		3107260C2074616B009C163C /* MinePersonalSubTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3107260A2074616B009C163C /* MinePersonalSubTableViewCell.m */; };
 		3107260D2074616B009C163C /* MinePersonalSubTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3107260B2074616B009C163C /* MinePersonalSubTableViewCell.xib */; };
 		31072610207463E8009C163C /* MineTypeHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3107260F207463E8009C163C /* MineTypeHeaderView.m */; };
@@ -153,6 +154,12 @@
 		3144AFDF205B5C8A00F55063 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3144AFDE205B5C8A00F55063 /* main.m */; };
 		3144AFE9205B5C8B00F55063 /* JSXDiscuzTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3144AFE8205B5C8B00F55063 /* JSXDiscuzTests.m */; };
 		3144AFF4205B5C8B00F55063 /* JSXDiscuzUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3144AFF3205B5C8B00F55063 /* JSXDiscuzUITests.m */; };
+		315E1F1D2099505B0044FF84 /* GTMBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 315E1F192099505B0044FF84 /* GTMBase64.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		315E1F1E2099505B0044FF84 /* LCdes.m in Sources */ = {isa = PBXBuildFile; fileRef = 315E1F1C2099505B0044FF84 /* LCdes.m */; };
+		315E1F23209965670044FF84 /* DES.m in Sources */ = {isa = PBXBuildFile; fileRef = 315E1F20209965670044FF84 /* DES.m */; };
+		315E1F24209965670044FF84 /* Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 315E1F21209965670044FF84 /* Base64.m */; };
+		315E1F2A20998AC40044FF84 /* NSString+Hash.m in Sources */ = {isa = PBXBuildFile; fileRef = 315E1F2720998AC40044FF84 /* NSString+Hash.m */; };
+		315E1F2B20998AC40044FF84 /* TDES.m in Sources */ = {isa = PBXBuildFile; fileRef = 315E1F2920998AC40044FF84 /* TDES.m */; };
 		31608A92206CD33C005C5338 /* ExportHtmlViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31608A90206CD33C005C5338 /* ExportHtmlViewController.m */; };
 		31608A93206CD33C005C5338 /* ExportHtmlViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31608A91206CD33C005C5338 /* ExportHtmlViewController.xib */; };
 		31608A96206CD46D005C5338 /* JSXHtmlExportTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 31608A95206CD46D005C5338 /* JSXHtmlExportTool.m */; };
@@ -319,6 +326,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		310416752099BD04005516DD /* FriendDetailData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendDetailData.h; sourceTree = "<group>"; };
+		310416762099BD04005516DD /* FriendDetailData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendDetailData.m; sourceTree = "<group>"; };
 		310726092074616B009C163C /* MinePersonalSubTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MinePersonalSubTableViewCell.h; sourceTree = "<group>"; };
 		3107260A2074616B009C163C /* MinePersonalSubTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MinePersonalSubTableViewCell.m; sourceTree = "<group>"; };
 		3107260B2074616B009C163C /* MinePersonalSubTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MinePersonalSubTableViewCell.xib; sourceTree = "<group>"; };
@@ -555,6 +564,19 @@
 		3144AFEF205B5C8B00F55063 /* JSXDiscuzUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JSXDiscuzUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3144AFF3205B5C8B00F55063 /* JSXDiscuzUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSXDiscuzUITests.m; sourceTree = "<group>"; };
 		3144AFF5205B5C8B00F55063 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		315E1F182099505B0044FF84 /* GTMBase64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMBase64.h; sourceTree = "<group>"; };
+		315E1F192099505B0044FF84 /* GTMBase64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMBase64.m; sourceTree = "<group>"; };
+		315E1F1A2099505B0044FF84 /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
+		315E1F1B2099505B0044FF84 /* LCdes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCdes.h; sourceTree = "<group>"; };
+		315E1F1C2099505B0044FF84 /* LCdes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCdes.m; sourceTree = "<group>"; };
+		315E1F1F209965670044FF84 /* DES.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DES.h; sourceTree = "<group>"; };
+		315E1F20209965670044FF84 /* DES.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DES.m; sourceTree = "<group>"; };
+		315E1F21209965670044FF84 /* Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Base64.m; sourceTree = "<group>"; };
+		315E1F22209965670044FF84 /* Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base64.h; sourceTree = "<group>"; };
+		315E1F2620998AC40044FF84 /* NSString+Hash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Hash.h"; sourceTree = "<group>"; };
+		315E1F2720998AC40044FF84 /* NSString+Hash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Hash.m"; sourceTree = "<group>"; };
+		315E1F2820998AC40044FF84 /* TDES.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDES.h; sourceTree = "<group>"; };
+		315E1F2920998AC40044FF84 /* TDES.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDES.m; sourceTree = "<group>"; };
 		31608A8F206CD33C005C5338 /* ExportHtmlViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExportHtmlViewController.h; sourceTree = "<group>"; };
 		31608A90206CD33C005C5338 /* ExportHtmlViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExportHtmlViewController.m; sourceTree = "<group>"; };
 		31608A91206CD33C005C5338 /* ExportHtmlViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExportHtmlViewController.xib; sourceTree = "<group>"; };
@@ -814,6 +836,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		310416742099BCE4005516DD /* Datamodel */ = {
+			isa = PBXGroup;
+			children = (
+				310416752099BD04005516DD /* FriendDetailData.h */,
+				310416762099BD04005516DD /* FriendDetailData.m */,
+			);
+			path = Datamodel;
+			sourceTree = "<group>";
+		};
 		310D90DB2064995F00756558 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -842,6 +873,8 @@
 		310D90DD2064999900756558 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				315E1F2520998AC40044FF84 /* 3DES */,
+				315E1F172099505B0044FF84 /* DESTool */,
 				3119D30A206B7FB80094DB60 /* CategoryClass */,
 				310D90DE20649D0A00756558 /* JSXNumberTool.h */,
 				310D90DF20649D0A00756558 /* JSXNumberTool.m */,
@@ -1328,6 +1361,33 @@
 			path = JSXDiscuzUITests;
 			sourceTree = "<group>";
 		};
+		315E1F172099505B0044FF84 /* DESTool */ = {
+			isa = PBXGroup;
+			children = (
+				315E1F22209965670044FF84 /* Base64.h */,
+				315E1F21209965670044FF84 /* Base64.m */,
+				315E1F1F209965670044FF84 /* DES.h */,
+				315E1F20209965670044FF84 /* DES.m */,
+				315E1F182099505B0044FF84 /* GTMBase64.h */,
+				315E1F192099505B0044FF84 /* GTMBase64.m */,
+				315E1F1A2099505B0044FF84 /* GTMDefines.h */,
+				315E1F1B2099505B0044FF84 /* LCdes.h */,
+				315E1F1C2099505B0044FF84 /* LCdes.m */,
+			);
+			path = DESTool;
+			sourceTree = "<group>";
+		};
+		315E1F2520998AC40044FF84 /* 3DES */ = {
+			isa = PBXGroup;
+			children = (
+				315E1F2620998AC40044FF84 /* NSString+Hash.h */,
+				315E1F2720998AC40044FF84 /* NSString+Hash.m */,
+				315E1F2820998AC40044FF84 /* TDES.h */,
+				315E1F2920998AC40044FF84 /* TDES.m */,
+			);
+			path = 3DES;
+			sourceTree = "<group>";
+		};
 		31608A9A206E113C005C5338 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -1340,6 +1400,7 @@
 		31608A9E206E3789005C5338 /* Discover */ = {
 			isa = PBXGroup;
 			children = (
+				310416742099BCE4005516DD /* Datamodel */,
 				31608A9F206E3789005C5338 /* Controller */,
 				31608AA0206E3789005C5338 /* View */,
 			);
@@ -2212,6 +2273,7 @@
 				3119D300206A3F750094DB60 /* MainPopularTableViewCell.m in Sources */,
 				3119D27C2064E2D60094DB60 /* TableViewOfRefreshFooterView2.m in Sources */,
 				31608B10207361D5005C5338 /* MineMainTableViewCell.m in Sources */,
+				310416772099BD04005516DD /* FriendDetailData.m in Sources */,
 				31282A632089903B00B8A4FD /* PostsDetailCommCommTableViewCell.m in Sources */,
 				3126339F20804845003EA5E5 /* UserData.m in Sources */,
 				31BE2758208D88E8004CE714 /* PostsDetailData_comment.m in Sources */,
@@ -2226,6 +2288,7 @@
 				3107261B20747A88009C163C /* MineCenterHeaderTableCell2.m in Sources */,
 				31B9848F2060D8520041E910 /* BaseNavigationViewController.m in Sources */,
 				3144AFD1205B5C8A00F55063 /* AppDelegate.m in Sources */,
+				315E1F2B20998AC40044FF84 /* TDES.m in Sources */,
 				31282A3D20872F3F00B8A4FD /* CommunityMainPageData_public.m in Sources */,
 				31608AE220721C07005C5338 /* CommunityHeaderView.m in Sources */,
 				3119D2FB206A363E0094DB60 /* MainThemeTableViewCell.m in Sources */,
@@ -2239,16 +2302,19 @@
 				3119D2C32068E2540094DB60 /* WaveBannelBackGroundView.m in Sources */,
 				3107262420747C41009C163C /* MineCenterNavBarView2.m in Sources */,
 				31ACC9D4207CA48500B89984 /* TopicDetailViewController_hotest.m in Sources */,
+				315E1F24209965670044FF84 /* Base64.m in Sources */,
 				31282A372086EE1000B8A4FD /* CommunityMainPageData_mode.m in Sources */,
 				31B984A02060DC010041E910 /* FirstPageViewController.m in Sources */,
 				31282A682089BA9400B8A4FD /* PostsDetailViewController.m in Sources */,
 				31ACC92A2079B18E00B89984 /* MineExpRecTableViewCell.m in Sources */,
 				31608AA4206E37BB005C5338 /* DiscoveryViewController.m in Sources */,
+				315E1F2A20998AC40044FF84 /* NSString+Hash.m in Sources */,
 				31ACC9622079F2B100B89984 /* MineCommitCell.m in Sources */,
 				310D90E320649E4E00756558 /* JSXDateTool.m in Sources */,
 				31608A99206DD5B9005C5338 /* NSTextAttachment+ZSTextAttachment.m in Sources */,
 				3119D30D206B7FB90094DB60 /* UIView+Extensions.m in Sources */,
 				31282A5E20898F4F00B8A4FD /* PostsDetailCommentTableViewCell.m in Sources */,
+				315E1F1D2099505B0044FF84 /* GTMBase64.m in Sources */,
 				31263348207E0A97003EA5E5 /* VideoLogTableViewCell_common.m in Sources */,
 				31ACC9202079AA1500B89984 /* MineVIPStatusTableViewCell.m in Sources */,
 				31ACC985207B532F00B89984 /* SystemInfoViewController.m in Sources */,
@@ -2285,6 +2351,7 @@
 				31ACC9E8207CBCC700B89984 /* GroupSearchResultViewController.m in Sources */,
 				31608A96206CD46D005C5338 /* JSXHtmlExportTool.m in Sources */,
 				31282A4F208864EA00B8A4FD /* PostBaseData_summary.m in Sources */,
+				315E1F23209965670044FF84 /* DES.m in Sources */,
 				31608AD420720DBE005C5338 /* CommunityViewController_Newest.m in Sources */,
 				31282A4820882CD200B8A4FD /* GroupMainData_summary.m in Sources */,
 				31608B0B20735EE9005C5338 /* MineHeaderTableViewCell.m in Sources */,
@@ -2297,6 +2364,7 @@
 				31608AAE2071C22E005C5338 /* DiscoveryContentTableViewCell.m in Sources */,
 				31ACC98A207B5AF600B89984 /* MineCollectionViewController.m in Sources */,
 				3119D2DE2069DD630094DB60 /* WritingLogBodyHeaderView.m in Sources */,
+				315E1F1E2099505B0044FF84 /* LCdes.m in Sources */,
 				310D909320634BA400756558 /* NoNetView.m in Sources */,
 				3119D2C82068E2540094DB60 /* DiscuzMainTableViewCell2.m in Sources */,
 			);
@@ -2454,6 +2522,7 @@
 			baseConfigurationReference = BDFF1F0706D19C24FB11B31F /* Pods-JSXDiscuz.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 827ZCZYEGP;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/JSXDiscuz/Base/Header.pch";
@@ -2471,6 +2540,7 @@
 			baseConfigurationReference = 73C9FABC792C006F4B38126B /* Pods-JSXDiscuz.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 827ZCZYEGP;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/JSXDiscuz/Base/Header.pch";

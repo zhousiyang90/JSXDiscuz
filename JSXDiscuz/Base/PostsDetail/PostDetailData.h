@@ -14,5 +14,8 @@
 
 @property(nonatomic,strong) PostsDetailData_content *pinfo;
 @property(nonatomic,strong) NSMutableArray *hpost;
-
+@property(nonatomic,copy) NSString * shoucsun;
+@property(nonatomic,copy) NSString * usezan;
+@property(nonatomic,copy) NSString * zan;
+@property(nonatomic,copy) NSString * showyysun;
 @end

@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void(^PostsDetailCommentTableViewCellBlock)(void);
+
 @interface PostsDetailCommentTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UITableView *tableview;
 
@@ -20,5 +22,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *replyLab;
 
 @property(nonatomic,strong) PostsDetailData_comment * comment;
+
+@property(nonatomic,copy) PostsDetailCommentTableViewCellBlock block;
 //@property(nonatomic,strong) NSMutableArray * comList;
 @end

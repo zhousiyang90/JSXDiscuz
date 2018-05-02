@@ -62,6 +62,8 @@
 #import "PersonalDataInfo.h"
 #import "OtherCenterViewController.h"
 #import <Masonry.h>
+#import "LCdes.h"
+#import "DES.h"
 
 //占位图
 #define PlaceHolderImg_Head @"placeholder_head"

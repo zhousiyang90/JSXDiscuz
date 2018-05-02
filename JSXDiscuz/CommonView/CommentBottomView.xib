@@ -51,8 +51,22 @@
                         <constraint firstAttribute="height" constant="40" id="0Vc-2D-HvT"/>
                         <constraint firstAttribute="width" constant="40" id="Izb-MR-B8T"/>
                     </constraints>
-                    <state key="normal" image="detail_fx"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <state key="normal" title="已阅">
+                        <color key="titleColor" red="0.96470588239999999" green="0.1058823529" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
                 </button>
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VD3-8y-aWE">
+                    <rect key="frame" x="280" y="5" width="15" height="15"/>
+                    <color key="backgroundColor" red="0.96470588235294119" green="0.10588235294117647" blue="0.14117647058823529" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="15" id="CHv-zM-GZm"/>
+                        <constraint firstAttribute="width" constant="15" id="YWI-rr-bHc"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.96470588239999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
@@ -60,6 +74,8 @@
                 <constraint firstItem="Rjw-aV-mTW" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="EHV-lH-LBU"/>
                 <constraint firstItem="zbO-Jb-DCa" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="PNt-Eh-k0E"/>
                 <constraint firstItem="dfN-Ga-qZE" firstAttribute="leading" secondItem="5UH-LB-qI3" secondAttribute="trailing" id="ZxA-Eg-F1Q"/>
+                <constraint firstItem="VD3-8y-aWE" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="5" id="gOV-mh-p20"/>
+                <constraint firstItem="VD3-8y-aWE" firstAttribute="leading" secondItem="Rjw-aV-mTW" secondAttribute="trailing" constant="35" id="ga1-UZ-8hL"/>
                 <constraint firstItem="zbO-Jb-DCa" firstAttribute="leading" secondItem="dfN-Ga-qZE" secondAttribute="trailing" id="huz-B8-3JK"/>
                 <constraint firstItem="Rjw-aV-mTW" firstAttribute="centerY" secondItem="5UH-LB-qI3" secondAttribute="centerY" id="ngt-Uh-ztg"/>
                 <constraint firstAttribute="trailing" secondItem="zbO-Jb-DCa" secondAttribute="trailing" id="qAA-Kp-F8R"/>
@@ -72,15 +88,15 @@
                 <outlet property="comment_collectBtn" destination="dfN-Ga-qZE" id="fz1-1z-e2J"/>
                 <outlet property="comment_likeBtn" destination="5UH-LB-qI3" id="Gns-YY-Ncn"/>
                 <outlet property="comment_shareBtn" destination="zbO-Jb-DCa" id="7Xt-J1-Zrr"/>
+                <outlet property="likeLab" destination="VD3-8y-aWE" id="Ws4-La-b3Q"/>
             </connections>
             <point key="canvasLocation" x="-216.5" y="-2"/>
         </view>
     </objects>
     <resources>
         <image name="detail_dz1" width="18" height="20"/>
-        <image name="detail_dzs" width="27" height="30"/>
-        <image name="detail_fx" width="18" height="17"/>
+        <image name="detail_dzs" width="18" height="20"/>
         <image name="detail_gz" width="22" height="21"/>
-        <image name="detail_gzs" width="27" height="26"/>
+        <image name="detail_gzs" width="20" height="19"/>
     </resources>
 </document>

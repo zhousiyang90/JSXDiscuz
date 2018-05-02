@@ -13,5 +13,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *comment_likeBtn;
 @property (weak, nonatomic) IBOutlet UIButton *comment_collectBtn;
 @property (weak, nonatomic) IBOutlet UIButton *comment_shareBtn;
+@property (weak, nonatomic) IBOutlet UILabel *likeLab;
 
 @end

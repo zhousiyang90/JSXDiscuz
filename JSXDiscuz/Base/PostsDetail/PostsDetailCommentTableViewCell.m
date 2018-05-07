@@ -38,6 +38,10 @@
     
     self.imgV.layer.cornerRadius=15;
     self.imgV.layer.masksToBounds=YES;
+    [self.imgV setUserInteractionEnabled:YES];
+    UITapGestureRecognizer * tap=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(clickHeadImg)];
+    [self.imgV addGestureRecognizer:tap];
+    [self.nameBtn addTarget:self action:@selector(clickHeadImg) forControlEvents:UIControlEventTouchUpInside];
     
     [self.tableview registerNib:[UINib nibWithNibName:@"PostsDetailCommCommTableViewCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"postsDetailCommCommTableViewCell"];
     self.tableview.delegate=self;
@@ -48,12 +52,18 @@
     self.tableview.layer.cornerRadius=5;
     
     [[self.likeBtn rac_signalForControlEvents:UIControlEventTouchUpInside]subscribeNext:^(id x) {
-        if(_block)
-        {
-            _block();
-        }
+        
     }];
    
+}
+
+
+-(void)clickHeadImg
+{
+    if(_block)
+    {
+        _block();
+    }
 }
 
 -(void)setComment:(PostsDetailData_comment *)comment

@@ -74,8 +74,8 @@
         if(type==0)
         {
             //点击头像和名称
-            OtherCenterViewController *vc=[[OtherCenterViewController alloc]init];
-            [self.navigationController pushViewController:vc animated:YES];
+            CommunityPostsData * cellData = self.dataList[indexPath.row];
+            [self pushToOtherPersonalCenter:cellData.uid];
         }else if(type==1)
         {
             //社区详情

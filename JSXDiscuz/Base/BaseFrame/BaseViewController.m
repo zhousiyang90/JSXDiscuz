@@ -317,4 +317,11 @@
     [self.navigationController pushViewController:vc animated:YES];
 }
 
+-(void)pushToOtherPersonalCenter:(NSString*)uid
+{
+    OtherCenterViewController * vc=[[OtherCenterViewController alloc]init];
+    vc.uid=uid;
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
 @end

@@ -34,6 +34,8 @@
 @property(nonatomic,strong) NSMutableArray * testList;
 @property(nonatomic,strong) NSMutableArray * layoutData;
 
+@property(nonatomic,strong) PersonalDataInfo * personalDataInfo;
+@property(nonatomic,strong) PersonalDataAboutMeInfo * personalAboutMeInfo;
 @end
 
 @implementation OtherCenterViewController
@@ -169,15 +171,32 @@
         cell.block = ^(int type){
             if(type==0)
             {
-                //点击关注
+                //点击关注/取消关注
+                if([self.personalAboutMeInfo.isfollow isEqualToString:@"0"])
+                {
+                    //关注
+                   
+                }else
+                {
+                    //取消关注
+                   
+                }
                 
             }else
             {
-                //点击加好友
-            
+                //点击加好友/发消息
+                if([self.personalAboutMeInfo.isfriend isEqualToString:@"0"])
+                {
+                    //加好友
+                }else
+                {
+                    //发消息
+                }
             }
             
         };
+        cell.nameLab.text=self.personalDataInfo.username;
+        cell.data=self.personalAboutMeInfo;
         return cell;
     }else
     {
@@ -218,42 +237,6 @@
 }
 
 
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if(indexPath.section==0)
-    {
-        
-    }else
-    {
-        if(self.currentPage==1)
-        {
-            NSDictionary * sections = self.layoutData[indexPath.section-2];
-            NSString * key = sections.allKeys[0];
-            NSArray * list = sections[key];
-            MineMainDataModel * data=list[indexPath.row];
-            NSString * title=data.leftTitle;
-            
-            if([title isEqualToString:@"用户组"])
-            {
-                //会员状态
-                MineVIPStatusViewController * vc =[[MineVIPStatusViewController alloc]init];
-                [self.navigationController pushViewController:vc animated:YES];
-            }else if([title isEqualToString:@"经验值"])
-            {
-                //经验记录
-                MineExpRecViewController * vc =[[MineExpRecViewController alloc]init];
-                [self.navigationController pushViewController:vc animated:YES];
-            }else
-            {
-                //点击设置
-                MineCenterSettingViewController * vc =[[MineCenterSettingViewController alloc]init];
-                [self.navigationController pushViewController:vc animated:YES];
-            }
-            
-        }
-    }
-}
-
 #pragma mark - LazyLoad
 
 -(NSMutableArray *)testList
@@ -293,12 +276,12 @@
         
         MineMainDataModel * head=[[MineMainDataModel alloc]init];
         head.leftTitle=@"用户组";
-        head.centerTitle=@"一级会员";
-        head.hasArrow=YES;
+        head.centerTitle=@"会员";
+        head.hasArrow=NO;
         MineMainDataModel * head2=[[MineMainDataModel alloc]init];
         head2.leftTitle=@"经验值";
-        head2.centerTitle=@"100";
-        head2.hasArrow=YES;
+        head2.centerTitle=@"0";
+        head2.hasArrow=NO;
         NSMutableArray * section1=[NSMutableArray arrayWithObjects:head,head2,nil];
         NSDictionary * dict1=[NSDictionary dictionaryWithObject:section1 forKey:@"用户信息"];
         
@@ -379,6 +362,85 @@
     return _layoutData;
 }
 
+-(void)completeLayoutData
+{
+    for (int i=0; i<self.layoutData.count; i++) {
+        NSDictionary * dict=self.layoutData[i];
+        NSString * key=dict.allKeys[0];
+        NSArray * arr=dict[key];
+        for (MineMainDataModel * data in arr) {
+            if([data.leftTitle isEqualToString:@"自我介绍"])
+            {
+                data.centerTitle=self.personalDataInfo.bio;
+            }else if([data.leftTitle isEqualToString:@"兴趣爱好"])
+            {
+                data.centerTitle=self.personalDataInfo.interest;
+            }else if([data.leftTitle isEqualToString:@"用户组"])
+            {
+                data.centerTitle=self.personalAboutMeInfo.grouptitle;
+            }else if([data.leftTitle isEqualToString:@"经验值"])
+            {
+                data.centerTitle=self.personalDataInfo.credits;
+            }else if([data.leftTitle isEqualToString:@"性别"])
+            {
+                if([self.personalDataInfo.gender isEqualToString:@"1"])
+                {
+                    data.centerTitle=@"男";
+                }else if([self.personalDataInfo.gender isEqualToString:@"2"])
+                {
+                    data.centerTitle=@"女";
+                }else
+                {
+                    data.centerTitle=@"";
+                }
+            }else if([data.leftTitle isEqualToString:@"血型"])
+            {
+                data.centerTitle=self.personalDataInfo.bloodtype;
+            }else if([data.leftTitle isEqualToString:@"情感状态"])
+            {
+                data.centerTitle=self.personalDataInfo.affectivestatus;
+            }else if([data.leftTitle isEqualToString:@"生日"])
+            {
+                data.centerTitle=[NSString stringWithFormat:@"%@-%@-%@",self.personalDataInfo.birthyear,self.personalDataInfo.birthmonth,self.personalDataInfo.birthday];
+            }else if([data.leftTitle isEqualToString:@"身高"])
+            {
+                data.centerTitle=self.personalDataInfo.height;
+            }else if([data.leftTitle isEqualToString:@"体重"])
+            {
+                data.centerTitle=self.personalDataInfo.weight;
+            }else if([data.leftTitle isEqualToString:@"行业"])
+            {
+                data.centerTitle=self.personalDataInfo.occupation;
+            }else if([data.leftTitle isEqualToString:@"职业"])
+            {
+                data.centerTitle=self.personalDataInfo.position;
+            }else if([data.leftTitle isEqualToString:@"年收入"])
+            {
+                data.centerTitle=@"";
+            }else if([data.leftTitle isEqualToString:@"所在单位"])
+            {
+                data.centerTitle=self.personalDataInfo.company;
+            }else if([data.leftTitle isEqualToString:@"交友目的"])
+            {
+                data.centerTitle=self.personalDataInfo.lookingfor;
+            }else if([data.leftTitle isEqualToString:@"学历"])
+            {
+                data.centerTitle=self.personalDataInfo.education;
+            }else if([data.leftTitle isEqualToString:@"QQ号"])
+            {
+                data.centerTitle=self.personalDataInfo.qq;
+            }else if([data.leftTitle isEqualToString:@"真实姓名"])
+            {
+                data.centerTitle=self.personalDataInfo.realname;
+            }else if([data.leftTitle isEqualToString:@"毕业院校"])
+            {
+                data.centerTitle=self.personalDataInfo.graduateschool;
+            }
+        }
+        
+    }
+}
+
 #pragma mark - 生命周期
 
 -(void)addSubViews
@@ -401,14 +463,83 @@
     
 }
 
--(void)setNavigationBar
-{
-    self.title=@"TA的空间";
-}
-
 -(void)getInitData
 {
-    
+    [self getUserInfo];
+    [self getUserDataWithMe];
+}
+
+#pragma mark - 网络访问
+
+-(void)getUserInfo
+{
+    if(self.uid.length==0)
+    {
+        [SVProgressHUD showErrorWithStatus:@"缺少参数"];
+        return;
+    }
+    NSMutableDictionary * params = [NSMutableDictionary dictionary];
+    NSString * url=[NSString stringWithFormat:@"%@&fouid=%@",Interface_PersonalInfo,self.uid];
+    [JSXHttpTool Post:url params:params success:^(id json) {
+        NSNumber * returnCode = json[@"errcode"];
+        NSString * errmsg = json[@"errmsg"];
+        if([returnCode intValue]==0)
+        {
+            self.personalDataInfo=[PersonalDataInfo mj_objectWithKeyValues:json];
+            self.title=[NSString stringWithFormat:@"%@的空间",self.personalDataInfo.username];
+            [self completeLayoutData];
+            [self.tableview reloadData];
+        }else
+        {
+            [SVProgressHUD showErrorWithStatus:errmsg];
+        }
+    } failure:^(NSError *error) {
+        [SVProgressHUD showErrorWithStatus:@"网络连接失败"];
+    }];
+}
+
+-(void)getUserDataWithMe
+{
+    NSMutableDictionary * params = [NSMutableDictionary dictionary];
+    NSString * url=[NSString stringWithFormat:@"%@&uid=%@&fouid=%@",Interface_PersonalInfo2,self.uid,[UserDataTools getUserInfo].uid];
+    [JSXHttpTool Post:url params:params success:^(id json) {
+        NSNumber * returnCode = json[@"errcode"];
+        NSString * errmsg = json[@"errmsg"];
+        NSDictionary * dict = json[@"list"];
+        if([returnCode intValue]==0)
+        {
+            self.personalAboutMeInfo = [PersonalDataAboutMeInfo mj_objectWithKeyValues:dict];
+            [self completeLayoutData];
+            [self.tableview reloadData];
+        }else
+        {
+            [SVProgressHUD showErrorWithStatus:errmsg];
+        }
+    } failure:^(NSError *error) {
+        [SVProgressHUD showErrorWithStatus:@"网络连接失败"];
+    }];
+}
+
+-(void)getUserPostsData
+{
+    NSMutableDictionary * params = [NSMutableDictionary dictionary];
+    NSString * url=[NSString stringWithFormat:@"%@&uid=%@&fouid=%@",Interface_PersonalInfo2,self.uid,[UserDataTools getUserInfo].uid];
+    [JSXHttpTool Post:url params:params success:^(id json) {
+        NSNumber * returnCode = json[@"errcode"];
+        NSString * errmsg = json[@"errmsg"];
+        NSDictionary * dict = json[@"list"];
+        if([returnCode intValue]==0)
+        {
+            self.personalAboutMeInfo = [PersonalDataAboutMeInfo mj_objectWithKeyValues:dict];
+            [self completeLayoutData];
+            [self.tableview reloadData];
+        }else
+        {
+            [SVProgressHUD showErrorWithStatus:errmsg];
+        }
+    } failure:^(NSError *error) {
+        [SVProgressHUD showErrorWithStatus:@"网络连接失败"];
+    }];
 }
 
 

@@ -64,6 +64,7 @@
 #import <Masonry.h>
 #import "LCdes.h"
 #import "DES.h"
+#import "PersonalDataAboutMeInfo.h"
 
 //占位图
 #define PlaceHolderImg_Head @"placeholder_head"

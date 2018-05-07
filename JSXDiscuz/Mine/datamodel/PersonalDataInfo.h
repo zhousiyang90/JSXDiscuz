@@ -30,5 +30,7 @@
 @property(nonatomic,copy) NSString * interest;
 @property(nonatomic,copy) NSString * position;
 @property(nonatomic,copy) NSString * bio;
+@property(nonatomic,copy) NSString * credits;
+
 
 @end

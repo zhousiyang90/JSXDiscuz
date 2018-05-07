@@ -59,6 +59,11 @@
             vc.fid=self.currentData.pinfo.fid;
             [self.navigationController pushViewController:vc animated:YES];
         };
+        
+        //点击头像和名称
+        cell.headblock = ^{
+            [self pushToOtherPersonalCenter:self.currentData.pinfo.authorid];
+        };
         return cell;
     }else
     {
@@ -66,9 +71,9 @@
         PostsDetailCommentTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"postsDetailCommentTableViewCell"];
         cell.selectionStyle=UITableViewCellSelectionStyleNone;
         cell.comment=cellData;
-        //评论点赞
+        //评论头像和姓名
         cell.block = ^{
-            
+            [self pushToOtherPersonalCenter:self.currentData.pinfo.authorid];
         };
         return cell;
     }
@@ -311,9 +316,11 @@
             if([sun isEqualToString:@"0"])
             {
                 hasRead=NO;
+                bottom.comment_shareBtn.selected=NO;
             }else
             {
                 hasRead=YES;
+                bottom.comment_shareBtn.selected=YES;
             }
         }
         else

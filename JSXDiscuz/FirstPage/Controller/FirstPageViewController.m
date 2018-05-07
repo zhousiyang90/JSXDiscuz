@@ -163,8 +163,8 @@
             if(x==0)
             {
                 //点击用户头像
-                OtherCenterViewController *vc=[[OtherCenterViewController alloc]init];
-                [self.navigationController pushViewController:vc animated:YES];
+                PostBaseData_summary * cellData = self.quickScanData.list[indexPath.row];
+                [self pushToOtherPersonalCenter:cellData.uid];
             }else
             {
                 //点击帖子详情
@@ -191,8 +191,8 @@
         cell.baseData=self.popularData;
         cell.block = ^() {
             //点击用户头像
-            OtherCenterViewController *vc=[[OtherCenterViewController alloc]init];
-            [self.navigationController pushViewController:vc animated:YES];
+            PostBaseData_summary * cellData = self.popularData.list[0];
+            [self pushToOtherPersonalCenter:cellData.uid];
         };
         return cell;
     }else if([cellName isEqualToString:@"ranking"])

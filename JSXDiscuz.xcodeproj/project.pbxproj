@@ -125,6 +125,15 @@
 		3126339F20804845003EA5E5 /* UserData.m in Sources */ = {isa = PBXBuildFile; fileRef = 3126339E20804843003EA5E5 /* UserData.m */; };
 		312633A220804902003EA5E5 /* UserDataTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 312633A120804902003EA5E5 /* UserDataTools.m */; };
 		312633A520809FD1003EA5E5 /* JSXLocalTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 312633A420809FD0003EA5E5 /* JSXLocalTool.m */; };
+		31264522209AE1F800A24CA9 /* PersonalDataAboutMeInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 31264521209AE1F800A24CA9 /* PersonalDataAboutMeInfo.m */; };
+		31264527209B0AA000A24CA9 /* FriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31264525209B0AA000A24CA9 /* FriendViewController.m */; };
+		31264528209B0AA000A24CA9 /* FriendViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31264526209B0AA000A24CA9 /* FriendViewController.xib */; };
+		3126452C209B0AF500A24CA9 /* FriendViewController_friend.m in Sources */ = {isa = PBXBuildFile; fileRef = 3126452A209B0AF500A24CA9 /* FriendViewController_friend.m */; };
+		3126452D209B0AF500A24CA9 /* FriendViewController_friend.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3126452B209B0AF500A24CA9 /* FriendViewController_friend.xib */; };
+		31264531209B0B0500A24CA9 /* FriendViewController_focus.m in Sources */ = {isa = PBXBuildFile; fileRef = 3126452F209B0B0500A24CA9 /* FriendViewController_focus.m */; };
+		31264532209B0B0500A24CA9 /* FriendViewController_focus.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31264530209B0B0500A24CA9 /* FriendViewController_focus.xib */; };
+		31264537209B0EA500A24CA9 /* FriendTableViewCell_focus.m in Sources */ = {isa = PBXBuildFile; fileRef = 31264535209B0EA500A24CA9 /* FriendTableViewCell_focus.m */; };
+		31264538209B0EA500A24CA9 /* FriendTableViewCell_focus.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31264536209B0EA500A24CA9 /* FriendTableViewCell_focus.xib */; };
 		31282A342086EC4800B8A4FD /* CommunityMainPageData.m in Sources */ = {isa = PBXBuildFile; fileRef = 31282A332086EC4700B8A4FD /* CommunityMainPageData.m */; };
 		31282A372086EE1000B8A4FD /* CommunityMainPageData_mode.m in Sources */ = {isa = PBXBuildFile; fileRef = 31282A362086EE1000B8A4FD /* CommunityMainPageData_mode.m */; };
 		31282A3A2086EE1E00B8A4FD /* CommunityMainPageData_submode.m in Sources */ = {isa = PBXBuildFile; fileRef = 31282A392086EE1E00B8A4FD /* CommunityMainPageData_submode.m */; };
@@ -509,6 +518,20 @@
 		312633A120804902003EA5E5 /* UserDataTools.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserDataTools.m; sourceTree = "<group>"; };
 		312633A320809FD0003EA5E5 /* JSXLocalTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSXLocalTool.h; sourceTree = "<group>"; };
 		312633A420809FD0003EA5E5 /* JSXLocalTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSXLocalTool.m; sourceTree = "<group>"; };
+		31264520209AE1F800A24CA9 /* PersonalDataAboutMeInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PersonalDataAboutMeInfo.h; sourceTree = "<group>"; };
+		31264521209AE1F800A24CA9 /* PersonalDataAboutMeInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PersonalDataAboutMeInfo.m; sourceTree = "<group>"; };
+		31264524209B0AA000A24CA9 /* FriendViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendViewController.h; sourceTree = "<group>"; };
+		31264525209B0AA000A24CA9 /* FriendViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendViewController.m; sourceTree = "<group>"; };
+		31264526209B0AA000A24CA9 /* FriendViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FriendViewController.xib; sourceTree = "<group>"; };
+		31264529209B0AF500A24CA9 /* FriendViewController_friend.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendViewController_friend.h; sourceTree = "<group>"; };
+		3126452A209B0AF500A24CA9 /* FriendViewController_friend.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendViewController_friend.m; sourceTree = "<group>"; };
+		3126452B209B0AF500A24CA9 /* FriendViewController_friend.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FriendViewController_friend.xib; sourceTree = "<group>"; };
+		3126452E209B0B0500A24CA9 /* FriendViewController_focus.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendViewController_focus.h; sourceTree = "<group>"; };
+		3126452F209B0B0500A24CA9 /* FriendViewController_focus.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendViewController_focus.m; sourceTree = "<group>"; };
+		31264530209B0B0500A24CA9 /* FriendViewController_focus.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FriendViewController_focus.xib; sourceTree = "<group>"; };
+		31264534209B0EA500A24CA9 /* FriendTableViewCell_focus.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendTableViewCell_focus.h; sourceTree = "<group>"; };
+		31264535209B0EA500A24CA9 /* FriendTableViewCell_focus.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendTableViewCell_focus.m; sourceTree = "<group>"; };
+		31264536209B0EA500A24CA9 /* FriendTableViewCell_focus.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FriendTableViewCell_focus.xib; sourceTree = "<group>"; };
 		31282A302085F6BE00B8A4FD /* InterfaceSet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InterfaceSet.h; sourceTree = "<group>"; };
 		31282A322086EC4700B8A4FD /* CommunityMainPageData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommunityMainPageData.h; sourceTree = "<group>"; };
 		31282A332086EC4700B8A4FD /* CommunityMainPageData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommunityMainPageData.m; sourceTree = "<group>"; };
@@ -1182,6 +1205,32 @@
 			path = LocalNews;
 			sourceTree = "<group>";
 		};
+		31264523209B09D900A24CA9 /* Friend */ = {
+			isa = PBXGroup;
+			children = (
+				31264524209B0AA000A24CA9 /* FriendViewController.h */,
+				31264525209B0AA000A24CA9 /* FriendViewController.m */,
+				31264526209B0AA000A24CA9 /* FriendViewController.xib */,
+				31264529209B0AF500A24CA9 /* FriendViewController_friend.h */,
+				3126452A209B0AF500A24CA9 /* FriendViewController_friend.m */,
+				3126452B209B0AF500A24CA9 /* FriendViewController_friend.xib */,
+				3126452E209B0B0500A24CA9 /* FriendViewController_focus.h */,
+				3126452F209B0B0500A24CA9 /* FriendViewController_focus.m */,
+				31264530209B0B0500A24CA9 /* FriendViewController_focus.xib */,
+			);
+			path = Friend;
+			sourceTree = "<group>";
+		};
+		31264533209B0E7C00A24CA9 /* Friend */ = {
+			isa = PBXGroup;
+			children = (
+				31264534209B0EA500A24CA9 /* FriendTableViewCell_focus.h */,
+				31264535209B0EA500A24CA9 /* FriendTableViewCell_focus.m */,
+				31264536209B0EA500A24CA9 /* FriendTableViewCell_focus.xib */,
+			);
+			path = Friend;
+			sourceTree = "<group>";
+		};
 		31282A312086EC0F00B8A4FD /* MainPage */ = {
 			isa = PBXGroup;
 			children = (
@@ -1582,6 +1631,7 @@
 		31608B01207359DA005C5338 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				31264523209B09D900A24CA9 /* Friend */,
 				31ACC977207B47D000B89984 /* Message */,
 				31ACC9672079F46800B89984 /* Main */,
 				31ACC9662079F44700B89984 /* VIP */,
@@ -1594,6 +1644,7 @@
 		31608B02207359DA005C5338 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				31264533209B0E7C00A24CA9 /* Friend */,
 				31ACC96B2079F4D400B89984 /* Main */,
 				31ACC96A2079F4C200B89984 /* Setting */,
 				31ACC9692079F4B800B89984 /* PersonalCenter */,
@@ -1612,6 +1663,8 @@
 				31420C662091B1A20047DC12 /* PersonalDataInfo.m */,
 				31420C682091D1270047DC12 /* PersonalDataPermisionInfo.h */,
 				31420C692091D1280047DC12 /* PersonalDataPermisionInfo.m */,
+				31264520209AE1F800A24CA9 /* PersonalDataAboutMeInfo.h */,
+				31264521209AE1F800A24CA9 /* PersonalDataAboutMeInfo.m */,
 			);
 			path = datamodel;
 			sourceTree = "<group>";
@@ -2004,6 +2057,7 @@
 				31ACC98B207B5AF600B89984 /* MineCollectionViewController.xib in Resources */,
 				31282A642089903B00B8A4FD /* PostsDetailCommCommTableViewCell.xib in Resources */,
 				31608B2E20737A56005C5338 /* MineCenterViewController_mine.xib in Resources */,
+				3126452D209B0AF500A24CA9 /* FriendViewController_friend.xib in Resources */,
 				31608ADA20720DD4005C5338 /* CommunityViewController_Rec.xib in Resources */,
 				31ACC9D5207CA48500B89984 /* TopicDetailViewController_hotest.xib in Resources */,
 				31263382207F3774003EA5E5 /* LocalNewsViewController.xib in Resources */,
@@ -2045,6 +2099,7 @@
 				3119D27E2064E2E50094DB60 /* TableViewOfRefreshFooterView2.xib in Resources */,
 				31ACC9DF207CB00200B89984 /* TopicListTableViewCell_index.xib in Resources */,
 				31ACC9D0207CA47300B89984 /* TopicDetailViewController_newset.xib in Resources */,
+				31264538209B0EA500A24CA9 /* FriendTableViewCell_focus.xib in Resources */,
 				3107262120747BE7009C163C /* MineCenterScrollViewTableCell2.xib in Resources */,
 				31263363207EF987003EA5E5 /* SeedingContentShareTableViewCell2.xib in Resources */,
 				31ACC9262079B10E00B89984 /* MineExpRecViewController.xib in Resources */,
@@ -2063,6 +2118,7 @@
 				3119D2F2206A0F750094DB60 /* MainQuickScanCollectionViewCell.xib in Resources */,
 				31608B3320737A71005C5338 /* MineCenterViewController_info.xib in Resources */,
 				31608B1F20737141005C5338 /* MineCenterViewController.xib in Resources */,
+				31264532209B0B0500A24CA9 /* FriendViewController_focus.xib in Resources */,
 				3119D2CE2068EA390094DB60 /* MainPublicTableViewCell.xib in Resources */,
 				31ACC981207B4DB700B89984 /* FeedBackViewController.xib in Resources */,
 				31263359207EF72C003EA5E5 /* SeedingHeaderTableViewCell.xib in Resources */,
@@ -2085,6 +2141,7 @@
 				3119D2C02068E2540094DB60 /* DiscuzBannelCollectionCell.xib in Resources */,
 				3119D309206B6F0B0094DB60 /* WritingLogTitleView.xib in Resources */,
 				31608AE420721C10005C5338 /* CommunityHeaderView.xib in Resources */,
+				31264528209B0AA000A24CA9 /* FriendViewController.xib in Resources */,
 				31ACC9E9207CBCC700B89984 /* GroupSearchResultViewController.xib in Resources */,
 				3119D2E52069DD850094DB60 /* WritingLogBodyFooterView.xib in Resources */,
 				31ACC9A2207B6E0000B89984 /* NearByThingViewController.xib in Resources */,
@@ -2247,6 +2304,7 @@
 				31608AB82071D8AD005C5338 /* GroupViewController.m in Sources */,
 				31608AF5207313C9005C5338 /* CommunityTableViewCollectionCell_Newest.m in Sources */,
 				31608ABD2071DA0A005C5338 /* GroupViewTableViewCell.m in Sources */,
+				31264522209AE1F800A24CA9 /* PersonalDataAboutMeInfo.m in Sources */,
 				3119D322206B9E760094DB60 /* WritingLogPositionView.m in Sources */,
 				31263352207EF2EA003EA5E5 /* HeadLineNewsViewController.m in Sources */,
 				31263387207F37E0003EA5E5 /* LocalNewsTableViewCell.m in Sources */,
@@ -2264,6 +2322,7 @@
 				31608B1520736366005C5338 /* MineLogoutTableView.m in Sources */,
 				31420C6A2091D1280047DC12 /* PersonalDataPermisionInfo.m in Sources */,
 				31608ACF20720DA0005C5338 /* CommunityViewController_Mode.m in Sources */,
+				31264531209B0B0500A24CA9 /* FriendViewController_focus.m in Sources */,
 				31282A6C2089D44C00B8A4FD /* NSString+ZSHeight.m in Sources */,
 				31ACC976207B3F4400B89984 /* ZSDatePickerView.m in Sources */,
 				3144AFDF205B5C8A00F55063 /* main.m in Sources */,
@@ -2304,6 +2363,7 @@
 				31ACC9D4207CA48500B89984 /* TopicDetailViewController_hotest.m in Sources */,
 				315E1F24209965670044FF84 /* Base64.m in Sources */,
 				31282A372086EE1000B8A4FD /* CommunityMainPageData_mode.m in Sources */,
+				31264537209B0EA500A24CA9 /* FriendTableViewCell_focus.m in Sources */,
 				31B984A02060DC010041E910 /* FirstPageViewController.m in Sources */,
 				31282A682089BA9400B8A4FD /* PostsDetailViewController.m in Sources */,
 				31ACC92A2079B18E00B89984 /* MineExpRecTableViewCell.m in Sources */,
@@ -2316,6 +2376,7 @@
 				31282A5E20898F4F00B8A4FD /* PostsDetailCommentTableViewCell.m in Sources */,
 				315E1F1D2099505B0044FF84 /* GTMBase64.m in Sources */,
 				31263348207E0A97003EA5E5 /* VideoLogTableViewCell_common.m in Sources */,
+				31264527209B0AA000A24CA9 /* FriendViewController.m in Sources */,
 				31ACC9202079AA1500B89984 /* MineVIPStatusTableViewCell.m in Sources */,
 				31ACC985207B532F00B89984 /* SystemInfoViewController.m in Sources */,
 				3119D2EC206A0F3B0094DB60 /* MainQuickScanTableViewCell.m in Sources */,
@@ -2358,6 +2419,7 @@
 				31608ADE20720DE8005C5338 /* CommunityViewController_Album.m in Sources */,
 				3126335D207EF97A003EA5E5 /* SeedingContentShareTableViewCell1.m in Sources */,
 				3119D2E82069E60D0094DB60 /* UIBarButtonItem+BackButtun.m in Sources */,
+				3126452C209B0AF500A24CA9 /* FriendViewController_friend.m in Sources */,
 				31608A92206CD33C005C5338 /* ExportHtmlViewController.m in Sources */,
 				3119D2772064E0CE0094DB60 /* TableViewOfRefreshFooterView.m in Sources */,
 				31263396207F48E0003EA5E5 /* LoginViewController.m in Sources */,

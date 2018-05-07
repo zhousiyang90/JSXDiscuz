@@ -70,6 +70,14 @@
     CommunityTableViewCell_Newest * cell = [tableView dequeueReusableCellWithIdentifier:@"communityTableViewCell_Newest"];
     cell.selectionStyle=UITableViewCellSelectionStyleNone;
     [self configCell:cell andIndexPath:indexPath];
+    cell.block = ^(int type) {
+        if(type==0)
+        {
+            //个人中心
+            CommunityPostsData * celldata=self.dataList[indexPath.row];
+            [self pushToOtherPersonalCenter:celldata.uid];
+        }
+    };
     return cell;
 }
 

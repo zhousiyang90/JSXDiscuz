@@ -19,9 +19,13 @@ typedef void(^OtherCenterHeaderTableCellBlock)(int);
 @property (weak, nonatomic) IBOutlet UILabel *statusLab;
 @property (weak, nonatomic) IBOutlet UILabel *fansLab;
 @property (weak, nonatomic) IBOutlet UIView *waveView;
+@property (weak, nonatomic)  UIButton *friendBtn;
+@property (weak, nonatomic)  UIImageView *headImgView;
 
 @property(nonatomic,copy) OtherCenterHeaderTableCellBlock block;
 
-@property(nonatomic,strong) UIButton * focusBtn;;
+@property(nonatomic,strong) UIButton * focusBtn;
+
+@property(nonatomic,strong) PersonalDataAboutMeInfo * data;
 
 @end

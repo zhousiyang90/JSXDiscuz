@@ -18,4 +18,5 @@ pod 'IQKeyboardManager'
 pod 'TZImagePickerController'
 pod 'WZLSerializeKit'
 pod 'Masonry'
+pod 'DKNightVersion'
 end

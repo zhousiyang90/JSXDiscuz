@@ -20,6 +20,10 @@
 #define Interface_UploadHeadImg @""JSXInterface"?mod=spacecp1&ac=bindtel&doup=upavatar"
 //个人信息
 #define Interface_PersonalInfo @""JSXInterface"?mod=spacecp1&ac=profiler"
+//个人信息(与我相关)
+#define Interface_PersonalInfo2 @""JSXInterface"?mod=spacecp1&ac=follow&type=getnum"
+//个人帖子信息
+#define Interface_PersonalPostsInfo @""JSXInterface"?mod=spacecp1&ac=blog&type=getblog&blogid=1"
 //个人信息提交
 #define Interface_PersonalInfoCommit @""JSXInterface"?mod=spacecp1&ac=setmember"
 //个人用户组权限

@@ -39,5 +39,5 @@
 -(void)pushToPostsDetail:(NSString*)tid andFid:(NSString*)fid;
 -(void)pushToGroupDetail:(NSString*)fid;
 -(void)pushToCommunityDetail:(NSString*)fid;
-
+-(void)pushToOtherPersonalCenter:(NSString*)uid;
 @end

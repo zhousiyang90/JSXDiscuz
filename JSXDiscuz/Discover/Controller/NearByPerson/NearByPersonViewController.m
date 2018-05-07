@@ -43,8 +43,8 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     //别人的个人空间
-    OtherCenterViewController * vc=[[OtherCenterViewController alloc]init];
-    [self.navigationController pushViewController:vc animated:YES];
+    FriendDetailData * cellData = self.listData[indexPath.row];
+    [self pushToOtherPersonalCenter:cellData.uid];
 }
 
 #pragma mark - LazyLoad

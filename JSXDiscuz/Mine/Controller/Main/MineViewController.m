@@ -21,6 +21,7 @@
 #import "SystemInfoViewController.h"
 #import "MineCollectionViewController.h"
 #import "LoginViewController.h"
+#import "FriendViewController.h"
 
 @interface MineViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -191,7 +192,18 @@
         }
     }else if(indexPath.section==2)
     {
-        
+        if(indexPath.row==0)
+        {
+            //系统消息
+        }else if(indexPath.row==1)
+        {
+            //聊天
+        }else if(indexPath.row==2)
+        {
+            //联系人
+            FriendViewController * vc =[[FriendViewController alloc]init];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
     }else if(indexPath.section==3)
     {
         if(indexPath.row==0)

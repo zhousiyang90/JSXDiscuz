@@ -10,6 +10,7 @@
 
 typedef void(^PostsDetailContentTableViewCellBlock)(int);
 typedef void(^PostsDetailContentTableViewCellBlock2)(void);
+typedef void(^PostsDetailContentTableViewCellBlock3)(void);
 
 @interface PostsDetailContentTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *titleLab;
@@ -27,5 +28,6 @@ typedef void(^PostsDetailContentTableViewCellBlock2)(void);
 
 @property(nonatomic,copy) PostsDetailContentTableViewCellBlock  block;
 @property(nonatomic,copy) PostsDetailContentTableViewCellBlock2  clickblock;
+@property(nonatomic,copy) PostsDetailContentTableViewCellBlock3  headblock;
 
 @end

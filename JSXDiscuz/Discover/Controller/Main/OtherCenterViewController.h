@@ -14,4 +14,6 @@
 
 @property(nonatomic,assign) NSInteger currentPage;
 
+@property(nonatomic,copy) NSString * uid;
+
 @end

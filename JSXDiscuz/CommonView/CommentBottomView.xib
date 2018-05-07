@@ -52,9 +52,10 @@
                         <constraint firstAttribute="width" constant="40" id="Izb-MR-B8T"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                    <state key="normal" title="已阅">
+                    <state key="normal" image="detail_yy">
                         <color key="titleColor" red="0.96470588239999999" green="0.1058823529" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
+                    <state key="selected" image="detail_yys"/>
                 </button>
                 <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VD3-8y-aWE">
                     <rect key="frame" x="280" y="5" width="15" height="15"/>
@@ -98,5 +99,7 @@
         <image name="detail_dzs" width="18" height="20"/>
         <image name="detail_gz" width="22" height="21"/>
         <image name="detail_gzs" width="20" height="19"/>
+        <image name="detail_yy" width="21" height="16"/>
+        <image name="detail_yys" width="21" height="16"/>
     </resources>
 </document>

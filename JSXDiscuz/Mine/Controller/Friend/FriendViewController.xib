@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FriendViewController">
+            <connections>
+                <outlet property="barView" destination="HHo-7h-1AV" id="mWF-Jh-2fY"/>
+                <outlet property="btn1" destination="9LC-Gr-AvO" id="48q-ow-T2t"/>
+                <outlet property="btn2" destination="P2e-zh-UOc" id="emd-Lx-tpu"/>
+                <outlet property="contentScrollView" destination="lNu-pv-hFY" id="6KN-gU-MNo"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HHo-7h-1AV">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9LC-Gr-AvO">
+                            <rect key="frame" x="0.0" y="0.0" width="187.5" height="39"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <state key="normal" title="好友">
+                                <color key="titleColor" red="0.2470588235" green="0.2470588235" blue="0.2470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <state key="selected" title="好友">
+                                <color key="titleColor" red="0.18039215689999999" green="0.76862745099999996" blue="0.98823529409999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="clickBtn1:" destination="-1" eventType="touchUpInside" id="AAJ-XN-VBN"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P2e-zh-UOc">
+                            <rect key="frame" x="187.5" y="0.0" width="187.5" height="39"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <state key="normal" title="关注">
+                                <color key="titleColor" red="0.2470588235" green="0.2470588235" blue="0.2470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <state key="selected" title="关注">
+                                <color key="titleColor" red="0.18039215689999999" green="0.76862745099999996" blue="0.98823529409999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="clickBtn2:" destination="-1" eventType="touchUpInside" id="dlc-vj-Lpf"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="P2e-zh-UOc" firstAttribute="top" secondItem="HHo-7h-1AV" secondAttribute="top" id="MQi-fU-VPM"/>
+                        <constraint firstAttribute="height" constant="40" id="Sd5-0V-75f"/>
+                        <constraint firstItem="9LC-Gr-AvO" firstAttribute="leading" secondItem="HHo-7h-1AV" secondAttribute="leading" id="SeF-Ic-iNm"/>
+                        <constraint firstAttribute="trailing" secondItem="P2e-zh-UOc" secondAttribute="trailing" id="UzZ-6y-2a4"/>
+                        <constraint firstItem="P2e-zh-UOc" firstAttribute="leading" secondItem="9LC-Gr-AvO" secondAttribute="trailing" id="bTu-Om-Wqu"/>
+                        <constraint firstItem="9LC-Gr-AvO" firstAttribute="top" secondItem="HHo-7h-1AV" secondAttribute="top" id="cvg-Xg-UQy"/>
+                        <constraint firstItem="9LC-Gr-AvO" firstAttribute="width" secondItem="P2e-zh-UOc" secondAttribute="width" id="hRu-Bu-zsT"/>
+                        <constraint firstItem="P2e-zh-UOc" firstAttribute="leading" secondItem="9LC-Gr-AvO" secondAttribute="trailing" id="hZv-S1-n7i"/>
+                        <constraint firstAttribute="bottom" secondItem="P2e-zh-UOc" secondAttribute="bottom" constant="1" id="j1T-nE-RGs"/>
+                        <constraint firstAttribute="bottom" secondItem="9LC-Gr-AvO" secondAttribute="bottom" constant="1" id="uNi-lG-2ag"/>
+                    </constraints>
+                </view>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lNu-pv-hFY">
+                    <rect key="frame" x="0.0" y="50" width="375" height="617"/>
+                </scrollView>
+            </subviews>
+            <color key="backgroundColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.96470588239999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="lNu-pv-hFY" secondAttribute="trailing" id="HWP-78-Vjg"/>
+                <constraint firstItem="lNu-pv-hFY" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Ivh-5h-cey"/>
+                <constraint firstAttribute="bottom" secondItem="lNu-pv-hFY" secondAttribute="bottom" id="Juk-nQ-39t"/>
+                <constraint firstItem="HHo-7h-1AV" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="bW4-4f-qle"/>
+                <constraint firstItem="lNu-pv-hFY" firstAttribute="top" secondItem="HHo-7h-1AV" secondAttribute="bottom" constant="10" id="c95-vS-h0v"/>
+                <constraint firstAttribute="trailing" secondItem="HHo-7h-1AV" secondAttribute="trailing" id="eN9-fW-pZU"/>
+                <constraint firstItem="HHo-7h-1AV" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="xmW-rP-Wlt"/>
+            </constraints>
+        </view>
+    </objects>
+</document>

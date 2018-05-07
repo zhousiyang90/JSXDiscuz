@@ -16,6 +16,10 @@
     [super awakeFromNib];
     self.imgV.layer.cornerRadius=20;
     self.imgV.layer.masksToBounds=YES;
+    [self.imgV setUserInteractionEnabled:YES];
+    UITapGestureRecognizer * tap=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(clickHeadImg)];
+    [self.imgV addGestureRecognizer:tap];
+    [self.nameLab addTarget:self action:@selector(clickHeadImg) forControlEvents:UIControlEventTouchUpInside];
     
     self.focusBtn.layer.cornerRadius=5;
     
@@ -25,6 +29,14 @@
            _clickblock();
        }
     }];
+}
+
+-(void)clickHeadImg
+{
+    if(_headblock)
+    {
+        _headblock();
+    }
 }
 
 -(void)setContentData:(PostsDetailData_content *)contentData
